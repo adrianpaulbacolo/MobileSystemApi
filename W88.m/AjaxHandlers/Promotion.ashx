@@ -11,7 +11,7 @@ public class AjaxHandlers_ASHX_Promotion : IHttpHandler, System.Web.SessionState
     {
         string countryCode = "";
 
-        if ((string.Compare(commonVariables.GetSessionVariable("CountryCode"), "my", true) == 0) && commonVariables.SelectedLanguage == "en-us")
+        if (commonVariables.CDNCountryCode == "MY" && commonVariables.SelectedLanguage == "en-us")
         {
             countryCode = ".my";
         }
@@ -22,7 +22,7 @@ public class AjaxHandlers_ASHX_Promotion : IHttpHandler, System.Web.SessionState
 
         string selectedLanguage = commonVariables.SelectedLanguage + countryCode;
 
-        if ((string.Compare(commonVariables.GetSessionVariable("CountryCode"), "my", true) == 0) && commonVariables.SelectedLanguage == "zh-cn")
+        if (commonVariables.CDNCountryCode == "MY" && commonVariables.SelectedLanguage == "zh-cn")
         {
             selectedLanguage = "zh-my";
         }
@@ -31,7 +31,13 @@ public class AjaxHandlers_ASHX_Promotion : IHttpHandler, System.Web.SessionState
         path = context.Server.MapPath("~/_static/promotions/") + path;
    
         List<string> list = System.IO.Directory.GetFiles(context.Server.MapPath("~/_static/promotions/"), string.Format("promotion*{0}.htm", selectedLanguage)).ToList();
+
         string pattern = @"promotions\.(\d{8})\." + commonVariables.SelectedLanguage;
+        if (commonVariables.CDNCountryCode == "MY" && commonVariables.SelectedLanguage == "zh-cn")
+        {
+            pattern = @"promotions\.(\d{8})\." +  selectedLanguage;
+        }
+
         var newList = list.Where(x => System.Text.RegularExpressions.Regex.Matches(x, pattern).Count > 0)
                             .Where(x => int.Parse(System.Text.RegularExpressions.Regex.Match(x, pattern).Groups[1].Value) <= int.Parse(DateTime.Now.ToString("yyyyMMdd")))
                             .OrderByDescending(x => x);
