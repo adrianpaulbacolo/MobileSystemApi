@@ -76,8 +76,8 @@ public class BasePage : Page
 
     public static bool IsDebugMode
     {
-	get
-	{
+	    get
+	    {
             bool isDebugMode;
             Boolean.TryParse(Common.GetAppSetting<string>("isDebugMode"), out isDebugMode);
             return isDebugMode;
@@ -102,8 +102,7 @@ public class BasePage : Page
     }
     protected override async void OnPreInit(EventArgs e)
     {
-        base.OnPreInit(e);
-        
+        base.OnPreInit(e);        
         var language = HttpContext.Current.Request.QueryString.Get("lang");
         Language = !string.IsNullOrEmpty(language) ? language : LanguageHelpers.SelectedLanguage;
         var hasSession = await CheckSession();
