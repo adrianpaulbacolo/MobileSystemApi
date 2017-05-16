@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="<%=commonVariables.SelectedLanguage%>" xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -114,25 +114,25 @@
                     <div class="btn-group" role="group">
                         <button type="button" class="btn btn-menu-funds <%= (base.Page.Title == "Funds") ? "active" : "" %>">
                             <span class="icon icon-wallet"></span>
-                            <span id="funds"></span>
+                            <span data-i18n="LABEL_MENU_FUNDS"></span>
                         </button>
                     </div>
                     <div class="btn-group" role="group">
                         <button type="button" class="btn btn-menu-rewards">
                             <span class="icon icon-rewards"></span>
-                            <span id="rewards"></span>
+                            <span data-i18n="LABEL_MENU_REWARDS"></span>
                         </button>
                     </div>
                     <div class="btn-group" role="group">
                         <button type="button" class="btn btn-menu-promo">
                             <span class="icon icon-promo"></span>
-                            <span id="promotions"></span>
+                            <span data-i18n="LABEL_MENU_REWARDS"></span>
                         </button>
                     </div>
                     <div class="btn-group" role="group">
                         <button type="button" class="btn btn-menu-chat">
                             <span class="icon icon-chat"></span>
-                            <span id="livechat"></span>
+                            <span data-i18n="LABEL_MENU_LIVE_CHAT"></span>
                         </button>
                     </div>
                 </div>
@@ -203,10 +203,6 @@
                     }
                 });
 
-                $('#funds').text(_w88_contents.translate("LABEL_MENU_FUNDS"));
-                $('#rewards').text(_w88_contents.translate("LABEL_MENU_REWARDS"));
-                $('#promotions').text(_w88_contents.translate("LABEL_MENU_PROMOTIONS"));
-                $('#livechat').text(_w88_contents.translate("LABEL_MENU_LIVE_CHAT"));
             });
 
             // hackish way to communicate in between iframes lol, check slots page, surprisingly, it has too
