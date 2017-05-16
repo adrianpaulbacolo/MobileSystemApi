@@ -12,31 +12,28 @@ function QuickOnlineV2() {
     }
 
     quickonline.init = function (gateway, getBank) {
-
-        setTranslations();
-
-        function setTranslations() {
-            if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
                 $('[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
                 $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
 
-                $(".pay-note").show();
                 $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
 
                 if (gateway == '120265') { //EGHL
-                    $('#paymentNoteContent').html(_w88_contents.translate("LABEL_MSG_120265"));
+            if (siteCookie.getCookie('currencyCode') == 'MYR') {
+                $(".pay-note").show();
+                $('#paymentNoteContent').html(_w88_contents.translate("LABEL_MSG_" + gateway));
+                quickonline.showBank();
+                getBank = true;
+            }
+            else {
+                $(".pay-note").hide();
+                quickonline.hideBank();
+            }
                 } else {
+            $(".pay-note").show();
                     $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_BANK_NOT_SUPPORTED"));
                 }
 
-            } else {
-                window.setInterval(function () {
-                    setTranslations();
-                }, 500);
-            }
-        }
-
-        if (getBank) {
+        if (getBank == true) {
             _w88_paymentSvcV2.Send("/Banks/vendor/" + gateway, "GET", "", function (response) {
                 var banks = response.ResponseData;
                 var defaultSelect = _w88_contents.translate("LABEL_SELECT_DEFAULT");
@@ -44,7 +41,6 @@ function QuickOnlineV2() {
                 $('select[id$="drpBank"]').val("-1").change();
 
                 _.forOwn(banks, function (data) {
-
                     if (_.isEqual(data.Value, "ICBC") || _.isEqual(data.Value, "ECITIC"))
                         data.Text = data.Text + " (*)";
 
@@ -54,18 +50,24 @@ function QuickOnlineV2() {
         }
     };
 
-    quickonline.nganluongInit = function () {
+    quickonline.showBank = function () {
+        $('.bank').show();
+        $('select[id$="drpBank').attr({ required: '', 'data-selectequals': '-1' });
+        $('#form1').validator('update')
+    };
 
-        setTranslations();
-        function setTranslations() {
-            if (_w88_contents.translate("BUTTON_PROCEED") != "BUTTON_PROCEED") {
+    quickonline.hideBank = function () {
+        $('.bank').hide();
+        $('select[id$="drpBank"]').removeAttr('required data-selectequals');
+        $('#form1').validator('update')
+    };
+
+    quickonline.nganluongInit = function () {
+        $(".pay-note").show();
+        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+        $('#paymentNoteContent').html(_w88_contents.translate("LABEL_MSG_120212"));
+
                 $("#btnSubmitPlacement").text(_w88_contents.translate("BUTTON_PROCEED"));
-            } else {
-                window.setInterval(function () {
-                    setTranslations();
-                }, 500);
-            }
-        }
     };
 
     quickonline.createDeposit = function () {

@@ -12,26 +12,14 @@ function UnionPay() {
     }
 
     unionpay.init = function (gatewayId) {
+        $(".pay-note").show();
+        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
 
-        setTranslations();
-        function setTranslations() {
-            if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-
-                $(".pay-note").show();
-                $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-
-                if (!_.isUndefined(gatewayId)) {
-                    if (gatewayId == "120223") {
-                        $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_120223")); //SD pay
-                        $("#securePayAndroid").html(_w88_contents.translate("LABEL_ANDROID_DOWNLOAD_SECURE_PAY"));
-                        $("#securePayiOS").html(_w88_contents.translate("LABEL_IOS_DOWNLOAD_SECURE_PAY"));
-                    }
-                }
-
-            } else {
-                window.setInterval(function () {
-                    setTranslations();
-                }, 500);
+        if (!_.isUndefined(gatewayId)) {
+            if (gatewayId == "120223") {
+                $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_120223")); //SD pay
+                $("#securePayAndroid").html(_w88_contents.translate("LABEL_ANDROID_DOWNLOAD_SECURE_PAY"));
+                $("#securePayiOS").html(_w88_contents.translate("LABEL_IOS_DOWNLOAD_SECURE_PAY"));
             }
         }
     };

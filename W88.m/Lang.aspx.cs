@@ -16,60 +16,68 @@ public partial class _Lang : BasePage
         xeErrors = commonVariables.ErrorsXML;
         bool login = false;
 
-            #region Logout
+        #region Logout
 
-            if (string.Compare(Convert.ToString(this.RouteData.DataTokens["logout"]), "true", true) == 0)
+        if (string.Compare(Convert.ToString(this.RouteData.DataTokens["logout"]), "true", true) == 0)
+        {
+            login = true;
+            commonVariables.ClearSessionVariables();
+            commonCookie.ClearCookies();
+        }
+        if (string.Compare(Convert.ToString(this.RouteData.DataTokens["expire"]), "true", true) == 0)
+        {
+            login = true;
+            commonVariables.ClearSessionVariables();
+            commonCookie.ClearCookies();
+            strAlertMessage = commonCulture.ElementValues.getResourceString("SessionExpired", xeErrors);
+        }
+        if (string.Compare(Convert.ToString(this.RouteData.DataTokens["invalid"]), "true", true) == 0)
+        {
+            login = true;
+            commonVariables.ClearSessionVariables();
+            commonCookie.ClearCookies();
+            strAlertMessage = commonCulture.ElementValues.getResourceString("SessionExpired", xeErrors);
+        }
+
+        #endregion
+
+        customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
+        string arrStrLanguageSelection = opSettings.Values.Get("LanguageSelection");
+        List<string> lstLanguageSelection =
+            arrStrLanguageSelection.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(p => p.Trim())
+                .ToList();
+
+        System.Text.StringBuilder sbLanguageHTML = new System.Text.StringBuilder();
+        foreach (string language in lstLanguageSelection)
+        {
+            string strLanguage = language.Trim();
+
+            if (commonVariables.CDNCountryCode.Equals("MY", StringComparison.OrdinalIgnoreCase))
             {
-                login = true;
-                commonVariables.ClearSessionVariables();
-                commonCookie.ClearCookies();
-            }
-            if (string.Compare(Convert.ToString(this.RouteData.DataTokens["expire"]), "true", true) == 0)
-            {
-                login = true;
-                commonVariables.ClearSessionVariables();
-                commonCookie.ClearCookies();
-                strAlertMessage = commonCulture.ElementValues.getResourceString("SessionExpired", xeErrors);
-            }
-            if (string.Compare(Convert.ToString(this.RouteData.DataTokens["invalid"]), "true", true) == 0)
-            {
-                login = true;
-                commonVariables.ClearSessionVariables();
-                commonCookie.ClearCookies();
-                strAlertMessage = commonCulture.ElementValues.getResourceString("SessionExpired", xeErrors);
+                if (strLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase)){
+                    sbLanguageHTML.AppendFormat("<li><a data-ajax='false' href='/Index.aspx?lang={0}' data-inline='true' id='divzh-my' class='divLangImg divzh-my'></a></li>", strLanguage);
+                    continue;
+                }
+                else if (strLanguage.Equals("en-us", StringComparison.OrdinalIgnoreCase))
+                {
+                    sbLanguageHTML.AppendFormat("<li><a data-ajax='false' href='/Index.aspx?lang={0}' data-inline='true' id='diven-my' class='divLangImg diven-my'></a></li>", strLanguage);
+                    continue;
+                }
             }
 
-            #endregion
+            sbLanguageHTML.AppendFormat("<li><a data-ajax='false' href='/Index.aspx?lang={0}' data-inline='true' id='div{0}' class='divLangImg div{0}'></a></li>", strLanguage);
+        }
+        divLanguageContainer.InnerHtml = Convert.ToString(sbLanguageHTML);
 
-            customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
-            string arrStrLanguageSelection = opSettings.Values.Get("LanguageSelection");
-            List<string> lstLanguageSelection =
-                arrStrLanguageSelection.Split(new char[] {'|'}, StringSplitOptions.RemoveEmptyEntries)
-                    .Select(p => p.Trim())
-                    .ToList();
+        string affiliateId = HttpContext.Current.Request.QueryString.Get("AffiliateId");
 
-            System.Text.StringBuilder sbLanguageHTML = new System.Text.StringBuilder();
-            foreach (string language in lstLanguageSelection)
-            {
-                string strLanguage = language.Trim();
+        if (!string.IsNullOrEmpty(affiliateId))
+        {
+            commonVariables.SetSessionVariable("AffiliateId", affiliateId);
 
-                //if (string.IsNullOrEmpty(commonCookie.CookieS) || login) { sbLanguageHTML.AppendFormat("<a data-theme='b' href='/_Secure/Login.aspx?lang={0}' data-transition='slide'  data-rel='dialog' data-transition='slidedown' data-inline='true'><div id='div{1}' class='divLangImg'></div></a>", strLanguage, strLanguage); }
-                //else { sbLanguageHTML.AppendFormat("<a data-theme='b' data-ajax='false' href='/Index.aspx?lang={0}' data-inline='true'><div id='div{1}' class='divLangImg'></div></a>", strLanguage, strLanguage); }
-
-                sbLanguageHTML.AppendFormat("<li><a data-ajax='false' href='/Index.aspx?lang={0}' data-inline='true' id='div{0}' class='divLangImg div{0}'></a></li>", strLanguage);
-            }
-            divLanguageContainer.InnerHtml = Convert.ToString(sbLanguageHTML);
-
-
-
-            string affiliateId = HttpContext.Current.Request.QueryString.Get("AffiliateId");
-
-            if (!string.IsNullOrEmpty(affiliateId))
-            {
-                commonVariables.SetSessionVariable("AffiliateId", affiliateId);
-
-                commonCookie.CookieAffiliateId = affiliateId;
-            }
+            commonCookie.CookieAffiliateId = affiliateId;
+        }
 
     }
 

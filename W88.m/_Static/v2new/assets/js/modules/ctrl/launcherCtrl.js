@@ -32,8 +32,8 @@ function launcherCtrl(routeObj, slotSvc, templateSvc) {
                 game.url = _self.game.RealUrl;
                 break;
         }
-
-        switch (_self.club.name) {
+        var club = (!_.isUndefined(_self.club)) ? _self.club.name : "";
+        switch (club) {
             case "palazzo":
                 initPalazzo(
                     (_self.mode == "fun") ? 0 : 1
@@ -45,16 +45,30 @@ function launcherCtrl(routeObj, slotSvc, templateSvc) {
                     );
                 break
             default:
-                _self.attachGame(game);
+                _self.attachGame(game, true);
                 break;
         }
-
-
     }
 
-    this.attachGame = function (game)
+    this.resize = function () {
+        var _self = this;
+        _self.init();
+    }
+
+    this.attachGame = function (game, newWindow)
     {
         var _self = this;
+        var provider = (_self.game.providers.length > 0) ? _.toLower(_.first(_self.game.providers)) : "";
+        if (newWindow == true) {
+            try {
+                Native.onSlotGameOpened(provider, _self.game.Id);
+            } catch (e) {
+                console.log(e.message)
+            }
+            window.open(game.url, "_blank");
+            routeObj.previous();
+            return;
+        }
         var content = _.template(_templates.GameLauncher);
         var gameDiv = content({
             game: game
@@ -63,7 +77,7 @@ function launcherCtrl(routeObj, slotSvc, templateSvc) {
         _self.page.find(".main-content").append(gameDiv);
         _self.page.find(".iframe-launcher").on("load", function (e) {
             try {
-                Native.onSlotGameOpened();
+                Native.onSlotGameOpened(provider, _self.game.Id);
             } catch (e) {
                 console.log(e.message)
             }
@@ -126,7 +140,7 @@ function launcherCtrl(routeObj, slotSvc, templateSvc) {
             }
             else {
                 game.url = link.replace("{TOKEN}", response.sessionToken.sessionToken);
-                _self.attachGame(game);
+                _self.attachGame(game, true);
             }
         }
     }

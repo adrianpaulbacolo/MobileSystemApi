@@ -8,35 +8,36 @@
         <div class="dashboard-row">
             <div class="dashboard-col">
                 <a href="/Sports.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower() %>"><span class="icon icon-soccer"></span>
-                    <%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%>
+                    <span data-i18n="LABEL_MENU_SPORTS"></span>
                 </a>
             </div>
             <div class="dashboard-col">
                 <a href="#"><span class="icon icon-casino"></span>
-                    <%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%></a>
+                    <span data-i18n="LABEL_PRODUCTS_CASINO"></span>
+                    </a>
             </div>
         </div>
         <div class="dashboard-row">
             <div class="dashboard-col">
-                <a href="/Slots.aspx"><span class="icon icon-slots"></span>
-                    <%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%>
+                <a href="/v2/Slots"><span class="icon icon-slots"></span>
+                    <span data-i18n="LABEL_SLOTS"></span>
                 </a>
             </div>
             <div class="dashboard-col">
-                <a href="<%=FishingLink %>" target="_blank"><span class="icon icon-games"></span>
-                    <%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%>
+                <a href="<%=FishingLink %>" target="_blank"><span class="icon icon-fish"></span>
+                    <span data-i18n="LABEL_PRODUCTS_FISHING_MASTER"></span>
                 </a>
             </div>
         </div>
         <div class="dashboard-row">
             <div class="dashboard-col">
-                <a href="/Lottery.aspx?lang=<%=commonVariables.SelectedLanguage%>"><span class="icon icon-keno"></span>
-                    <%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%>
+                <a href="/v2/Lottery.aspx?lang=<%=commonVariables.SelectedLanguage%>"><span class="icon icon-keno"></span>
+                    <span data-i18n="LABEL_WALLET_LOTTERY"></span>
                 </a>
             </div>
             <div class="dashboard-col">
                 <a href="/v2/Downloads"><span class="icon icon-download"></span>
-                    <%=commonCulture.ElementValues.getResourceString("download", commonVariables.LeftMenuXML)%>
+                    <span data-i18n="LABEL_DOWNLOAD"></span>
                 </a>
             </div>
         </div>
@@ -61,13 +62,17 @@
             }
         });
 
-        $(document).ready(function () {
+        var loadBanner = function () {
             $(".home-banner.slick-slider").append('<%=base.BannerDiv %>').slick({
                 arrows: false,
                 dots: true,
                 autoplay: true
-            });
+            }
+            );
+        }
 
-        });
+        if (!_.isUndefined($(window).load)) {
+            $(window).load(loadBanner);
+        } else $(document).ready(loadBanner);
     </script>
 </asp:Content>

@@ -182,6 +182,18 @@ public class commonVariables
         commonVariables.SetSessionVariable("vCode", strVCode);
     }
 
+    public static string CDNCountryCode
+    {
+        get
+        {
+            return commonCookie.Get("CDNCountryCode");
+        }
+        set
+        {
+            commonCookie.Set("CDNCountryCode", value, DateTime.Now.AddDays(1));
+        }
+    }
+
     internal enum TransferWallet
     {
         undefined = -1,

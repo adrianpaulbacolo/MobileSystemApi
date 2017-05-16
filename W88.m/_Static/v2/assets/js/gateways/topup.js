@@ -1,45 +1,69 @@
-﻿window.w88Mobile.Gateways.DinpayTopUp = DinpayTopUp();
-var _w88_dinpaytopup = window.w88Mobile.Gateways.DinpayTopUp;
+﻿window.w88Mobile.Gateways.TopUp = TopUp();
+var _w88_topup = window.w88Mobile.Gateways.TopUp;
 
-function DinpayTopUp() {
+function TopUp() {
 
     var defaultSelect = "";
-    var cards = "";
-    var dinpaytopup;
+    var denomTypes = "";
+    var topup;
+    var methodId;
 
     try {
-        dinpaytopup = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+        topup = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
     } catch (err) {
-        dinpaytopup = {};
+        topup = {};
     }
 
-    dinpaytopup.init = function (gatewayId) {
+    topup.init = function (id) {
+        methodId = id;
 
-        $('label[id$="lblCardType"]').html(_w88_contents.translate("LABEL_CARD_TYPE"));
-        $('label[id$="lblDepositAmount"]').html(_w88_contents.translate("LABEL_CARD_AMOUNT"));
-        $('label[id$="lblCardNo"]').html(_w88_contents.translate("LABEL_CARD_NUMBER"));
-        $('label[id$="lblPin"]').html(_w88_contents.translate("LABEL_CARD_PIN"));
+        topup.setTranslations();
+        topup.getDenomination();
 
-        $(".pay-note").show();
-        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-        $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_1202112"));
-
-        defaultSelect = _w88_contents.translate("LABEL_SELECT_DEFAULT");
-
-        _w88_dinpaytopup.getDenomination(gatewayId);
-
+        $('select[id$="drpDenomType"]').change(function () {
+            topup.setFee(this.value);
+            topup.setDenom(this.value);
+        });
     };
 
-    dinpaytopup.getDenomination = function (gatewayId) {
-        _w88_paymentSvcV2.Send("/payments/denomination/" + gatewayId, "GET", "", function (response) {
+    topup.setTranslations = function () {
+        $(".pay-note").show();
+        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+        $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_" + methodId));
+
+        defaultSelect = _w88_contents.translate("LABEL_SELECT_DEFAULT");
+        $('label[id$="lblPin"]').text(_w88_contents.translate("LABEL_CARD_PIN"));
+        $('label[id$="lblAmount"]').html(_w88_contents.translate("LABEL_CARD_AMOUNT"));
+
+        switch (methodId) {
+            case "120286":
+                $('label[id$="lblDenomType"]').text(_w88_contents.translate("LABEL_TELCO_NAME"));
+                $('label[id$="lblCardSerialNo"]').text(_w88_contents.translate("LABEL_CARD_SERIAL"));
+                break;
+            case "1202112":
+                $('label[id$="lblDenomType"]').html(_w88_contents.translate("LABEL_CARD_TYPE"));
+                $('label[id$="lblCardNo"]').html(_w88_contents.translate("LABEL_CARD_NUMBER"));
+                break;
+            default:
+                break;
+
+        }
+    }
+
+    topup.getDenomination = function () {
+        _w88_paymentSvcV2.Send("/payments/denomination/" + methodId, "GET", "", function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
-                cards = response.ResponseData.Cards;
 
-                $('select[id$="drpCardType"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
-                $('select[id$="drpCardType"]').val("-1").change();
+                if (!_.isUndefined(response.ResponseData.Cards))
+                    denomTypes = response.ResponseData.Cards;
+                else if (!_.isUndefined(response.ResponseData.Telcos))
+                    denomTypes = response.ResponseData.Telcos;
 
-                _.forOwn(cards, function (data) {
-                    $('select[id$="drpCardType"]').append($('<option>').text(data.Name + "-" + data.Fee).attr('value', data.Id));
+                $('select[id$="drpDenomType"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
+                $('select[id$="drpDenomType"]').val("-1").change();
+
+                _.forOwn(denomTypes, function (data) {
+                    $('select[id$="drpDenomType"]').append($('<option>').text(data.Name + " - " + data.Fee).attr('value', data.Id));
                 });
 
                 $('select[id$="drpAmount"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
@@ -48,8 +72,8 @@ function DinpayTopUp() {
         }, undefined);
     };
 
-    dinpaytopup.setDenom = function (selectedValue) {
-        var card = _.find(cards, function (data) {
+    topup.setDenom = function (selectedValue) {
+        var denoms = _.find(denomTypes, function (data) {
             return data.Id == selectedValue;
         });
 
@@ -58,31 +82,36 @@ function DinpayTopUp() {
         $('select[id$="drpAmount"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
         $('select[id$="drpAmount"]').val("-1").change();
 
-        if (!_.isUndefined(card)) {
-            _.forOwn(card.Denominations, function (data) {
+        if (!_.isUndefined(denoms)) {
+            _.forOwn(denoms.Denominations, function (data) {
                 $('select[id$="drpAmount"]').append($('<option>').text(data.Text).attr('value', data.Value));
             });
         }
     };
 
-    dinpaytopup.setFee = function (selectedValue) {
+    topup.setFee = function (selectedValue) {
 
         var fee = "";
 
-        _.forEach(cards, function (i) {
+        _.forEach(denomTypes, function (i) {
             if (i.Id == selectedValue) {
                 fee = i.Fee;
             }
         });
+
+        if (!_.isEmpty(fee)) {
+            $('#paymentNoteContent').html(_w88_contents.translate("LABEL_MSG_" + methodId) + fee);
+        }
     };
 
-    dinpaytopup.createDeposit = function () {
+    topup.createDeposit = function () {
         var _self = this;
         var params = _self.getUrlVars();
         var data = {
             Amount: params.Amount,
             CardNumber: params.CardNumber,
             CardType: { Text: params.CardTypeText, Value: params.CardTypeValue },
+            ReferenceId: params.ReferenceId,
             CCV: params.CCV
         };
 
@@ -118,5 +147,5 @@ function DinpayTopUp() {
             });
     };
 
-    return dinpaytopup;
+    return topup;
 }

@@ -60,7 +60,9 @@
 }
 
 #diven-us {background: url('/_Static/Images/flags/en.jpg') no-repeat center; background-size: contain;}
+#diven-my {background: url('/_Static/Images/flags/my.jpg') no-repeat center; background-size: contain;}
 #divzh-cn {background: url('/_Static/Images/flags/cn.jpg') no-repeat center; background-size: contain;}
+#divzh-my {background: url('/_Static/Images/flags/my.jpg') no-repeat center; background-size: contain;}
 #divid-id {background: url('/_Static/Images/flags/id.jpg') no-repeat center; background-size: contain;}
 #divja-jp {background: url('/_Static/Images/flags/jp.jpg') no-repeat center; background-size: contain;}
 #divkm-kh {background: url('/_Static/Images/flags/kh.jpg') no-repeat center; background-size: contain;}
@@ -69,7 +71,9 @@
 #divvi-vn {background: url('/_Static/Images/flags/vn.jpg') no-repeat center; background-size: contain;}
 
 #diven-us:after {content: 'English'}
+#diven-my:after {content: 'English'}
 #divzh-cn:after {content: '简体中文'}
+#divzh-my:after {content: '简体中文'}
 #divvi-vn:after {content: 'Tiếng Việt'}
 #divth-th:after {content: 'ไทย'}
 #divkm-kh:after {content: 'ខ្មែរ'}
