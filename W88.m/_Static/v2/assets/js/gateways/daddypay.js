@@ -4,44 +4,26 @@ var _w88_daddypay = window.w88Mobile.Gateways.DaddyPayV2;
 function DaddyPayV2() {
 
     var daddypay;
-
+    var methodId;
     try {
         daddypay = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
     } catch (err) {
         daddypay = {};
     }
 
-    daddypay.init = function (gateway, getBank) {
+    daddypay.init = function (id) {
+        methodId = id;
 
-        setTranslations();
+        $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
+        $('label[id$="lblAccountName"]').text(_w88_contents.translate("LABEL_ACCOUNT_NAME"));
+        $('label[id$="lblAccountNumber"]').text(_w88_contents.translate("LABEL_ACCOUNT_NUMBER"));
 
-        function setTranslations() {
-            if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
+        daddypay.getBanks();
 
-                $('label[id$="lbldrpDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
-                $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
-                $('label[id$="lblAccountName"]').text(_w88_contents.translate("LABEL_ACCOUNT_NAME"));
-                $('label[id$="lblAccountNumber"]').text(_w88_contents.translate("LABEL_ACCOUNT_NUMBER"));
-
-            } else {
-                window.setInterval(function () {
-                    setTranslations();
-                }, 500);
-            }
-        }
-
-        if (getBank) {
-            _w88_paymentSvcV2.Send("/Banks/vendor/" + gateway + "/" + new Cookies().getCookie("currencyCode"), "GET", "", function (response) {
-                var banks = response.ResponseData;
-                var defaultSelect = _w88_contents.translate("LABEL_SELECT_DEFAULT");
-                $('select[id$="drpBank"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
-                $('select[id$="drpBank"]').val("-1").change();
-
-                _.forOwn(banks, function (data) {
-                    $('select[id$="drpBank"]').append($('<option>').text(data.Text).attr('value', data.Value));
-                });
-            });
-        }
+        daddypay.setDaddyPayQR();
+        $('select[id$="drpBank"]').change(function () {
+            daddypay.togglePayment(this.value);
+        });
     };
 
     daddypay.getnickname = function () {
@@ -52,27 +34,89 @@ function DaddyPayV2() {
 
         _w88_paymentSvcV2.Send("/user/wechatnickname/", "GET", data, function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
-                $('#txtAccountName').val(response.responseData);
-                $('#hfWCNickname').val(response.responseData); //store original nickname if any.    
+                $('input[id$="txtAmount"]').val(response.responseData);
+                $('[id$="hfWCNickname"]').val(response.responseData); //store original nickname if any.    
             }
-            
+        });
+    };
+
+    daddypay.getBanks = function () {
+        _w88_paymentSvcV2.Send("/Banks/vendor/" + methodId, "GET", "", function (response) {
+            $('select[id$="drpBank"]').append($('<option>').text(_w88_contents.translate("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
+
+            _.forOwn(response.ResponseData, function (data) {
+                $('select[id$="drpBank"]').append($('<option>').text(data.Text).attr('value', data.Value));
+            });
         });
     };
 
     daddypay.togglePayment = function (bankId) {
-    
-        $("#txtAccountName").val('');
+        $('input[id$="txtAccountName"]').val('');
+
         if (bankId == "40") { //WeChat
-            $("#amount").hide();
-            $("#drpAmount").show();
-            $("#accountNo").hide();
+            daddypay.getDenomination();
+            daddypay.hideAmount();
+            daddypay.showAmountList();
+            daddypay.hideAccountNumber();
             _w88_daddypay.getnickname();
         }
         else { //QR
-            $("#amount").show();
-            $("#drpAmount").hide();
-            $("#accountNo").show();
+            daddypay.setDaddyPayQR();
         }
+    };
+
+    daddypay.setDaddyPayQR = function () {
+        daddypay.showAmount()
+        daddypay.hideAmountList();
+        daddypay.showAccountNumber();
+    }
+
+    daddypay.showAmount = function () {
+        $('.amount').show();
+        $('input[id$="txtAmount"]').attr({ required: '', 'data-require': '' });
+        $('#form1').validator('update')
+    };
+
+    daddypay.hideAmount = function () {
+        $('.amount').hide();
+        $('input[id$="txtAmount"]').removeAttr('required data-require');
+        $('#form1').validator('update')
+    };
+
+    daddypay.showAmountList = function () {
+        $('.amountlist').show();
+        $('select[id$="drpAmount').attr({ required: '', 'data-selectequals': '-1' });
+        $('#form1').validator('update')
+    };
+
+    daddypay.hideAmountList = function () {
+        $('.amountlist').hide();
+        $('select[id$="drpAmount"]').removeAttr('required data-selectequals');
+        $('#form1').validator('update')
+    }
+
+    daddypay.showAccountNumber = function () {
+        $('.accountno').show();
+        $('input[id$="txtAccountNumber"]').attr({ required: '', 'data-require': '' });
+        $('#form1').validator('update')
+    };
+
+    daddypay.hideAccountNumber = function () {
+        $('.accountno').hide();
+        $('input[id$="txtAccountNumber"]').removeAttr('required data-require');
+        $('#form1').validator('update')
+    };
+
+    daddypay.getDenomination = function () {
+        _w88_paymentSvcV2.Send("/payments/denomination/" + methodId, "GET", "", function (response) {
+            if (response && _.isEqual(response.ResponseCode, 1)) {
+                $('select[id$="drpAmount"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
+
+                _.forOwn(response.ResponseData.Denominations, function (data) {
+                    $('select[id$="drpAmount"]').append($('<option>').text(data.Text).attr('value', data.Value));
+                });
+            }
+        }, undefined);
     };
 
     daddypay.createDeposit = function () {

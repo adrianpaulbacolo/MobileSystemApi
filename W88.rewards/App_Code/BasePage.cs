@@ -41,7 +41,7 @@ public class BasePage : Page
     protected string ContentLanguage
     {
         get
-        {
+        { 
             if (!IsDebugMode)
             {
                 return new RewardsHelper().ContentLanguage;
@@ -71,13 +71,13 @@ public class BasePage : Page
             var debugCountryCode = Common.GetAppSetting<string>("debugCountryCode");
             if (IsDebugMode && !string.IsNullOrEmpty(debugCountryCode)) return debugCountryCode.Trim().ToLower();
             return RewardsHelper.CountryCode.ToLower();
-        }
+    	}
     }
 
     public static bool IsDebugMode
     {
-        get
-        {
+	get
+	{
             bool isDebugMode;
             Boolean.TryParse(Common.GetAppSetting<string>("isDebugMode"), out isDebugMode);
             return isDebugMode;
@@ -98,26 +98,25 @@ public class BasePage : Page
             cookie.Domain = IpHelper.DomainName;
             HttpContext.Current.Response.Cookies.Add(cookie);
         }
+          
     }
-
     protected override async void OnPreInit(EventArgs e)
     {
         base.OnPreInit(e);
-
+        
         var language = HttpContext.Current.Request.QueryString.Get("lang");
         Language = !string.IsNullOrEmpty(language) ? language : LanguageHelpers.SelectedLanguage;
         var hasSession = await CheckSession();
         if (!IsUnderMaintenance)
         {
             return;
-        }
+       	}
         // Check if site is under maintenance and allow only certain users to have access
         var isAllowedAccess = false;
         var allowedUsers = Common.GetAppSetting<string>("allowedUsers");
         if (!string.IsNullOrEmpty(allowedUsers) && hasSession
             && Array.IndexOf(allowedUsers.ToLower().Split('|'), UserSessionInfo.MemberCode.ToLower()) >= 0)
             isAllowedAccess = true;
-
         if (!isAllowedAccess)
         {
             Response.Redirect("/_Static/Pages/enhancement-all.aspx", false);

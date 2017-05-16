@@ -4,7 +4,7 @@ var _w88_alipaytransfer = window.w88Mobile.Gateways.AliPayTransfer;
 function AliPayTransfer() {
 
     var alipaytransfer;
-
+    var methodId;
     try {
         alipaytransfer = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
     } catch (err) {
@@ -14,89 +14,86 @@ function AliPayTransfer() {
     alipaytransfer.bankUrl = "";
     alipaytransfer.step = 1;
 
-    alipaytransfer.init = function (methodId) {
+    alipaytransfer.init = function (id) {
+        methodId = id;
 
-        setTranslations();
+        $(".pay-note").show();
+        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+        $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_" + methodId));
 
-        function setTranslations() {
-            if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
+        $("#copyAmount").html(_w88_contents.translate("LABEL_COPY"));
+        $("#copyAccountName").html(_w88_contents.translate("LABEL_COPY"));
+        $("#copyAccountNo").html(_w88_contents.translate("LABEL_COPY"));
 
-                $(".pay-note").show();
-                $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_" + methodId));
+        $('#copyAmount').on('click', function () {
+            var amount = $("#txtStep2Amount").text().slice(2); //this will removed the ": "
+            alipaytransfer.copytoclipboard(amount);
+        });
 
-                $("#copyAmount").html(_w88_contents.translate("LABEL_COPY"));
-                $("#copyAccountName").html(_w88_contents.translate("LABEL_COPY"));
-                $("#copyAccountNo").html(_w88_contents.translate("LABEL_COPY"));
+        $('#copyAccountName').on('click', function () {
+            var accountName = $("#txtBankHolderName").text().slice(2); //this will removed the ": "
+            alipaytransfer.copytoclipboard(accountName);
+        });
 
-            } else {
-                window.setInterval(function () {
-                    setTranslations();
-                }, 500);
-            }
-        }
+        $('#copyAccountNo').on('click', function () {
+            var accountNo = $("#txtBankAccountNo").text().slice(2); //this will removed the ": "
+            alipaytransfer.copytoclipboard(accountNo);
+        });
     };
 
-    alipaytransfer.step2 = function (methodId, data) {
+    alipaytransfer.initTransactionInfo = function () {
+        $('#lblStatus').text(_w88_contents.translate("LABEL_FIELDS_STATUS"));
+        $('#lblTransactionId').text(_w88_contents.translate("LABEL_TRANSACTION_ID"));
+        $('#lblAmount').text(_w88_contents.translate("LABEL_AMOUNT"));
+        $('#lblAmount2').text(_w88_contents.translate("LABEL_AMOUNT"));
+        $('#lblBankName').text(_w88_contents.translate("LABEL_BANK_NAME"));
+        $('#lblBankHolderName').text(_w88_contents.translate("LABEL_ACCOUNT_NAME"));
+        $('#lblBankAccountNo').text(_w88_contents.translate("LABEL_ACCOUNT_NUMBER"));
 
-        _w88_alipaytransfer.send("/payments/" + methodId, "POST", data, function (response) {
+        $(".pay-note").show();
+        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+        $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_AMOUNT_" + methodId));
+
+        $('#PaymentInfo').show();
+        $('#PaymentAmount').hide();
+        $('.arrow-container').hide();
+    }
+
+    alipaytransfer.createDeposit = function (form, data) {
+        var _self = this;
+
+        _self.methodId = methodId;
+        _self.offlineDeposit(form, data, function (response) {
             var transactionId = response.ResponseData.TransactionId;
 
-            setTranslations();
+            _self.initTransactionInfo();
 
-            $('#PaymentInfo').show();
-            $('#PaymentAmount').hide();
-            $('.arrow-container').hide();
-
-            _w88_alipaytransfer.send("/payments/" + methodId + "/" + transactionId, "GET", "", function (respData) {
-                switch (respData.ResponseCode) {
+            _self.send("/payments/" + methodId + "/" + transactionId, "GET", "", function (response) {
+                switch (response.ResponseCode) {
                     case 1:
-                        $('#txtStatus').text(": " + respData.ResponseData.Status);
-                        $('#txtTransactionId').text(": " + respData.ResponseData.TransactionId);
-                        $('#txtStep2Amount').text(": " + respData.ResponseData.Amount);
-                        $('#txtBankName').text(": " + respData.ResponseData.Bank);
-                        $('#txtBankHolderName').text(": " + respData.ResponseData.AccountName);
-                        $('#txtBankAccountNo').text(": " + respData.ResponseData.AccountNumber);
+                        $('#txtStatus').text(": " + response.ResponseData.Status);
+                        $('#txtTransactionId').text(": " + response.ResponseData.TransactionId);
+                        $('#txtStep2Amount').text(": " + response.ResponseData.Amount);
+                        $('#txtBankName').text(": " + response.ResponseData.Bank);
+                        $('#txtBankHolderName').text(": " + response.ResponseData.AccountName);
+                        $('#txtBankAccountNo').text(": " + response.ResponseData.AccountNumber);
 
-                        _w88_alipaytransfer.step = 2;
-                        _w88_alipaytransfer.bankUrl = respData.ResponseData.BankUrl;
+                        _self.step = 2;
+                        _self.bankUrl = response.ResponseData.BankUrl;
 
-                        _w88_alipaytransfer.checkstatus(transactionId);
+                        _self.checkstatus(transactionId);
 
                         break;
                     default:
                         if (_.isArray(response.ResponseMessage))
-                            w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(respData.ResponseMessage));
+                            w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
                         else
-                            w88Mobile.Growl.shout(respData.ResponseMessage);
+                            w88Mobile.Growl.shout(response.ResponseMessage);
 
                         break;
                 }
             });
-
-            function setTranslations() {
-                if (_w88_contents.translate("LABEL_AMOUNT") != "LABEL_AMOUNT") {
-
-                    $('#lblStatus').text(_w88_contents.translate("LABEL_FIELDS_STATUS"));
-                    $('#lblTransactionId').text(_w88_contents.translate("LABEL_TRANSACTION_ID"));
-                    $('#lblAmount').text(_w88_contents.translate("LABEL_AMOUNT"));
-                    $('#lblAmount2').text(_w88_contents.translate("LABEL_AMOUNT"));
-                    $('#lblBankName').text(_w88_contents.translate("LABEL_BANK_NAME"));
-                    $('#lblBankHolderName').text(_w88_contents.translate("LABEL_ACCOUNT_NAME"));
-                    $('#lblBankAccountNo').text(_w88_contents.translate("LABEL_ACCOUNT_NUMBER"));
-
-                    $(".pay-note").show();
-                    $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                    $("#paymentNoteContent").text(_w88_contents.translate("LABEL_MSG_AMOUNT_" + methodId));
-                } else {
-                    window.setInterval(function () {
-                        setTranslations();
-                    }, 500);
-                }
-            }
         });
-
-      
     };
 
     alipaytransfer.copytoclipboard = function (text) {
@@ -113,46 +110,32 @@ function AliPayTransfer() {
     };
 
     alipaytransfer.checkstatus = function (transactionId) {
+        var _self = this;
 
-        var intervalId = setInterval(function() {
+        var intervalId = setInterval(function () {
+            _self.send("/payments/deposit/status/" + transactionId, "GET", { selector: "status" }, function (response) {
+                switch (response.ResponseCode) {
+                    case 1:
+                        var result = response.ResponseData.Status;
 
-            var headers = {
-                'Token': window.User.token,
-                'LanguageCode': window.User.lang
-            };
+                        $('#txtStatus').text(": " + result);
 
-            $.ajax({
-                type: "GET",
-                url: w88Mobile.APIUrl + "/payments/deposit/status/" + transactionId,
-                headers: headers,
-                success: function(response) {
-                    switch (response.ResponseCode) {
-                        case 1:
-                            var result = response.ResponseData.Status;
+                        if (result.indexOf("Successful") == 0) {
 
-                            $('#txtStatus').text(": " + result);
+                            clearInterval(intervalId);
 
-                            if (result.indexOf("Successful") == 0) {
+                            $('#PaymentInfo').show();
+                            $('#PaymentAmount').hide();
 
-                                clearInterval(intervalId);
+                            _self.formReset();
 
-                                $('#PaymentInfo').show();
-                                $('#PaymentAmount').hide();
-
-                                $('#form1')[0].reset();
-
-                            } else if (result.indexOf("Failed") == 0) {
-                                clearInterval(intervalId);
-                            }
-                        default:
-                    }
-                },
-                error: function () {
-                    console.log("Error connecting to api");
+                        } else if (result.indexOf("Failed") == 0) {
+                            clearInterval(intervalId);
+                        }
+                    default:
                 }
             });
-
-        }, 5000);
+        }, 15000);
 
     };
 

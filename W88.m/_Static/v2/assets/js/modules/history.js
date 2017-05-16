@@ -127,10 +127,6 @@ function History() {
         $('#to-lbl').text(_w88_contents.translate("LABEL_TO"));
     }
 
-    function addMonths(date, months) {
-        date.setMonth(date.getMonth() + months);
-        return date;
-    }
 
     function formatDateTime(dateTime) {
         //MM/DD/YYYY h:m:s
