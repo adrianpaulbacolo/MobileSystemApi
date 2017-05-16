@@ -97,9 +97,9 @@ public class BasePage : Page
             cookie.Value = value;
             cookie.Domain = IpHelper.DomainName;
             HttpContext.Current.Response.Cookies.Add(cookie);
-        }
-          
+        }   
     }
+
     protected override async void OnPreInit(EventArgs e)
     {
         base.OnPreInit(e);        
