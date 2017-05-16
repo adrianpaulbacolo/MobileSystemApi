@@ -340,8 +340,8 @@ var fishingWorld = FishingWorldProduct.GetLink();
                                 <img class="img_lottery_pk10" alt="">
                                 <span class="title title_pk10">Keno</span>
                                 <div class="nav-category-btns">
-                                    <a href="<%=commonLottery.getPK10Url(true)%>" class="btn btn-block btn-sm btn-primary play-pk"></a>
-                                    <a href="<%=commonLottery.getPK10Url(false)%>" class="btn btn-block btn-sm btn-gray try-pk"></a>
+                                    <a href="<%=commonLottery.getPK10Url(true)%>" target="<%=(!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? "_blank" : "_self") %>" class="btn btn-block btn-sm btn-primary play-pk"></a>
+                                    <a href="<%=commonLottery.getPK10Url(false)%>" target="_blank" class="btn btn-block btn-sm btn-gray try-pk"></a>
                                 </div>
                             </div>
                         </div>

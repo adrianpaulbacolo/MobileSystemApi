@@ -419,8 +419,8 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <div class="title menuKenoTitle"></div>
                         <div class="card-hover">
                             <div class="card-hover-btns">
-                                <a href="<%=commonLottery.getPK10Url(true) %>" data-ajax="false" class="ui-btn btn-primary play-pk"><span class="icon-arrow-right"></span></a>
-                                <a href="<%=commonLottery.getPK10Url(false) %>" data-ajax="false" class="ui-btn btn-secondary try-pk"><span class="icon-arrow-right"></span></a>
+                                <a href="<%=commonLottery.getPK10Url(true) %>" target="<%=(!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? " _blank" : "_self") %>" data-ajax="false" class="ui-btn btn-primary play-pk"><span class="icon-arrow-right"></span></a>
+                                <a href="<%=commonLottery.getPK10Url(false) %>" target="_blank" data-ajax="false" class="ui-btn btn-secondary try-pk"><span class="icon-arrow-right"></span></a>
                             </div>
                         </div>
                     </div>
