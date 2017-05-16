@@ -20,23 +20,6 @@ public class BasePage : Page
     protected RewardsHelper RewardsHelper = new RewardsHelper();
     protected string Language = string.Empty;
     protected static readonly IpHelper IpHelper = new IpHelper();
-
-    protected bool IsUnderMaintenance
-    {
-        get
-        {
-            bool isUnderMaintenance;
-            Boolean.TryParse(Common.GetAppSetting<string>("isUnderMaintenance"), out isUnderMaintenance);
-            if (!isUnderMaintenance)
-                return false;
-
-            var maintenanceModules = Common.GetAppSetting<string>("maintenanceModules");
-            if (string.IsNullOrEmpty(maintenanceModules))
-                return true;
-
-            return !(Array.IndexOf(maintenanceModules.Split('|'), Request.Url.AbsolutePath.ToLower()) < 0);
-        }
-    }
     
     protected string ContentLanguage
     {
@@ -44,7 +27,7 @@ public class BasePage : Page
         { 
             if (!IsDebugMode)
             {
-                return new RewardsHelper().ContentLanguage;
+                return new RewardsHelper(Language).ContentLanguage;
             }
 
             switch (CountryCode)
@@ -84,6 +67,34 @@ public class BasePage : Page
         }
     }
 
+    protected bool IsUnderMaintenance
+    {
+        get
+        {
+            bool isUnderMaintenance;
+            Boolean.TryParse(Common.GetAppSetting<string>("isUnderMaintenance"), out isUnderMaintenance);
+            if (!isUnderMaintenance)
+                return false;
+
+            var maintenanceModules = Common.GetAppSetting<string>("maintenanceModules");
+            if (string.IsNullOrEmpty(maintenanceModules))
+                return true;
+
+            return !(Array.IndexOf(maintenanceModules.Split('|'), Request.Url.AbsolutePath.ToLower()) < 0);
+        }
+    }
+
+    protected bool IsVip
+    {
+        get
+        {
+            var vipCookie = CookieHelpers.CookieVip;
+            bool isVip;
+            bool.TryParse(vipCookie, out isVip);
+            return isVip;
+        }
+    }
+
     public static string Token 
     {
         get 
@@ -95,7 +106,7 @@ public class BasePage : Page
         {
             var cookie = HttpContext.Current.Request.Cookies.Get("token") ?? new HttpCookie("token");
             cookie.Value = value;
-            cookie.Domain = IpHelper.DomainName;
+            if (!string.IsNullOrEmpty(IpHelper.DomainName)) { cookie.Domain = IpHelper.DomainName; }
             HttpContext.Current.Response.Cookies.Add(cookie);
         }   
     }
@@ -163,17 +174,6 @@ public class BasePage : Page
         MemberRewardsInfo = new MemberRewardsInfo();
         MemberRewardsInfo.CurrentPoints = await MembersHelper.GetRewardsPoints(UserSessionInfo);
         MemberRewardsInfo.CurrentPointLevel = await RewardsHelper.GetPointLevel(MemberSession.MemberId);
-    }
-
-    protected bool IsVip
-    {     
-        get
-        {
-            var vipCookie = CookieHelpers.CookieVip;
-            bool isVip;
-            bool.TryParse(vipCookie, out isVip);
-            return isVip;
-        }
     }
 
     protected string GetTranslation(string key, string fileName = "")

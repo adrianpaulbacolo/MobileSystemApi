@@ -42,7 +42,8 @@ $(window).load(function () {
 });
 
 $(document).on('pagecontainerbeforeshow', function (event, ui) {
-    toggleLoginButton();
+    toggleButtons();
+
     var baseUri = [event.target.baseURI];
     if (_.some(baseUri, _.method('match', /Login/i))) {
         if (window.user && window.user.Token) {
@@ -163,40 +164,22 @@ function setUser() {
     window.user = _.isEmpty(storedObject) ? new User() : (new User()).createUser(storedObject);
 }
 
-function toggleLoginButton() {
+function toggleButtons() {
     var headerLoginButton = $('div.dropdown ul>li#headerLoginButton'),
         headerLogoutButton = $('div.dropdown ul>li#headerLogoutButton'),
         loginFooterButton = $('div.btn-group a#loginFooterButton'),
         logoutFooterButton = $('div.btn-group a#logoutFooterButton'),
         submitButton = $('#btnSubmit');
 
-    if (headerLoginButton && headerLogoutButton) {
-        if (window.user && window.user.hasSession()) {
-            headerLoginButton.hide();
-            headerLogoutButton.show();
-        } else {
-            headerLogoutButton.hide();
-            headerLoginButton.show();
-        }
-    }
-
-    if (loginFooterButton && logoutFooterButton) {
-        if (window.user && window.user.hasSession()) {
-            loginFooterButton.hide();
-            logoutFooterButton.show();
-        } else {
-            logoutFooterButton.hide();
-            loginFooterButton.show();
-        }
-    }
-
-    if (submitButton) {
-        if (window.user && window.user.hasSession()) {
-            $('#btnSubmit').hide();
-        } else {
-            $('#btnSubmit').show();
-        }
-    }
+    setUser();
+    if (headerLoginButton && headerLogoutButton)
+        window.user && window.user.hasSession() ? (headerLoginButton.hide(), headerLogoutButton.show())
+        : (headerLogoutButton.hide(), headerLoginButton.show());
+    if (loginFooterButton && logoutFooterButton)
+        window.user && window.user.hasSession() ? (loginFooterButton.hide(), logoutFooterButton.show())
+        : (logoutFooterButton.hide(), loginFooterButton.show());
+    if (submitButton)
+        window.user && window.user.hasSession() ? $("#btnSubmit").hide() : $("#btnSubmit").show();
 }
 
 // toggle full screen
