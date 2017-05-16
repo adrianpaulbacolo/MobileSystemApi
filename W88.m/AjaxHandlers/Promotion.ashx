@@ -22,6 +22,11 @@ public class AjaxHandlers_ASHX_Promotion : IHttpHandler, System.Web.SessionState
 
         string selectedLanguage = commonVariables.SelectedLanguage + countryCode;
 
+        if ((string.Compare(commonVariables.GetSessionVariable("CountryCode"), "my", true) == 0) && commonVariables.SelectedLanguage == "zh-cn")
+        {
+            selectedLanguage = "zh-my";
+        }
+
         var path = string.Format("promotions.{0}.htm", selectedLanguage);
         path = context.Server.MapPath("~/_static/promotions/") + path;
    

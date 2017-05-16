@@ -90,6 +90,7 @@ public static class commonCountry
                 return "th-th";
             case "vn":
                 return "vi-vn";
+            case "my":
             case "cn":
                 return "zh-cn";
             case "jp":
