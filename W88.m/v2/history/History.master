@@ -34,7 +34,7 @@
                 <a href="<%=navUrl %>" class="header-button header-button-left" id="nav-btn<%=(commonFunctions.isExternalPlatform()) ? "-native" : "" %>">
                     <span class="icon <%=navIcon %>"></span>
                 </a>
-                <h1 class="header-title"><%=(base.Page.Title == "Dashboard" ? "<img alt=\"Dashboard\" src=\"/_Static/v2/assets/images/logo-en.png\" />" : base.Page.Title) %></h1>
+                <h1 class="header-title"><%=(base.Page.Title == "Dashboard" ? "<img alt=\"Dashboard\" src=\"" + ConfigurationManager.AppSettings.Get("AssetsPath") + "/assets/images/logo-en.png\" />" : base.Page.Title) %></h1>
                 <a id="historyFilter" class="header-button header-button-right">
                     <span class="icon icon-filter"></span>
                 </a>
@@ -47,10 +47,10 @@
 
     <% if (commonCookie.CookieIsApp != "1")
        { %>
-    <!--#include virtual="~/_Static/v2/menu.shtml" -->
+    <!--#include virtual="~/_static/v2/menu.shtml" -->
     <% } %>
 
-    <!--#include virtual="~/_Static/v2/head.inc" -->
+    <!--#include virtual="~/_static/v2/head.inc" -->
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 
     <asp:ContentPlaceHolder ID="ScriptsPlaceHolder" runat="server"></asp:ContentPlaceHolder>

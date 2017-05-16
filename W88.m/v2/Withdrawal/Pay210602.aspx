@@ -64,7 +64,7 @@
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
-            _w88_banktransfer.initWidraw();
+            _w88_banktransfer.init("<%=base.PaymentType %>");
 
             $('#form1').validator().on('submit', function (e) {
                 if (!e.isDefaultPrevented()) {

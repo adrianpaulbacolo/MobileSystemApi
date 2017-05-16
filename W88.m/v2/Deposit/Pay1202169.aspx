@@ -2,8 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
     <div class="form-group">
-        <asp:Label ID="Label2" runat="server" AssociatedControlID="txtAmount" />
-        <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" required data-paylimit="0" data-numeric />
+        <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
+        <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" required data-paylimit="0" data-numeric />
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
