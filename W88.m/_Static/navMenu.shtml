@@ -416,7 +416,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 <li>
                     <div class="card">
                         <img src="#" class="img-responsive pk10">
-                        <div class="title menuKenoTitle"></div>
+                        <div class="title menuPK10Title"></div>
                         <div class="card-hover">
                             <div class="card-hover-btns">
                                 <a href="<%=commonLottery.getPK10Url(true) %>" target="<%=(!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? " _blank" : "_self") %>" data-ajax="false" class="ui-btn btn-primary play-pk"><span class="icon-arrow-right"></span></a>
