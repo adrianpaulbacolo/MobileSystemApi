@@ -138,6 +138,15 @@
         routes.Add(alldebit_aliPay);
         routes.Add(alldebit_weChat);
 
+        // HEBAO
+        System.Web.Routing.Route hebao_b2c = new System.Web.Routing.Route("Deposit/1202174", new System.Web.Routing.PageRouteHandler("~/Deposit/Hebao.aspx"));
+        hebao_b2c.DataTokens = new System.Web.Routing.RouteValueDictionary { { "type", "pay" } };
+        System.Web.Routing.Route hebao_weChat = new System.Web.Routing.Route("Deposit/1202175", new System.Web.Routing.PageRouteHandler("~/Deposit/Hebao.aspx"));
+        hebao_weChat.DataTokens = new System.Web.Routing.RouteValueDictionary { { "type", "wechat" } };
+
+        routes.Add(hebao_b2c);
+        routes.Add(hebao_weChat);
+
         // ERRORS
         System.Web.Routing.Route rtError400 = new System.Web.Routing.Route("400", new System.Web.Routing.PageRouteHandler("~/_Static/Pages/400.aspx"));
         System.Web.Routing.Route rtError403 = new System.Web.Routing.Route("403", new System.Web.Routing.PageRouteHandler("~/_Static/Pages/403.aspx"));

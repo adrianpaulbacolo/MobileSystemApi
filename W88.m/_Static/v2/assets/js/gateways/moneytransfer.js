@@ -98,10 +98,7 @@ function MoneyTransfer() {
                 else
                     moneytransfer.hideSystemAccount();
             }
-        },
-      function () {
-          GPInt.prototype.HideSplash();
-      });
+        });
     }
 
     moneytransfer.showSystemAccount = function () {
@@ -135,7 +132,7 @@ function MoneyTransfer() {
     moneytransfer.getDepositLastTransaction = function () {
         var _self = this;
 
-        _self.send("/payments/deposit/lasttrans/moneytransfer/" + methodId, "GET", "", function (response) {
+        _self.send("/payments/deposit/lasttrans/", "GET", "", function (response) {
             switch (response.ResponseCode) {
                 case 1:
                     $('input[id$="txtAccountName"]').val(response.ResponseData.AccountName);
@@ -149,9 +146,6 @@ function MoneyTransfer() {
 
                     break;
             }
-        },
-        function () {
-            GPInt.prototype.HideSplash();
         });
     }
 
@@ -163,9 +157,11 @@ function MoneyTransfer() {
                 case 1:
                     $('input[id$="txtAccountName"]').val(response.ResponseData.AccountName);
                     $('input[id$="txtAccountNumber"]').val(response.ResponseData.AccountNumber);
-                    $('input[id$="txtContact"]').val(response.ResponseData.Phone);
 
-                    $('select[id$="drpContactCountry"]').val(response.ResponseData.CountryCode).change();
+                    if (!_.isEmpty(response.ResponseData.CountryCode))
+                        $('select[id$="drpCountryCode"]').val(response.ResponseData.CountryCode).change();
+
+                    $('input[id$="txtContact"]').val(response.ResponseData.Phone);
                     break;
                 default:
                     if (_.isArray(response.ResponseMessage))
@@ -175,9 +171,6 @@ function MoneyTransfer() {
 
                     break;
             }
-        },
-        function () {
-            GPInt.prototype.HideSplash();
         });
     }
 

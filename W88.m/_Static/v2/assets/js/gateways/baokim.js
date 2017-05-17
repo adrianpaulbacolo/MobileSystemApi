@@ -87,17 +87,7 @@ function BaokimV2() {
         _self.send("/payments/" + methodId, "POST", data, function (response) {
             switch (response.ResponseCode) {
                 case 1:
-                    if (response.ResponseData.VendorRedirectionUrl) {
-                        window.open(response.ResponseData.VendorRedirectionUrl, '_blank');
-                    } else {
-                        if (response.ResponseData.PostUrl) {
-                            w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
-                            w88Mobile.PostPaymentForm.submit();
-                        } else if (response.ResponseData.DummyURL) {
-                            w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.DummyURL, "body");
-                            w88Mobile.PostPaymentForm.submit();
-                        }
-                    }
+                    window.location.replace(response.ResponseData.PostUrl);
                     break;
                 default:
                     if (_.isArray(response.ResponseMessage))
@@ -130,7 +120,7 @@ function BaokimV2() {
             switch (response.ResponseCode) {
                 case 1:
                     if (response.ResponseData.VendorRedirectionUrl) {
-                        window.open(response.ResponseData.VendorRedirectionUrl, '_blank');
+                        window.open(response.ResponseData.VendorRedirectionUrl);
                     } else {
                         if (response.ResponseData.PostUrl) {
                             w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
@@ -156,7 +146,9 @@ function BaokimV2() {
     };
 
     baokim.getBanks = function () {
-        _w88_paymentSvcV2.Send("/banks/vendor/" + methodId, "GET", "", function (response) {
+        var _self = this;
+
+        _self.send("/banks/vendor/" + methodId, "GET", "", function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
                 $('select[id$="drpBank"]').append($('<option>').text(_w88_contents.translate("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
 
@@ -167,16 +159,16 @@ function BaokimV2() {
         }, "");
     };
 
-    baokim.verifyOtp = function (data) {
-        _w88_paymentSvcV2.Send("/payments/" + methodId, "POST", data, function (response) {
-            if (response && _.isEqual(response.ResponseCode, 1)) {
-                return response;
-            }
-        }, "");
+    baokim.verifyOtp = function (data, successCallback) {
+        var _self = this;
+
+        _self.send("/payments/" + methodId, "POST", data, successCallback);
     };
 
     baokim.validateWallet = function (data, transactionId) {
-        _w88_paymentSvcV2.Send("/payments/" + methodId + "/" + transactionId, "GET", data, function (response) {
+        var _self = this;
+
+        _self.send("/payments/" + methodId + "/" + transactionId, "GET", data, function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
                 switch (response.ResponseCode) {
                     case 1:
