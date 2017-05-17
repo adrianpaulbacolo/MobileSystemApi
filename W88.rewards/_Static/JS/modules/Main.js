@@ -99,21 +99,10 @@ function logout() {
 
 function clear() {
     try {
-        window.localStorage.clear();
-        if (!_.isEmpty(Cookies().getCookie('user')))
-            Cookies().setCookie('user', null, -1);
-        if (!_.isEmpty(Cookies().getCookie('isvip')))
-            Cookies().setCookie('isvip', null, -1);
-        if (!_.isEmpty(Cookies().getCookie('token')))
-            Cookies().setCookie('token', null, -1);
-    } catch (e) {
-        if (!_.isEmpty(Cookies().getCookie('user')))
-            Cookies().setCookie('user', null, -1);
-        if (!_.isEmpty(Cookies().getCookie('isvip')))
-            Cookies().setCookie('isvip', null, -1);
-        if (!_.isEmpty(Cookies().getCookie('token')))
-            Cookies().setCookie('token', null, -1);
-    }
+        window.localStorage.removeItem('user');
+    } catch (e) { }
+    if (!_.isEmpty(Cookies().getCookie('user')))
+        Cookies().setCookie('user', '', -1);
     window.user = null;
     $.mobile.loading('hide');
     window.location.href = '/Logout';
@@ -154,13 +143,9 @@ function setUser() {
     var storedObject;
     try {
         storedObject = window.localStorage.getItem('user');
-        if (_.isEmpty(storedObject)) {
-            storedObject = Cookies().getCookie('user');
-        }
-    } catch (e) {
+    } catch (e) { }
+    if (_.isEmpty(storedObject))
         storedObject = Cookies().getCookie('user');
-    } 
-
     window.user = _.isEmpty(storedObject) ? new User() : (new User()).createUser(storedObject);
 }
 
