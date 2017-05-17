@@ -30,7 +30,7 @@ function validator() {
                     }
 
                     if (_.isEmpty($el.val())) {
-                        $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("RequiredField") + '</span>');
+                        $el.parent("div").append('<span class="help-block">' + $.i18n('RequiredField') + '</span>');
 
                         if ($el.parent("div.form-group").length == 0) {
                             $el.parent("div").addClass('has-error');
@@ -53,7 +53,7 @@ function validator() {
 
                     var matchValue = $el.data("selectequals");
                     if ($el.val() == matchValue) {
-                        $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("RequiredField") + '</span>');
+                        $el.parent("div").append('<span class="help-block">' + $.i18n('RequiredField') + '</span>');
                         if ($el.parent("div.form-group").length == 0) {
                             $el.parent("div").addClass('has-error');
                         }
@@ -72,13 +72,13 @@ function validator() {
                     if (!_.isEmpty($el.val())) {
                         var matchValue = $("#" + $el.data("confirmvalue")).val();
                         if ($el.val() != matchValue) {
-                            $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("ConfirmField") + '</span>');
+                            $el.parent("div").append('<span class="help-block">' + $.i18n('ConfirmField') + '</span>');
                             $el.parent("div.form-group").addClass('has-error');
                             return true;
                         }
                     } else {
                         if ($el.context.required) {
-                            $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("RequiredField") + '</span>');
+                            $el.parent("div").append('<span class="help-block">' + $.i18n('RequiredField') + '</span>');
                             $el.parent("div.form-group").addClass('has-error');
                             return true;
                         }
@@ -94,11 +94,11 @@ function validator() {
 
                         if (!_.inRange($el.val(), matchValue[0], matchValue[1])) {
                             if (parseFloat($el.val()) < parseFloat(matchValue[0])) {
-                                $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_AmountMinLimit") + '</span>');
+                                $el.parent("div").append('<span class="help-block">' + $.i18n('Pay_AmountMinLimit') + '</span>');
                                 $el.parent("div.form-group").addClass('has-error');
                                 return true;
                             } else if (parseFloat($el.val()) > parseFloat(matchValue[1])) {
-                                $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_AmountMaxLimit") + '</span>');
+                                $el.parent("div").append('<span class="help-block">' + $.i18n('Pay_AmountMaxLimit') + '</span>');
                                 $el.parent("div.form-group").addClass('has-error');
                                 return true;
                             }
@@ -106,7 +106,7 @@ function validator() {
                     }
                     else {
                         if ($el.context.required) {
-                            $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("RequiredField") + '</span>');
+                            $el.parent("div").append('<span class="help-block">' + $.i18n('RequiredField') + '</span>');
                             $el.parent("div.form-group").addClass('has-error');
                             return true;
                         }
@@ -118,24 +118,34 @@ function validator() {
                     $el.parent(".form-group").removeClass('has-error');
 
                     if (!_.isEmpty($el)) {
-                        var elValue = parseFloat(_.replace($el.val(), /,/g, ""));
+                        var elValue = stringToNumber($el.val());
 
                         if (_.isNaN(elValue) || elValue < setting.MinAmount) {
-                            $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_AmountMinLimit") + '</span>');
+                            $el.parent("div").append('<span class="help-block">' + $.i18n('Pay_AmountMinLimit') + '</span>');
                             return true;
                         }
                         else if (elValue > setting.MaxAmount) {
-                            $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_AmountMaxLimit") + '</span>');
+                            $el.parent("div").append('<span class="help-block">' + $.i18n('Pay_AmountMaxLimit') + '</span>');
                             return true;
                         }
-                        else if ((setting.TotalAllowed != _w88_contents.translate("Pay_Unlimited")) &&
+                        else if ((setting.TotalAllowed != $.i18n('Pay_Unlimited')) &&
                             elValue > parseFloat(_.replace(setting.TotalAllowed, /,/g, "")) && parseFloat(_.replace(setting.TotalAllowed, /,/g, "")) > 0) {
-                            $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_TotalAllowedExceeded") + '</span>');
+                            $el.parent("div").append('<span class="help-block">' + $.i18n('Pay_TotalAllowedExceeded') + '</span>');
                             return true;
                         }
                     }
                     return false;
                 },
+                balance: function ($el) {
+                    $el.parent("div.form-group").removeClass('has-error');
+                    $el.parent("div.form-group").children("span.help-block").remove();
+                    var matchValue = $el.data("balance");
+                    if ($('option:selected', $el).attr('balance') <= matchValue) {
+                        $el.parent("div").append('<span class="help-block">' + $.i18n('Pay_ErrInsufficientBalance') + '</span>');
+                        return true;
+                    }
+                    return false;
+                }
             }
         });
     }

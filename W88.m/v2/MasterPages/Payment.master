@@ -68,26 +68,13 @@
 </asp:Content>
 
 <asp:Content ID="ScriptBottom" ContentPlaceHolderID="InnerScriptPlaceHolder" runat="Server">
-    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/jquery.mask.min.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/autoNumeric-min.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
     <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/gateways/defaultpayments.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/gateways/gateway.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
     <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/bootstrapvalidator.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/funds.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"> </script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/wallets.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"> </script>
     <script>
         $(document).ready(function () {
-            _w88_funds.mainWalletInit();
+            _w88_wallets.init(true);
         });
-
-    </script>
-
-    <script type="text/template" id='mainWallet'>
-
-        <div class="wallet-main">
-            <p class="wallet-title">{%-tplData.Name%}</p>
-            <h4 class="wallet-value">{%-tplData.Balance%}</h4>
-            <p class="wallet-currency">{%-tplData.CurrencyLabel%}</p>
-        </div>
 
     </script>
 
@@ -126,5 +113,3 @@
     </asp:ContentPlaceHolder>
 
 </asp:Content>
-
-
