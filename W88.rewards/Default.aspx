@@ -23,11 +23,11 @@
                 <div class="btn-group btn-group-justified" role="group">
                     <div class="btn-group" role="group">
                         <% if (string.IsNullOrEmpty(Token)) { %>                        
-                            <a id="loginFooterButton" style="display: none;" data-ajax="false" class="btn" href="/_Secure/Login.aspx">
+                            <a data-ajax="false" class="btn" href="/_Secure/Login.aspx">
                                 <span class="icon icon-login"></span><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Login)%>
                             </a>
                         <% } else {%>
-                            <a id="logoutFooterButton" href="javascript: logout('<%=MemberSession != null ? MemberSession.MemberId : ""%>');" class="btn">
+                            <a href="javascript: logout('<%=Token%>');" class="btn">
                                 <span class="icon icon-login"></span><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Logout)%>
                             </a>
                         <%} %>

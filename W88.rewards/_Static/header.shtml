@@ -22,7 +22,7 @@
                         <% if(string.IsNullOrEmpty(BasePage.Token)) {%>
                             <li id="headerLoginButton"><a data-ajax="false" href="/_Secure/Login.aspx"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Login)%></a></li>
                         <%} else {%>
-                            <li id="headerLogoutButton"><a href="javascript: logout();"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Logout)%></a></li>
+                            <li id="headerLogoutButton"><a href="javascript:logout('<%=BasePage.Token%>');"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Logout)%></a></li>
                         <%}%>                
                     </ul>
                 </div>

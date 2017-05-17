@@ -23,7 +23,7 @@ $(window).load(function () {
                             if (!_.isEmpty(data.Message)) w88Mobile.Growl.shout(data.Message);
                             clearInterval(sessionPoll);
                             setTimeout(function () {
-                                logout(window.user.MemberId);
+                                logout(window.user.Token);
                             }, 2000);
                             break;
                     } 
@@ -63,33 +63,48 @@ function loadPage(uri, params, transition) {
     $(':mobile-pagecontainer').pagecontainer('change', uri, { data: params, reload: true, transition: transition });
 }
 
-function logout(memberId) {
-    setUser();
-    if (_.isEmpty(window.user)) return;
+function logout(sessionId) {
+    if (!sessionId) return;
     $.ajax({
-        url: '/api/user/logout',
         contentType: 'text/html',
-        async: true,
-        data: 'MemberId=' + memberId,
-        beforeSend: function() {
-            $.mobile.loading('show');
-        },
-        success: function (response) {
-            if (sessionPoll) clearInterval(sessionPoll);
-            switch (response.ResponseCode) {
+        url: '/_Secure/AjaxHandlers/MemberSessionCheck.ashx',
+        type: 'POST',
+        data: window.user.Token,
+        success: function (data) {
+            if (!data || _.isUndefined(data.Code)) return;
+            switch (data.Code) {
                 case 1:
-                    clear();
-                    break;
+                    $.ajax({
+                        url: '/api/user/logout',
+                        contentType: 'text/html',
+                        async: true,
+                        data: 'MemberId=' + data.Data.MemberId,
+                        beforeSend: function () {
+                            $.mobile.loading('show');
+                        },
+                        success: function (response) {
+                            if (sessionPoll) clearInterval(sessionPoll);
+                            switch (response.ResponseCode) {
+                                case 1:
+                                    clear();
+                                    break;
+                                default:
+                                    $.mobile.loading('hide');
+                                    if (_.isEmpty(response.ResponseMessage)) return;
+                                    window.w88Mobile.Growl.shout(response.ResponseMessage);
+                                    break;
+                            }
+                        },
+                        error: function (response) {
+                            $.mobile.loading('hide');
+                            window.w88Mobile.Growl.shout(response.ResponseMessage);
+                        }
+                    });
                 default:
-                    $.mobile.loading('hide');
-                    if (_.isEmpty(response.ResponseMessage)) return;
-                    window.w88Mobile.Growl.shout(response.ResponseMessage);
+                    if (!_.isEmpty(data.Message)) w88Mobile.Growl.shout(data.Message);
+                    clearInterval(sessionPoll);
                     break;
             }
-        },
-        error: function (response) {
-            $.mobile.loading('hide');
-            window.w88Mobile.Growl.shout(response.ResponseMessage);
         }
     });
 }
