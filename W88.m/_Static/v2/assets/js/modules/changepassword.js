@@ -9,7 +9,7 @@ function ChangePassword() {
 
         _w88_validator.initiateValidator("#form1");
 
-        $('header .header-title').append(_w88_contents.translate("LABEL_CHANGEPASSWORD"));
+        $('header .header-title').append(_w88_contents.translate("LABEL_PASSWORD_CHANGE"));
     };
 
     changepassword.send = function (data) {

@@ -5,15 +5,15 @@
         <div class="container">
             <form class="form" id="form1" runat="server">
                 <div class="form-group">
-                    <asp:Label ID="lblPassword" runat="server" AssociatedControlID="txtPassword" data-i18n="LABEL_CHANGEPASSWORD_CURRENT" />
+                    <asp:Label ID="lblPassword" runat="server" AssociatedControlID="txtPassword" data-i18n="LABEL_PASSWORD_CURRENT" />
                     <asp:TextBox ID="txtPassword" runat="server" type="password" CssClass="form-control" required data-require="" />
                 </div>
                 <div class="form-group">
-                    <asp:Label ID="lblPasswordNew" runat="server" AssociatedControlID="txtPasswordNew" data-i18n="LABEL_CHANGEPASSWORD_NEW" />
+                    <asp:Label ID="lblPasswordNew" runat="server" AssociatedControlID="txtPasswordNew" data-i18n="LABEL_PASSWORD_NEW" />
                     <asp:TextBox ID="txtPasswordNew" runat="server" type="password" MinLength="8" MaxLength="10" CssClass="form-control" required data-require="" />
                 </div>
                 <div class="form-group">
-                    <asp:Label ID="lblPasswordConfirm" runat="server" AssociatedControlID="txtPasswordConfirm" data-i18n="LABEL_CHANGEPASSWORD_CONFIRM" />
+                    <asp:Label ID="lblPasswordConfirm" runat="server" AssociatedControlID="txtPasswordConfirm" data-i18n="LABEL_PASSWORD_CONFIRM" />
                     <asp:TextBox ID="txtPasswordConfirm" runat="server" type="password" MinLength="8" MaxLength="10" CssClass="form-control" required data-confirmvalue="txtPasswordNew" />
                 </div>
                 <button type="submit" id="btnSubmit" class="btn btn-block btn-primary"  data-i18n="BUTTON_SUBMIT"></button>
