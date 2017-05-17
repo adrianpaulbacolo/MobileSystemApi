@@ -66,7 +66,7 @@
                     type: 'GET',
                     url: '/api/rewards/search/',
                     headers: {
-                        'token': '<%=UserSessionInfo != null ? UserSessionInfo.Token : ""%>'
+                        'token': '<%=Token%>'
                     },
                     dataType: 'json',
                     data: {
