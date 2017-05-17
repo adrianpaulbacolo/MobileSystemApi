@@ -38,7 +38,7 @@ function UnionPay() {
             switch (response.ResponseCode) {
                 case 1:
                     if (response.ResponseData.VendorRedirectionUrl) {
-                        window.open(response.ResponseData.VendorRedirectionUrl, '_blank');
+                        window.open(response.ResponseData.VendorRedirectionUrl);
                     } else {
                         if (response.ResponseData.PostUrl) {
                             w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");

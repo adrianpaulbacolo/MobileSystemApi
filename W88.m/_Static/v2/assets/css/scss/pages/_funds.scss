@@ -126,3 +126,33 @@
         background: #222 center center;
     }
 }
+
+.empty-state {
+    text-align: center;
+    padding-top: 10%;
+    padding-bottom: 10%;
+
+    .empty-state-icon {
+        background-color: $empty-state-bg;
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 2em;
+        display: table;
+        @include border-radius(50%);
+
+        i {
+            color: $empty-state-color;
+            font-size: 3em;
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+
+    p {
+        color: $empty-state-color;
+        width: 80%;
+        max-width: 480px;
+        display: block;
+        margin: 0 auto;
+    }
+}

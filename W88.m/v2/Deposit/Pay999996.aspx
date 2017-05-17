@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
     <div class="form-group">
         <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
-        <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" required data-paylimit="0" data-numeric />
+        <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" required data-paylimit="true" data-numeric />
     </div>
     <div class="form-group">
         <div class="checkbox checkbox-custom">
