@@ -182,6 +182,18 @@ public class commonVariables
         commonVariables.SetSessionVariable("vCode", strVCode);
     }
 
+    public static string CDNCountryCode
+    {
+        get
+        {
+            return commonCookie.Get("CDNCountryCode");
+        }
+        set
+        {
+            commonCookie.Set("CDNCountryCode", value, DateTime.Now.AddDays(1));
+        }
+    }
+
     internal enum TransferWallet
     {
         undefined = -1,
@@ -223,6 +235,8 @@ public class commonVariables
         ECPSS = 120218,
         EGHL = 120265,
         FastDeposit = 110101,
+        HebaoB2C = 1202174,
+        HebaoWeChat = 1202175,
         Help2Pay = 120227,
         IWallet = 1202103,
         JTPayAliPay = 1202122,

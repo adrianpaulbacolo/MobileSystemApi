@@ -12,19 +12,8 @@ function AutoRouteV2() {
     }
 
     autoroute.init = function () {
-
-        setTranslations();
-        function setTranslations() {
-            if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-                $('[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
-                $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
-
-            } else {
-                window.setInterval(function () {
-                    setTranslations();
-                }, 500);
-            }
-        }
+        $('[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
+        $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
     };
 
     autoroute.createDeposit = function () {

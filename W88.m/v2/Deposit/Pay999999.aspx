@@ -7,7 +7,7 @@
     </div>
     <div class="form-group">
         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
-        <asp:DropDownList ID="drpBank" runat="server" CssClass="form-control" data-bankequals="-1" />
+        <asp:DropDownList ID="drpBank" runat="server" CssClass="form-control" required data-selectequals="-1" />
     </div>
     <div class="form-group">
         <div class="checkbox checkbox-custom">
@@ -29,7 +29,7 @@
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
-            window.w88Mobile.Gateways.QuickOnlineV2.init("<%=base.PaymentMethodId %>", true);
+            _w88_quickonline.init("<%=base.PaymentMethodId %>", true);
 
             $('#form1').validator().on('submit', function (e) {
 

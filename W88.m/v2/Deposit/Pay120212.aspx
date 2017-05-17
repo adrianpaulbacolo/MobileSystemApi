@@ -9,21 +9,6 @@
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
             _w88_quickonline.nganluongInit();
-
-            $('#form1').validator().on('submit', function (e) {
-                if (!e.isDefaultPrevented()) {
-                    e.preventDefault();
-
-                    var data = {
-                        MethodId: "<%=base.PaymentMethodId%>"
-                    };
-
-                    var params = decodeURIComponent($.param(data));
-                    window.open(_w88_paymentSvcV2.payRoute + "?" + params, "<%=base.PageName%>");
-                    _w88_paymentSvcV2.onTransactionCreated($(this));
-                    return;
-                }
-            });
         });
     </script>
 </asp:Content>
