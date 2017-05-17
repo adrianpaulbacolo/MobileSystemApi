@@ -2,85 +2,75 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
     <div id="PaymentAmount" style="display: block">
-        <div class="form-group pay-note">
-            <span id="paymentNote"></span>
-            <p id="paymentNoteContent"></p>
-        </div>
         <div class="form-group">
             <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
             <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" required data-paylimit="0" data-numeric />
         </div>
     </div>
 
-    <div id="PaymentInfo" style="display: none">
-        <div class="form-group">
-            <div class="col-xs-6">
-                <span id="lblStatus"></span>
+    <div class="payment-info" id="PaymentInfo" style="display: none">
+        <div class="row no-gutter">
+            <div class="col-xs-3 col-sm-5">
+                <p class="payment-label" id="lblStatus"></p>
             </div>
-            <div class="col-xs-6">
-                <span id="txtStatus"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-xs-6">
-                <span id="lblTransactionId"></span>
-            </div>
-            <div class="col-xs-6">
-                <span id="txtTransactionId"></span>
+            <div class="col-xs-6 col-sm-5 status">
+                <p id="txtStatus"></p>
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-xs-6">
-                <span id="lblAmount2"></span>
+        <div class="row no-gutter">
+            <div class="col-xs-3 col-sm-6">
+                <p class="payment-label" id="lblTransactionId"></p>
             </div>
-            <div class="col-xs-4">
-                <span id="txtStep2Amount"></span>
-            </div>
-            <div class="col-xs-2">
-                <a href="#" id="copyAmount"></a>
+            <div class="col-xs-6 col-sm-6">
+                <p id="txtTransactionId"></p>
             </div>
         </div>
-        <div class="form-group pay-note">
-            <div class="col-xs-12">
-                <span id="paymentNote2"></span>
-                <p id="paymentNoteContent2"></p>
+        <div class="row no-gutter">
+            <div class="col-xs-3 col-sm-5">
+                <p class="payment-label" id="lblAmount2"></p>
+            </div>
+            <div class="col-xs-6 col-sm-5">
+                <p id="txtStep2Amount"></p>
+            </div>
+            <div class="col-xs-3 col-sm-2">
+                <a href="#" class="btn btn-xs btn-default" id="copyAmount"></a>
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-xs-6">
-                <span id="lblBankName"></span>
+        <div class="row no-gutter">
+            <div class="col-xs-3 col-sm-5">
+                <p class="payment-label" id="lblBankName"></p>
             </div>
-            <div class="col-xs-6">
-                <span id="txtBankName"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-xs-6">
-                <span id="lblBankHolderName"></span>
-            </div>
-            <div class="col-xs-4">
-                <span id="txtBankHolderName"></span>
-            </div>
-            <div class="col-xs-2">
-                <a href="#" id="copyAccountName"></a>
+            <div class="col-xs-6 col-sm-5">
+                <p id="txtBankName"></p>
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-xs-6">
-                <span id="lblBankAccountNo"></span>
+        <div class="row no-gutter">
+            <div class="col-xs-3 col-sm-5">
+                <p class="payment-label" id="lblBankHolderName"></p>
             </div>
-            <div class="col-xs-4">
-                <span id="txtBankAccountNo"></span>
+            <div class="col-xs-6 col-sm-5">
+                <p id="txtBankHolderName"></p>
             </div>
-            <div class="col-xs-2">
-                <a href="#" id="copyAccountNo"></a>
+            <div class="col-xs-3 col-sm-2">
+                <a href="#" class="btn btn-xs btn-default" id="copyAccountName"></a>
+            </div>
+        </div>
+        <div class="row no-gutter">
+            <div class="col-xs-3 col-sm-5">
+                <p class="payment-label" id="lblBankAccountNo"></p>
+            </div>
+            <div class="col-xs-6 col-sm-5">
+                <p id="txtBankAccountNo"></p>
+            </div>
+            <div class="col-xs-3 col-sm-2">
+                <a href="#" class="btn btn-xs btn-default" id="copyAccountNo"></a>
             </div>
         </div>
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
-    <script type="text/javascript" src="/_static/v2/assets/js/gateways/sdapay.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-    <script type="text/javascript" src="/_static/v2/assets/js/gateways/banner.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/gateways/alipaytransfer.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/gateways/banner.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -89,39 +79,23 @@
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
-            window.w88Mobile.Gateways.SDAPay.init("<%=base.PaymentMethodId %>");
+            _w88_alipaytransfer.init("<%=base.PaymentMethodId %>");
 
             $('#form1').validator().on('submit', function (e) {
-
                 if (!e.isDefaultPrevented()) {
                     e.preventDefault();
 
-                    if (window.w88Mobile.Gateways.SDAPay.step == 1) {
+                    if (_w88_alipaytransfer.step == 1) {
                         var data = {
                             Amount: $('input[id$="txtAmount"]').autoNumeric('get')
                         };
 
-                        window.w88Mobile.Gateways.SDAPay.step2("<%=base.PaymentMethodId %>", data);
+                        _w88_alipaytransfer.createDeposit($(this), data);
+
                     } else {
-                        window.open(window.w88Mobile.Gateways.SDAPay.bankUrl);
+                        window.open(_w88_alipaytransfer.bankUrl);
                     }
                 }
-            });
-
-
-            $('#copyAmount').on('click', function () {
-                var amount = $("#txtStep2Amount").text().slice(2); //this will removed the ": "
-                window.w88Mobile.Gateways.SDAPay.copytoclipboard(amount);
-            });
-
-            $('#copyAccountName').on('click', function () {
-                var accountName = $("#txtBankHolderName").text().slice(2); //this will removed the ": "
-                window.w88Mobile.Gateways.SDAPay.copytoclipboard(accountName);
-            });
-
-            $('#copyAccountNo').on('click', function () {
-                var accountNo = $("#txtBankAccountNo").text().slice(2); //this will removed the ": "
-                window.w88Mobile.Gateways.SDAPay.copytoclipboard(accountNo);
             });
 
             (function (a) { (jQuery.browser = jQuery.browser || {}).ios = /ip(hone|od|ad)/i.test(a) })(navigator.userAgent || navigator.vendor || window.opera);
@@ -132,9 +106,7 @@
             else {
                 $(".col-xs-2").show();
             }
-
         });
 
     </script>
 </asp:Content>
-

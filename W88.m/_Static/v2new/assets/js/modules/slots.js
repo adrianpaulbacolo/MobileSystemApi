@@ -131,7 +131,7 @@ function Slots() {
 
         var data = {
             cashier: "v2/Funds.aspx",
-            lobby: "_static/v2new/slots.html",
+            lobby: "v2/Slots",
             configfile: "native"
         }
         if(provider == "pt"){
@@ -379,8 +379,8 @@ function Slots() {
             $('#gameRegisterUrl').show();
             $('#gameLoginUrl').show();
 
-            $('#gameRegisterUrl').attr('href', loginUrl);
-            $('#gameLoginUrl').attr('href', registerUrl);
+            $('#gameRegisterUrl').attr('href', registerUrl);
+            $('#gameLoginUrl').attr('href', loginUrl);
         }
 
         $('#gameModal').modal('toggle');

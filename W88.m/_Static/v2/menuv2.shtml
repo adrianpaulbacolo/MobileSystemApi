@@ -20,16 +20,6 @@ if ((!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency) && commonCookie.Coo
 
 var fishingWorld = FishingWorldProduct.GetLink();
 
-var isSuperBull = false;
-if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) && commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase)){
-    isSuperBull = true;
-}
-else {
-    if (commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase)){
-         isSuperBull = true;
-    }
-}
-
 %>
 
 <section class="side-nav" off-canvas="side-nav left reveal">
@@ -39,7 +29,7 @@ else {
             <li>
                 <a href="/v2/Dashboard.aspx?lang=<%=commonVariables.SelectedLanguage%>">
                     <span class="icon icon-home"></span>
-                    <span class="title_home"></span>
+                    <span class="title_home" data-i18n="LABEL_MENU_HOME"></span>
                 </a>
             </li>
             <!-- Login -->
@@ -47,7 +37,7 @@ else {
             <li>
                 <a href="/_Secure/Login.aspx">
                     <span class="icon icon-login"></span>
-                    <span class="title_login"></span>
+                    <span class="title_login" data-i18n="LABEL_MENU_LOGIN"></span>
                 </a>
             </li>
             <% } %>
@@ -56,30 +46,30 @@ else {
             <li class="nav-category">
                 <a href="/_Secure/Login.aspx">
                     <span class="icon icon-currency-circle"></span>
-                    <span class="title_funds"></span>
+                    <span class="title_funds" data-i18n="LABEL_MENU_FUNDS"></span>
                 </a>
                 <div class="nav-category-items">
-                    <h4><span class="title_funds"></span></h4>
+                    <h4><span class="title_funds" data-i18n="LABEL_MENU_FUNDS"></span></h4>
                     <!-- Club W - Club W Premier-->
                     <ul class="side-submenu">
                         <li>
                             <a href="/v2/Deposit/">
-                                <span class="title_deposit"></span>
+                                <span class="title_deposit" data-i18n="LABEL_FUNDS_DEPOSIT"></span>
                             </a>
                         </li>
                         <li>
                             <a href="/v2/FundTransfer/">
-                                <span class="title_transfer"></span>
+                                <span class="title_transfer" data-i18n="LABEL_FUNDS_TRANSFER"></span>
                             </a>
                         </li>
                         <li>
                             <a href="/v2/Withdrawal/">
-                                <span class="title_withdraw"></span>
+                                <span class="title_withdraw" data-i18n="LABEL_FUNDS_WIDRAW"></span>
                             </a>
                         </li>
                         <li>
                             <a href="/v2/History/Default.aspx">
-                                <span class="title_history"></span>
+                                <span class="title_history" data-i18n="LABEL_FUNDS_HISTORY"></span>
                             </a>
                         </li>
                     </ul>
@@ -90,17 +80,17 @@ else {
             <li class="nav-category">
                 <a href="#" class="sports">
                     <span class="icon icon-soccer"></span>
-                    <span class="title_sports"></span>
+                    <span class="title_sports" data-i18n="LABEL_MENU_SPORTS"></span>
                 </a>
                 <div class="nav-category-items">
-                    <h4><span class="title_live_casino"></span></h4>
+                    <h4><span class="title_live_casino" data-i18n="LABEL_MENU_LIVE_CASINO"></span></h4>
                     <div class="row">
                         <!-- Club W - Club W Premier-->
                         <%if(deviceId==1 || deviceId==3){%>
                         <div class="col-xs-6">
                             <a href="/_Static/Downloads/w88.aspx">
                                 <img src="#" alt="" class="img_sports_clubW_iOS">
-                                <span class="title_clubw"></span>
+                                <span class="title_clubw" data-i18n="LABEL_PRODUCTS_CLUB_W"></span>
                             </a>
                         </div>
                         <%}%>
@@ -108,7 +98,7 @@ else {
                         <div class="col-xs-6">
                             <a href="/_Static/ClubW/casino.aspx">
                                 <img src="#" alt="" class="img_sports_clubW_Android">
-                                <span class="title_clubw"></span>
+                                <span class="title_clubw" data-i18n="LABEL_PRODUCTS_CLUB_W"></span>
                             </a>
                         </div>
                         <%}%>
@@ -116,21 +106,21 @@ else {
                         <div class="col-xs-6">
                             <a href="/_static/palazzo/casino.aspx">
                                 <img src="#" alt="" class="img_sports_A">
-                                <span class="title_asport"></span>
+                                <span class="title_asport" data-i18n="LABEL_PRODUCTS_ASPORTS"></span>
                             </a>
                         </div>
                         <!-- E Sports -->
                         <div class="col-xs-6">
                             <a href="/_static/palazzo/casino.aspx">
                                 <img src="#" alt="" class="img_sports_E">
-                                <span class="title_esport"></span>
+                                <span class="title_esport" data-i18n="LABEL_PRODUCTS_ESPORTS"></span>
                             </a>
                         </div>
                         <!-- V Sports -->
                         <div class="col-xs-6">
                             <a href="/_static/palazzo/casino.aspx">
                                 <img src="#" alt="" class="img_sports_V">
-                                <span class="title_vsport"></span>
+                                <span class="title_vsport" data-i18n="LABEL_PRODUCTS_VSPORTS"></span>
                             </a>
                         </div>
                         <!-- X Sports -->
@@ -139,7 +129,7 @@ else {
                         <div class="col-xs-6">
                             <a href="<%=commonXSports.SportsBookUrl%>">
                                 <img src="#" alt="" class="img_sports_X">
-                                <span class="title_xsport"></span>
+                                <span class="title_xsport" data-i18n="LABEL_PRODUCTS_XSPORTS"></span>
                             </a>
                         </div>
                         <% } %>
@@ -150,23 +140,23 @@ else {
             <li class="nav-category">
                 <a href="#" class="casino">
                     <span class="icon icon-casino"></span>
-                    <span class="title_live_casino"></span>
+                    <span class="title_live_casino" data-i18n="LABEL_MENU_LIVE_CASINO"></span>
                 </a>
                 <div class="nav-category-items">
-                    <h4><span class="title_live_casino"></span></h4>
+                    <h4><span class="title_live_casino" data-i18n="LABEL_MENU_LIVE_CASINO"></span></h4>
                     <div class="row">
                         <!-- Club W - Club W Premier-->
                         <%if(deviceId==1 || deviceId==3){%>
                         <div class="col-xs-6">
                             <a href="/_Static/Downloads/w88.aspx">
                                 <img src="#" alt="" class="img_casino_clubWPremier_iOS">
-                                <span class="title_clubwpremier"></span>
+                                <span class="title_clubwpremier" data-i18n="LABEL_PRODUCTS_CLUB_W_PREMIER"></span>
                             </a>
                         </div>
                         <div class="col-xs-6">
                             <a href="/_Static/Downloads/w88.aspx">
                                 <img src="#" alt="" class="img_casino_clubW_iOS">
-                                <span class="title_clubw"></span>
+                                <span class="title_clubw" data-i18n="LABEL_PRODUCTS_CLUB_W"></span>
                             </a>
                         </div>
                         <%}%>
@@ -174,13 +164,13 @@ else {
                         <div class="col-xs-6">
                             <a href="/_Static/ClubW/casino.aspx">
                                 <img src="#" alt="" class="img_casino_clubWPremier_Android">
-                                <span class="title_clubwpremier"></span>
+                                <span class="title_clubwpremier" data-i18n="LABEL_PRODUCTS_CLUB_W_PREMIER"></span>
                             </a>
                         </div>
                         <div class="col-xs-6">
                             <a href="/_Static/ClubW/casino.aspx">
                                 <img src="#" alt="" class="img_casino_clubW_Android">
-                                <span class="title_clubw"></span>
+                                <span class="title_clubw" data-i18n="LABEL_PRODUCTS_CLUB_W"></span>
                             </a>
                         </div>
                         <%}%>
@@ -188,14 +178,14 @@ else {
                         <div class="col-xs-6">
                             <a href="/v2/Downloads/palazzo-casino">
                                 <img src="#" alt="" class="img_casino_palazzo">
-                                <span class="title_palazzo"></span>
+                                <span class="title_palazzo" data-i18n="LABEL_PRODUCTS_PALAZZO"></span>
                             </a>
                         </div>
                         <!-- Massimo -->
                         <div class="col-xs-6">
                             <a href="<%=massimoCasino%>">
                                 <img src="#" alt="" class="img_casino_massimo">
-                                <span class="title_massimo"></span>
+                                <span class="title_massimo" data-i18n="LABEL_PRODUCTS_MASSIMO"></span>
                             </a>
                         </div>
                     </div>
@@ -205,17 +195,17 @@ else {
             <li class="nav-category">
                 <a href="#" class="slots">
                     <span class="icon icon-slots"></span>
-                    <span class="title_slots"></span>
+                    <span class="title_slots" data-i18n="LABEL_MENU_SLOTS"></span>
                 </a>
                 <div class="nav-category-items">
-                    <h4><span class="title_slots"></span></h4>
+                    <h4><span class="title_slots" data-i18n="LABEL_MENU_SLOTS"></span></h4>
                     <div class="row">
                         <!-- Club W -->
                         <%if(deviceId==1){%>
                         <div class="col-xs-6">
                             <a href="/_Static/Downloads/w88.aspx">
                                 <img src="#" alt="" class="img_slots_clubW_iOS">
-                                <span class="title_clubw"></span>
+                                <span class="title_clubw" data-i18n="LABEL_PRODUCTS_CLUB_W"></span>
                             </a>
                         </div>
                         <%}%>
@@ -223,7 +213,7 @@ else {
                         <div class="col-xs-6">
                             <a href="/_Static/ClubW/casino.aspx">
                                 <img src="#" alt="" class="img_slots_clubW_Android">
-                                <span class="title_clubw"></span>
+                                <span class="title_clubw" data-i18n="LABEL_PRODUCTS_CLUB_W"></span>
                             </a>
                         </div>
                         <%}%>
@@ -231,14 +221,14 @@ else {
                         <div class="col-xs-6">
                             <a href="/_static/v2new/slots.html">
                                 <img src="#" alt="" class="img_slots_bravado">
-                                <span class="title_bravado"></span>
+                                <span class="title_bravado" data-i18n="LABEL_PRODUCTS_BRAVADO"></span>
                             </a>
                         </div>
                         <!-- Massimo -->
                         <div class="col-xs-6">
                             <a href="/_static/v2new/slots.html">
                                 <img src="#" alt="" class="img_slots_massimo">
-                                <span class="title_massimo"></span>
+                                <span class="title_massimo" data-i18n="LABEL_PRODUCTS_MASSIMO"></span>
                             </a>
                         </div>
                         <!-- Massimo Download -->
@@ -246,7 +236,7 @@ else {
                         <div class="col-xs-6">
                             <a href="<%=commonClubMassimo.getDownloadUrl%>">
                                 <img src="#" alt="" class="img_slots_massimo-download">
-                                <span class="title_massimo_download"></span>
+                                <span class="title_massimo_download" data-i18n="LABEL_PRODUCTS_MASSIMO_DOWNLOAD"></span>
                             </a>
                         </div>
                         <%}%>
@@ -254,7 +244,7 @@ else {
                         <div class="col-xs-6">
                             <a href="/_static/v2new/slots.html">
                                 <img src="#" alt="" class="img_slots_palazzo">
-                                <span class="title_palazzo"></span>
+                                <span class="title_palazzo" data-i18n="LABEL_PRODUCTS_PALAZZO"></span>
                             </a>
                         </div>
                         <!-- Palazzo Download -->
@@ -262,7 +252,7 @@ else {
                         <div class="col-xs-6">
                             <a href="/v2/Downloads/palazzo-slots">
                                 <img src="#" alt="" class="img_slots_palazzo-download">
-                                <span class="title_palazzo_download"></span>
+                                <span class="title_palazzo_download" data-i18n="LABEL_PRODUCTS_PALAZZO_DOWNLOAD"></span>
                             </a>
                         </div>
                         <%}%>
@@ -270,21 +260,21 @@ else {
                         <div class="col-xs-6">
                             <a href="/_static/v2new/slots.html">
                                 <img src="#" alt="" class="img_slots_gallardo">
-                                <span class="title_gallardo"></span>
+                                <span class="title_gallardo" data-i18n="LABEL_PRODUCTS_GALLARDO"></span>
                             </a>
                         </div>
                         <!-- Apollo -->
                         <div class="col-xs-6">
                             <a href="/_static/v2new/slots.html">
                                 <img src="#" alt="" class="img_slots_apollo">
-                                <span class="title_apollo"></span>
+                                <span class="title_apollo" data-i18n="LABEL_PRODUCTS_APOLLO"></span>
                             </a>
                         </div>
                         <!-- Divino -->
                         <div class="col-xs-6">
                             <a href="/_static/v2new/slots.html">
                                 <img src="#" alt="" class="img_slots_divino">
-                                <span class="title_divino"></span>
+                                <span class="title_divino" data-i18n="LABEL_PRODUCTS_DIVINO"></span>
                             </a>
                         </div>
                     </div>
@@ -294,7 +284,7 @@ else {
             <li class="nav-category">
                 <a href="#" class="fishing">
                     <span class="icon icon-fish"></span>
-                    <span class="title_fishing"></span>
+                    <span class="title_fishing" data-i18n="LABEL_PRODUCTS_FISHING"></span>
                 </a>
                 <div class="nav-category-items">
                     <h4><span class="title_fishing_master"></span></h4>
@@ -304,7 +294,7 @@ else {
                         <div class="col-xs-6">
                             <a href="<%=fishlinkiOS%>">
                                 <img src="#" alt="" class="img_fishing_master_iOS">
-                                <span class="title_fishing_master"></span>
+                                <span class="title_fishing_master" data-i18n="LABEL_PRODUCTS_FISHING_MASTER"></span>
                             </a>
                         </div>
                         <%}%>
@@ -312,19 +302,19 @@ else {
                         <div class="col-xs-6">
                             <a href="<%=fishLinkAndroid%>">
                                 <img src="#" alt="" class="img_fishing_master_Android">
-                                <span class="title_fishing_master"></span>
+                                <span class="title_fishing_master" data-i18n="LABEL_PRODUCTS_FISHING_MASTER"></span>
                             </a>
                         </div>
                         <%}%>
                         <!-- Fishing  World -->
-                        <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+                        <!--<% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
                         <div class="col-xs-6">
                             <a href="<%=fishingWorld%>">
                                 <img src="#" alt="" class="img_fishing_world">
-                                <span class="title_fishing_world"></span>
+                                <span class="title_fishing_world" data-i18n="LABEL_PRODUCTS_FISHING_WORLD"></span>
                             </a>
                         </div>
-                        <% } %>
+                        <% } %>-->
                     </div>
                 </div>
             </li>
@@ -333,15 +323,15 @@ else {
             <li class="nav-category">
                 <a href="#" class="lottery">
                     <span class="icon icon-keno"></span>
-                    <span class="title_lottery"></span>
+                    <span class="title_lottery" data-i18n="LABEL_MENU_LOTTERY"></span>
                 </a>
                 <div class="nav-category-items">
-                    <h4><span class="title_lottery"></span></h4>
+                    <h4><span class="title_lottery" data-i18n="LABEL_MENU_LOTTERY"></span></h4>
                     <div class="row">
                         <div class="col-xs-6">
                             <a href="<%=commonLottery.getKenoUrl%>">
                                 <img src="#" alt="" class="img_lottery_keno">
-                                <span class="title_keno"></span>
+                                <span class="title_keno" data-i18n="LABEL_PRODUCTS_KENO"></span>
                             </a>
                         </div>
                     </div>
@@ -352,7 +342,7 @@ else {
             <li class="nav-category">
                 <a href="#" class="poker">
                     <span class="icon icon-spade"></span>
-                    <span class="title_poker"></span>
+                    <span class="title_poker" data-i18n="LABEL_MENU_POKER"></span>
                 </a>
                 <div class="nav-category-items">
                     <h4><span class="title_poker"></span></h4>
@@ -361,7 +351,7 @@ else {
                         <div class="col-xs-6">
                             <a href="<%=commonFunctions.getPokerDownloadLinks(1)%>">
                                 <img src="#" alt="" class="img_poker_iOS">
-                                <span class="title_ios"></span>
+                                <span class="title_ios" data-i18n="LABEL_IOS_DOWNLOAD"></span>
                             </a>
                         </div>
                         <%}%>
@@ -369,7 +359,7 @@ else {
                         <div class="col-xs-6">
                             <a href='<%=commonFunctions.getPokerDownloadLinks(2)%>'>
                                 <img src="#" alt="" class="img_poker_Android">
-                                <span class="title_android"></span>
+                                <span class="title_android" data-i18n="LABEL_ANDROID_DOWNLOAD"></span>
                             </a>
                         </div>
                         <%}%>
@@ -379,79 +369,66 @@ else {
             <!-- Texas Mahjong -->
             <li class="nav-category">
                 <a href="#" class="texas_mahjong">
-                <%if(deviceId==1 || deviceId==3){%>
-                    <span class="icon icon-mahjong"></span>
-                    <span class="title_texas_mahjong"></span>
-                <%}%>
-                <%if(deviceId==2){%>
-                    <%if(isSuperBull) { %>
-                        <span class="icon icon-super-bull"></span>
-                        <span class="title_super_bull"></span>
-                    <%} else { %>
-                        <span class="icon icon-mahjong"></span>
-                        <span class="title_texas_mahjong"></span>
-                    <%}%>
-                <%}%>
+                    <span class="icon icon-super-bull"></span>
+                    <span class="title_super_bull" data-i18n="LABEL_MENU_P2P"></span>
                 </a>
                 <div class="nav-category-items">
-                    <h4><span class="title_texas_mahjong"></span></h4>
+                    <h4><span class="title_texas_mahjong" data-i18n="LABEL_MENU_TEXAS_MAHJONG"></span></h4>
                     <div class="row">
                         <%if(deviceId==1){%>
                         <div class="col-xs-6">
                             <a href="/_Static/TexasMahjong/download.aspx">
                                 <img src="#" alt="" class="img_texas_mahjong_iOS">
-                                <span class="title_ios"></span>
+                                <span class="title_ios" data-i18n="LABEL_IOS_DOWNLOAD"></span>
                             </a>
                         </div>
                         <div class="col-xs-6">
                             <a href="/_Static/Downloads/superbull.aspx">
                                 <img src="#" alt="" class="img_super_bull">
-                                <span class="title_super_bull"></span>
+                                <span class="title_super_bull" data-i18n="LABEL_MENU_P2P"></span>
                             </a>
                         </div>
                         <%}%>
                         <%if(deviceId==2){%>
-                            <%if(isSuperBull) { %>
-                            <div class="col-xs-6">
-                                <a href='<%= commonFunctions.GetSuperBullDownloadLink()%>'>
-                                    <img src="#" alt="" class="img_super_bull">
-                                    <span class="title_super_bull"></span>
-                                </a>
-                            </div>
-                            <%}%>
-                            <div class="col-xs-6">
-                                <a href='<%=commonFunctions.getTexasMahjongDownloadLinks()%>'>
-                                    <img src="#" alt="" class="img_texas_mahjong_Android">
-                                    <span class="title_android"></span>
-                                </a>
-                            </div>
+                        <div class="col-xs-6">
+                            <a href='<%= commonFunctions.GetSuperBullDownloadLink()%>'>
+                                <img src="#" alt="" class="img_super_bull">
+                                <span class="title_super_bull" data-i18n="LABEL_MENU_P2P"></span>
+                            </a>
+                        </div>
+                        <div class="col-xs-6">
+                            <a href='<%=commonFunctions.getTexasMahjongDownloadLinks()%>'>
+                                <img src="#" alt="" class="img_texas_mahjong_Android">
+                                <span class="title_android" data-i18n="LABEL_ANDROID_DOWNLOAD"></span>
+                            </a>
+                        </div>
                         <%}%>
 
                         <%if(deviceId==3){%>
-                            <div class="col-xs-6">
-                                <a href='<%=commonFunctions.getTexasMahjongDownloadLinks()%>'>
-                                    <img src="#" alt="" class="img_texas_mahjong_Android">
-                                    <span class="title_android"></span>
-                                </a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="/_Static/TexasMahjong/download.aspx">
-                                    <img src="#" alt="" class="img_texas_mahjong_iOS">
-                                    <span class="title_ios"></span>
-                                </a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="/_Static/Downloads/superbull.aspx">
-                                    <img src="#" alt="" class="img_super_bull">
-                                    <span class="title_super_bull"></span>
-                                </a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href='<%= commonFunctions.GetSuperBullDownloadLink()%>'>
-                                    <img src="#" alt="" class="img_super_bull">
-                                    <span class="title_super_bull"></span>
-                                </a>
-                            </div>
+                        <div class="col-xs-6">
+                            <a href='<%=commonFunctions.getTexasMahjongDownloadLinks()%>'>
+                                <img src="#" alt="" class="img_texas_mahjong_Android">
+                                <span class="title_android" data-i18n="LABEL_ANDROID_DOWNLOAD"></span>
+                            </a>
+                        </div>
+                        <div class="col-xs-6">
+                            <a href="/_Static/TexasMahjong/download.aspx">
+                                <img src="#" alt="" class="img_texas_mahjong_iOS">
+                                <span class="title_ios" data-i18n="LABEL_IOS_DOWNLOAD"></span>
+                            </a>
+                        </div>
+                        <div class="col-xs-6">
+                            <a href="/_Static/Downloads/superbull.aspx">
+                                <img src="#" alt="" class="img_super_bull">
+                                <span class="title_super_bull" data-i18n="LABEL_MENU_P2P"></span>
+                            </a>
+                        </div>
+                        <div class="col-xs-6">
+                            <a href='<%= commonFunctions.GetSuperBullDownloadLink()%>'>
+                                <img src="#" alt="" class="img_super_bull">
+                                <span class="title_super_bull" data-i18n="LABEL_MENU_P2P"></span>
+                            </a>
+                        </div>
                         <%}%>
 
                     </div>
@@ -461,35 +438,35 @@ else {
             <li>
                 <a href="/Promotions">
                     <span class="icon icon-promo"></span>
-                    <span class="title_promo"></span>
+                    <span class="title_promo" data-i18n="LABEL_MENU_PROMOTIONS"></span>
                 </a>
             </li>
             <!-- Rewards -->
             <li>
                 <a href="<%=rewardsUrl%>">
                     <span class="icon icon-rewards"></span>
-                    <span class="title_rewards"></span>
+                    <span class="title_rewards" data-i18n="LABEL_MENU_REWARDS"></span>
                 </a>
             </li>
             <!-- Live Chat -->
             <li>
                 <a href="/LiveChat/Default.aspx">
                     <span class="icon icon-chat"></span>
-                    <span class="title_live_chat"></span>
+                    <span class="title_live_chat" data-i18n="LABEL_MENU_LIVE_CHAT"></span>
                 </a>
             </li>
             <!-- Language -->
             <li>
                 <a href="/Lang.aspx">
                     <span class="icon icon-world"></span>
-                    <span class="title_language"></span>
+                    <span class="title_language" data-i18n="LABEL_MENU_LANGUAGE"></span>
                 </a>
             </li>
             <!-- Desktop -->
             <li>
                 <a href="<%=desktopUrl%>">
                     <span class="icon icon-desktop"></span>
-                    <span class="title_desktop"></span>
+                    <span class="title_desktop" data-i18n="LABEL_MENU_DESKTOP"></span>
                 </a>
             </li>
             <!-- Logout -->
@@ -497,11 +474,10 @@ else {
             <li>
                 <a href="/Logout">
                     <span class="icon icon-logout"></span>
-                    <span class="title_logout"></span>
+                    <span class="title_logout" data-i18n="LABEL_MENU_LOGOUT"></span>
                 </a>
             </li>
             <% } %>
         </ul>
     </nav>
 </section>
-<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/menu.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>

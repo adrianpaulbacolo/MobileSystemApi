@@ -7,16 +7,20 @@
     </div>
     <div class="form-group">
         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
-        <asp:DropDownList ID="drpBank" runat="server" CssClass="form-control" data-bankequals="-1" />
+        <asp:DropDownList ID="drpBank" runat="server" CssClass="form-control" required data-selectequals="-1" />
     </div>
-    <div class="form-group checkbox checkbox-custom">
-        <asp:CheckBox type="checkbox" ID="isSwitchLine" runat="server" />
-        <asp:Label ID="lblSwitchLine" runat="server" AssociatedControlID="isSwitchLine" />
+    <div class="form-group">
+        <div class="checkbox checkbox-custom">
+            <label>
+                <input type="checkbox" id="isSwitchLine">
+                <span id="lblSwitchLine"></span>
+            </label>
+        </div>
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
-    <script type="text/javascript" src="/_static/v2/assets/js/gateways/quickonline.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-    <script type="text/javascript" src="/_static/v2/assets/js/gateways/banner.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/gateways/quickonline.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/gateways/banner.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -25,7 +29,7 @@
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
-            window.w88Mobile.Gateways.QuickOnlineV2.init("<%=base.PaymentMethodId %>", true);
+            _w88_quickonline.init("<%=base.PaymentMethodId %>", true);
 
             $('#form1').validator().on('submit', function (e) {
 
@@ -38,7 +42,6 @@
                         ThankYouPage: location.protocol + "//" + location.host + "/Index",
                         SwitchLine: $('input[id$="isSwitchLine"]').is(':checked'),
                         MethodId: "<%=base.PaymentMethodId%>",
-                        AutoRoute: true
                     };
 
                     var params = decodeURIComponent($.param(data));

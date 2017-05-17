@@ -6,23 +6,35 @@
 <html>
 <head runat="server">
     <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title></title>
-    <!--#include virtual="~/_Static/v2/head.inc" -->
-    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+    <!-- Bootstrap -->
+    <link href="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/css/base.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
+    <!-- JTSageDateBox -->
+    <link href="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/css/vendor/jtsage-datebox-4.1.1.bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/css/styles.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/cookie.min.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 </head>
 <body>
     <div class="canvas" canvas="container">
         <div class="main-screen">
             <header class="header">
                 <%
-                    var isHome = (!base.Page.Items.Contains("Parent") || !commonFunctions.isNativeAgent(Request));
+                    var isHome = (!base.Page.Items.Contains("Parent") || !commonFunctions.isExternalPlatform());
                     var navIcon = isHome ? "icon-navicon" : "icon-back";
                     var navUrl = isHome ? "#" : base.Page.Items["Parent"];
                 %>
-                <a href="<%=navUrl %>" class="header-button header-button-left" id="nav-btn<%=(commonFunctions.isNativeAgent(Request)) ? "-native" : "" %>">
+                <a href="<%=navUrl %>" class="header-button header-button-left" id="nav-btn<%=(commonFunctions.isExternalPlatform()) ? "-native" : "" %>">
                     <span class="icon <%=navIcon %>"></span>
                 </a>
-                <h1 class="header-title"><%=(base.Page.Title == "Dashboard" ? "<img alt=\"Dashboard\" src=\"/_Static/v2/assets/images/logo-en.png\" />" : base.Page.Title) %></h1>
+                <h1 class="header-title"><%=(base.Page.Title == "Dashboard" ? "<img alt=\"Dashboard\" src=\"" + ConfigurationManager.AppSettings.Get("AssetsPath") + "/assets/images/logo-en.png\" />" : base.Page.Title) %></h1>
                 <a id="historyFilter" class="header-button header-button-right">
                     <span class="icon icon-filter"></span>
                 </a>
@@ -35,8 +47,11 @@
 
     <% if (commonCookie.CookieIsApp != "1")
        { %>
-    <!--#include virtual="~/_Static/v2/menu.shtml" -->
+    <!--#include virtual="~/_static/v2/menu.shtml" -->
     <% } %>
+
+    <!--#include virtual="~/_static/v2/head.inc" -->
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 
     <asp:ContentPlaceHolder ID="ScriptsPlaceHolder" runat="server"></asp:ContentPlaceHolder>
 

@@ -25,7 +25,7 @@ public partial class _Index : BasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        CheckAgent();
+        CheckAgentAndRedirect("/v2/Dashboard.aspx");
         System.Web.UI.WebControls.Literal litScript = (System.Web.UI.WebControls.Literal)Page.FindControl("litScript");
 
         xeErrors = commonVariables.ErrorsXML;
@@ -213,14 +213,5 @@ public partial class _Index : BasePage
 
         url = url.Replace("{DOMAIN}", commonIp.DomainName).Replace("{TOKEN}", !string.IsNullOrWhiteSpace(commonVariables.CurrentMemberSessionId) ? commonVariables.EncryptedCurrentMemberSessionId : "").Replace("{LANG}", commonVariables.SelectedLanguage);
         return url;
-    }
-
-    private void CheckAgent()
-    {
-        var userAgent = Request.UserAgent.ToString();
-        if (userAgent.ToLower().Contains("clubw"))
-        {
-            Response.Redirect("/v2/Dashboard.aspx");
-        }
     }
 }

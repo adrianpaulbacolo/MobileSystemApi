@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Globalization;
 using System.Linq;
 using System.Xml.Linq;
@@ -87,14 +88,18 @@ namespace Helpers.GameProviders
 
         public string BuildUrl(string url, XElement element, GameLinkSetting setting)
         {
-            string lang = GetGameLanguage(element);
-            string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
-            string slotType = IsRslot(element) ? mrSlot : mSlot;
+            var lang = GetGameLanguage(element);
+            var gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
+            var slotType = IsRslot(element) ? mrSlot : mSlot;
+            var opSettings = new customConfig.OperatorSettings(ConfigurationManager.AppSettings.Get("Operator"));
+            var domainLauncher = LanguageCode.ToLower() == "cn"
+                ? opSettings.Values.Get("GPIGameLauncherCN")
+                : opSettings.Values.Get("GPIGameLauncherDefault");
 
             if (setting == GameLinkSetting.Real)
                 url = url.Replace("{TOKEN}", _gameLink.MemberSessionId);
 
-            return url.Replace("{TYPE}", slotType).Replace("{GAME}", gameName).Replace("{LANG}", lang);
+            return url.Replace("{TYPE}", slotType).Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{LAUNCHER}", domainLauncher);
         }
     }
 }

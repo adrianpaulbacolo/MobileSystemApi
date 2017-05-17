@@ -36,28 +36,20 @@ public class BasePage : System.Web.UI.Page
         string CDN_Value = getCDNValue();
         string key = getCDNKey();
 
+        var cdnCountryCode = GetCountryCode(CDN_Value, key);
+
+        if (string.IsNullOrEmpty(cdnCountryCode))
+        {
+            cdnCountryCode = GetCountryCodeByDomain("." + commonIp.DomainName);
+        }
+
         if (string.IsNullOrWhiteSpace(commonCookie.CookieLanguage))
         {
-            if (!string.IsNullOrEmpty(CDN_Value) && !string.IsNullOrEmpty(key))
-            {
-                commonVariables.SelectedLanguage = commonCountry.GetLanguageByCountry(GetCountryCode(CDN_Value, key));
-            }
-            else
-            {
-                Uri myUri = new Uri(System.Web.HttpContext.Current.Request.Url.ToString());
-                string[] host = myUri.Host.Split('.');
-
-                if (host.Count() > 1)
-                {
-                    commonVariables.SelectedLanguage = GetLanguageByDomain("." + host[1] + "." + host[2]);
-                }
-                else
-                {
-                    commonVariables.SelectedLanguage = GetLanguageByDomain("default");
-                }
-
-            }
+            commonVariables.SelectedLanguage = string.IsNullOrEmpty(cdnCountryCode) ?
+                GetLanguageByDomain("." + commonIp.DomainName) : commonCountry.GetLanguageByCountry(cdnCountryCode);
         }
+
+        commonVariables.CDNCountryCode = cdnCountryCode;
 
         base.OnInit(e);
     }
@@ -76,7 +68,13 @@ public class BasePage : System.Web.UI.Page
         var strIsApp = HttpContext.Current.Request.QueryString.Get("isApp");
         if (!string.IsNullOrEmpty(strIsApp))
         {
-               commonCookie.CookieIsApp = (strIsApp == "1") ? strIsApp : null;
+            commonCookie.CookieIsApp = (strIsApp == "1") ? strIsApp : null;
+        }
+
+        var strIsNative = HttpContext.Current.Request.QueryString.Get("isNative");
+        if (!string.IsNullOrEmpty(strIsNative))
+        {
+            commonCookie.CookieIsNative = (strIsNative == "1") ? strIsNative : null;
         }
 
         commonCookie.CookieSubPlatform(HttpContext.Current.Request.QueryString.Get("spfid"));
@@ -323,7 +321,7 @@ public class BasePage : System.Web.UI.Page
         }
         else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_MY].Contains(Domain))
         {
-            Language = "en-us";
+            Language = "zh-cn";
         }
         else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_KR].Contains(Domain))
         {
@@ -347,6 +345,50 @@ public class BasePage : System.Web.UI.Page
         }
 
         return Language;
+    }
+
+    public string GetCountryCodeByDomain(string Domain)
+    {
+        string CountryCode = string.Empty;
+
+        if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_CN].Contains(Domain))
+        {
+            CountryCode = "CN";
+        }
+        else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_VN].Contains(Domain))
+        {
+            CountryCode = "VN";
+        }
+        else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_TH].Contains(Domain))
+        {
+            CountryCode = "TH";
+        }
+        else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_ID].Contains(Domain))
+        {
+            CountryCode = "ID";
+        }
+        else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_MY].Contains(Domain))
+        {
+            CountryCode = "MY";
+        }
+        else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_KR].Contains(Domain))
+        {
+            CountryCode = "KR";
+        }
+        else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_JP].Contains(Domain))
+        {
+            CountryCode = "JP";
+        }
+        else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_KH].Contains(Domain))
+        {
+            CountryCode = "KH";
+        }
+        else
+        {
+            CountryCode = "CN";
+        }
+
+        return CountryCode;
     }
 
     protected void SetTitle(string s)
@@ -411,8 +453,7 @@ public class BasePage : System.Web.UI.Page
 
     protected void CheckAgentAndRedirect(string url)
     {
-        var userAgent = Request.UserAgent.ToString();
-        if (userAgent.ToLower().Contains("clubw"))
+        if (commonFunctions.isExternalPlatform())
         {
             Response.Redirect(url);
         }

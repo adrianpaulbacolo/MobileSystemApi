@@ -47,12 +47,6 @@ $(document).ready(function() {
 		$('.canvas').removeClass('expanded');
 		$('.side-nav').removeClass('overflow-shown');
 	});
-
-	$('.home-banner').slick({
-		arrows: false,
-		dots:true,
-		autoplay: true
-	});
 		
 });
 
@@ -147,4 +141,18 @@ function TwoDecimalAndroid(ctrl, event) {
     if ((text.indexOf('.') != -1) && (text.substring(text.indexOf('.')).length > 2) && (event.which != 0 && event.which != 8) && ($this[0].selectionStart >= text.length - 2)) {
         event.preventDefault();
     }
+}
+
+function getQueryStringValue(key) {
+    return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+}
+
+function addMonths(date, months) {
+    date.setMonth(date.getMonth() + months);
+    return date;
+}
+
+function addHours(date, hours) {
+    date.setMonth(date.getHours() + hours);
+    return date;
 }

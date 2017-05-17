@@ -48,7 +48,7 @@ public partial class Upload_Default : BasePage
         //string strUploadRecipients = System.Configuration.ConfigurationManager.AppSettings.Get("UploadRecipients");
         int fileSize = fuFileUpload.PostedFile.ContentLength;
         string fileExtension = System.IO.Path.GetExtension(fuFileUpload.PostedFile.FileName.ToString());
-        System.Text.RegularExpressions.Regex rexFileExt = new System.Text.RegularExpressions.Regex("(.gif|.jpg|.png)");
+        System.Text.RegularExpressions.Regex rexFileExt = new System.Text.RegularExpressions.Regex("(?i)(.gif|.jpg|.png)");
 
         if (fuFileUpload.HasFile)
         {
@@ -86,12 +86,12 @@ public partial class Upload_Default : BasePage
                                     break;
 
                                 case "usd":
-                                    message.CC.Add("team_cscambodia@aquozsolutions.com");
                                     message.CC.Add("CS_English@aquozsolutions.com");
+                                    message.CC.Add("team_cscambodia@aquozsolutions.com");
                                     break;
 
                                 case "rmb":
-                                    message.CC.Add("inforcn@w88.com");
+                                    message.CC.Add("cncs@w88yd.com");
                                     break;
 
                                 case "idr":
@@ -108,6 +108,10 @@ public partial class Upload_Default : BasePage
 
                                 case "vnd":
                                     message.CC.Add("team_csvietnam@aquozsolutions.com");
+                                    break;
+
+                                case "jpy":
+                                    message.CC.Add("team_csjapan@aquozsolutions.com");
                                     break;
                             }
 

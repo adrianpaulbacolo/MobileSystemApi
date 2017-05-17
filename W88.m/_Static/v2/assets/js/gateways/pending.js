@@ -1,5 +1,7 @@
 ﻿window.w88Mobile.Gateways.Pending = Pending();
 
+var _w88_pending = window.w88Mobile.Gateways.Pending;
+
 function Pending() {
 
     var pending;
@@ -13,31 +15,19 @@ function Pending() {
     }
 
     pending.init = function () {
+        $('label[id$="lblTransactionId"]').text(_w88_contents.translate("LABEL_TRANSACTION_ID"));
+        $('label[id$="lblRequestTime"]').text(_w88_contents.translate("LABEL_DATE_TIME"));
+        $('label[id$="lblPaymentMethod"]').text(_w88_contents.translate("LABEL_PAYMENT_METHOD"));
+        $('label[id$="lblAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
+        $('label[id$="lblStatus"]').text(_w88_contents.translate("LABEL_FIELDS_STATUS"));
 
-        setTranslations();
-        function setTranslations() {
-            if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
+        var widrawText = _w88_contents.translate("LABEL_HISTORY_DEPOSITWIDRAW").split("/");
+        $('#btnCancel').text(_w88_contents.translate("BUTTON_CANCEL") + " " + $.trim(widrawText[1]));
 
-                $('label[id$="lblTransactionId"]').text(_w88_contents.translate("LABEL_TRANSACTION_ID"));
-                $('label[id$="lblRequestTime"]').text(_w88_contents.translate("LABEL_DATE_TIME"));
-                $('label[id$="lblPaymentMethod"]').text(_w88_contents.translate("LABEL_PAYMENT_METHOD"));
-                $('label[id$="lblAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
-                $('label[id$="lblStatus"]').text(_w88_contents.translate("LABEL_FIELDS_STATUS"));
-
-                var widrawText = _w88_contents.translate("LABEL_HISTORY_DEPOSITWIDRAW").split("/");
-                $('#btnCancel').text(_w88_contents.translate("BUTTON_CANCEL") + " " + $.trim(widrawText[1]));
-
-                $('.gateway-select').hide();
-                $('.gateway-restrictions').hide();
-                $('#btnSubmitPlacement').hide();
-                $('header .header-title').text(_w88_contents.translate("LABEL_FUNDS_WIDRAW"));
-
-            } else {
-                window.setInterval(function () {
-                    setTranslations();
-                }, 500);
-            }
-        }
+        $('.gateway-select').hide();
+        $('.gateway-restrictions').hide();
+        $('#btnSubmitPlacement').hide();
+        $('header .header-title').text(_w88_contents.translate("LABEL_FUNDS_WIDRAW"));
 
         var pendingWithdraw = amplify.store(withdrawStorageKey);
 
@@ -50,19 +40,24 @@ function Pending() {
             window.location = withdrawPage;
         }
 
+        $("#btnCancel").click(function (e) {
+            e.preventDefault();
+            window.w88Mobile.Gateways.Pending.cancel();
+        });
     };
 
     pending.cancel = function () {
+        var _self = this;
 
         var pendingWithdraw = amplify.store(withdrawStorageKey);
 
-        _w88_paymentSvcV2.Send("/payments/withdrawal/pending", "POST", pendingWithdraw, function (response) {
+        _self.send("/payments/withdrawal/pending", "POST", pendingWithdraw, function (response) {
             switch (response.ResponseCode) {
                 case 1:
                     w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p>", function () {
                         window.location = withdrawPage;
                     });
-                    
+
                     break;
 
                 default:
@@ -73,7 +68,6 @@ function Pending() {
                     break;
             }
         });
-
     };
     return pending;
 }

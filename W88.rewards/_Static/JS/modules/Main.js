@@ -11,11 +11,12 @@ $(window).load(function () {
         sessionPoll = window.setInterval(function () {
             setUser();
             $.ajax({
-                contentType: 'application/json; charset=utf-8;',
+                contentType: 'text/html',
                 url: '/_Secure/AjaxHandlers/MemberSessionCheck.ashx',
                 type: 'POST',
-                data: JSON.stringify(window.user),
+                data: window.user.Token,
                 success: function (data) {
+                    if (!data) return;
                     if (data.Code === 1) {
                         return;
                     }
@@ -41,7 +42,8 @@ $(window).load(function () {
 });
 
 $(document).on('pagecontainerbeforeshow', function (event, ui) {
-    toggleLoginButton();
+    toggleButtons();
+
     var baseUri = [event.target.baseURI];
     if (_.some(baseUri, _.method('match', /Login/i))) {
         if (window.user && window.user.Token) {
@@ -102,11 +104,15 @@ function clear() {
             Cookies().setCookie('user', null, -1);
         if (!_.isEmpty(Cookies().getCookie('isvip')))
             Cookies().setCookie('isvip', null, -1);
+        if (!_.isEmpty(Cookies().getCookie('token')))
+            Cookies().setCookie('token', null, -1);
     } catch (e) {
         if (!_.isEmpty(Cookies().getCookie('user')))
             Cookies().setCookie('user', null, -1);
         if (!_.isEmpty(Cookies().getCookie('isvip')))
             Cookies().setCookie('isvip', null, -1);
+        if (!_.isEmpty(Cookies().getCookie('token')))
+            Cookies().setCookie('token', null, -1);
     }
     window.user = null;
     $.mobile.loading('hide');
@@ -158,40 +164,22 @@ function setUser() {
     window.user = _.isEmpty(storedObject) ? new User() : (new User()).createUser(storedObject);
 }
 
-function toggleLoginButton() {
+function toggleButtons() {
     var headerLoginButton = $('div.dropdown ul>li#headerLoginButton'),
         headerLogoutButton = $('div.dropdown ul>li#headerLogoutButton'),
         loginFooterButton = $('div.btn-group a#loginFooterButton'),
         logoutFooterButton = $('div.btn-group a#logoutFooterButton'),
         submitButton = $('#btnSubmit');
 
-    if (headerLoginButton && headerLogoutButton) {
-        if (window.user && window.user.hasSession()) {
-            headerLoginButton.hide();
-            headerLogoutButton.show();
-        } else {
-            headerLogoutButton.hide();
-            headerLoginButton.show();
-        }
-    }
-
-    if (loginFooterButton && logoutFooterButton) {
-        if (window.user && window.user.hasSession()) {
-            loginFooterButton.hide();
-            logoutFooterButton.show();
-        } else {
-            logoutFooterButton.hide();
-            loginFooterButton.show();
-        }
-    }
-
-    if (submitButton) {
-        if (window.user && window.user.hasSession()) {
-            $('#btnSubmit').hide();
-        } else {
-            $('#btnSubmit').show();
-        }
-    }
+    setUser();
+    if (headerLoginButton && headerLogoutButton)
+        window.user && window.user.hasSession() ? (headerLoginButton.hide(), headerLogoutButton.show())
+        : (headerLogoutButton.hide(), headerLoginButton.show());
+    if (loginFooterButton && logoutFooterButton)
+        window.user && window.user.hasSession() ? (loginFooterButton.hide(), logoutFooterButton.show())
+        : (logoutFooterButton.hide(), loginFooterButton.show());
+    if (submitButton)
+        window.user && window.user.hasSession() ? $("#btnSubmit").hide() : $("#btnSubmit").show();
 }
 
 // toggle full screen

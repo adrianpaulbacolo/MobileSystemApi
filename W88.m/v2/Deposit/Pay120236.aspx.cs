@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Web.UI;
 
-public partial class v2_Deposit_Pay120236 : PaymentBasePage
+public partial class v2_Deposit_Pay120236 : FundsBasePage
 {
     protected void Page_Init(object sender, EventArgs e)
     {
@@ -9,5 +8,4 @@ public partial class v2_Deposit_Pay120236 : PaymentBasePage
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.AllDebit);
     }
-
 }

@@ -16,7 +16,7 @@
             <% if (commonCookie.CookieIsApp != "1")
                { %>
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
-                <% if (commonFunctions.isNativeAgent(Request))
+                <% if (commonFunctions.isExternalPlatform())
                    { %>
                 <i class="icon icon-back"></i>
                 <% }

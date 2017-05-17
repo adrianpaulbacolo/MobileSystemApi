@@ -6,8 +6,8 @@
         <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" required data-paylimit="0" data-numeric />
     </div>
     <div class="form-group">
-        <asp:Label ID="lblAcctName" runat="server" AssociatedControlID="txtAccountName" />
-        <asp:TextBox ID="txtAccountName" runat="server" CssClass="form-control" required data-accountName="0" />
+        <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" />
+        <asp:TextBox ID="txtAccountName" runat="server" CssClass="form-control" required data-require="" />
     </div>
     <div class="form-group">
         <asp:Label ID="lblVenusPoints" runat="server" />
@@ -17,32 +17,17 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
-    <script type="text/javascript" src="/_static/v2/assets/js/gateways/venuspoint.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/gateways/moneytransfer.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
-
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
-            window.w88Mobile.Gateways.VenusPointV2.init();
-
-            $('input[id$="txtAmount"]').blur(function () {
-                if ($(this).val() && '<%=commonCookie.CookieCurrency%>' == "JPY") {
-                    var data = {
-                        amount: $('input[id$="txtAmount"]').autoNumeric('get'),
-                        currencyFrom: "JPY",
-                        currencyTo: "USD"
-                    };
-
-                    window.w88Mobile.Gateways.VenusPointV2.exchangeRate(data);
-                }
-            });
+            _w88_moneytransfer.init("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
 
             $('#form1').validator().on('submit', function (e) {
-
                 if (!e.isDefaultPrevented()) {
-
                     e.preventDefault();
 
                     var data = {
@@ -50,7 +35,7 @@
                         AccountName: $('input[id$="txtAccountName"]').val(),
                     };
 
-                    _w88_paymentSvcV2.CreateWithdraw(data, "<%=base.PaymentMethodId %>");
+                    _w88_moneytransfer.createWithdraw(data, "<%=base.PaymentMethodId %>");
                 }
             });
         });

@@ -38,7 +38,7 @@
                 <i class="icon icon-phone"></i>
                 <a id="aPhone" runat="server" href="/_Secure/Login.aspx">
                     <h4 class="title"><%=commonCulture.ElementValues.getResourceString("lblPhone", xeResources)%></h4>
-                    <p><%=commonCulture.ElementValues.getResourceString("lblPhoneMessage", xeResources)%></p>
+                    <p id="phoneMessage" runat="server"></p>
                 </a>
             </li>
             <%--
@@ -53,3 +53,7 @@
 
 </asp:Content>
 
+<asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder" runat="server">
+
+
+</asp:Content>

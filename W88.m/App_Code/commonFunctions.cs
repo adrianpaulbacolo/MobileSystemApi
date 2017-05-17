@@ -722,9 +722,9 @@ public static class commonFunctions
         return responseCode;
     }
 
-    public static bool isNativeAgent(HttpRequest request)
+    public static bool isExternalPlatform()
     {
-        return getMobileDevice(request) == 4;
+        return commonCookie.CookieIsNative == "1";
     }
 
     public static bool isMainPage(HttpRequest request)
@@ -739,6 +739,7 @@ public static class commonFunctions
             , "/lang.aspx"
             , "/lottery.aspx"
             , "/profile/default.aspx"
+            , "/v2/dashboard.aspx"
         };
 
         return pageList.Any(path.ToLower().Contains);
@@ -791,7 +792,9 @@ public static class commonFunctions
 
     public static string GetSuperBullDownloadLink()
     {
-        return ConfigurationManager.AppSettings["SuperBull_Android_URL"];
+        return commonCookie.CookieLanguage.ToLower() == "zh-cn"
+            ? ConfigurationManager.AppSettings["SuperBull_Android_URL"]
+            : ConfigurationManager.AppSettings["SuperBull_Android_URL_EN"];
     }
 
 }

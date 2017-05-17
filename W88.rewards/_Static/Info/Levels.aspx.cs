@@ -8,7 +8,7 @@ public partial class _Info_Levels : BasePage
         {
             return;
         }
-        var path = string.Format("{0}_Static\\Info\\Levels\\levels.{1}.htm", Server.MapPath("~").ToLower(), Language);
+        var path = string.Format("{0}_Static\\Info\\Levels\\levels.{1}.htm", Server.MapPath("~").ToLower(), ContentLanguage);
         htmltext.Text = System.IO.File.ReadAllText(path);                   
     }
 }

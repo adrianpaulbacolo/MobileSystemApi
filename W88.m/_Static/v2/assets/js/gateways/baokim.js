@@ -4,6 +4,7 @@ var _w88_baokim = window.w88Mobile.Gateways.BaokimV2;
 function BaokimV2() {
 
     var baokim;
+    var methodId;
 
     try {
         baokim = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
@@ -12,35 +13,91 @@ function BaokimV2() {
     }
 
     baokim.method = {};
-    baokim.init = function (selectName) {
+    baokim.initEWALLET = function (id, method) {
+        methodId = id;
+        baokim.method = method;
 
-        setTranslations();
-        function setTranslations() {
-            if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
+        $(".pay-note").show();
+        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+        $("#paymentNoteContent").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_" + baokim.method));
 
-                $('label[id$="lblBanks"]').text(_w88_contents.translate("LABEL_BANK"));
-                $('label[id$="lblEmailAtm"]').text(_w88_contents.translate("LABEL_EMAIL"));
-                $('label[id$="lblEmail"]').text(_w88_contents.translate("LABEL_EMAIL"));
-                $('label[id$="lblAmountAtm"]').text(_w88_contents.translate("LABEL_AMOUNT"));
-                $('label[id$="lblAmountWallet"]').text(_w88_contents.translate("LABEL_AMOUNT"));
-                $('label[id$="lblContact"]').text(_w88_contents.translate("LABEL_CONTACT"));
-                $('label[id$="lblWithdrawAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
-                $('label[id$="lblOtp"]').text(_w88_contents.translate("LABEL_OTP"));
+        $('label[id$="lblAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
+        $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
+        $('label[id$="lblEmail"]').text(_w88_contents.translate("LABEL_EMAIL"));
 
-                $('#ewallet').hide();
-                $('#atm').hide();
-                $('#btnSubmitPlacement').hide();
+        var amount = getQueryStringValue("requestAmount");
+        if (!_.isEmpty(amount)) {
+            $('input[id$="txtAmount"]').autoNumeric('set', getQueryStringValue("requestAmount"));
+            $('input[id$="txtAmount"]').attr('disabled', 'disabled');
 
-                if (!_.isUndefined(selectName)) {
-                    _w88_baokim.getBanks(selectName);
-                }
-
-            } else {
-                window.setInterval(function () {
-                    setTranslations();
-                }, 500);
-            }
+            baokim.showOTP();
+            baokim.method = "EWALLETCB";
         }
+        else {
+            baokim.hideOTP();
+            $('input[id$="txtAmount"]').removeAttr('disabled');
+        }
+
+        var email = getQueryStringValue("email");
+        if (!_.isEmpty(amount)) {
+            $('input[id$="txtEmail"]').val(email);
+            $('input[id$="txtEmail"]').attr('disabled', 'disabled');
+        }
+        else {
+            $('input[id$="txtEmail"]').removeAttr('disabled');
+        }
+    };
+
+    baokim.showOTP = function () {
+        $('.otp').show();
+        $('label[id$="lblOtp"]').text(_w88_contents.translate("LABEL_OTP"));
+        $('input[id$="txtOtp"]').attr({ required: '', 'data-require': '' });
+        $('#form1').validator('update')
+    };
+
+    baokim.hideOTP = function () {
+        $('.otp').hide();
+        $('input[id$="txtOtp"]').removeAttr('required data-require');
+        $('#form1').validator('update')
+    };
+
+    baokim.initATM = function (id, method) {
+        methodId = id;
+        baokim.method = method;
+
+        $(".pay-note").show();
+        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+        $("#paymentNoteContent").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_" + baokim.method));
+
+        $('label[id$="lblAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
+        $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
+        $('label[id$="lblEmail"]').text(_w88_contents.translate("LABEL_EMAIL"));
+        $('label[id$="lblContact"]').text(_w88_contents.translate("LABEL_CONTACT"));
+
+        baokim.getBanks();
+    };
+
+    baokim.initWithdraw = function () {
+        $('label[id$="lblEmail"]').text(_w88_contents.translate("LABEL_EMAIL"));
+    };
+
+    baokim.createWalletDeposit = function (data) {
+        var _self = this;
+
+        _self.send("/payments/" + methodId, "POST", data, function (response) {
+            switch (response.ResponseCode) {
+                case 1:
+                    window.location.replace(response.ResponseData.PostUrl);
+                    break;
+                default:
+                    if (_.isArray(response.ResponseMessage))
+                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage), _self.shoutCallback);
+                    else
+                        w88Mobile.Growl.shout(response.ResponseMessage, _self.shoutCallback);
+
+                    break;
+            }
+        });
     };
 
     baokim.createDeposit = function () {
@@ -48,23 +105,14 @@ function BaokimV2() {
         var params = _self.getUrlVars();
         var data;
 
-        if (params.Method == 'EWALLET') {
-            data = {
-                Amount: params.Amount,
-                ThankYouPage: params.ThankYouPage,
-                Method: params.Method,
-                Email: params.Email
-            };
-        } else {
-            data = {
-                Amount: params.Amount,
-                ThankYouPage: params.ThankYouPage,
-                Method: params.Method,
-                Email: params.Email,
-                Phone: params.Phone,
-                Bank: { Text: params.BankText, Value: params.BankValue }
-            };
-        }
+        data = {
+            Amount: params.Amount,
+            ThankYouPage: params.ThankYouPage,
+            Method: params.Method,
+            Email: params.Email,
+            Phone: params.Phone,
+            Bank: { Text: params.BankText, Value: params.BankValue }
+        };
 
         _self.methodId = params.MethodId;
         _self.changeRoute();
@@ -72,7 +120,7 @@ function BaokimV2() {
             switch (response.ResponseCode) {
                 case 1:
                     if (response.ResponseData.VendorRedirectionUrl) {
-                        window.open(response.ResponseData.VendorRedirectionUrl, '_blank');
+                        window.open(response.ResponseData.VendorRedirectionUrl);
                     } else {
                         if (response.ResponseData.PostUrl) {
                             w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
@@ -97,37 +145,36 @@ function BaokimV2() {
             });
     };
 
-    baokim.getBanks = function (selectName) {
-        _w88_paymentSvcV2.Send("/banks/vendor/120272", "GET", "", function (response) {
+    baokim.getBanks = function () {
+        var _self = this;
+
+        _self.send("/banks/vendor/" + methodId, "GET", "", function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
-                $('select[id$="drpBank"]').append($('<option>').text(selectName).attr('value', '-1'));
+                $('select[id$="drpBank"]').append($('<option>').text(_w88_contents.translate("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
 
                 _.forOwn(response.ResponseData, function (data) {
                     $('select[id$="drpBank"]').append($('<option>').text(data.Text).attr('value', data.Value));
                 });
-
-                $('select[id$="drpBank"]').val('-1').change();
             }
-        }, undefined);
+        }, "");
     };
 
-    baokim.verifyOtp = function (data) {
-        _w88_paymentSvcV2.Send("/payments/120272", "POST", data, function (response) {
-            if (response && _.isEqual(response.ResponseCode, 1)) {
-                return response;
-            }
-        }, undefined);
+    baokim.verifyOtp = function (data, successCallback) {
+        var _self = this;
+
+        _self.send("/payments/" + methodId, "POST", data, successCallback);
     };
 
     baokim.validateWallet = function (data, transactionId) {
+        var _self = this;
 
-        _w88_paymentSvcV2.Send("/payments/120272/" + transactionId, "GET", data, function (response) {
+        _self.send("/payments/" + methodId + "/" + transactionId, "GET", data, function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
                 switch (response.ResponseCode) {
                     case 1:
-                        w88Mobile.Growl.shout(response.ResponseMessage, function() {
-                            window.location.replace('/v2/Funds.aspx');
-                        } );
+                        w88Mobile.Growl.shout(response.ResponseMessage, function () {
+                            window.location.replace('/v2/Deposit/Pay120272EWALLET.aspx');
+                        });
                         break;
                     default:
                         w88Mobile.Growl.shout(response.ResponseMessage);
@@ -135,6 +182,12 @@ function BaokimV2() {
                 }
             }
         }, undefined);
+    };
+
+    baokim.createWithdraw = function (data) {
+        var _self = this;
+        _self.methodId = methodId;
+        _self.withdraw(data);
     };
 
     return baokim;

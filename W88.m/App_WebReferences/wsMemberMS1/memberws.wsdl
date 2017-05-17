@@ -44,7 +44,7 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="MemberRegistrationNew">
+      <s:element name="MemberRegistrationNewWithLineId">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
@@ -70,13 +70,14 @@
             <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="dob" type="s:dateTime" />
             <s:element minOccurs="0" maxOccurs="1" name="cardCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lineId" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="MemberRegistrationNewResponse">
+      <s:element name="MemberRegistrationNewWithLineIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="MemberRegistrationNewResult">
+            <s:element minOccurs="0" maxOccurs="1" name="MemberRegistrationNewWithLineIdResult">
               <s:complexType>
                 <s:sequence>
                   <s:element ref="s:schema" />
@@ -743,6 +744,29 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetMemberRebateStatementPerProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="memberId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="fromDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="productCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberRebateStatementPerProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMemberRebateStatementPerProductResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetMemberRebateStatement_old">
         <s:complexType>
           <s:sequence>
@@ -1091,6 +1115,28 @@
       <s:element name="MemberProductSignupResponse">
         <s:complexType />
       </s:element>
+      <s:element name="GetBonusCodesForMemberWithLanguage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="memberId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="languageCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBonusCodesForMemberWithLanguageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBonusCodesForMemberWithLanguageResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetBonusCodesForMember">
         <s:complexType>
           <s:sequence>
@@ -1142,6 +1188,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="DeviceID" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="TestAccount" type="s:boolean" />
           <s:element minOccurs="0" maxOccurs="1" name="CardCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LineID" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="MemberRegistrationNew_FastRegResponse">
@@ -1204,11 +1251,11 @@
   <wsdl:message name="MemberRegistrationSoapOut">
     <wsdl:part name="parameters" element="tns:MemberRegistrationResponse" />
   </wsdl:message>
-  <wsdl:message name="MemberRegistrationNewSoapIn">
-    <wsdl:part name="parameters" element="tns:MemberRegistrationNew" />
+  <wsdl:message name="MemberRegistrationNewWithLineIdSoapIn">
+    <wsdl:part name="parameters" element="tns:MemberRegistrationNewWithLineId" />
   </wsdl:message>
-  <wsdl:message name="MemberRegistrationNewSoapOut">
-    <wsdl:part name="parameters" element="tns:MemberRegistrationNewResponse" />
+  <wsdl:message name="MemberRegistrationNewWithLineIdSoapOut">
+    <wsdl:part name="parameters" element="tns:MemberRegistrationNewWithLineIdResponse" />
   </wsdl:message>
   <wsdl:message name="CheckMemberCodeSoapIn">
     <wsdl:part name="parameters" element="tns:CheckMemberCode" />
@@ -1402,6 +1449,12 @@
   <wsdl:message name="GetMemberRebateStatementSoapOut">
     <wsdl:part name="parameters" element="tns:GetMemberRebateStatementResponse" />
   </wsdl:message>
+  <wsdl:message name="GetMemberRebateStatementPerProductSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMemberRebateStatementPerProduct" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberRebateStatementPerProductSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMemberRebateStatementPerProductResponse" />
+  </wsdl:message>
   <wsdl:message name="GetMemberRebateStatement_oldSoapIn">
     <wsdl:part name="parameters" element="tns:GetMemberRebateStatement_old" />
   </wsdl:message>
@@ -1504,6 +1557,12 @@
   <wsdl:message name="MemberProductSignupSoapOut">
     <wsdl:part name="parameters" element="tns:MemberProductSignupResponse" />
   </wsdl:message>
+  <wsdl:message name="GetBonusCodesForMemberWithLanguageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBonusCodesForMemberWithLanguage" />
+  </wsdl:message>
+  <wsdl:message name="GetBonusCodesForMemberWithLanguageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBonusCodesForMemberWithLanguageResponse" />
+  </wsdl:message>
   <wsdl:message name="GetBonusCodesForMemberSoapIn">
     <wsdl:part name="parameters" element="tns:GetBonusCodesForMember" />
   </wsdl:message>
@@ -1534,10 +1593,10 @@
       <wsdl:input message="tns:MemberRegistrationSoapIn" />
       <wsdl:output message="tns:MemberRegistrationSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="MemberRegistrationNew">
+    <wsdl:operation name="MemberRegistrationNewWithLineId">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Member Registration : Process Code Description&lt;br&gt;Included Card Integration&lt;br&gt;1 = Registration Successful&lt;br&gt;10 = Registration Failed - Member Code already exists&lt;br&gt;11 = Registration Failed - Email already exists&lt;br&gt;40 = Registration Failed - CardCode already registered&lt;br&gt;50 = Registration Failed - Mobile number is not unique for VN member&lt;br&gt;0 = Error occurred.&lt;br&gt;</wsdl:documentation>
-      <wsdl:input message="tns:MemberRegistrationNewSoapIn" />
-      <wsdl:output message="tns:MemberRegistrationNewSoapOut" />
+      <wsdl:input message="tns:MemberRegistrationNewWithLineIdSoapIn" />
+      <wsdl:output message="tns:MemberRegistrationNewWithLineIdSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="CheckMemberCode">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">CheckMemberCode : Process Code Description&lt;br&gt;1 = MemberCode does not exist.&lt;br&gt;10 = Member Code already exist.&lt;br&gt;0 = Error occur.&lt;br&gt;</wsdl:documentation>
@@ -1699,6 +1758,11 @@
       <wsdl:input message="tns:GetMemberRebateStatementSoapIn" />
       <wsdl:output message="tns:GetMemberRebateStatementSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetMemberRebateStatementPerProduct">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Member Rebate Statement&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetMemberRebateStatementPerProductSoapIn" />
+      <wsdl:output message="tns:GetMemberRebateStatementPerProductSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetMemberRebateStatement_old">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Member Rebate Statement old&lt;br&gt;</wsdl:documentation>
       <wsdl:input message="tns:GetMemberRebateStatement_oldSoapIn" />
@@ -1784,6 +1848,11 @@
       <wsdl:input message="tns:MemberProductSignupSoapIn" />
       <wsdl:output message="tns:MemberProductSignupSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetBonusCodesForMemberWithLanguage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Bonus Codes For Member &lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetBonusCodesForMemberWithLanguageSoapIn" />
+      <wsdl:output message="tns:GetBonusCodesForMemberWithLanguageSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetBonusCodesForMember">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Bonus Codes For Member &lt;br&gt;</wsdl:documentation>
       <wsdl:input message="tns:GetBonusCodesForMemberSoapIn" />
@@ -1816,8 +1885,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="MemberRegistrationNew">
-      <soap:operation soapAction="http://tempuri.org/MemberRegistrationNew" style="document" />
+    <wsdl:operation name="MemberRegistrationNewWithLineId">
+      <soap:operation soapAction="http://tempuri.org/MemberRegistrationNewWithLineId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2113,6 +2182,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetMemberRebateStatementPerProduct">
+      <soap:operation soapAction="http://tempuri.org/GetMemberRebateStatementPerProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetMemberRebateStatement_old">
       <soap:operation soapAction="http://tempuri.org/GetMemberRebateStatement_old" style="document" />
       <wsdl:input>
@@ -2266,6 +2344,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetBonusCodesForMemberWithLanguage">
+      <soap:operation soapAction="http://tempuri.org/GetBonusCodesForMemberWithLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetBonusCodesForMember">
       <soap:operation soapAction="http://tempuri.org/GetBonusCodesForMember" style="document" />
       <wsdl:input>
@@ -2314,8 +2401,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="MemberRegistrationNew">
-      <soap12:operation soapAction="http://tempuri.org/MemberRegistrationNew" style="document" />
+    <wsdl:operation name="MemberRegistrationNewWithLineId">
+      <soap12:operation soapAction="http://tempuri.org/MemberRegistrationNewWithLineId" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -2611,6 +2698,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetMemberRebateStatementPerProduct">
+      <soap12:operation soapAction="http://tempuri.org/GetMemberRebateStatementPerProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetMemberRebateStatement_old">
       <soap12:operation soapAction="http://tempuri.org/GetMemberRebateStatement_old" style="document" />
       <wsdl:input>
@@ -2757,6 +2853,15 @@
     </wsdl:operation>
     <wsdl:operation name="MemberProductSignup">
       <soap12:operation soapAction="http://tempuri.org/MemberProductSignup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBonusCodesForMemberWithLanguage">
+      <soap12:operation soapAction="http://tempuri.org/GetBonusCodesForMemberWithLanguage" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
