@@ -1,6 +1,6 @@
 ﻿using System;
 
-public partial class v2_ChangePassword : BasePage
+public partial class v2_Account_ChangePassword : BasePage
 {
     protected override void OnLoad(EventArgs e)
     {

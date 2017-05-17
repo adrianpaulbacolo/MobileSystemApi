@@ -10,12 +10,6 @@ function ChangePassword() {
         _w88_validator.initiateValidator("#form1");
 
         $('header .header-title').append(_w88_contents.translate("LABEL_CHANGEPASSWORD"));
-
-        $('[id$="lblPassword"]').text(_w88_contents.translate("LABEL_CHANGEPASSWORD_CURRENT"));
-        $('[id$="lblPasswordNew"]').text(_w88_contents.translate("LABEL_CHANGEPASSWORD_NEW"));
-        $('[id$="lblPasswordConfirm"]').text(_w88_contents.translate("LABEL_CHANGEPASSWORD_CONFIRM"));
-
-        $('#btnSubmit').text(_w88_contents.translate("BUTTON_SUBMIT"));
     };
 
     changepassword.send = function (data) {

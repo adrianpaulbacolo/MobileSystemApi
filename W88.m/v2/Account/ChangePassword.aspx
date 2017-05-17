@@ -1,22 +1,22 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/v2/MasterPages/Main.master" AutoEventWireup="true" CodeFile="ChangePassword.aspx.cs" Inherits="v2_ChangePassword" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/v2/MasterPages/Main.master" AutoEventWireup="true" CodeFile="ChangePassword.aspx.cs" Inherits="v2_Account_ChangePassword" %>
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentHolder" runat="Server">
     <div class="form-container">
         <div class="container">
             <form class="form" id="form1" runat="server">
                 <div class="form-group">
-                    <asp:Label ID="lblPassword" runat="server" AssociatedControlID="txtPassword" />
+                    <asp:Label ID="lblPassword" runat="server" AssociatedControlID="txtPassword" data-i18n="LABEL_CHANGEPASSWORD_CURRENT" />
                     <asp:TextBox ID="txtPassword" runat="server" type="password" CssClass="form-control" required data-require="" />
                 </div>
                 <div class="form-group">
-                    <asp:Label ID="lblPasswordNew" runat="server" AssociatedControlID="txtPasswordNew" />
+                    <asp:Label ID="lblPasswordNew" runat="server" AssociatedControlID="txtPasswordNew" data-i18n="LABEL_CHANGEPASSWORD_NEW" />
                     <asp:TextBox ID="txtPasswordNew" runat="server" type="password" MinLength="8" MaxLength="10" CssClass="form-control" required data-require="" />
                 </div>
                 <div class="form-group">
-                    <asp:Label ID="lblPasswordConfirm" runat="server" AssociatedControlID="txtPasswordConfirm" />
+                    <asp:Label ID="lblPasswordConfirm" runat="server" AssociatedControlID="txtPasswordConfirm" data-i18n="LABEL_CHANGEPASSWORD_CONFIRM" />
                     <asp:TextBox ID="txtPasswordConfirm" runat="server" type="password" MinLength="8" MaxLength="10" CssClass="form-control" required data-confirmvalue="txtPasswordNew" />
                 </div>
-                <button type="submit" id="btnSubmit" class="btn btn-block btn-primary"></button>
+                <button type="submit" id="btnSubmit" class="btn btn-block btn-primary"  data-i18n="BUTTON_SUBMIT"></button>
             </form>
         </div>
     </div>

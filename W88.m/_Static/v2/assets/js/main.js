@@ -147,6 +147,16 @@ function getQueryStringValue(key) {
     return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
 }
 
+function addMonths(date, months) {
+    date.setMonth(date.getMonth() + months);
+    return date;
+}
+
+function addHours(date, hours) {
+    date.setMonth(date.getHours() + hours);
+    return date;
+}
+
 function send(resource, method, data, success, complete) {
 
     var selector = "";
