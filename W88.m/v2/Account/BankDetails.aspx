@@ -5,38 +5,38 @@
         <div class="container">
             <form class="form" id="form1" runat="server">
                 <div class="form-group">
-                    <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
+                    <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" data-i18n="LABEL_BANK" />
                     <asp:DropDownList ID="drpBank" runat="server" CssClass="form-control" required data-selectequals="-1" />
                 </div>
                 <div class="form-group bankname" hidden>
-                    <asp:Label ID="lblBankName" runat="server" AssociatedControlID="txtBankName" />
+                    <asp:Label ID="lblBankName" runat="server" AssociatedControlID="txtBankName" data-i18n="LABEL_BANK_NAME" />
                     <asp:TextBox ID="txtBankName" runat="server" CssClass="form-control" />
                 </div>
                 <div class="form-group">
-                    <asp:Label ID="lblBankBranch" runat="server" AssociatedControlID="txtBankBranch" />
+                    <asp:Label ID="lblBankBranch" runat="server" AssociatedControlID="txtBankBranch" data-i18n="LABEL_BANK_BRANCH" />
                     <asp:TextBox ID="txtBankBranch" runat="server" CssClass="form-control" required data-require="" />
                 </div>
                 <div class="form-group">
-                    <asp:Label ID="lblBankAddress" runat="server" AssociatedControlID="txtBankAddress" />
+                    <asp:Label ID="lblBankAddress" runat="server" AssociatedControlID="txtBankAddress" data-i18n="LABEL_BANK_ADDRESS" />
                     <asp:TextBox ID="txtBankAddress" runat="server" CssClass="form-control" required data-require="" />
                 </div>
                 <div class="form-group">
-                    <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" />
+                    <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" data-i18n="LABEL_ACCOUNT_NAME" />
                     <asp:TextBox ID="txtAccountName" runat="server" CssClass="form-control" required data-require="" />
                 </div>
                 <div class="form-group">
-                    <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" />
+                    <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" data-i18n="LABEL_ACCOUNT_NUMBER" />
                     <asp:TextBox ID="txtAccountNumber" runat="server" CssClass="form-control" required data-require="" />
                 </div>
                 <div class="form-group">
                     <div class="checkbox checkbox-custom">
                         <label>
                             <input type="checkbox" id="isPreferred" />
-                            <span id="lblIsPreferred"></span>
+                            <span id="lblIsPreferred" data-i18n="LABEL_IS_PREFERRED"></span>
                         </label>
                     </div>
                 </div>
-                <button type="submit" id="btnSubmit" class="btn btn-block btn-primary"></button>
+                <button type="submit" id="btnSubmit" class="btn btn-block btn-primary" data-i18n="BUTTON_SUBMIT"></button>
             </form>
         </div>
     </div>

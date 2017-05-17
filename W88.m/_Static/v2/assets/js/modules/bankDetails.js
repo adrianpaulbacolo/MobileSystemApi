@@ -15,14 +15,6 @@ function BankDetails() {
         _w88_validator.initiateValidator("#form1");
 
         $('header .header-title').html(_w88_contents.translate("LABEL_MENU_BANK_DETAILS"));
-        $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
-        $('label[id$="lblBankName"]').text(_w88_contents.translate("LABEL_BANK_NAME"));
-        $('label[id$="lblBankBranch"]').text(_w88_contents.translate("LABEL_BANK_BRANCH"));
-        $('label[id$="lblBankAddress"]').text(_w88_contents.translate("LABEL_BANK_ADDRESS"));
-        $('label[id$="lblAccountName"]').text(_w88_contents.translate("LABEL_ACCOUNT_NAME"));
-        $('label[id$="lblAccountNumber"]').text(_w88_contents.translate("LABEL_ACCOUNT_NUMBER"));
-        $('[id$="btnSubmit"]').text(_w88_contents.translate("BUTTON_SUBMIT"));
-        $('[id$="lblIsPreferred"]').text(_w88_contents.translate("LABEL_IS_PREFERRED"));
 
         getBanks();
 
