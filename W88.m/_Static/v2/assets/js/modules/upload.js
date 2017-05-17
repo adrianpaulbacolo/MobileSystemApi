@@ -6,10 +6,6 @@ function Upload() {
     upload.init = function () {
         _w88_validator.initiateValidator("#form1");
 
-        $('[id$="lblFileUpload"]').text(_w88_contents.translate("LABEL_FILE"));
-        $('[id$="lblRemarks"]').text(_w88_contents.translate("LABEL_REMARKS"));
-        $('[id$="btnSubmit"]').text(_w88_contents.translate("BUTTON_SUBMIT"));
-
         // Script for Upload field
         $(".btn-upload").click(function () {
             var upload = $(this).parent().siblings('input[type="file"]');

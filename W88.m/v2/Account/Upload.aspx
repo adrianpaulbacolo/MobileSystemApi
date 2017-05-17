@@ -5,7 +5,7 @@
         <div class="container">
             <form class="form" id="form1" runat="server">
                 <div class="form-group">
-                    <label id="lblFileUpload" for=""></label>
+                    <label id="lblFileUpload" for="" data-i18n="LABEL_FILE" ></label>
                     <div class="input-group">
                         <input type="text" class="form-control input-upload" placeholder="Upload Image" readonly>
                         <input type="file" class="hidden" accept="image/*" required data-require="" />
@@ -15,10 +15,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <asp:Label ID="lblRemarks" runat="server" AssociatedControlID="txtRemarks" />
+                    <asp:Label ID="lblRemarks" runat="server" AssociatedControlID="txtRemarks" data-i18n="LABEL_REMARKS" />
                     <asp:TextBox ID="txtRemarks" runat="server" CssClass="form-control" />
                 </div>
-                <button type="submit" id="btnSubmit" class="btn btn-block btn-primary"></button>
+                <button type="submit" id="btnSubmit" class="btn btn-block btn-primary" data-i18n="BUTTON_SUBMIT"></button>
             </form>
         </div>
     </div>
