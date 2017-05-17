@@ -16,18 +16,17 @@ $(window).load(function () {
                 type: 'POST',
                 data: window.user.Token,
                 success: function (data) {
-                    if (!data) return;
-                    if (data.Code === 1) {
-                        return;
-                    }
-
-                    if (!_.isEmpty(data.Message)) w88Mobile.Growl.shout(data.Message);
-                    clearInterval(sessionPoll);
-                    setTimeout(function() {
-                        clear();
-                    }, 2000);                    
-                },
-                error: function (err) {
+                    if (!data || _.isUndefined(data.Code)) return;
+                    switch(data.Code) {
+                        case 1: return;
+                        default:
+                            if (!_.isEmpty(data.Message)) w88Mobile.Growl.shout(data.Message);
+                            clearInterval(sessionPoll);
+                            setTimeout(function () {
+                                logout(window.user.MemberId);
+                            }, 2000);
+                            break;
+                    } 
                 }
             });
         }, interval);
@@ -42,8 +41,6 @@ $(window).load(function () {
 });
 
 $(document).on('pagecontainerbeforeshow', function (event, ui) {
-    toggleButtons();
-
     var baseUri = [event.target.baseURI];
     if (_.some(baseUri, _.method('match', /Login/i))) {
         if (window.user && window.user.Token) {
@@ -66,14 +63,14 @@ function loadPage(uri, params, transition) {
     $(':mobile-pagecontainer').pagecontainer('change', uri, { data: params, reload: true, transition: transition });
 }
 
-function logout() {
+function logout(memberId) {
     setUser();
     if (_.isEmpty(window.user)) return;
     $.ajax({
         url: '/api/user/logout',
         contentType: 'text/html',
         async: true,
-        data: 'MemberId=' + window.user.MemberId,
+        data: 'MemberId=' + memberId,
         beforeSend: function() {
             $.mobile.loading('show');
         },
@@ -147,44 +144,4 @@ function setUser() {
     if (_.isEmpty(storedObject))
         storedObject = Cookies().getCookie('user');
     window.user = _.isEmpty(storedObject) ? new User() : (new User()).createUser(storedObject);
-}
-
-function toggleButtons() {
-    var headerLoginButton = $('div.dropdown ul>li#headerLoginButton'),
-        headerLogoutButton = $('div.dropdown ul>li#headerLogoutButton'),
-        loginFooterButton = $('div.btn-group a#loginFooterButton'),
-        logoutFooterButton = $('div.btn-group a#logoutFooterButton'),
-        submitButton = $('#btnSubmit');
-
-    setUser();
-    if (headerLoginButton && headerLogoutButton)
-        window.user && window.user.hasSession() ? (headerLoginButton.hide(), headerLogoutButton.show())
-        : (headerLogoutButton.hide(), headerLoginButton.show());
-    if (loginFooterButton && logoutFooterButton)
-        window.user && window.user.hasSession() ? (loginFooterButton.hide(), logoutFooterButton.show())
-        : (logoutFooterButton.hide(), loginFooterButton.show());
-    if (submitButton)
-        window.user && window.user.hasSession() ? $("#btnSubmit").hide() : $("#btnSubmit").show();
-}
-
-// toggle full screen
-function toggleFullScreen() {
-    if (!document.fullscreenElement &&    // alternative standard method
-        !document.mozFullScreenElement && !document.webkitFullscreenElement) {  // current working methods
-        if (document.documentElement.requestFullscreen) {
-            document.documentElement.requestFullscreen();
-        } else if (document.documentElement.mozRequestFullScreen) {
-            document.documentElement.mozRequestFullScreen();
-        } else if (document.documentElement.webkitRequestFullscreen) {
-            document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-        }
-    } else {
-        if (document.cancelFullScreen) {
-            document.cancelFullScreen();
-        } else if (document.mozCancelFullScreen) {
-            document.mozCancelFullScreen();
-        } else if (document.webkitCancelFullScreen) {
-            document.webkitCancelFullScreen();
-        }
-    }
 }
