@@ -11,7 +11,6 @@
     </div>
     <div class="download-instructions">
         <div class="container">
-            <ol id="instructions"></ol>
         </div>
     </div>
     <div class="download-button">
@@ -26,7 +25,7 @@
         $("section.body").hide();
 
         function downloadItemsContentsLoaded(data) {
-            if (_w88_contents.translate("DOWNLOADS_INSTRUCTIONS_CONTENT") == "DOWNLOADS_INSTRUCTIONS_CONTENT") return;
+            if ($.i18n("DOWNLOADS_INSTRUCTIONS_CONTENT") == "DOWNLOADS_INSTRUCTIONS_CONTENT") return;
             $("section.body").show();
          <%
         switch (Item)
@@ -34,36 +33,36 @@
             case "palazzo-casino":
         %>
 
-            $("#instructionHeader h3.title").html(_w88_contents.translate("DOWNLOADS_INSTRUCTIONS_HEADER"));
-            $("div.download-instructions ol").replaceWith(_w88_contents.translate("DOWNLOADS_INSTRUCTIONS_CONTENT"));
-            $("div.download-button a#downloadlink").html(_w88_contents.translate("BUTTON_DOWNLOAD_NOW"));
+            $("#instructionHeader h3.title").html($.i18n("DOWNLOADS_INSTRUCTIONS_HEADER"));
+            $("div.download-instructions div.container").html($.i18n("DOWNLOADS_INSTRUCTIONS_CONTENT"));
+            $("div.download-button a#downloadlink").html($.i18n("BUTTON_DOWNLOAD_NOW"));
             $("div.download-button a#downloadlink").attr("href", "http://mlive.w88palazzo.com").attr("target", "_blank");
             $("div.download-coverphoto img").attr("src", "/_static/v2/assets/images/downloads/PT-LiveCasino-DownloadPage.jpg");
         <%
                 break;
             case "palazzo-slots":
         %>
-            $("#instructionHeader h3.title").html(_w88_contents.translate("DOWNLOADS_INSTRUCTIONS_HEADER"));
-            $("div.download-instructions ol").replaceWith(_w88_contents.translate("DOWNLOADS_INSTRUCTIONS_CONTENT"));
-            $("div.download-button a#downloadlink").html(_w88_contents.translate("BUTTON_DOWNLOAD_NOW"));
+            $("#instructionHeader h3.title").html($.i18n("DOWNLOADS_INSTRUCTIONS_HEADER"));
+            $("div.download-instructions div.container").html($.i18n("DOWNLOADS_INSTRUCTIONS_CONTENT"));
+            $("div.download-button a#downloadlink").html($.i18n("BUTTON_DOWNLOAD_NOW"));
             $("div.download-button a#downloadlink").attr("href", "http://mgames.w88palazzo.com").attr("target", "_blank");
             $("div.download-coverphoto img").attr("src", "/_static/v2/assets/images/downloads/PT-Slots-DownloadPage.jpg");
          <%
                 break;
             case "texas-mahjong-ios":
         %>
-            $("#instructionHeader h3.title").html(_w88_contents.translate("DOWNLOADS_INSTRUCTIONS_TMSIOS_HEADER"));
-            $("div.download-instructions ol").replaceWith(_w88_contents.translate("DOWNLOADS_INSTRUCTIONS_TMSIOS_CONTENT"));
-            $("div.download-button a#downloadlink").html(_w88_contents.translate("BUTTON_DOWNLOAD_NOW"));
+            $("#instructionHeader h3.title").html($.i18n("DOWNLOADS_INSTRUCTIONS_TMSIOS_HEADER"));
+            $("div.download-instructions div.container").html($.i18n("DOWNLOADS_INSTRUCTIONS_TMSIOS_CONTENT"));
+            $("div.download-button a#downloadlink").html($.i18n("BUTTON_DOWNLOAD_NOW"));
             $("div.download-button a#downloadlink").attr("href", "<%=ConfigurationManager.AppSettings["TexasMahjongIOS_URL"] %>");
             $("div.download-coverphoto img").attr("src", "/_static/v2/assets/images/downloads/TM-DownloadPage.jpg");
          <%
                 break;
             case "super-bull-ios":
         %>
-            $("#instructionHeader h3.title").html(_w88_contents.translate("DOWNLOADS_INSTRUCTIONS_SBULLIOS_HEADER"));
-            $("div.download-instructions ol").replaceWith(_w88_contents.translate("DOWNLOADS_INSTRUCTIONS_SBULLIOS_CONTENT"));
-            $("div.download-button a#downloadlink").html(_w88_contents.translate("BUTTON_DOWNLOAD_NOW"));
+            $("#instructionHeader h3.title").html($.i18n("DOWNLOADS_INSTRUCTIONS_SBULLIOS_HEADER"));
+            $("div.download-instructions div.container").html($.i18n("DOWNLOADS_INSTRUCTIONS_SBULLIOS_CONTENT"));
+            $("div.download-button a#downloadlink").html($.i18n("BUTTON_DOWNLOAD_NOW"));
             var sbullLink = "<%=(commonVariables.SelectedLanguage == "zh-cn") ? ConfigurationManager.AppSettings["SuperBull_IOS_URL"] : ConfigurationManager.AppSettings["SuperBull_IOS_URL_EN"] %>";
             $("div.download-button a#downloadlink").attr("href", sbullLink);
             $("div.download-coverphoto img").attr("src", "/_Static/Images/Download/Superbull-iOS-Mobile-Download.jpg");

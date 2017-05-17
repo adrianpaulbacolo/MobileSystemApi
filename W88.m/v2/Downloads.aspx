@@ -101,7 +101,7 @@
                     }
                 },
                 {
-                    title: _w88_contents.translate("LABEL_MENU_SUPERBULL"),
+                    title: $.i18n("LABEL_MENU_SUPERBULL"),
                     ios: {
                         src: "/_Static/Images/Download/bnr-superbull-ios.jpg",
                         link: "/v2/Downloads/super-bull-ios",
