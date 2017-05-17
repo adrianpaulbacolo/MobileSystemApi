@@ -69,7 +69,7 @@ function logout(sessionId) {
         contentType: 'text/html',
         url: '/_Secure/AjaxHandlers/MemberSessionCheck.ashx',
         type: 'POST',
-        data: window.user.Token,
+        data: sessionId,
         success: function (data) {
             if (!data || _.isUndefined(data.Code)) return;
             switch (data.Code) {
