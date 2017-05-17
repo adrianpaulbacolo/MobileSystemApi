@@ -1,8 +1,7 @@
 ﻿using System;
 
-public partial class v2_Withdrawal_Pay2107138 : PaymentBasePage
+public partial class v2_Withdrawal_Pay2107138 : FundsBasePage
 {
-
     protected void Page_Init(object sender, EventArgs e)
     {
         base.PageName = Convert.ToString(commonVariables.WithdrawalMethod.TrueMoney);

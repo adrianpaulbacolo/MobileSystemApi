@@ -12,12 +12,9 @@ using Members = W88.BusinessLogic.Accounts.Helpers.Members;
 public class MemberSessionCheck : HttpTaskAsyncHandler, System.Web.SessionState.IReadOnlySessionState
 {
     public override async Task ProcessRequestAsync(HttpContext context)
-    {
-        if (!context.Request.ContentType.Contains("json")) return;
-        
-        var jsonString = new StreamReader(context.Request.InputStream).ReadToEnd();
-        var memberSession = Common.DeserializeObject<MemberSession>(jsonString);
-        var process = await (new Members()).MembersSessionCheck(memberSession.Token);
+    {   
+        var token = new StreamReader(context.Request.InputStream).ReadToEnd();
+        var process = await (new Members()).MembersSessionCheck(token);
         
         switch (process.Code)
         {

@@ -9,7 +9,12 @@
     <script type="application/javascript" src="/_Static/JS/add2home.js"></script>
 </head>
 <body>
-
+    <% if (commonCookie.Get("CDNCountryCode") == "VN") {%>
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W854N4G"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <%}%>
     <div class="download-app-box">
         <%if (mobileDeviceId == 2)
           {%>

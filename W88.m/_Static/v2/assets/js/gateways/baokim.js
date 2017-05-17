@@ -4,6 +4,7 @@ var _w88_baokim = window.w88Mobile.Gateways.BaokimV2;
 function BaokimV2() {
 
     var baokim;
+    var methodId;
 
     try {
         baokim = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
@@ -12,8 +13,8 @@ function BaokimV2() {
     }
 
     baokim.method = {};
-    baokim.init = function (method) {
-
+    baokim.initEWALLET = function (id, method) {
+        methodId = id;
         baokim.method = method;
 
         $(".pay-note").show();
@@ -24,19 +25,16 @@ function BaokimV2() {
         $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
         $('label[id$="lblEmail"]').text(_w88_contents.translate("LABEL_EMAIL"));
 
-        if (_.isEqual(baokim.method, "EWALLET"))
-
-            var amount = getQueryStringValue("requestAmount");
+        var amount = getQueryStringValue("requestAmount");
         if (!_.isEmpty(amount)) {
             $('input[id$="txtAmount"]').autoNumeric('set', getQueryStringValue("requestAmount"));
             $('input[id$="txtAmount"]').attr('disabled', 'disabled');
 
-            $(".otp").show();
-            $('label[id$="lblOtp"]').text(_w88_contents.translate("LABEL_OTP"));
+            baokim.showOTP();
             baokim.method = "EWALLETCB";
         }
         else {
-            $(".otp").hide();
+            baokim.hideOTP();
             $('input[id$="txtAmount"]').removeAttr('disabled');
         }
 
@@ -48,13 +46,23 @@ function BaokimV2() {
         else {
             $('input[id$="txtEmail"]').removeAttr('disabled');
         }
-
-
-
     };
 
-    baokim.initATM = function (method, getBank) {
+    baokim.showOTP = function () {
+        $('.otp').show();
+        $('label[id$="lblOtp"]').text(_w88_contents.translate("LABEL_OTP"));
+        $('input[id$="txtOtp"]').attr({ required: '', 'data-require': '' });
+        $('#form1').validator('update')
+    };
 
+    baokim.hideOTP = function () {
+        $('.otp').hide();
+        $('input[id$="txtOtp"]').removeAttr('required data-require');
+        $('#form1').validator('update')
+    };
+
+    baokim.initATM = function (id, method) {
+        methodId = id;
         baokim.method = method;
 
         $(".pay-note").show();
@@ -66,25 +74,20 @@ function BaokimV2() {
         $('label[id$="lblEmail"]').text(_w88_contents.translate("LABEL_EMAIL"));
         $('label[id$="lblContact"]').text(_w88_contents.translate("LABEL_CONTACT"));
 
-
-        _w88_baokim.getBanks();
+        baokim.getBanks();
     };
 
-    baokim.createWalletDeposit = function (methodId, data) {
-        _w88_paymentSvcV2.Send("/payments/" + methodId, "POST", data, function (response) {
+    baokim.initWithdraw = function () {
+        $('label[id$="lblEmail"]').text(_w88_contents.translate("LABEL_EMAIL"));
+    };
+
+    baokim.createWalletDeposit = function (data) {
+        var _self = this;
+
+        _self.send("/payments/" + methodId, "POST", data, function (response) {
             switch (response.ResponseCode) {
                 case 1:
-                    if (response.ResponseData.VendorRedirectionUrl) {
-                        window.open(response.ResponseData.VendorRedirectionUrl, '_blank');
-                    } else {
-                        if (response.ResponseData.PostUrl) {
-                            w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
-                            w88Mobile.PostPaymentForm.submit();
-                        } else if (response.ResponseData.DummyURL) {
-                            w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.DummyURL, "body");
-                            w88Mobile.PostPaymentForm.submit();
-                        }
-                    }
+                    window.location.replace(response.ResponseData.PostUrl);
                     break;
                 default:
                     if (_.isArray(response.ResponseMessage))
@@ -117,7 +120,7 @@ function BaokimV2() {
             switch (response.ResponseCode) {
                 case 1:
                     if (response.ResponseData.VendorRedirectionUrl) {
-                        window.open(response.ResponseData.VendorRedirectionUrl, '_blank');
+                        window.open(response.ResponseData.VendorRedirectionUrl);
                     } else {
                         if (response.ResponseData.PostUrl) {
                             w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
@@ -143,30 +146,29 @@ function BaokimV2() {
     };
 
     baokim.getBanks = function () {
-        _w88_paymentSvcV2.Send("/banks/vendor/120272", "GET", "", function (response) {
+        var _self = this;
+
+        _self.send("/banks/vendor/" + methodId, "GET", "", function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
                 $('select[id$="drpBank"]').append($('<option>').text(_w88_contents.translate("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
 
                 _.forOwn(response.ResponseData, function (data) {
                     $('select[id$="drpBank"]').append($('<option>').text(data.Text).attr('value', data.Value));
                 });
-
-                $('select[id$="drpBank"]').val('-1').change();
             }
-        }, undefined);
+        }, "");
     };
 
-    baokim.verifyOtp = function (data) {
-        _w88_paymentSvcV2.Send("/payments/120272", "POST", data, function (response) {
-            if (response && _.isEqual(response.ResponseCode, 1)) {
-                return response;
-            }
-        }, undefined);
+    baokim.verifyOtp = function (data, successCallback) {
+        var _self = this;
+
+        _self.send("/payments/" + methodId, "POST", data, successCallback);
     };
 
     baokim.validateWallet = function (data, transactionId) {
+        var _self = this;
 
-        _w88_paymentSvcV2.Send("/payments/120272/" + transactionId, "GET", data, function (response) {
+        _self.send("/payments/" + methodId + "/" + transactionId, "GET", data, function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
                 switch (response.ResponseCode) {
                     case 1:
@@ -180,6 +182,12 @@ function BaokimV2() {
                 }
             }
         }, undefined);
+    };
+
+    baokim.createWithdraw = function (data) {
+        var _self = this;
+        _self.methodId = methodId;
+        _self.withdraw(data);
     };
 
     return baokim;

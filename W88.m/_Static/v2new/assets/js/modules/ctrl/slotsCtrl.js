@@ -35,9 +35,9 @@ function slotsCtrl(routeObj, slotSvc, templateSvc) {
         if (_self.route != "index") return;
         _.forEach(slotSvc.clubs, function (club) {
             _.forEach(club.providers, function (prov) {
-                pubsub.publish("slotItemsChanged", _self.setPushData({
+                _self.onSlotItemsChanged({
                     provider: prov
-                }));
+                });
             });
         });
 
