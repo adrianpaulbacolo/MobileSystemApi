@@ -413,6 +413,18 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <div class="title menuKenoTitle"></div>
                     </a>
                 </li>
+                <li>
+                    <div class="card">
+                        <img src="#" class="img-responsive pk10">
+                        <div class="title menuPK10Title"></div>
+                        <div class="card-hover">
+                            <div class="card-hover-btns">
+                                <a href="<%=commonLottery.getPK10Url(true) %>" target="<%=(!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? " _blank" : "_self") %>" data-ajax="false" class="ui-btn btn-primary play-pk"><span class="icon-arrow-right"></span></a>
+                                <a href="<%=commonLottery.getPK10Url(false) %>" target="_blank" data-ajax="false" class="ui-btn btn-secondary try-pk"><span class="icon-arrow-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </li>
         <!-- Poker -->
@@ -778,6 +790,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             $('body').addClass('open-subnav');
 
             $('.keno').attr('src', '/_Static/Images/bnr_lottery.jpg');
+            $('.pk10').attr('src', '/_Static/Images/lottery/bnr_lottery_pk10.jpg');
 
             if(typeof adjustMenu == "function"){
                 adjustMenu();
