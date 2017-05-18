@@ -25,11 +25,7 @@ User.prototype.createUser = function (user) {
 User.prototype.save = function () {
     var self = this,
         user = self.convertToJsonString();
-    try {
-        amplify.store(window.location.host + '_user', user);
-    } catch (e) {
-        Cookies().setCookie('user', user, 30);
-    }
+    amplify.store(window.location.host + '_user', user);
 };
 
 User.prototype.hasSession = function () {
