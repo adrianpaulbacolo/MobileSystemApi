@@ -53,6 +53,7 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
     this.filterClubSlots = function (filter) {
 
         var _self = this;
+        if (!_.isEmpty(filter.section)) _self.club.section = filter.section;
 
         if (!_.isUndefined(filter.section) && filter.section.toLowerCase() == 'all') {
             _self.page.find(".main-content").children().remove();
