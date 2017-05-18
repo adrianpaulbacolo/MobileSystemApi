@@ -2,6 +2,7 @@
     position: relative;
     max-width: 632px;
     margin: 0 auto;
+    overflow: hidden;
     img{
         width: 100%;
         display: block;
@@ -48,6 +49,11 @@
             padding-top: 7px;
             padding-bottom: 7px;
             margin-bottom: 3px;
+        }
+        img{
+            width: 112%;
+            margin-left: -6%;
+            margin-right: -6%;
         }
         .banner-caption{
             margin: 3% 10px 0 0;

@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="ui-content" role="main">
         <div class="lottery-banner">
-            <img src="/_Static/Images/lottery/keno-banner.jpg" class="img-responsive img-bg">
+            <img src="/_Static/Images/lottery/keno-banner.jpg">
             <div class="banner-caption">
                 <div class="banner-caption-content">
                     <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/Keno/Label", commonVariables.ProductsXML)%></h3>
@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="lottery-banner">
-            <img src="/_Static/Images/lottery/lottery-PK10.jpg" class="img-responsive img-bg">
+            <img src="/_Static/Images/lottery/lottery-PK10.jpg">
             <div class="banner-caption banner-caption-2">
                 <div class="banner-caption-content">
                     <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/PK10/Label", commonVariables.ProductsXML)%></h3>
