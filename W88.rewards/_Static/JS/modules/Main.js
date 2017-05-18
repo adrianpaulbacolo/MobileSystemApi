@@ -56,31 +56,44 @@ function loadPage(uri, params, transition) {
 
 function logout() {
     if (!sessionId) return;
-    setUser();
     $.ajax({
-        url: '/api/user/logout',
         contentType: 'text/html',
-        async: true,
-        data: 'MemberId=' + (window.user ? window.user.MemberId : ''),
-        beforeSend: function () {
-            $.mobile.loading('show');
-        },
-        success: function (response) {
-            if (sessionPoll) clearInterval(sessionPoll);
-            switch (response.ResponseCode) {
+        url: '/_Secure/AjaxHandlers/MemberSessionCheck.ashx',
+        type: 'POST',
+        data: sessionId,
+        success: function (data) {
+            if (!data || _.isUndefined(data.Code)) return;
+            switch (data.Code) {
                 case 1:
-                    clear();
+                    $.ajax({
+                        url: '/api/user/logout',
+                        contentType: 'text/html',
+                        async: true,
+                        data: 'MemberId=' + data.Data.MemberId,
+                        beforeSend: function () {
+                            $.mobile.loading('show');
+                        },
+                        success: function (response) {
+                            if (sessionPoll) clearInterval(sessionPoll);
+                            switch (response.ResponseCode) {
+                                case 1:
+                                    break;
+                                default:
+                                    $.mobile.loading('hide');
+                                    if (!_.isEmpty(response.ResponseMessage));
+                                        window.w88Mobile.Growl.shout(response.ResponseMessage);
+                                    break;
+                            }
+                            clear();
+                        }
+                    });
                     break;
                 default:
-                    $.mobile.loading('hide');
-                    if (_.isEmpty(response.ResponseMessage)) return;
-                    window.w88Mobile.Growl.shout(response.ResponseMessage);
+                    if (!_.isEmpty(data.Message)) w88Mobile.Growl.shout(data.Message);
+                    if (sessionPoll) clearInterval(sessionPoll);
+                    clear();
                     break;
             }
-        },
-        error: function (response) {
-            $.mobile.loading('hide');
-            window.w88Mobile.Growl.shout(response.ResponseMessage);
         }
     });
 }
