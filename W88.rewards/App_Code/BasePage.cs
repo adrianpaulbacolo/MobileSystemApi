@@ -155,6 +155,7 @@ public class BasePage : Page
             {                
                 token = Encryption.Decrypt(W88.Utilities.Constant.EncryptionType.TripleDESCS, token);               
             }
+
             if (string.IsNullOrEmpty(token))
             {
                 token = HttpContext.Current.Request.Headers.Get("token");
@@ -163,10 +164,6 @@ public class BasePage : Page
                     token = Token;
                 }
                 if (string.IsNullOrEmpty(token)) return false;
-            }
-            else
-            {
-                Token = token;
             }
             var process = await MembersHelper.MembersSessionCheck(token);
             if (!(process.Code == 1 && !string.IsNullOrEmpty(process.Data.Token))) return false;
