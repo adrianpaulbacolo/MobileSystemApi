@@ -5,7 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" href="/_Static/Css/spinwheel/spinwheel.css" />
     <script type="text/javascript" src="/_Static/JS/Mobile/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="/_Static/JS/modules/pointlevelinfo.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/w88.mrewards.pointlevelinfo.min.js"></script>
     <script type="text/javascript" src="/_Static/JS/dist/w88.mrewards.sw.min.js"></script>
     <script type="text/javascript">
         var translations = {

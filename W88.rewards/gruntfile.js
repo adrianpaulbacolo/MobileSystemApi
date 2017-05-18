@@ -40,7 +40,8 @@
                     '_Static/Css/<%= pkg.name %>.css',
                     '_Static/Css/errors/styles.css',
                     '_Static/Css/errors/styles-light.css',
-                    '_Static/JS/dist/<%= pkg.name %>.sw.min.js'
+                    '_Static/JS/dist/<%= pkg.name %>.sw.min.js',
+                    '_Static/JS/dist/<%= pkg.name %>.pointlevelinfo.min.js'
                 ]
             }
         },
@@ -56,7 +57,8 @@
                     '_Static/Css/<%= pkg.name %>.css',
                     '_Static/Css/errors/styles.css',
                     '_Static/Css/errors/styles-light.css',
-                    '_Static/JS/dist/<%= pkg.name %>.sw.min.js'
+                    '_Static/JS/dist/<%= pkg.name %>.sw.min.js',
+                    '_Static/JS/dist/<%= pkg.name %>.pointlevelinfo.min.js'
                 ]
             },
             views: {
@@ -86,6 +88,7 @@
                     , '_Static/JS/dist/<%= pkg.name %>.main.js': ['_Static/JS/modules/Main.js']
                     , '_Static/JS/dist/<%= pkg.name %>.login.js': ['_Static/JS/modules/login.js']
                     , '_Static/JS/dist/<%= pkg.name %>.sw.min.js': ['_Static/JS/modules/spinwheel.js']
+                    , '_Static/JS/dist/<%= pkg.name %>.pointlevelinfo.min.js': ['_Static/JS/modules/pointlevelinfo.js']
                 }
             }
         },
