@@ -7,7 +7,7 @@
 <html lang="en">
     <head>
         <title><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Brand)%></title>
-        <!--#include virtual="~/_static/headvip.inc" -->
+        <!--#include virtual="~/_static/head.inc" -->
     </head>
     <body>
         <div data-role="page" data-theme="b">

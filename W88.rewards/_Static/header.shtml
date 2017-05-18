@@ -19,8 +19,11 @@
                         <li><a data-ajax="false" href="/_Static/Info/Terms.aspx"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.TNC)%></a></li>  
                         <li><a data-ajax="false" href="/_Static/Info/FAQ.aspx"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.FAQ)%></a></li>                                           
                         <li><a data-ajax="false" href="/Lang.aspx"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Language)%></a></li>                                                                  
-                        <li id="headerLoginButton"><a data-ajax="false" href="/_Secure/Login.aspx"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Login)%></a></li>
-                        <li id="headerLogoutButton"><a href="javascript: logout();"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Logout)%></a></li>
+                        <% if(string.IsNullOrEmpty(BasePage.Token)) {%>
+                            <li><a data-ajax="false" href="/_Secure/Login.aspx"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Login)%></a></li>
+                        <%} else {%>
+                            <li><a href="javascript:logout();"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Logout)%></a></li>
+                        <%}%>                
                     </ul>
                 </div>
                 <a data-ajax="false" href="/LiveChat/Default.aspx" class="pull-right header-chat"><span class="icon icon-chat"></span></a>

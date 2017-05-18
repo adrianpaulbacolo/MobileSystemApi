@@ -104,7 +104,7 @@
                     showMessage('<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.Exception)%>');
                 },
                 data: JSON.stringify({                     
-                    MemberId: !_.isEmpty(window.user) && window.user.hasSession() ? window.user.MemberId : '',
+                    MemberId: '<%=MemberSession != null ? MemberSession.MemberId : ""%>',
                     Password: $('#txtCurrentPassword').val(),
                     NewPassword: $('#txtNewPassword').val(),
                     ConfirmPassword: $('#txtConfirmPassword').val(),
