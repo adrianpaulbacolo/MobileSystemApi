@@ -22,7 +22,7 @@ function checkSession() {
                         if (!_.isEmpty(data.Message)) w88Mobile.Growl.shout(data.Message);
                         clearInterval(sessionPoll);
                         setTimeout(function () {
-                            logout(sessionId);
+                            logout();
                         }, 2000);
                         break;
                 }
