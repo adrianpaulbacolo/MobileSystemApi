@@ -99,6 +99,18 @@
                         src: "/_Static/v2/Assets/Images/downloads/TexasMahjong-Android.jpg",
                         link: "https://tm.gp2play.com/mobile/android/install.html",
                     }
+                },
+                {
+                    title: $.i18n("LABEL_MENU_SUPERBULL"),
+                    ios: {
+                        src: "/_Static/Images/Download/bnr-superbull-ios.jpg",
+                        link: "/v2/Downloads/super-bull-ios",
+                    },
+                    others: {
+                        src: "/_Static/Images/Download/bnr-superbull-android.jpg",
+                        link: "<%= commonFunctions.GetSuperBullDownloadLink()%>",
+                        target: "_blank"
+                    }
                 }
         ];
 
