@@ -12,8 +12,8 @@ User.prototype.convertToJsonString = function () {
 };
 
 User.prototype.createUser = function (user) {
-    var self = this;
-    var obj = JSON.parse(user);
+    var self = this,
+        obj = JSON.parse(user);
     self.CurrencyCode = _.isEmpty(obj.CurrencyCode) ? null : obj.CurrencyCode;
     self.LanguageCode = _.isEmpty(obj.LanguageCode) ? null : obj.LanguageCode;
     self.MemberId = _.isEmpty(obj.MemberId) ? null : obj.MemberId;
@@ -23,10 +23,10 @@ User.prototype.createUser = function (user) {
 };
 
 User.prototype.save = function () {
-    var self = this;
-    var user = self.convertToJsonString();
+    var self = this,
+        user = self.convertToJsonString();
     try {
-        window.localStorage.setItem('user', user);
+        amplify.store(window.location.host + '_user', user);
     } catch (e) {
         Cookies().setCookie('user', user, 30);
     }

@@ -17,6 +17,7 @@
                         '_Static/JS/vendor/bootstrap.min.js'
                         , '_Static/JS/vendor/slick.min.js'
                         , '_Static/JS/vendor/lodash.js'
+                        , '_Static/JS/vendor/amplify.min.js'
                     ],
                     '_Static/JS/dist/concat-c.js': [
                         '_Static/JS/modules/GPINT.js'

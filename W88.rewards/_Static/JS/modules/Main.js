@@ -56,57 +56,37 @@ function loadPage(uri, params, transition) {
 
 function logout() {
     if (!sessionId) return;
+    setUser();
     $.ajax({
+        url: '/api/user/logout',
         contentType: 'text/html',
-        url: '/_Secure/AjaxHandlers/MemberSessionCheck.ashx',
-        type: 'POST',
-        data: sessionId,
-        success: function (data) {
-            if (!data || _.isUndefined(data.Code)) return;
-            switch (data.Code) {
+        async: true,
+        data: 'MemberId=' + (window.user ? window.user.MemberId : ''),
+        beforeSend: function () {
+            $.mobile.loading('show');
+        },
+        success: function (response) {
+            if (sessionPoll) clearInterval(sessionPoll);
+            switch (response.ResponseCode) {
                 case 1:
-                    $.ajax({
-                        url: '/api/user/logout',
-                        contentType: 'text/html',
-                        async: true,
-                        data: 'MemberId=' + data.Data.MemberId,
-                        beforeSend: function () {
-                            $.mobile.loading('show');
-                        },
-                        success: function (response) {
-                            if (sessionPoll) clearInterval(sessionPoll);
-                            switch (response.ResponseCode) {
-                                case 1:
-                                    clear();
-                                    break;
-                                default:
-                                    $.mobile.loading('hide');
-                                    if (_.isEmpty(response.ResponseMessage)) return;
-                                    window.w88Mobile.Growl.shout(response.ResponseMessage);
-                                    break;
-                            }
-                        },
-                        error: function (response) {
-                            $.mobile.loading('hide');
-                            window.w88Mobile.Growl.shout(response.ResponseMessage);
-                        }
-                    });
+                    clear();
                     break;
                 default:
-                    if (!_.isEmpty(data.Message)) w88Mobile.Growl.shout(data.Message);
-                    clearInterval(sessionPoll);
+                    $.mobile.loading('hide');
+                    if (_.isEmpty(response.ResponseMessage)) return;
+                    window.w88Mobile.Growl.shout(response.ResponseMessage);
                     break;
             }
+        },
+        error: function (response) {
+            $.mobile.loading('hide');
+            window.w88Mobile.Growl.shout(response.ResponseMessage);
         }
     });
 }
 
 function clear() {
-    try {
-        window.localStorage.removeItem('user');
-    } catch (e) { }
-    if (!_.isEmpty(Cookies().getCookie('user')))
-        Cookies().setCookie('user', '', -1);
+    amplify.store(window.location.host + '_user', null);
     window.user = null;
     $.mobile.loading('hide');
     window.location.href = '/Logout';
@@ -144,11 +124,6 @@ function Cookies() {
 }
 
 function setUser() {
-    var storedObject;
-    try {
-        storedObject = window.localStorage.getItem('user');
-    } catch (e) { }
-    if (_.isEmpty(storedObject))
-        storedObject = Cookies().getCookie('user');
+    var storedObject = amplify.store(window.location.host + '_user');
     window.user = _.isEmpty(storedObject) ? new User() : (new User()).createUser(storedObject);
 }
