@@ -20,9 +20,9 @@
                         <li><a data-ajax="false" href="/_Static/Info/FAQ.aspx"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.FAQ)%></a></li>                                           
                         <li><a data-ajax="false" href="/Lang.aspx"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Language)%></a></li>                                                                  
                         <% if(string.IsNullOrEmpty(BasePage.Token)) {%>
-                            <li id="headerLoginButton"><a data-ajax="false" href="/_Secure/Login.aspx"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Login)%></a></li>
+                            <li><a data-ajax="false" href="/_Secure/Login.aspx"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Login)%></a></li>
                         <%} else {%>
-                            <li id="headerLogoutButton"><a href="javascript:logout('<%=BasePage.Token%>');"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Logout)%></a></li>
+                            <li><a href="javascript:logout();"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Logout)%></a></li>
                         <%}%>                
                     </ul>
                 </div>

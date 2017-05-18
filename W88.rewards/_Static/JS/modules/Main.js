@@ -1,44 +1,35 @@
 ﻿var sessionPoll;
+
 // Set window.user property
 setUser();
-$(window).load(function () {
-    GPINTMOBILE.HideSplash();
-    function checkSession() {
-        var intervalMin = 3000,
-            interval = (window.user && parseInt(sessionInterval) > 0) 
-            ? parseInt(sessionInterval) : intervalMin;
-            
-        sessionPoll = window.setInterval(function () {
-            setUser();
-            $.ajax({
-                contentType: 'text/html',
-                url: '/_Secure/AjaxHandlers/MemberSessionCheck.ashx',
-                type: 'POST',
-                data: window.user.Token,
-                success: function (data) {
-                    if (!data || _.isUndefined(data.Code)) return;
-                    switch(data.Code) {
-                        case 1: return;
-                        default:
-                            if (!_.isEmpty(data.Message)) w88Mobile.Growl.shout(data.Message);
-                            clearInterval(sessionPoll);
-                            setTimeout(function () {
-                                logout(window.user.Token);
-                            }, 2000);
-                            break;
-                    } 
+
+function checkSession() {
+    if (!sessionId) return;
+    var intervalMin = 10000,
+        interval = !isNaN(parseInt(sessionInterval)) ? parseInt(sessionInterval) : intervalMin;
+
+    sessionPoll = window.setInterval(function () {
+        $.ajax({
+            contentType: 'text/html',
+            url: '/_Secure/AjaxHandlers/MemberSessionCheck.ashx',
+            type: 'POST',
+            data: sessionId,
+            success: function (data) {
+                if (!data || _.isUndefined(data.Code)) return;
+                switch (data.Code) {
+                    case 1: return;
+                    default:
+                        if (!_.isEmpty(data.Message)) w88Mobile.Growl.shout(data.Message);
+                        clearInterval(sessionPoll);
+                        setTimeout(function () {
+                            logout(sessionId);
+                        }, 2000);
+                        break;
                 }
-            });
-        }, interval);
-    }
-
-    if (window.user && window.user.hasSession())
-        checkSession();
-
-    $('.navbar-toggle').on('click', function () {
-        $(this).toggleClass('active');
-    });
-});
+            }
+        });
+    }, interval);
+}
 
 $(document).on('pagecontainerbeforeshow', function (event, ui) {
     var baseUri = [event.target.baseURI];
@@ -63,7 +54,7 @@ function loadPage(uri, params, transition) {
     $(':mobile-pagecontainer').pagecontainer('change', uri, { data: params, reload: true, transition: transition });
 }
 
-function logout(sessionId) {
+function logout() {
     if (!sessionId) return;
     $.ajax({
         contentType: 'text/html',
@@ -100,6 +91,7 @@ function logout(sessionId) {
                             window.w88Mobile.Growl.shout(response.ResponseMessage);
                         }
                     });
+                    break;
                 default:
                     if (!_.isEmpty(data.Message)) w88Mobile.Growl.shout(data.Message);
                     clearInterval(sessionPoll);

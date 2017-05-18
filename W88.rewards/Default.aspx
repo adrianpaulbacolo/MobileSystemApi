@@ -27,7 +27,7 @@
                                 <span class="icon icon-login"></span><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Login)%>
                             </a>
                         <% } else {%>
-                            <a href="javascript: logout('<%=Token%>');" class="btn">
+                            <a href="javascript: logout();" class="btn">
                                 <span class="icon icon-login"></span><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Logout)%>
                             </a>
                         <%} %>
