@@ -47,6 +47,7 @@ function translate() {
                 var contents = amplify.store(location.hostname + "_translations");
                 if (!_.isEmpty(contents)) {
                     contents = _.assign(contents, response.ResponseData);
+                    pubsub.publish("contentsLoaded", {});
                 } else {
                     contents = response.ResponseData;
                 }

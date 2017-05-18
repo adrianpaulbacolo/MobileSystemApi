@@ -106,12 +106,12 @@ public class BasePage : Page
     {
         get
         { 
-            var cookie = HttpContext.Current.Request.Cookies.Get("token");
+            var cookie = HttpContext.Current.Request.Cookies.Get("s");
             return cookie == null ? string.Empty : cookie.Value;
         }
         set
         {
-            var cookie = HttpContext.Current.Request.Cookies.Get("token") ?? new HttpCookie("token");
+            var cookie = HttpContext.Current.Request.Cookies.Get("s") ?? new HttpCookie("s");
             cookie.Value = value;
             if (!string.IsNullOrEmpty(IpHelper.DomainName)) { cookie.Domain = IpHelper.DomainName; }
             HttpContext.Current.Response.Cookies.Add(cookie);
@@ -126,7 +126,7 @@ public class BasePage : Page
 
         var language = HttpContext.Current.Request.QueryString.Get("lang");
         Language = !string.IsNullOrEmpty(language) ? language : LanguageHelpers.SelectedLanguage;
-        var hasSession = await CheckSession();
+        HasSession = await CheckSession();
         if (!IsUnderMaintenance)
         {
             return;
@@ -134,7 +134,7 @@ public class BasePage : Page
         // Check if site is under maintenance and allow only certain users to have access
         var isAllowedAccess = false;
         var allowedUsers = Common.GetAppSetting<string>("allowedUsers");
-        if (!string.IsNullOrEmpty(allowedUsers) && hasSession
+        if (!string.IsNullOrEmpty(allowedUsers) && HasSession
             && Array.IndexOf(allowedUsers.ToLower().Split('|'), UserSessionInfo.MemberCode.ToLower()) >= 0)
             isAllowedAccess = true;
 
@@ -169,12 +169,11 @@ public class BasePage : Page
                 Token = token;
             }
             var process = await MembersHelper.MembersSessionCheck(token);
-            HasSession = process.Code == 1 && !string.IsNullOrEmpty(process.Data.Token);
-            if (!HasSession) return false;
+            if (!(process.Code == 1 && !string.IsNullOrEmpty(process.Data.Token))) return false;
+            var sessionInfo = await MembersHelper.GetMemberInfo(token);
+            if (string.IsNullOrEmpty(sessionInfo.MemberCode)) return false;
+            UserSessionInfo = sessionInfo;
             MemberSession = process.Data;
-            UserSessionInfo = await MembersHelper.GetMemberInfo(token);
-            HasSession = !string.IsNullOrEmpty(UserSessionInfo.MemberCode);
-            if (!HasSession) return false;
             SetMemberRewardsInfo();
         }
         catch (Exception)

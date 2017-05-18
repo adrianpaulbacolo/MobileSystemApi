@@ -65,7 +65,6 @@
                 },
                 src: [
                     '_Static/head.inc',
-                    '_Static/headvip.inc',
                     '_Secure/Login.aspx',
                     '_Static/Pages/404.aspx',
                     '_Static/Pages/500.aspx',
