@@ -55,7 +55,7 @@ var SW = function(user, translations, swc, pic, isMobile, isLoggedIn, lang) {
     this.siid = 0;
     this.ciid = 0;
     this.isLoggedIn = isLoggedIn;
-    this.sk = 'prizes_' + lang;
+    this.sk = window.location.host + '_prizes_' + lang;
 };
 
 window.addEventListener("orientationchange", function () {
