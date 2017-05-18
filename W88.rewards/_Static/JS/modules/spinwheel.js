@@ -684,25 +684,26 @@ SW.prototype._scd_ = function(frequency) {
     var self = this;
     $('#spinsLeft').html(self.swr.ResponseMessage);
     try {
-        var currentDate = new Date(self.swr.ResponseData.ServerTime),
-            aDayInMillis = 1000 * 60 * 60 * 24,
-            anHourInMillis = 1000 * 60 * 60,
-            aMinuteInMillis = 1000 * 60;
-        self.ciid = setInterval(function() {
-            var millisec,
-                now = date.getTime();
+        var serverDate = new Date(self.swr.ResponseData.ServerTime),
+            serverTime = serverDate.getTime(),
+            aMinuteInMillis = 1000 * 60,
+            anHourInMillis = aMinuteInMillis * 60,
+            aDayInMillis = anHourInMillis * 24;
+        self.ciid = setInterval(function () {
+            serverTime += 1000;
+            var millisec;
             switch (frequency) {
                 case 2:
-                    millisec = (new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), 23, 59, 59)).getTime();
+                    millisec = (new Date(serverDate.getFullYear(), serverDate.getMonth(), serverDate.getDate(), 23, 59, 59)).getTime();
                     break;
                 case 3:
-                    millisec = (new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + (7 - currentDate.getDay()), 23, 59, 59)).getTime();
+                    millisec = (new Date(serverDate.getFullYear(), serverDate.getMonth(), serverDate.getDate() + (7 - serverDate.getDay()), 23, 59, 59)).getTime();
                     break;
                 case 4:
-                    millisec = (new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0, 23, 59, 59)).getTime();
+                    millisec = (new Date(serverDate.getFullYear(), serverDate.getMonth() + 1, 0, 23, 59, 59)).getTime();
                     break;
             }
-            var diff = millisec - now;
+            var diff = millisec - serverTime;
             if (diff <= 0) {
                 window.location.reload();
                 clearInterval(self.ciid);
@@ -729,9 +730,8 @@ SW.prototype._scd_ = function(frequency) {
                         break;
                 }
             }
-            if ($('#countdownContainer').css('display') === 'none') {
-                $('#countdownContainer').show();
-            }
+            if ($('#countdownContainer').css('display') === 'none') 
+                $('#countdownContainer').show();         
         }, 1000);
     } catch (e) {}
 };

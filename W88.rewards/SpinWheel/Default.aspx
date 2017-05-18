@@ -8,12 +8,6 @@
     <script type="text/javascript" src="/_Static/JS/modules/pointlevelinfo.js"></script>
     <script type="text/javascript" src="/_Static/JS/dist/w88.mrewards.sw.min.js"></script>
     <script type="text/javascript">
-        var date = new Date('<%=DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")%>');
-        setInterval(function() {
-            var current = date.getTime();
-            current += 1000;
-            date = new Date(current);
-        }, 1000);
         var translations = {
                 message5: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.ApplicationError, Language)%>',
                 claimMessage: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.ClaimPrize, Language)%>',

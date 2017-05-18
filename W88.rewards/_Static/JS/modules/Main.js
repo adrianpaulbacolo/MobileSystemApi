@@ -61,6 +61,9 @@ function logout() {
         url: '/_Secure/AjaxHandlers/MemberSessionCheck.ashx',
         type: 'POST',
         data: sessionId,
+        beforeSend: function () {
+            $.mobile.loading('show');
+        },
         success: function (data) {
             if (!data || _.isUndefined(data.Code)) return;
             switch (data.Code) {
@@ -70,16 +73,12 @@ function logout() {
                         contentType: 'text/html',
                         async: true,
                         data: 'MemberId=' + data.Data.MemberId,
-                        beforeSend: function () {
-                            $.mobile.loading('show');
-                        },
                         success: function (response) {
                             if (sessionPoll) clearInterval(sessionPoll);
                             switch (response.ResponseCode) {
                                 case 1:
                                     break;
                                 default:
-                                    $.mobile.loading('hide');
                                     if (!_.isEmpty(response.ResponseMessage));
                                         window.w88Mobile.Growl.shout(response.ResponseMessage);
                                     break;
