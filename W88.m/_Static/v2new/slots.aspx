@@ -30,13 +30,19 @@
                 </div>
                 <div class="modal-body text-center">
                     <h4 id="gameTitle"></h4>
-                    <div class="modal-game-thumb">
-                        <img id="gameImage" src="" alt="">
+                    <div class="clearfix modal-game-row">
+                        <div class="modal-game-col modal-game-col-thumb">
+                            <div class="modal-game-thumb">
+                                <img id="gameImage" src="" alt="">
+                            </div>
+                        </div>
+                        <div class="modal-game-col modal-game-col-btns">
+                            <a href="#" id="gameFunUrl" class="btn btn-block btn-default" target="_blank">Try Now</a>
+                            <a href="#" id="gameRegisterUrl" class="btn btn-block btn-gray" hidden>Join Now</a>
+                            <a href="#" id="gameLoginUrl" class="btn btn-block btn-primary" hidden>Login</a>
+                            <a href="#" id="gameRealUrl" class="btn btn-block btn-gray" target="_blank">Play Now</a>
+                        </div>
                     </div>
-                    <a href="#" id="gameFunUrl" class="btn btn-block btn-default" target="_blank">Try Now</a>
-                    <a href="#" id="gameRegisterUrl" class="btn btn-block btn-gray" hidden>Join Now</a>
-                    <a href="#" id="gameLoginUrl" class="btn btn-block btn-primary" hidden>Login</a>
-                    <a href="#" id="gameRealUrl" class="btn btn-block btn-gray" target="_blank">Play Now</a>
                 </div>
             </div>
         </div>
