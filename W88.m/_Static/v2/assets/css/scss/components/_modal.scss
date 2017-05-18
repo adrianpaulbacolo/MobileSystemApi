@@ -120,3 +120,24 @@
 		}
 	}
 }
+
+@media only screen and (orientation: landscape) {
+	.modal-game .modal-body h4 {
+	    margin-bottom: 15px;
+	}
+	.modal-game-row{
+		.modal-game-col{
+			float: left;
+			&.modal-game-col-thumb{
+				width: 35%;
+				.modal-game-thumb{
+					max-width: 100%;
+				}
+			}
+			&.modal-game-col-btns{
+				width: 65%;
+			}
+		}
+	}
+
+}
