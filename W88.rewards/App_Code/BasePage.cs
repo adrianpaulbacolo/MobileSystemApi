@@ -95,6 +95,15 @@ public class BasePage : Page
         }
     }
 
+    public static bool IsVipPage
+    {
+        get
+        {
+            var host = HttpContext.Current.Request.Url.Host.Split('.');
+            return Common.GetAppSetting<string>("VIP_Domains").ToLower().Contains(string.Format("{0}.{1}", host[1], host[2]));
+        }
+    }
+
     public static string Token 
     {
         get 
