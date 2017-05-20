@@ -34,7 +34,7 @@ public partial class _Default : BasePage
             Response.Redirect("/Lang.aspx", false);
             return;
         }
-        if (IsVipPage)
+        if (IsVipDomain)
         {
             Response.Redirect("/_Secure/VIP/login.aspx", true);
         }

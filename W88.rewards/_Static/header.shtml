@@ -28,7 +28,7 @@
                 </div>
                 <a data-ajax="false" href="/LiveChat/Default.aspx" class="pull-right header-chat"><span class="icon icon-chat"></span></a>
             </div>
-            <%if(!BasePage.IsVipPage){%>
+            <%if(!BasePage.IsVipDomain){%>
                 <div class="header-logo">
                     <h1>
                         <img src="/_Static/Images/logo-<%=LanguageHelpers.SelectedLanguageShort%>.png" class="logo" alt="logo">

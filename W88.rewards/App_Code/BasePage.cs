@@ -95,7 +95,7 @@ public class BasePage : Page
         }
     }
 
-    public static bool IsVipPage
+    public static bool IsVipDomain
     {
         get
         {

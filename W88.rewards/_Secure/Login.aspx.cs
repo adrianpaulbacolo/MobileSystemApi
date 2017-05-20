@@ -13,7 +13,7 @@ public partial class _Secure_Login : BasePage
     protected void Page_Init(object sender, EventArgs e)
     {
         btnSubmit.Visible = !HasSession;
-        if (!IsVipPage)
+        if (!IsVipDomain)
         {
             return;
         }
