@@ -51,10 +51,17 @@ public class BasePage : Page
     {
         get
         {
-            var debugCountryCode = Common.GetAppSetting<string>("debugCountryCode");
-            if (IsDebugMode && !string.IsNullOrEmpty(debugCountryCode)) return debugCountryCode.Trim().ToLower();
-            return RewardsHelper.CountryCode.ToLower();
-    	}
+            try
+            {
+                var debugCountryCode = Common.GetAppSetting<string>("debugCountryCode");
+                if (IsDebugMode && !string.IsNullOrEmpty(debugCountryCode)) return debugCountryCode.Trim().ToLower();
+                return RewardsHelper.CountryCode.ToLower();
+            }
+            catch (Exception)
+            {
+                return string.Empty;
+            }
+        }
     }
 
     public static bool IsDebugMode
