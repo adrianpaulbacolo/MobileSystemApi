@@ -6,8 +6,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Brand)%></title>
+        <title><%=HttpContext.Current.Request.Url.Host%></title>
         <!--#include virtual="~/_static/head.inc" -->
+        <link href="data:image/x-icon;base64,AAABAAEAEBAQAAAAAAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAsC8qAP+EAACzh1cAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAACAAAAAAAAACAAAAAAAAEiAAAAADAAAiAAAAAAMzAiAAAAAAAAMzAAAAAAAAAiMzMAAAAAAAADAzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA" rel="icon" type="image/x-icon" />
     </head>
     <body>
         <div data-role="page" data-theme="b">
@@ -15,7 +16,6 @@
             <section class="viplogin">
                 <div class="viplogin-container">
                     <div class="viplogin-box">
-                        <img src="img/w88-vip.png" alt="" class="viplogo">
                         <form action="" class="viplogin-form" runat="server">
                             <h3><span id="formHeader"></span></h3>
                             <div class="input-group">

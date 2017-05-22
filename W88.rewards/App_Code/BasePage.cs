@@ -52,10 +52,17 @@ public class BasePage : Page
     {
         get
         {
-            var debugCountryCode = Common.GetAppSetting<string>("debugCountryCode");
-            if (IsDebugMode && !string.IsNullOrEmpty(debugCountryCode)) return debugCountryCode.Trim().ToLower();
-            return RewardsHelper.CountryCode.ToLower();
-    	}
+            try
+            {
+                var debugCountryCode = Common.GetAppSetting<string>("debugCountryCode");
+                if (IsDebugMode && !string.IsNullOrEmpty(debugCountryCode)) return debugCountryCode.Trim().ToLower();
+                return RewardsHelper.CountryCode.ToLower();
+            }
+            catch (Exception)
+            {
+                return string.Empty;
+            }
+        }
     }
 
     public static bool IsDebugMode
@@ -93,6 +100,15 @@ public class BasePage : Page
             bool isVip;
             bool.TryParse(vipCookie, out isVip);
             return isVip;
+        }
+    }
+
+    public static bool IsVipDomain
+    {
+        get
+        {
+            var host = HttpContext.Current.Request.Url.Host.Split('.');
+            return Common.GetAppSetting<string>("VIP_Domains").ToLower().Contains(string.Format("{0}.{1}", host[1], host[2]));
         }
     }
 
