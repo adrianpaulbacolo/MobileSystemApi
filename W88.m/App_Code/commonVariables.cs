@@ -5,7 +5,9 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Caching;
+using System.Web.UI.WebControls;
 using System.Xml.Linq;
+using Helpers;
 
 
 public class commonVariables
@@ -194,6 +196,11 @@ public class commonVariables
         }
     }
 
+    public static string GetMemberCode()
+    {
+        return new Members().MemberData().MemberCode;
+    }
+
     internal enum TransferWallet
     {
         undefined = -1,
@@ -306,3 +313,4 @@ public class commonVariables
 
 
 }
+

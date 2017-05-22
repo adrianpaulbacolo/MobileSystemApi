@@ -156,3 +156,41 @@ function addHours(date, hours) {
     date.setMonth(date.getHours() + hours);
     return date;
 }
+
+function stringToNumber(value) {
+    return parseFloat(_.replace(value, /,/g, ""));
+}
+
+function send(resource, method, data, success, complete) {
+
+    var selector = "";
+    if (!_.isEmpty(data.selector)) {
+        selector = _.clone(data.selector);
+        delete data["selector"];
+    }
+
+    var url = w88Mobile.APIUrl + resource;
+
+    var headers = {
+        'Token': window.User.token,
+        'LanguageCode': window.User.lang
+    };
+
+    $.ajax({
+        type: method,
+        url: url,
+        data: data,
+        beforeSend: function () {
+            pubsub.publish('startLoadItem', { selector: selector });
+        },
+        headers: headers,
+        success: success,
+        error: function () {
+            console.log("Error connecting to api");
+        },
+        complete: function () {
+            if (_.isFunction(complete)) complete();
+            pubsub.publish('stopLoadItem', { selector: selector });
+        }
+    });
+}

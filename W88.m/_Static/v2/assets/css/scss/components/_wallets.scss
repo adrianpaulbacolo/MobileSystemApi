@@ -23,6 +23,28 @@
 			color: $wallet-main-currency;
 		}
 	}
+    .rewards-main{
+		text-align: center;
+		padding: 15px 0;
+		.rewards-title{
+			text-transform: capitalize;
+			color: $wallet-main-title;
+			margin-bottom: 0;
+		}
+        .rewards-value{
+			font-size: 1.313rem;
+			font-weight: 700;
+			color: $brand-primary;
+			margin-top: 0;
+			margin-bottom: 5px;
+		}
+		.rewards-currency{
+			font-size: 0.750rem;
+			margin-bottom: 0;
+			color: $wallet-main-currency;
+		}
+    }
+
 	.wallet-group{
 		border-top: 1px solid $wallet-group-border;
 		width: 100%;

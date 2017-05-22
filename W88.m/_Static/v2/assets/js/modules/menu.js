@@ -75,64 +75,64 @@ function Menu() {
     }
 
     function setTranslations() {
-        if (_w88_contents.translate("LABEL_MENU_HOME") != "LABEL_MENU_HOME") {
+        if ($.i18n("LABEL_MENU_HOME") != "LABEL_MENU_HOME") {
             // Menu
-            $('.title_home').html(_w88_contents.translate("LABEL_MENU_HOME"));
-            $('.title_login').html(_w88_contents.translate("LABEL_MENU_LOGIN"));
-            $('.title_logout').html(_w88_contents.translate("LABEL_MENU_LOGOUT"));
-            $('.title_desktop').html(_w88_contents.translate("LABEL_MENU_DESKTOP"));
-            $('.title_promo').html(_w88_contents.translate("LABEL_MENU_PROMOTIONS"));
-            $('.title_rewards').html(_w88_contents.translate("LABEL_MENU_REWARDS"));
-            $('.title_live_chat').html(_w88_contents.translate("LABEL_MENU_LIVE_CHAT"));
-            $('.title_language').html(_w88_contents.translate("LABEL_MENU_LANGUAGE"));
+            $('.title_home').html($.i18n("LABEL_MENU_HOME"));
+            $('.title_login').html($.i18n("LABEL_MENU_LOGIN"));
+            $('.title_logout').html($.i18n("LABEL_MENU_LOGOUT"));
+            $('.title_desktop').html($.i18n("LABEL_MENU_DESKTOP"));
+            $('.title_promo').html($.i18n("LABEL_MENU_PROMOTIONS"));
+            $('.title_rewards').html($.i18n("LABEL_MENU_REWARDS"));
+            $('.title_live_chat').html($.i18n("LABEL_MENU_LIVE_CHAT"));
+            $('.title_language').html($.i18n("LABEL_MENU_LANGUAGE"));
 
             // Funds
-            $('.title_funds').html(_w88_contents.translate("LABEL_MENU_FUNDS"));
-            $('.title_deposit').html(_w88_contents.translate("LABEL_FUNDS_DEPOSIT"));
-            $('.title_transfer').html(_w88_contents.translate("LABEL_FUNDS_TRANSFER"));
-            $('.title_withdraw').html(_w88_contents.translate("LABEL_FUNDS_WIDRAW"));
-            $('.title_history').html(_w88_contents.translate("LABEL_FUNDS_HISTORY"));
+            $('.title_funds').html($.i18n("LABEL_MENU_FUNDS"));
+            $('.title_deposit').html($.i18n("LABEL_FUNDS_DEPOSIT"));
+            $('.title_transfer').html($.i18n("LABEL_FUNDS_TRANSFER"));
+            $('.title_withdraw').html($.i18n("LABEL_FUNDS_WIDRAW"));
+            $('.title_history').html($.i18n("LABEL_FUNDS_HISTORY"));
 
             // Sports
-            $('.title_sports').html(_w88_contents.translate("LABEL_MENU_SPORTS"));
-            $('.title_clubw').html(_w88_contents.translate("LABEL_PRODUCTS_CLUB_W"));
-            $('.title_asport').html(_w88_contents.translate("LABEL_PRODUCTS_ASPORTS"));
-            $('.title_esport').html(_w88_contents.translate("LABEL_PRODUCTS_ESPORTS"));
-            $('.title_vsport').html(_w88_contents.translate("LABEL_PRODUCTS_VSPORTS"));
-            $('.title_xsport').html(_w88_contents.translate("LABEL_PRODUCTS_XSPORTS"));
+            $('.title_sports').html($.i18n("LABEL_MENU_SPORTS"));
+            $('.title_clubw').html($.i18n("LABEL_PRODUCTS_CLUB_W"));
+            $('.title_asport').html($.i18n("LABEL_PRODUCTS_ASPORTS"));
+            $('.title_esport').html($.i18n("LABEL_PRODUCTS_ESPORTS"));
+            $('.title_vsport').html($.i18n("LABEL_PRODUCTS_VSPORTS"));
+            $('.title_xsport').html($.i18n("LABEL_PRODUCTS_XSPORTS"));
 
             // Casino
-            $('.title_live_casino').html(_w88_contents.translate("LABEL_MENU_LIVE_CASINO"));
-            $('.title_clubwpremier').html(_w88_contents.translate("LABEL_PRODUCTS_CLUB_W_PREMIER"));
+            $('.title_live_casino').html($.i18n("LABEL_MENU_LIVE_CASINO"));
+            $('.title_clubwpremier').html($.i18n("LABEL_PRODUCTS_CLUB_W_PREMIER"));
 
             // Slots
-            $('.title_slots').html(_w88_contents.translate("LABEL_MENU_SLOTS"));
-            $('.title_bravado').html(_w88_contents.translate("LABEL_PRODUCTS_BRAVADO"));
-            $('.title_massimo').html(_w88_contents.translate("LABEL_PRODUCTS_MASSIMO"));
-            $('.title_massimo_download').html(_w88_contents.translate("LABEL_PRODUCTS_MASSIMO_DOWNLOAD"));
-            $('.title_palazzo').html(_w88_contents.translate("LABEL_PRODUCTS_PALAZZO"));
-            $('.title_palazzo_download').html(_w88_contents.translate("LABEL_PRODUCTS_PALAZZO_DOWNLOAD"));
-            $('.title_gallardo').html(_w88_contents.translate("LABEL_PRODUCTS_GALLARDO"));
-            $('.title_apollo').html(_w88_contents.translate("LABEL_PRODUCTS_APOLLO"));
-            $('.title_divino').html(_w88_contents.translate("LABEL_PRODUCTS_DIVINO"));
+            $('.title_slots').html($.i18n("LABEL_MENU_SLOTS"));
+            $('.title_bravado').html($.i18n("LABEL_PRODUCTS_BRAVADO"));
+            $('.title_massimo').html($.i18n("LABEL_PRODUCTS_MASSIMO"));
+            $('.title_massimo_download').html($.i18n("LABEL_PRODUCTS_MASSIMO_DOWNLOAD"));
+            $('.title_palazzo').html($.i18n("LABEL_PRODUCTS_PALAZZO"));
+            $('.title_palazzo_download').html($.i18n("LABEL_PRODUCTS_PALAZZO_DOWNLOAD"));
+            $('.title_gallardo').html($.i18n("LABEL_PRODUCTS_GALLARDO"));
+            $('.title_apollo').html($.i18n("LABEL_PRODUCTS_APOLLO"));
+            $('.title_divino').html($.i18n("LABEL_PRODUCTS_DIVINO"));
 
             // Fishing Master
-            $('.title_fishing').html(_w88_contents.translate("LABEL_PRODUCTS_FISHING"));
-            $('.title_fishing_master').html(_w88_contents.translate("LABEL_PRODUCTS_FISHING_MASTER"));
-            $('.title_fishing_world').html(_w88_contents.translate("LABEL_PRODUCTS_FISHING_WORLD"));
+            $('.title_fishing').html($.i18n("LABEL_PRODUCTS_FISHING"));
+            $('.title_fishing_master').html($.i18n("LABEL_PRODUCTS_FISHING_MASTER"));
+            $('.title_fishing_world').html($.i18n("LABEL_PRODUCTS_FISHING_WORLD"));
 
             // Lottery
-            $('.title_lottery').html(_w88_contents.translate("LABEL_MENU_LOTTERY"));
-            $('.title_keno').html(_w88_contents.translate("LABEL_PRODUCTS_KENO"));
+            $('.title_lottery').html($.i18n("LABEL_MENU_LOTTERY"));
+            $('.title_keno').html($.i18n("LABEL_PRODUCTS_KENO"));
 
             // Poker
-            $('.title_poker').html(_w88_contents.translate("LABEL_MENU_POKER"));
+            $('.title_poker').html($.i18n("LABEL_MENU_POKER"));
 
             // Texas Mahjong
-            $('.title_texas_mahjong').html(_w88_contents.translate("LABEL_MENU_TEXAS_MAHJONG"));
-            $('.title_super_bull').html(_w88_contents.translate("LABEL_MENU_P2P"));
-            $('.title_android').html(_w88_contents.translate("LABEL_ANDROID_DOWNLOAD"));
-            $('.title_ios').html(_w88_contents.translate("LABEL_IOS_DOWNLOAD"));
+            $('.title_texas_mahjong').html($.i18n("LABEL_MENU_TEXAS_MAHJONG"));
+            $('.title_super_bull').html($.i18n("LABEL_MENU_P2P"));
+            $('.title_android').html($.i18n("LABEL_ANDROID_DOWNLOAD"));
+            $('.title_ios').html($.i18n("LABEL_IOS_DOWNLOAD"));
 
         } else {
             window.setInterval(function () {
