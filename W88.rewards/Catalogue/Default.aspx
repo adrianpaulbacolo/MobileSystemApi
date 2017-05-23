@@ -22,8 +22,8 @@
             </div>        
             <div class="container">
                 <div class="row">             
-                    <asp:Label ID="lblnodata" runat="server" CssClass="nodata" Text="Label" Visible="false"></asp:Label>
-                    <div id="listContainer" runat="server"></div>
+                    <asp:Label ID="lblnodata" runat="server" CssClass="nodata" Text="Label" Visible="false"><%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.NoAvailableItems, Language)%></asp:Label>
+                    <div id="listContainer"></div>
                 </div>
             </div>
         </div>
@@ -45,8 +45,50 @@
         </div>
     </div>
     <script>
-        var index = 1,
-            isSearching = false;
+        _.templateSettings = {
+            interpolate: /\{\{(.+?)\}\}/g, // print value: {{ value_name }}
+            evaluate: /\{%([\s\S]+?)%\}/g, // excute code: {% code_to_execute %}
+            escape: /\{%-([\s\S]+?)%\}/g
+        };
+        var isSearching = true,
+            template,
+            translations = {
+                labelHot: '<%=RewardsHelper.GetTranslation(TranslationKeys.Label.Hot, Language)%>',
+                labelNew: '<%=RewardsHelper.GetTranslation(TranslationKeys.Label.New, Language)%>',
+                labelPoints: '<%=RewardsHelper.GetTranslation(TranslationKeys.Label.Points, Language).ToLower()%>'
+            }, 
+            params = JSON.parse('<%=Params%>');
+
+        function getProducts() {
+            $.mobile.loading('show');
+            $.ajax({
+                type: 'GET',
+                url: '/api/rewards/search/',
+                headers: {
+                    'token': '<%=Token%>'
+                },
+                dataType: 'json',
+                data: params,
+                success: function (response) {
+                    if (response.ResponseCode != 1 || _.isEmpty(response.ResponseData)) {
+                        reset();
+                        return;
+                    }
+                    $.get('/_Static/catalogue/template.html', function(html) {
+                        template = _.template(html);
+                        $('#listContainer').append(template({
+                            products: response.ResponseData,
+                            translations: translations
+                        }));
+                    });
+                    params.Index += 1;
+                    reset();
+                },
+                error: function () {
+                    reset();
+                }
+            });  
+        }
 
         function reset() {
             $.mobile.loading('hide');
@@ -54,59 +96,16 @@
         }
 
         $(function () {
+            getProducts();
+
             $(window).scroll(function () {
-                if (($(window).scrollTop() + $(window).height() < $(document).height() - 20)
+                if (($(window).scrollTop() + $(window).height() < $(document).height() - 65)
                     || isSearching) {
                     return;
                 }
 
-                $.mobile.loading('show');
                 isSearching = true;
-                $.ajax({
-                    type: 'GET',
-                    url: '/api/rewards/search/',
-                    headers: {
-                        'token': '<%=Token%>'
-                    },
-                    dataType: 'json',
-                    data: {
-                        CategoryId: '<%=CategoryId%>',
-                        Index: index.toString(),
-                        MinPoints: <%=MinPoints%>,
-                        MaxPoints: <%=MaxPoints%>,
-                        PageSize: '<%=PageSize%>',
-                        SearchText: '<%=SearchText%>',
-                        SortBy: '<%=SortBy%>'
-                    },
-                    success: function (response) {
-                        if (response.ResponseCode != 1 || response.ResponseData == null) {
-                            reset();
-                            return;
-                        }
-                        $.ajax({
-                            type: 'POST',
-                            url: 'Default.aspx/CreateHtml',
-                            contentType: 'application/json',
-                            data: JSON.stringify({ products: response.ResponseData }),
-                            success: function(result) {
-                                reset();
-
-                                if (!result) return;
-                                var children = $('#listContainer').children(),
-                                    count = children.length;
-                                if (count == 0) return;
-                                $(children[count-1]).after(result.d);
-                                index++;
-                            }, 
-                            error: function() {
-                                reset();
-                            }
-                        });
-                    },
-                    error: function () {
-                        reset();
-                    }
-                });          
+                getProducts();
             });
 
             var children = $('div.btn-group.btn-group-justified.btn-group-sliding').children();

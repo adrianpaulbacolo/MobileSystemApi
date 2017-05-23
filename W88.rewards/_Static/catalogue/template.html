@@ -1,0 +1,40 @@
+﻿{% _.each(products, function(product) { %}
+<div id="detailsButton_{{product.ProductId}}" class="col-xs-6 col-sm-3">
+    <div class="catalog-box">
+        <script>
+            var labelTag = $('#labelTag_{{product.ProductId}}');
+            $(function(){
+                $('#detailsButton_{{product.ProductId}}').on('click', function () {
+                    window.location.href = '/Catalogue/Detail.aspx?id={{product.ProductId}}';
+                });
+                if(_.isEmpty(labelTag.html().trim()))
+                    labelTag.removeClass('tag-label');
+            });
+        </script>
+        <div class="catalog-image">
+            <img src="{{product.ImageUrl}}" alt="">
+        </div>
+        <div class="catalog-details">
+            <h4>{{product.ProductName}}</h4>
+            <small>
+                {% if(!_.isEmpty(product.DiscountPoints)) { %}
+                <span class="points" style="text-decoration:line-through;">{{product.PointsRequired}} {{translations.labelPoints}}</span>
+                <span class="points">{{product.DiscountPoints}} {{translations.labelPoints}}</span>
+                {% } else { %}
+                <span class="points">{{product.PointsRequired}} {{translations.labelPoints}}</span>
+                {% } %}
+                <span id="labelTag_{{product.ProductId}}" class="tag-label">
+                    {% switch (product.ProductIcon) {
+                            case "2": %}
+                                {{translations.labelHot}}
+                    {%      break;
+                            case "3":  %}
+                                {{translations.labelNew}}
+                    {%      break;
+                    } %}
+                </span>
+            </small>
+        </div>
+    </div>
+</div>
+{% }); %}
