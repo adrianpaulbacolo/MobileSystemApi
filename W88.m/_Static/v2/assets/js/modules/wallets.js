@@ -95,8 +95,6 @@ function Wallets() {
     }
 
     function rewardsPointsInit(options) {
-        pubsub.subscribe('rewardsPointLoaded', onRewardsLoaded);
-
         var selector = _.isUndefined(options) ? "rewards-value" : options.selector;
         getPoints({ selector: selector });
     }
@@ -111,9 +109,4 @@ function Wallets() {
             pubsub.publish("rewardsPointLoaded", response.ResponseData);
         });
     }
-
-    function onRewardsLoaded(topic, data) {
-        $(".rewards-value").html(data);
-    }
-
 }

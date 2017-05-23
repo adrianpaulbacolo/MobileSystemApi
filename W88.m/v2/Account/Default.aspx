@@ -73,9 +73,10 @@
     <script>
 
         $(document).ready(function () {
-            $('.header-title').first().text(_w88_contents.translate("LABEL_MENU_PROFILE"));
+            $('.header-title').first().text($.i18n("LABEL_MENU_PROFILE"));
 
             pubsub.subscribe('mainWalletLoadedOnly', onMainWalletLoadedOnly);
+            pubsub.subscribe('rewardsPointLoaded', onRewardsLoaded);
 
             _w88_wallets.mainWalletInit({ wallets: "wallets" });
             _w88_wallets.rewardsPointsInit({ wallets: {} });
@@ -86,6 +87,10 @@
                 $(".wallet-value").html(data.Balance);
                 $(".wallet-currency").html(data.CurrencyLabel);
                 $(".wallets").addClass('wallet-auto');
+            }
+
+            function onRewardsLoaded(topic, data) {
+                $(".rewards-value").html(data);
             }
          
         });
