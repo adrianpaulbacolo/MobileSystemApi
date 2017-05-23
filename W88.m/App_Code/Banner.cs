@@ -17,8 +17,10 @@ public class Banner
     private XElement promoResource;
     public string slider = string.Empty;
     private string BannerTemplate = string.Empty;
-    public Banner()
+    private int _deviceId;
+    public Banner(int deviceId)
     {
+        _deviceId = deviceId;
         commonCulture.appData.getRootResource("leftMenu", out promoResource);
         BannerTemplate = "<a href=\"{link}\" class=\"slick-slide\">" +
             "<img src=\"{img}\" alt=\"\">" +
@@ -84,6 +86,20 @@ public class Banner
                         provider = promo.Attribute("provider").Value;
 
                     url = BuildUrl(promo, provider);
+                }
+
+                if (promo.HasAttributes && promo.Attribute("deviceId") != null)
+                {
+                    if (_deviceId  == 3)
+                    {
+                        if (Convert.ToInt16(promo.Attribute("deviceId").Value) != 2)
+                            continue;
+                    }
+                    else
+                    {
+                        if (Convert.ToInt16(promo.Attribute("deviceId").Value) != _deviceId)
+                            continue;
+                    }
                 }
 
                 var hasCurrency = (promo.HasAttributes && promo.Attribute("currency") != null);
