@@ -856,15 +856,16 @@ var fishingWorld = FishingWorldProduct.GetLink();
 <% } %>
 
 <style>
-    .badge-nav{
+    .sub-menu .n-badge-new{
         position: absolute;
-        right: 5%;
-        margin: auto;
-        width: 15%;
+        padding-top: 0;
+        width: 50%;
     }
 
-    .badge-new img{
-        width: 100%;
+    .sub-menu .n-badge-new img{
+        width: 25%;
+        margin: auto;
+        margin-right: -60px;
     }
 
     .nav-menu .c-badge-new{
