@@ -1,26 +1,27 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/v2/MasterPages/Main.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="v2_Account_Default" %>
+
 <%@ Import Namespace="Models" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContentHolder" runat="Server">
-    <div class="wallets">
-        <div class="row">
-            <div class="col-xs-6">
-                <div class="wallet-main">
-                    <p class="wallet-title"></p>
-                    <h4 class="wallet-value"></h4>
-                    <p class="wallet-currency"></p>
+    <div class="dashboard">
+        <div class="wallets">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="wallet-main">
+                        <p class="wallet-title"></p>
+                        <h4 class="wallet-value"></h4>
+                        <p class="wallet-currency"></p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-xs-6">
-                <div class="rewards-main">
-                    <p data-i18n="LABEL_MENU_REWARDS" class="rewards-title"></p>
-                    <h4 class="rewards-value"></h4>
-                    <p data-i18n="LABEL_POINTS" class="rewards-currency"></p>
+                <div class="col-xs-6">
+                    <div class="rewards-main">
+                        <p data-i18n="LABEL_MENU_REWARDS" class="rewards-title"></p>
+                        <h4 class="rewards-value"></h4>
+                        <p data-i18n="LABEL_POINTS" class="rewards-currency"></p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="dashboard">
         <div class="dashboard-row">
             <div class="dashboard-col">
                 <a href="<%=W88Constant.PageNames.BankDetails%>">
@@ -37,7 +38,7 @@
         </div>
         <div class="dashboard-row">
             <div class="dashboard-col">
-                <a href="<%=W88Constant.PageNames.LiveChat%>">
+                <a href="<%=W88Constant.PageNames.LiveChat%>" target="_blank">
                     <span class="icon icon-chat"></span>
                     <span data-i18n="LABEL_MENU_LIVE_CHAT"></span>
                 </a>
@@ -92,7 +93,7 @@
             function onRewardsLoaded(topic, data) {
                 $(".rewards-value").html(data);
             }
-         
+
         });
     </script>
 
