@@ -166,8 +166,8 @@ canvas {
     z-index: 1000;
     position: absolute;
     text-align: center;
-    word-break: break-all;
-    padding: 0 10px;
+    word-break: break-word;
+    padding: 0 7px;
 }
 .spinWheel {
     max-width: 604px;
@@ -329,13 +329,13 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
     #prizes {
         position: absolute;
         top: -115px;
-        bottom: 0px;
-        left: -135px;
+        bottom: 0;
+        left: -136px;
         right: 0;
     }
     #prizes p {
         height: 20px;
-        width: 75px;
+        width: 77px;
         font-size: 8px;
     }
     #prize1 {
@@ -389,7 +389,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
     }
     #prizes {
         top: -95px;
-        left: -116px;
+        left: -117px;
     }
     #prize1 {
         top: 178px;
@@ -439,7 +439,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
     }
     #prizes {
         top: -87px;
-        left: -107px;
+        left: -109px;
     }
     #prize1 {
         top: 175px;
@@ -511,42 +511,42 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
     }
     #prizes {
         top: -69px;
-        left: -89px;
+        left: -91px;
     }
     #prizes p {
         font-size: 9px;
     }
     #prize1 {
-        top: 169px;
+        top: 165px;
         left: 251px;
     }
     #prize2 {
-        top: 195px;
-        left: 317px;
+        top: 193px;
+        left: 319px;
     }
     #prize3 {
         top: 260px;
-        left: 340px;
+        left: 345px;
     }
     #prize4 {
-        top: 323px;
-        left: 313px;
+        top: 325px;
+        left: 318px;
     }
     #prize5 {
-        top: 349px;
-        left: 250px;
+        top: 353px;
+        left: 252px;
     }
     #prize6 {
-        top: 323px;
-        left: 187px;
+        top: 326px;
+        left: 184px;
     }
     #prize7 {
         top: 258px;
-        left: 162px;
+        left: 159px;
     }
     #prize8 {
-        top: 196px;
-        left: 186px;
+        top: 192px;
+        left: 184px;
     }
     #prizeContainer p {
         top: 126px;
@@ -573,43 +573,43 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
     }
     #prizes {
         top: -37px;
-        left: -56px;
+        left: -63px;
     }
     #prizes p {
         font-size: 11px;
-        width: 74px;
+        width: 90px;
     }
     #prize1 {
-        top: 150px;
-        left: 251px;
+        top: 146px;
+        left: 250px;
     }
     #prize2 {
-        top: 181px;
-        left: 331px;
+        top: 179px;
+        left: 332px;
     }
     #prize3 {
         top: 260px;
-        left: 361px;
+        left: 364px;
     }
     #prize4 {
-        top: 339px;
-        left: 331px;
+        top: 342px;
+        left: 332px;
     }
     #prize5 {
-        top: 371px;
+        top: 374px;
         left: 251px;
     }
     #prize6 {
-        top: 338px;
-        left: 172px;
+        top: 341px;
+        left: 169px;
     }
     #prize7 {
         top: 259px;
-        left: 140px;
+        left: 137px;
     }
     #prize8 {
-        top: 181px;
-        left: 173px;
+        top: 179px;
+        left: 169px;
     }
     #disclaimer {
         top: 665px;
@@ -646,7 +646,6 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
     #prizes p {
         height: 60px;
         width: 106px;
-        font-size: 12px;
     }
     #prize1 {
         top: 149px;
@@ -736,7 +735,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
     #prizes p {
         height: 60px;
         width: 106px;
-        font-size: 14px;
+        font-size: 13px;
     }
     #prize1 {
         top: 124px;
