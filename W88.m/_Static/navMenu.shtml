@@ -401,6 +401,9 @@ var fishingWorld = FishingWorldProduct.GetLink();
         <!-- Lottery -->
         <li data-icon="false">
             <a class="nav-keno">
+                <div class="c-badge-new">
+                    <div class="c-badge-inner">*</div>
+                </div>
                 <i class="icon icon-keno"></i>
                 <div class="label menuLotteryTitle"></div>
             </a>
@@ -851,3 +854,36 @@ var fishingWorld = FishingWorldProduct.GetLink();
         });
 </script>
 <% } %>
+
+<style>
+    .badge-nav{
+        position: absolute;
+        right: 5%;
+        margin: auto;
+        width: 15%;
+    }
+
+    .badge-new img{
+        width: 100%;
+    }
+
+    .nav-menu .c-badge-new{
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 50%;
+        width: 100%;
+        position: absolute;
+    }
+
+    .nav-menu .c-badge-new .c-badge-inner{
+        margin: auto;
+        height: 12px;
+        line-height: 1em;
+        font-size: 1.4em;
+        color: white;
+        background-color: red;
+        border-radius: 50%;
+        width: 12px;
+        margin-right: 29px;
+    }
+</style>
