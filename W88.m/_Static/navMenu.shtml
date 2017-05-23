@@ -404,7 +404,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 </li>
                 <li>
                     <div class="card">
-                        <div class="n-badge-new pk10"><img src="/_Static/Images/badge/banner/new-en-us-mobile-home.png"></div>
+                        <div class="n-badge-new pk10"><img src="/_Static/Images/badge/banner/new-<%=commonCookie.CookieLanguage %>-mobile-home.png"></div>
                         <img src="#" class="img-responsive pk10">
                         <div class="title menuPK10Title"></div>
                         <div class="card-hover">
