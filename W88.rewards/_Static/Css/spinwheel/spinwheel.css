@@ -315,7 +315,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
     max-width: 366px;
     max-height: 130px;
 }
-@media (min-width: 320px) {
+@media only screen and (min-width: 320px) {
     #spinWheelContainer {
         top: 80px;
         min-height: 580px;
@@ -383,7 +383,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         top: 485px;
     }
 }
-@media (min-width: 360px) {
+@media only screen and (min-width: 360px) {
     #spinButton, #countdownContainer {
         top: 421px;
     }
@@ -433,7 +433,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         top: 530px;
     }
 }
-@media (min-width: 375px) {
+@media only screen and (min-width: 375px) {
     #spinButton, #countdownContainer {
         top: 433px;
     }
@@ -483,7 +483,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         top: 540px;
     }
 }
-@media (min-width: 384px) {
+@media only screen and (min-width: 384px) {
     #spinButton, #countdownContainer {
         top: 437px;
     }
@@ -498,7 +498,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         width: 80%;
     }
 }
-@media (min-width: 412px) {
+@media only screen and (min-width: 412px) {
     #spinButton, #countdownContainer {
         top: 473px;
     }
@@ -561,13 +561,13 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         top: 580px;
     }
 }
-@media (min-width: 414px) {
+@media only screen and (min-width: 414px) {
     #roulette, #wheelPointer {
         width: 100%;
         right: 0;
     }
 }
-@media (min-width: 480px) {
+@media only screen and (min-width: 480px) {
     #spinButton, #countdownContainer {
         top: 545px;
     }
@@ -628,7 +628,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         top: 10px;
     }
 }
-@media (min-width: 568px) {
+@media only screen and (min-width: 568px) {
     #spinWheelContainer {
         top: 70px;
     }
@@ -695,7 +695,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         left: 181px;
     }
 }
-@media (min-width: 600px) {
+@media only screen and (min-width: 600px) {
     #prizes {
         top: -12px;
         left: -10px;
@@ -717,7 +717,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         top: 15px;
     }
 }
-@media (min-width: 640px) {
+@media only screen and (min-width: 640px) {
     #spinWheelContainer {
         top: 70px;
     }
@@ -786,7 +786,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         top: -10px;
     }
 }
-@media (min-width: 667px) {
+@media only screen and (min-width: 667px) {
     #roulette, #wheelPointer {
         width: 92.8%;
         left: 24px;
@@ -804,7 +804,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         left: 181px;
     }
 }
-@media (min-width: 732px) {
+@media only screen and (min-width: 732px) {
     #roulette, #wheelPointer {
         width: 83.9%;
         left: 59px;
@@ -825,7 +825,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         left: 215px;
     }
 }
-@media (min-width: 768px) {
+@media only screen and (min-width: 768px) {
     #roulette, #wheelPointer {
         width: 80.3%;
         left: 75px;
@@ -843,7 +843,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         left: 232px
     }
 }
-@media (min-width: 800px) {
+@media only screen and (min-width: 800px) {
     #spinWheelContainer {
         top: 80px;
     }
@@ -868,7 +868,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         top: 6px;
     }
 }
-@media (min-width: 960px) {
+@media only screen and (min-width: 960px) {
     #roulette, #wheelPointer {
         width: 77%;
         left: 170px;
@@ -884,7 +884,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         top: 6px;
     }
 }
-@media (min-width: 1024px) {
+@media only screen and (min-width: 1024px) {
     #roulette, #wheelPointer {
         width: 59.9%;
         left: 202px;
@@ -902,7 +902,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         left: 357px
     }
 }
-@media (min-width: 1280px) {
+@media only screen and (min-width: 1280px) {
     #spinWheelContainer {
         top: 80px;
     }
@@ -922,7 +922,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         left: 486px;
     }
 }
-@media (min-width: 1366px) {
+@media only screen and (min-width: 1366px) {
     #roulette, #wheelPointer {
         left: 373px;
     }
