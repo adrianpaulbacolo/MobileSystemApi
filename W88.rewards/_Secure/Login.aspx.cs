@@ -13,14 +13,13 @@ public partial class _Secure_Login : BasePage
     protected void Page_Init(object sender, EventArgs e)
     {
         btnSubmit.Visible = !HasSession;
-
-        var myUri = new Uri(HttpContext.Current.Request.Url.ToString());
-        var host = myUri.Host.Split('.');
-        if (Common.GetAppSetting<string>("VIP_Domains").ToLower().Contains(string.Format("{0}.{1}", host[1], host[2])))
+        if (!IsVipDomain)
         {
-            Response.Clear();
-            Response.Redirect("/_Secure/VIP/login.aspx", true);
+            return;
         }
+
+        Response.Clear();
+        Response.Redirect("/_Secure/VIP/login.aspx", true);      
     }
 
     protected void Page_Load(object sender, EventArgs e)
