@@ -91,7 +91,7 @@
                 </a>
             </li>
 
-           <li class="col col-33">
+            <li class="col col-33">
                 <a href="/ClubNuovo" class="card" data-ajax="false">
                     <img src="/_Static/Images/bnr-clubnuovo.jpg" class="img-responsive">
                     <div class="title ClubNuovoTitle"></div>
@@ -114,19 +114,20 @@
     </div>
 
     <script type="text/javascript">
-        pubsub.subscribe('contentsLoaded', onContentsLoaded);
-
-        function onContentsLoaded() {
-            $("div.ClubNuovoTitle").text(_w88_contents.translate("LABEL_PRODUCTS_CLUB_NUOVO"));
-            $("#ClubBravadoTitle").text(_w88_contents.translate("LABEL_PRODUCTS_BRAVADO"));
-            $("#ClubMassimoTitle").text(_w88_contents.translate("LABEL_PRODUCTS_MASSIMO"));
-            $("#ClubPalazzoTitle").text(_w88_contents.translate("LABEL_PRODUCTS_PALAZZO"));
-            $("#ClubGallardoTitle").text(_w88_contents.translate("LABEL_PRODUCTS_GALLARDO"));
-            $("#ClubApolloTitle").text(_w88_contents.translate("LABEL_PRODUCTS_APOLLO"));
-            $("#ClubDivinoTitle").text(_w88_contents.translate("LABEL_PRODUCTS_DIVINO"));
-        }
 
         $(document).ready(function () {
+            pubsub.subscribe('contentsLoaded', onContentsLoaded);
+
+            function onContentsLoaded() {
+                $("div.ClubNuovoTitle").text(_w88_contents.translate("LABEL_PRODUCTS_CLUB_NUOVO"));
+                $("#ClubBravadoTitle").text(_w88_contents.translate("LABEL_PRODUCTS_BRAVADO"));
+                $("#ClubMassimoTitle").text(_w88_contents.translate("LABEL_PRODUCTS_MASSIMO"));
+                $("#ClubPalazzoTitle").text(_w88_contents.translate("LABEL_PRODUCTS_PALAZZO"));
+                $("#ClubGallardoTitle").text(_w88_contents.translate("LABEL_PRODUCTS_GALLARDO"));
+                $("#ClubApolloTitle").text(_w88_contents.translate("LABEL_PRODUCTS_APOLLO"));
+                $("#ClubDivinoTitle").text(_w88_contents.translate("LABEL_PRODUCTS_DIVINO"));
+            }
+
             onContentsLoaded();
         });
     </script>
