@@ -314,27 +314,13 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <div class="title ClubGallardoNavTitle"></div>
                     </a>
                 </li>
-                <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-                {
-                if (commonCookie.CookieCurrency.ToLower() != "idr" && commonCookie.CookieCurrency.ToLower() != "vnd")
-                { %>
+
                 <li>
                     <a class="card" rel="clubnuovo" href="/ClubNuovo" data-ajax="false">
                         <img src="#" class="img-responsive clubnuovo">
                         <div class="title ClubNuovoNavTitle"></div>
                     </a>
                 </li>
-                <% }
-                }
-                else
-                { %>
-                <li>
-                    <a class="card" rel="clubnuovo" href="/ClubNuovo" data-ajax="false">
-                        <img src="#" class="img-responsive clubnuovo">
-                        <div class="title ClubNuovoNavTitle"></div>
-                    </a>
-                </li>
-                <% } %>
 
                 <li>
                     <a class="card" rel="clubapollo" href="/ClubApollo" data-ajax="false">

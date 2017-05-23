@@ -8,15 +8,34 @@ using Models;
 
 public partial class Slots_ClubNuovo : BasePage
 {
+    private bool _currencySupported = true;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Page.IsPostBack) return;
 
+
         //var handler = new GNSHandler(commonVariables.CurrentMemberSessionId, "ClubNuovo", "FundTransfer");
         //var gnsCategory = handler.Process();
+        if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
+        {
+            if ((commonCookie.CookieCurrency.ToLower() == "vnd") || (commonCookie.CookieCurrency.ToLower() == "idr"))
+            {
+                _currencySupported = false;
+            }
+        }
 
-        var plsHandler = new PLSHandler(commonVariables.CurrentMemberSessionId, "ClubNuovo", "FundTransfer");
-        var plsCategory = plsHandler.Process();
+        PLSHandler plsHandler;
+        List<GameCategoryInfo> plsCategory = null;
+
+        if (_currencySupported)
+        {
+            plsHandler = new PLSHandler(commonVariables.CurrentMemberSessionId, "ClubNuovo", "FundTransfer");
+            plsCategory = plsHandler.Process();
+        }
+
+        var mrsHandler = new MRSHandler(commonVariables.CurrentMemberSessionId, "ClubNuovo", "FundTransfer");
+        var mrsCategory = mrsHandler.Process();
 
         var opSettings = new OperatorSettings(System.Configuration.ConfigurationManager.AppSettings.Get("Operator"));
         var addGpi = Convert.ToBoolean(opSettings.Values.Get("GPIAddOtheClubs"));
@@ -29,12 +48,21 @@ public partial class Slots_ClubNuovo : BasePage
             //gnsCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, gnsCategory[0].Current);
             //games = gnsCategory.Union(plsCategory).Union(gpiCategory).GroupBy(x => x.Title);
 
-            plsCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, plsCategory[0].Current);
-            games = plsCategory.Union(gpiCategory).GroupBy(x => x.Title);
+            if (_currencySupported)
+            {
+                plsCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, plsCategory[0].Current);
+                games = plsCategory.Union(mrsCategory).Union(gpiCategory).GroupBy(x => x.Title);
+            }
+            else
+            {
+                mrsCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, mrsCategory[0].Current);
+                games = mrsCategory.Union(gpiCategory).GroupBy(x => x.Title);
+            }
+       
         }
         else
         {
-            games = plsCategory.GroupBy(x => x.Title);
+            games = _currencySupported ? plsCategory.Union(mrsCategory).GroupBy(x => x.Title) : mrsCategory.GroupBy(x => x.Title);
         }
 
         var sbGames = new StringBuilder();
