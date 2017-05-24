@@ -4,21 +4,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContentHolder" runat="Server">
     <div class="dashboard">
-        <div class="wallets">
+        <div class="wallets deposit">
             <div class="row">
-                <div class="col-xs-6">
-                    <div class="wallet-main">
-                        <p class="wallet-title"></p>
-                        <h4 class="wallet-value"></h4>
-                        <p class="wallet-currency"></p>
-                    </div>
+                <div class="col-xs-6 wallet-placeholder">
                 </div>
-                <div class="col-xs-6">
-                    <div class="rewards-main">
-                        <p data-i18n="LABEL_MENU_REWARDS" class="rewards-title"></p>
-                        <h4 class="rewards-value"></h4>
-                        <p data-i18n="LABEL_POINTS" class="rewards-currency"></p>
-                    </div>
+                <div class="col-xs-6 rewards-placeholder" >
                 </div>
             </div>
         </div>
@@ -77,26 +67,32 @@
         $(document).ready(function () {
             $('.header-title').first().text($.i18n("LABEL_MENU_PROFILE"));
 
-            pubsub.subscribe('mainWalletLoaded', onMainWalletLoaded);
-            pubsub.subscribe('rewardsPointLoaded', onRewardsLoaded);
+            pubsub.subscribe('wallets', onMainWalletLoaded);
+            pubsub.subscribe('rewardsPointLoaded', onRewardsPointLoaded);
 
-            _w88_wallets.mainWalletInit({ wallets: "wallets" });
-            _w88_rewards.init();
+            _w88_wallets.init(undefined, "wallet-placeholder");
+            _w88_rewards.init(option = { selector: "rewards-placeholder" });
 
             function onMainWalletLoaded(topic, data) {
-
-                $(".wallet-title").html(_.toUpper(data.Name));
-                $(".wallet-value").html(data.Balance);
-                $(".wallet-currency").html(data.CurrencyLabel);
                 $(".wallets").addClass('wallet-auto');
             }
 
-            function onRewardsLoaded(topic, data) {
-                $(".rewards-value").html(data);
+            function onRewardsPointLoaded(topic, data) {
+                var template = _.template($("script#RewardsTemplate").html());
+                $(".rewards-placeholder").html(template({
+                    data: data
+                }));
+                $(".wallets").i18n();
             }
-
         });
     </script>
-
+    
+    <script type="text/template" id='RewardsTemplate'>
+        <div class="rewards-main">
+            <p data-i18n="LABEL_MENU_REWARDS" class="rewards-title"></p>
+            <h4 class="rewards-value">{%-tplData.data%}</h4>
+            <p data-i18n="LABEL_POINTS" class="rewards-currency"></p>
+        </div>
+    </script>
 </asp:Content>
 
