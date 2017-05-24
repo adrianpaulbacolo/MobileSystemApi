@@ -3,42 +3,29 @@
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentHolder" runat="Server">
     <div class="lottery-main">
         <div class="container container-small container-extra-thin">
-            <div class="row extra-thin-gutter">
-                <div class="col-xs-12">
-                    <img src="/_Static/Images/lottery/keno-banner.jpg" class="img-responsive img-bg  pull-left col-xs-12" style="position: absolute" />
-                    <div class="col-xs-12">
-                        <div class="col-xs-6 pull-left"></div>
-                        <div class="col-xs-6 pull-right desc">
-                            <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/Keno/Label", commonVariables.ProductsXML)%></h3>
-                            <p><%=commonCulture.ElementValues.getResourceString("kenoMessage", commonVariables.LeftMenuXML)%></p>
-                            <a href="<%=(string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? "/_Secure/Login.aspx" : commonLottery.getKenoUrl)%>" class="btn btn-primary" target="_blank"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
-                        </div>
+            <div class="lottery-banner">
+                <img src="/_Static/Images/lottery/keno-banner.jpg">
+                <div class="banner-caption">
+                    <div class="banner-caption-content">
+                        <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/Keno/Label", commonVariables.ProductsXML)%></h3>
+                        <p><%=commonCulture.ElementValues.getResourceString("kenoMessage", commonVariables.LeftMenuXML)%></p>
+                        <a href="<%=(string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? "_Secure/Login.aspx" : commonLottery.getKenoUrl)%>" class="btn btn-primary" target="_blank"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
+                    </div>
+                </div>
+            </div>
+            <div class="lottery-banner">
+                <img src="/_Static/Images/lottery/lottery-PK10.jpg">
+                <div class="banner-caption banner-caption-2">
+                    <div class="banner-caption-content">
+                        <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/PK10/Label", commonVariables.ProductsXML)%></h3>
+                        <p><%=commonCulture.ElementValues.getResourceString("pk10Message", commonVariables.LeftMenuXML)%></p>
+                        <a href="<%=commonLottery.getPK10Url(true)%>" class="btn btn-primary" target="_blank"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
+                        <a href="<%=commonLottery.getPK10Url(false)%>" class="btn btn-gray" target="_blank"><%=commonCulture.ElementValues.getResourceString("tryNow", commonVariables.LeftMenuXML)%></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <style>
-        .lottery-main > div.container{
-            margin: 0 auto;
-            padding: 0;
-        }
-        .lottery-main img.img-responsive{
-            padding: 0;
-        }
-        .lottery-main h3.title {
-            color: #dab867;
-            font-size: 1.5rem;
-            margin-top: 1rem;
-        }
-        .lottery-main div.desc p {
-            font-size: .7rem;
-        }
-        .lottery-main div.desc a {
-            width: 100%;
-            padding: 8px;
-        }
-    </style>
 </asp:Content>
 
 <asp:Content ID="InnerScriptBottom" ContentPlaceHolderID="InnerScriptPlaceHolder" runat="server">

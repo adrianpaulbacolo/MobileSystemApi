@@ -7,22 +7,13 @@ function Rebates() {
 
     rebates.init = function () {
 
-        $('#labelPeriod').html($.i18n("LABEL_REBATE_PERIOD"));
-        $('#monday').html($.i18n("LABEL_MONDAY"));
-        $('#sunday').html($.i18n("LABEL_SUNDAY"));
-        $('#rebateDisclaimer').html($.i18n("LABEL_REBATE_DISCLAIMER"));
-        $('#rebateDisclaimerMin').html($.i18n("LABEL_REBATE_NOTE1"));
-        $('#rebateDisclaimerNoteCurrent').html($.i18n("LABEL_REBATE_DISCLAIMER_CONTENT_CURRENT"));
-        $('#rebateDisclaimerNote1').html($.i18n("LABEL_REBATE_DISCLAIMER_CONTENT1"));
-        $('#rebateDisclaimerNote2').html($.i18n("LABEL_REBATE_DISCLAIMER_CONTENT2"));
         $('.header-title').first().text($.i18n("LABEL_MENU_REBATES"));
-
         _w88_Rebates.Weeks();
     };
 
     rebates.Weeks = function () {
 
-        _w88_Rebates.send("", "/rebates/week", "GET", function (response) {
+        _w88_send("", "/rebates/week", "GET", function (response) {
             if (_.isEqual(response.ResponseCode, 1)) {
 
                 _.forOwn(response.ResponseData, function (data) {
@@ -44,7 +35,7 @@ function Rebates() {
         $("#startdate").html(strtDate[0]);
         $("#endDate").html(strtDate[1]);
 
-        _w88_Rebates.send(sDate, "/rebates/result", "GET", function (response) {
+        _w88_send(sDate, "/rebates/result", "GET", function (response) {
             if (_.isEqual(response.ResponseCode, 1)) {
 
                 var groupTemplate = _.template(
@@ -53,14 +44,9 @@ function Rebates() {
 
                 $("#group").html(groupTemplate({
                     data: response.ResponseData.RebateRow,
-                    LabelRebateAmount: $.i18n("LABEL_REBATE_AMOUNT"),
-                    LabelRebatePercent: $.i18n("LABEL_REBATE_PERCENT"),
-                    LabelRebateBets: $.i18n("LABEL_REBATE_BETS"),
-                    BtnClaim: $.i18n("BUTTON_CLAIM"),
-                    Note: $.i18n("LABEL_REBATE_NOTE"),
                     ShowWeekClaim: $("#weeks").val() == $("#weeks option:first").val(),
-                    LabelSeeMore: $.i18n("LABEL_MORE")
                 }));
+                $("#group").i18n();
 
                 $('#rebateDisclaimerMin').html($.i18n("LABEL_REBATE_NOTE1") + " " + Cookies().getCookie("currencyCode") + " " + response.ResponseData.MinimumClaim);
                 $("#weeklyBtn").html($.i18n("BUTTON_WEEKLY_CLAIM"));
@@ -105,7 +91,7 @@ function Rebates() {
             var sDate = strtDate[0].replace("/", "-").replace("/", "-");
             var query = { startdate: sDate, code: productCode };
 
-            _w88_Rebates.send(query, "/rebates/query", "GET", function (response) {
+            _w88_send(query, "/rebates/query", "GET", function (response) {
                 if (_.isEqual(response.ResponseCode, 1)) {
 
                     var d = {
@@ -122,15 +108,8 @@ function Rebates() {
                         Sunday: $.i18n("LABEL_SUNDAY"),
                         StartDate: strtDate[0],
                         EndDate: strtDate[1],
-                        LabelSummary: $.i18n("LABEL_REBATE_SUMMARY"),
                         note1: $.i18n("LABEL_REBATE_NOTE1"),
                         note2: $.i18n("LABEL_REBATE_NOTE2"),
-                        LabelRebateAmount: $.i18n("LABEL_REBATE_AMOUNT"),
-                        LabelRebatePercent: $.i18n("LABEL_REBATE_PERCENT"),
-                        LabelRebateBets: $.i18n("LABEL_REBATE_BETS"),
-                        LabelClaimedAmount: $.i18n("LABEL_REBATE_CLAIMED_AMOUNT"),
-                        LabelBalanceAmount: $.i18n("LABEL_REBATE_BALANCE_AMOUNT"),
-                        btnInstantClaim: $.i18n("BUTTON_INSTANT_CLAIM")
                 };
 
                     var claimTemplate = _.template(
@@ -144,6 +123,7 @@ function Rebates() {
                     $('#rebateClaim').css('opacity', 1);
                     $('#rebateClaim').css('text-indent', 0);
 
+                    $("#rebate-modal").i18n();
                     $('#rebate-modal').modal('show');
                 } else {
                     window.w88Mobile.Growl.shout(response.ResponseMessage, function () {
@@ -162,12 +142,11 @@ function Rebates() {
             var sDate = strtDate[0].replace("/", "-").replace("/", "-");
             var claim = { startdate: sDate, code: productCode, amount: amount };
 
-            _w88_Rebates.send(claim, "/rebates/claim", "POST", function (response) {
+            _w88_send(claim, "/rebates/claim", "POST", function (response) {
                 if (_.isEqual(response.ResponseCode, 1)) {
 
                     var d = {
                         msg: response.ResponseMessage,
-                        congrats: $.i18n("LABEL_CONGRATS"),
                         statusCode: response.ResponseCode
                     };
 
@@ -179,6 +158,7 @@ function Rebates() {
                         data: d
                     }));
 
+                    $("#rebate-modal").i18n();
                     $('#rebate-modal').modal('show');
                     _w88_Rebates.Statement();
 
@@ -193,7 +173,7 @@ function Rebates() {
 
     rebates.GetWeeklySettings = function (member) {
 
-        _w88_Rebates.send("", "/rebates/settings", "GET", function (response) {
+        _w88_send("", "/rebates/settings", "GET", function (response) {
             if (_.isEqual(response.ResponseCode, 1)) {
 
                 var d = {
@@ -255,34 +235,6 @@ function Rebates() {
             });
         });
 
-    };
-
-    rebates.send = function (data, resource, method, success, complete) {
-
-        var url = w88Mobile.APIUrl + resource;
-
-        var headers = {
-            'Token': window.User.token,
-            'LanguageCode': window.User.lang
-        };
-
-        $.ajax({
-            type: method,
-            url: url,
-            data: data,
-            beforeSend: function () {
-                pubsub.publish('startLoadItem', { selector: "" });
-            },
-            headers: headers,
-            success: success,
-            error: function () {
-                console.log("Error connecting to api");
-            },
-            complete: function () {
-                if (!_.isUndefined(complete)) complete();
-                pubsub.publish('stopLoadItem', { selector: "" });
-            }
-        });
     };
 
     return rebates;
