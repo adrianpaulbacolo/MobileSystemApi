@@ -50,7 +50,17 @@ namespace Factories.Slots.Handlers
 
         private string SetSpecialUrlLanguageCode()
         {
-            return commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase) ? "zh" : "en";
+            switch (commonVariables.SelectedLanguage)
+            {
+                case "th-th":
+                    return "th";
+
+                case "zh-cn":
+                    return "zh";
+
+                default:
+                    return "en";
+            }
         }
     }
 }
