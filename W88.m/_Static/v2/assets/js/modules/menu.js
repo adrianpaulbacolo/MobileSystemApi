@@ -9,6 +9,13 @@ function Menu() {
     function init() {
         setTranslations();
         setImages();
+        setLogout();
+    }
+
+    function setLogout() {
+        $('a.logout').bind('touch click', function () {
+            _w88_account.logout();
+        });
     }
 
     function setImages() {

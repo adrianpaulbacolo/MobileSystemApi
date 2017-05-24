@@ -14,6 +14,8 @@ function Templates() {
         , { id: 'History_AdjustmentModal', url: 'templates/adjustmentModal.html' }
         , { id: 'History_DepositWithdrawModal', url: 'templates/depositWithdrawModal.html' }
         , { id: 'History_FundTransferModal', url: 'templates/fundTransferModal.html' }
+
+        , { id: 'Free_Rounds', url: 'templates/freerounds.html' }
     ];
 
     var items = {};

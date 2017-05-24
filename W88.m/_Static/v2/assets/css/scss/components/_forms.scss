@@ -1,241 +1,278 @@
-.form-container{
-	padding-top: 15px;
-	padding-bottom: 15px;
+.form-container {
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
-.form-group{
-  margin-bottom: 20px;
-	> label{
-		font-weight: 400;
-		font-size: 0.875rem;
-		color: $brand-alt;
-		margin-bottom: 0;
-	}
-}
+.form-group {
+    margin-bottom: 20px;
 
-.form-control{
-  padding-left: 0;
-  padding-right: 0;
-  color: $text-color;
-  background-color: transparent;
-  border-top: none;
-  border-right: none;
-  border-left: none;
-  border-bottom: 1px solid darken($text-color ,50%);
-  @include box-shadow(none);
-  &:focus {
-      border-color: $brand-primary;
-      outline: 0 none;
-      @include box-shadow(0 1px 0px 0 $brand-primary);
-  }
-}
-
-.form-control[disabled], 
-fieldset[disabled] .form-control {
-  opacity: 0.5;
-  background-color: transparent;
-}
-
-select.form-control{
-  background: url('../images/select-arrow.png') center right no-repeat;
-  @include appearance(none);
-  option {
-      background-color: $body-bg;
-      color: $text-color;
-      text-shadow: none;
-  }
-
-}
-.input-group{
-  .form-control{
-      background-color: transparent;
-      color: $text-color;
-      border-bottom: 1px solid darken($text-color ,50%);
-  }
-  .input-group-addon{
-      color: $text-color;
-      padding: 11px 5px;
-      background-color: transparent;
-      border-top: none;
-      border-right: none;
-      border-left: none;
-      border-bottom: 1px solid darken($text-color ,50%);
-  }
-  &:focus {
-    .form-control,
-    .input-group-addon{
-      border-color: $brand-primary;
-      outline: 0 none;
-      @include box-shadow(0 1px 0px 0 $brand-primary);
+    > label {
+        font-weight: 400;
+        font-size: 0.875rem;
+        color: $brand-alt;
+        margin-bottom: 0;
     }
-  
-  }
 }
 
+.form-control {
+    padding-left: 0;
+    padding-right: 0;
+    color: $text-color;
+    background-color: transparent;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid darken($text-color,50%);
+    @include box-shadow(none);
+
+    &:focus {
+        border-color: $brand-primary;
+        outline: 0 none;
+        @include box-shadow(0 1px 0px 0 $brand-primary);
+    }
+}
+
+.form-control[disabled],
+fieldset[disabled] .form-control {
+    opacity: 0.5;
+    background-color: transparent;
+}
+
+select.form-control {
+    background: url('../images/select-arrow.png') center right no-repeat;
+    @include appearance(none);
+
+    option {
+        background-color: $body-bg;
+        color: $text-color;
+        text-shadow: none;
+    }
+}
+
+.input-group {
+    .form-control {
+        background-color: transparent;
+        color: $text-color;
+        border-bottom: 1px solid darken($text-color,50%);
+    }
+
+    .input-group-addon {
+        color: $text-color;
+        padding: 11px 5px;
+        background-color: transparent;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-bottom: 1px solid darken($text-color,50%);
+    }
+
+    .input-group-icon {
+        padding: 0 15px;
+        width: 1%;
+        white-space: nowrap;
+        vertical-align: middle;
+        display: table-cell;
+        opacity: 0.5;
+    }
+
+    &:focus {
+        .form-control,
+        .input-group-addon {
+            border-color: $brand-primary;
+            outline: 0 none;
+            @include box-shadow(0 1px 0px 0 $brand-primary);
+        }
+    }
+}
 
 .radio,
-.checkbox{
-  label{
-    color: $text-color;
-    font-size: 0.875rem;
-  }
-  input[type="radio"], 
-  input[type="checkbox"] {
-      margin-top: 3px;
-  }
+.checkbox {
+    label {
+        color: $text-color;
+        font-size: 0.875rem;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        margin-top: 3px;
+    }
 }
 
 
 .radio-custom,
-.checkbox-custom{
-  label{
-    padding-left: 0;
-  }
-  span{
-    color: $brand-alt;
-    padding-left: 6px;
-    &:before{
-      color: $text-color;
-      font-family: 'icomoon';
-      font-size: 1.313em;
-      top: 3px;
-      left: -6px;
-      position: relative;
+.checkbox-custom {
+    label {
+        padding-left: 0;
     }
-  }
-  input[type="radio"],
-  input[type="checkbox"]{
-    display: none;
-    visibility: hidden;
-    opacity: 0;
-  }
-  input[type="radio"] + span:before{
-    content: '\e923';
-  }
-  input[type="radio"]:checked + span:before{
-    content: '\e922';
-  }
-  input[type="checkbox"] + span:before{
-    content: '\e921';
-  }
-  input[type="checkbox"]:checked + span:before{
-    content: '\e920';
-  }
-  input[type="radio"]:checked + span:before,
-  input[type="checkbox"]:checked + span:before{
-    color: $text-color !important;
-  }
+
+    span {
+        color: $brand-alt;
+        padding-left: 6px;
+
+        &:before {
+            color: $text-color;
+            font-family: 'icomoon';
+            font-size: 1.313em;
+            top: 3px;
+            left: -6px;
+            position: relative;
+        }
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    input[type="radio"] + span:before {
+        content: '\e923';
+    }
+
+    input[type="radio"]:checked + span:before {
+        content: '\e922';
+    }
+
+    input[type="checkbox"] + span:before {
+        content: '\e921';
+    }
+
+    input[type="checkbox"]:checked + span:before {
+        content: '\e920';
+    }
+
+    input[type="radio"]:checked + span:before,
+    input[type="checkbox"]:checked + span:before {
+        color: $text-color !important;
+    }
 }
 
 .has-error .form-control {
-  border-color: $brand-danger;
-  @include box-shadow(0 1px 0px 0 $brand-danger);
-  &:focus{
-    border-color: lighten($brand-danger, 7%);
-    @include box-shadow(0 1px 0px 0 lighten($brand-danger, 7%));
-  }
+    border-color: $brand-danger;
+    @include box-shadow(0 1px 0px 0 $brand-danger);
 
+    &:focus {
+        border-color: lighten($brand-danger, 7%);
+        @include box-shadow(0 1px 0px 0 lighten($brand-danger, 7%));
+    }
 }
-.has-error .help-block, 
-.has-error .control-label, 
-.has-error .radio, 
-.has-error .checkbox, 
-.has-error .radio-inline, 
-.has-error .checkbox-inline, 
-.has-error.radio label, 
-.has-error.checkbox label, 
-.has-error.radio-inline label, 
+
+.has-error .help-block,
+.has-error .control-label,
+.has-error .radio,
+.has-error .checkbox,
+.has-error .radio-inline,
+.has-error .checkbox-inline,
+.has-error.radio label,
+.has-error.checkbox label,
+.has-error.radio-inline label,
 .has-error.checkbox-inline label {
-  color: $brand-danger;
+    color: $brand-danger;
 }
 
-.ui-datebox-container.dropdown-menu{
-  width: 100%;
-  min-width: 257px;
-  max-width: 340px;
-  padding: 0;
-  border: none;
-  background-color: darken($brand-primary, 30%);
+.ui-datebox-container.dropdown-menu {
+    width: 100%;
+    min-width: 257px;
+    max-width: 340px;
+    padding: 0;
+    border: none;
+    background-color: darken($brand-primary, 30%);
 }
+
 .ui-datebox-flipcenter {
     width: 100%;
     height: 40px;
     border: none;
     @include box-shadow(none);
 }
-.modal-title{
-  .closer{
-    color: $text-alt;
-  }
-}
-.ui-datebox-header{
-  h4{
-    font-size: 0.875rem;
-  }
-}
-.ui-datebox-flipcontent{
-  padding-top: 10px;
-  margin-bottom: -45px;
-  background-color: darken($brand-primary, 32%);
-  li{
-    border-color: transparent;
-    span{
-      margin-top: 6px;
-      color: darken($text-color, 40%);
+
+.modal-title {
+    .closer {
+        color: $text-alt;
     }
-    &.bg-success {
-      border: 1px solid rgba($white, 0.3);
-      background-color: darken($brand-primary, 23%);
-      span{
-        color: $text-color;
-      }
-    }
-  }
-  div{
-    width: 31%;
-  }
 }
 
-.ui-datebox-controls{
-  padding: 0;
-  .btn-default{
-    color: $white;
-    padding: 10px;
-    background-color: $brand-primary;
-    border-color: $brand-primary;
-    &:focus,
-    &:hover{
-      background-color: darken($brand-primary, 10%);
-      border-color: darken($brand-primary, 10%);
+.ui-datebox-header {
+    h4 {
+        font-size: 0.875rem;
     }
-    .glyphicon {
-      display: none;
+}
+
+.ui-datebox-flipcontent {
+    padding-top: 10px;
+    margin-bottom: -45px;
+    background-color: darken($brand-primary, 32%);
+
+    li {
+        border-color: transparent;
+
+        span {
+            margin-top: 6px;
+            color: darken($text-color, 40%);
+        }
+
+        &.bg-success {
+            border: 1px solid rgba($white, 0.3);
+            background-color: darken($brand-primary, 23%);
+
+            span {
+                color: $text-color;
+            }
+        }
     }
-  }
+
+    div {
+        width: 31%;
+    }
+}
+
+.ui-datebox-controls {
+    padding: 0;
+
+    .btn-default {
+        color: $white;
+        padding: 10px;
+        background-color: $brand-primary;
+        border-color: $brand-primary;
+
+        &:focus,
+        &:hover {
+            background-color: darken($brand-primary, 10%);
+            border-color: darken($brand-primary, 10%);
+        }
+
+        .glyphicon {
+            display: none;
+        }
+    }
 }
 
 .pay-note {
-  margin-bottom: 15px;
-  .pay-note-label{
-      color: $brand-danger;
-      font-weight: 700;
-  }
-}
-.payment-info{
-  margin-bottom: 30px;
-}
-@media (max-width: 320px){
-  .payment-info{
-    p{
-      font-size: 0.750rem;
+    margin-bottom: 15px;
+
+    .pay-note-label {
+        color: $brand-danger;
+        font-weight: 700;
     }
-  }
 }
 
-@media (max-width: 470px){
-  .payment-info{
-    .payment-label{
-      font-size: 0.750rem;
+.payment-info {
+    margin-bottom: 30px;
+}
+
+@media (max-width: 320px) {
+    .payment-info {
+        p {
+            font-size: 0.750rem;
+        }
     }
-  }
+}
+
+@media (max-width: 470px) {
+    .payment-info {
+        .payment-label {
+            font-size: 0.750rem;
+        }
+    }
 }
