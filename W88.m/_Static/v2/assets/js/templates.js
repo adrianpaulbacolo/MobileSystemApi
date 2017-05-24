@@ -15,6 +15,10 @@ function Templates() {
         , { id: 'History_DepositWithdrawModal', url: 'templates/depositWithdrawModal.html' }
         , { id: 'History_FundTransferModal', url: 'templates/fundTransferModal.html' }
 
+        , { id: 'MainWallet', url: '/v2/templates/mainwallet.html' }
+        , { id: 'WalletGroup', url: '/v2/templates/walletgroup.html' }
+        , { id: 'WalletBallance', url: '/v2/templates/walletbalance.html' }
+
         , { id: 'Free_Rounds', url: 'templates/freerounds.html' }
     ];
 
