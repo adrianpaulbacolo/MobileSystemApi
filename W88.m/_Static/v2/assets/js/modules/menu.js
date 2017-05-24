@@ -65,6 +65,7 @@ function Menu() {
         // Lottery
         $('a.lottery').bind('touch click', function () {
             $('.img_lottery_keno').attr('src', '/_Static/Images/bnr_lottery.jpg');
+            $('.img_lottery_pk10').attr('src', '/_Static/Images/lottery/bnr_lottery_pk10.jpg');
         });
 
         // Poker
@@ -131,6 +132,9 @@ function Menu() {
             // Lottery
             $('.title_lottery').html(_w88_contents.translate("LABEL_MENU_LOTTERY"));
             $('.title_keno').html(_w88_contents.translate("LABEL_PRODUCTS_KENO"));
+            $('.title_kp10').html(_w88_contents.translate("LABEL_PRODUCTS_PK10"));
+            $('.play-pk').html(_w88_contents.translate("BUTTON_PLAY_NOW"));
+            $('.try-pk').html(_w88_contents.translate("BUTTON_TRY_NOW"));
 
             // Poker
             $('.title_poker').html(_w88_contents.translate("LABEL_MENU_POKER"));

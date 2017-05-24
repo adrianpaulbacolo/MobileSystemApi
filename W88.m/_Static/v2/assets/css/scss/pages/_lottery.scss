@@ -1,3 +1,9 @@
+.lottery-main{
+    .container{
+        padding-left: 0;
+        padding-right:0;
+    }
+}
 .lottery-banner{
     position: relative;
     max-width: 632px;
@@ -7,9 +13,10 @@
         width: 100%;
         display: block;
     }
-    .ui-btn{
+    .btn{
         margin-top: 0;
         margin-bottom: 5px;
+        display: block;
     }
     .banner-caption{
         text-align: right;
@@ -26,6 +33,7 @@
             color: $brand-alt;
             font-size: 1.714em;
             margin-bottom: 10px;
+            margin-top: 0;
         }
         p{
             color: $white;
@@ -43,12 +51,13 @@
 
 @media all and (max-width: 480px) {
     .lottery-banner{
-        .ui-btn{
+        .btn{
             max-height: 31px;
-            font-size: 0.857em;
+            font-size: 0.688em;
             padding-top: 7px;
             padding-bottom: 7px;
             margin-bottom: 3px;
+            display: block;
         }
         img{
             width: 112%;
@@ -61,11 +70,12 @@
                 width: 57%;
             }
             h3{
-                font-size: 1.429em;
+                font-size: 1.250em;
                 margin-bottom: 5px;
+                margin-top: 0;
             }
             p{
-                font-size: 0.857em;
+                font-size: 0.688em;
                 margin-bottom: 10px;
             }
         }

@@ -8,6 +8,10 @@
 <link rel="apple-touch-startup-image" href="/_Static/Images/icon_120.png" />
 <link rel="stylesheet" href="/_Static/Css/Mobile/jquery.mobile-1.4.5.min.css" />
 <link rel="stylesheet" href="/_Static/Css/w88.mrewards.css" />
+<%if(HttpContext.Current.Request.Url.AbsolutePath.ToLower().Contains("/_secure/vip/login")){%>
+    <link rel="stylesheet" href="/_Secure/VIP/css/style.css" />
+    <script src="/_Static/JS/dist/w88.mrewards.login.js"></script>
+<%}%>
 <script src="/_Static/JS/dist/w88.mrewards.js"></script>
 <script>
     // set initial values for notification
@@ -15,7 +19,15 @@
         w88Mobile.Growl.options.lang = '<%=W88.BusinessLogic.Shared.Helpers.LanguageHelpers.SelectedLanguageShort%>';
         w88Mobile.Growl.options.close = '<%=W88.BusinessLogic.Rewards.Helpers.RewardsHelper.GetTranslation(W88.BusinessLogic.Rewards.Models.TranslationKeys.Label.Close)%>';
     }
-    var sessionInterval = '<%=W88.Utilities.Common.GetAppSetting<string>("sessionInterval") %>';
+    var sessionInterval = '<%=W88.Utilities.Common.GetAppSetting<string>("sessionInterval")%>',
+        sessionId = '<%=BasePage.Token%>';
+    window.onload = function() {
+        $('.navbar-toggle').on('click', function () {
+            $(this).toggleClass('active');
+        });
+        GPINTMOBILE.HideSplash();
+        checkSession();
+    };
 </script>
 <script src="/_Static/JS/dist/w88.mrewards.main.js"></script>
 <script>
