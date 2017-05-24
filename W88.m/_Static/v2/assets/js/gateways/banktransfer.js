@@ -395,10 +395,12 @@ function BankTransferv2() {
     };
 
     banktransfer.loadBankLocationWidraw = function (blId) {
+        var _self = this;
+
         var bankId = $('select[id$="drpSecondaryBank"]').val();
 
         if (bankId != '-1') {
-            _w88_paymentSvcV2.Send("/Banks/member/location/" + bankId, "GET", { selector: "location" }, function (response) {
+            _self.send("/Banks/member/location/" + bankId, "GET", { selector: "location" }, function (response) {
                 if (!_.isEqual(response.ResponseCode, 0)) {
 
                     $('select[id$="drpBankLocation"]').append($('<option>').text(_w88_contents.translate("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
@@ -416,10 +418,12 @@ function BankTransferv2() {
     };
 
     banktransfer.loadBankBranchWidraw = function (bankLocationId) {
+        var _self = this;
+
         var bankId = $('select[id$="drpSecondaryBank"]').val();
 
         if (bankId != '-1') {
-            _w88_paymentSvcV2.Send("/Banks/member/branch/" + bankId + "/" + bankLocationId, "GET", { selector: "branch" }, function (response) {
+            _self.send("/Banks/member/branch/" + bankId + "/" + bankLocationId, "GET", { selector: "branch" }, function (response) {
                 if (!_.isEqual(response.ResponseCode, 0)) {
 
                     $('select[id$="drpBankBranchList"]').append($('<option>').text(banktransfer.defaultSelect).attr('value', '-1'));

@@ -31,7 +31,7 @@ function Funds() {
         pubsub.subscribe('fundsLoaded', onFundsLoaded);
 
         var resource = "/user/wallets?isSelection=" + isSelection;
-        send(resource, "GET", data, function (response) {
+        _w88_send(resource, "GET", data, function (response) {
             if (_.isUndefined(response.ResponseData)) {
                 console.log('Unable to fetch wallets.');
                 return;
@@ -68,7 +68,7 @@ function Funds() {
 
     function getMainWallet(selector) {
         var resource = "/user/wallet/0";
-        send(resource, "GET", selector, function (response) {
+        _w88_send(resource, "GET", selector, function (response) {
             if (_.isUndefined(response.ResponseData)) {
                 console.log('Unable to fetch wallet.');
                 return;
@@ -86,36 +86,5 @@ function Funds() {
         $("div.wallets").append(
             mainWalletTpl(data)
         );
-    }
-
-    function send(resource, method, data, success, error, complete) {
-
-        if (_.isUndefined(error)) {
-            error = function () {
-                console.log("Error connecting to api");
-            }
-        }
-        var selector = "";
-        if (!_.isUndefined(data.selector)) {
-            selector = _.clone(data.selector);
-            delete data["selector"];
-        }
-
-        var url = w88Mobile.APIUrl + resource;
-
-        $.ajax({
-            type: method,
-            url: url,
-            data: data,
-            beforeSend: function () {
-                pubsub.publish('startLoadItem', {selector: selector});
-            },
-            success: success,
-            error: error,
-            complete: function () {
-                if(!_.isUndefined(complete)) complete();
-                pubsub.publish('stopLoadItem', { selector: selector });
-            }
-        });
     }
 }

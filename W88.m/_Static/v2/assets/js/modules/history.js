@@ -4,7 +4,6 @@ function History() {
     var history = {
         init: init,
         toggleType: toggleType,
-        send: send,
         getReport: getReport,
         getHistoryReport: getHistoryReport,
         setReportStatus: setReportStatus,
@@ -262,7 +261,7 @@ function History() {
             Wallets: null
         };
 
-        send("", "/history", "GET", function (response) {
+        _w88_send("/history", "GET", "", function (response) {
             selection.ReportType = response.ResponseData.ReportType;
             selection.PaymentType = response.ResponseData.PaymentType;
             selection.AdjustmentType = response.ResponseData.AdjustmentType;
@@ -284,9 +283,7 @@ function History() {
             $('#filterHistory').show();
         });
 
-        send({
-            isSelection: true
-        }, "/user/Wallets", "GET", function (response) {
+        _w88_send("/user/Wallets", "GET", { isSelection: true}, function (response) {
             selection.Wallets = response.ResponseData;
         })
     }
@@ -385,7 +382,7 @@ function History() {
         }
 
         if (data) {
-            send(data, "/payments/history", "POST", function (response) {
+            _w88_send("/payments/history", "POST", data, function (response) {
                 switch (response.ResponseCode) {
                     case 1:
                         filterResult({
@@ -403,7 +400,6 @@ function History() {
 
                         break;
                 }
-
             });
         }
     }
@@ -590,33 +586,5 @@ function History() {
         });
     }
 
-    function send(data, resource, method, success, complete) {
-        var url = w88Mobile.APIUrl + resource;
-
-        var headers = {
-            'Token': window.User.token,
-            'LanguageCode': window.User.lang
-        };
-
-        $.ajax({
-            type: method,
-            url: url,
-            data: data,
-            beforeSend: function () {
-                pubsub.publish('startLoadItem', { selector: "" });
-            },
-            headers: headers,
-            success: success,
-            error: function (resp) {
-                console.log("Error connecting to api");
-            },
-            complete: function () {
-                if (!_.isUndefined(complete)) complete();
-                pubsub.publish('stopLoadItem', { selector: "" });
-            }
-        });
-    };
-
     return history;
-
 }
