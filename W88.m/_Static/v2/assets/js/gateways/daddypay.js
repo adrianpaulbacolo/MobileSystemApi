@@ -27,12 +27,14 @@ function DaddyPayV2() {
     };
 
     daddypay.getnickname = function () {
+        var _self = this;
+
         var data = {
             action: "getNickname",
             nickname: ""
         };
 
-        _w88_paymentSvcV2.Send("/user/wechatnickname/", "GET", data, function (response) {
+        _self.send("/user/wechatnickname/", "GET", data, function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
                 $('input[id$="txtAmount"]').val(response.responseData);
                 $('[id$="hfWCNickname"]').val(response.responseData); //store original nickname if any.    
@@ -41,7 +43,9 @@ function DaddyPayV2() {
     };
 
     daddypay.getBanks = function () {
-        _w88_paymentSvcV2.Send("/Banks/vendor/" + methodId, "GET", "", function (response) {
+        var _self = this;
+
+        _self.send("/Banks/vendor/" + methodId, "GET", "", function (response) {
             $('select[id$="drpBank"]').append($('<option>').text(_w88_contents.translate("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
 
             _.forOwn(response.ResponseData, function (data) {
@@ -108,7 +112,9 @@ function DaddyPayV2() {
     };
 
     daddypay.getDenomination = function () {
-        _w88_paymentSvcV2.Send("/payments/denomination/" + methodId, "GET", "", function (response) {
+        var _self = this;
+
+        _self.send("/payments/denomination/" + methodId, "GET", "", function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
                 $('select[id$="drpAmount"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
 
@@ -116,7 +122,7 @@ function DaddyPayV2() {
                     $('select[id$="drpAmount"]').append($('<option>').text(data.Text).attr('value', data.Value));
                 });
             }
-        }, undefined);
+        });
     };
 
     daddypay.createDeposit = function () {
@@ -149,7 +155,7 @@ function DaddyPayV2() {
             switch (response.ResponseCode) {
                 case 1:
                     if (response.ResponseData.VendorRedirectionUrl) {
-                        window.open(response.ResponseData.VendorRedirectionUrl, '_blank');
+                        window.open(response.ResponseData.VendorRedirectionUrl);
                     } else {
                         if (response.ResponseData.PostUrl) {
                             w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");

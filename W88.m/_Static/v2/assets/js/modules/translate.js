@@ -4,6 +4,7 @@ function translate() {
 
     this.items = {};
     this.expiry = 1200000; // cache expiry
+    this.hasi18n = !_.isUndefined($.i18n);
 
     this.init = function () {
         var _self = this;
@@ -13,6 +14,10 @@ function translate() {
             _self.fetch(window.User.lang, "/messages");
         } else {
             _self.items = contents;
+            if (_self.hasi18n) {
+                $.i18n().load(contents, window.User.lang);
+                $("body").i18n();
+            }
         }
 
     }
@@ -42,10 +47,15 @@ function translate() {
                 var contents = amplify.store(location.hostname + "_translations");
                 if (!_.isEmpty(contents)) {
                     contents = _.assign(contents, response.ResponseData);
+                    pubsub.publish("contentsLoaded", {});
                 } else {
                     contents = response.ResponseData;
                 }
                 _self.items = contents;
+                if (_self.hasi18n) {
+                    $.i18n().load(contents, lang);
+                    $("body").i18n();
+                }
                 amplify.store(location.hostname + "_translations", contents, settings);
             },
             error: function () {

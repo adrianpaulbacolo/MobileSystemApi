@@ -78,13 +78,55 @@
             padding: 0;
             float: left;
             text-align: center;
+            margin-top: -$content-padding/5;
+
+            > div,
             a {
                 display: block;
                 padding: $content-padding;
-                margin: $content-padding/5;
+                margin: 1px;
                 border: 1px solid $border-color;
             }
-            margin-top: -$content-padding/5;
+
+            div.card{
+                padding: 0;
+                position: relative;
+                .card-hover{
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    position: absolute;
+                    visibility: hidden;
+                    opacity: 0;
+                    @include transition(.3s);
+                }
+                .card-hover-btns{
+                    margin-top: 20%;
+                    a{
+                        margin: 0 0 3px; 
+                        [class^="icon-"],
+                        [class*=" icon-"] {
+                            font-size: 1em !important;
+                        }
+                    }
+                }
+                &:focus >,
+                &:hover >{
+                    img{
+                        opacity: 0.3;
+                    }
+                    .card-hover{
+                        border: 1px solid $primary-color;
+                        visibility: visible;
+                        opacity: 1;
+                    }
+                    .title{
+                        color: $primary-color;
+                    }
+
+                }
+            }
         }
         .close {
             position: fixed;

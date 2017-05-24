@@ -82,54 +82,46 @@ Login.prototype.initiateLogin = function () {
                     window.user = (new User()).setProperties(response.ResponseData);
                     window.user.save();
 
-                    if (self.isVipLogin) {
-                        $.ajax({
-                            type: 'POST',
-                            contentType: 'application/json',
-                            url: '/_Secure/AjaxHandlers/VipLogin.ashx',
-                            data: JSON.stringify(window.user),
-                            success: function (res) {
-                                switch (res.Code) {
-                                    case 1:
-                                        if (response.ResponseData.ResetPassword) {
-                                            window.location.href = '/_Secure/ChangePassword.aspx';
-                                            return;
-                                        }
-                                        if (!_.isEmpty(self.redirectUri)) {
-                                            frsm_code = window.user.MemberId;
-                                            window.location.href = self.redirectUri;
-                                            return;
-                                        }
-                                        window.location.reload();
-                                        break;
-                                    default:
-                                        GPINTMOBILE.HideSplash();
-                                        self.elems.submitButton.attr('disabled', false);
-                                        setTimeout(function() {
-                                            logout();
-                                        }, 1500);
-                                        self.notAllow();
-                                        break;
-                                }
-                            },
-                            error: function (err) {
-                                GPINTMOBILE.HideSplash();
-                                self.elems.submitButton.attr('disabled', false);
-                                self.showMessage(err.Message);
+                    $.ajax({
+                        type: 'POST',
+                        contentType: 'text/html',
+                        url: '/_Secure/AjaxHandlers/Login.ashx',
+                        beforeSend: function(request) {
+                            request.setRequestHeader('token', window.user.Token);
+                            request.setRequestHeader('isVipLogin', self.isVipLogin);
+                        },
+                        success: function (res) {
+                            switch (res.Code) {
+                                case 1:
+                                    if (response.ResponseData.ResetPassword) {
+                                        window.location.href = '/_Secure/ChangePassword.aspx';
+                                        return;
+                                    }
+                                    if (!_.isEmpty(self.redirectUri)) {
+                                        frsm_code = window.user.MemberId;
+                                        window.location.href = self.redirectUri;
+                                        return;
+                                    }
+                                    window.location.reload();
+                                    break;
+                                default:
+                                    GPINTMOBILE.HideSplash();
+                                    self.elems.submitButton.attr('disabled', false);
+                                    setTimeout(function () {
+                                        sessionId = window.user.Token;
+                                        logout();
+                                    }, 1500);
+                                    if(self.isVipLogin)
+                                        self.notAllowed();
+                                    break;
                             }
-                        });
-                    } else {
-                        if (response.ResponseData.ResetPassword) {
-                            window.location.href = '/_Secure/ChangePassword.aspx';
-                            return;
+                        },
+                        error: function (err) {
+                            GPINTMOBILE.HideSplash();
+                            self.elems.submitButton.attr('disabled', false);
+                            self.showMessage(self.translations.Exception);
                         }
-                        if (!_.isEmpty(self.redirectUri)) {
-                            frsm_code = window.user.MemberId;
-                            window.location.href = self.redirectUri;
-                            return;
-                        }
-                        window.location.reload();
-                    }
+                    });
                     break;
                 default:
                     self.counter += 1;
@@ -159,7 +151,7 @@ Login.prototype.initiateLogin = function () {
     });
 };
 
-Login.prototype.notAllow = function () {
+Login.prototype.notAllowed = function () {
     var self = this;
     self.showMessage(self.translations.VipOnly);
 };

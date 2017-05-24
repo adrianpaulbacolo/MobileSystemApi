@@ -247,3 +247,6 @@ $min-max-value-color:darken($text-alt, 25%);
 $step-number-color: $text-alt;
 $step-label-color: $brand-alt;
 
+//No Gateway
+$empty-state-bg: lighten($brand-default,3%);
+$empty-state-color: darken($text-color, 10%) ;

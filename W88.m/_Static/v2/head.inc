@@ -15,11 +15,18 @@
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/amplify.min.js"></script>
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/pubsub.js"></script>
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/fingerprint2.min.js"></script>
+<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/jquery.mask.min.js"></script>
+<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/autoNumeric-min.js"></script>
+
+<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/jquery.i18n.min.js"></script>
+<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/jquery.i18n.messagestore.min.js"></script>
+<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/jquery.i18n.fallbacks.min.js"></script>
 
 
 <!-- Include all related variables (below), or include individual files as needed -->
 <script type="text/javascript">
     var siteCookie = new Cookies();
+    $.i18n.debug = true;
 
     _.templateSettings = {
     interpolate: /\{\{(.+?)\}\}/g,      // print value: {{ value_name }}
@@ -48,6 +55,7 @@
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/loader.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/growl.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script> 
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/constants.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/templates.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"> </script>
 
 <!-- Include all PIWIK related modules (below), or include individual files as needed -->
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/piwik/piwik.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>

@@ -63,7 +63,7 @@
                             break;
                     }
                     Cookies().setCookie('language', langCode);
-                    window.location.href = '/Default.aspx?lang=' + langCode;
+                    window.location.href = (<%=Convert.ToString(HasSession).ToLower()%> ? '/Index.aspx?lang=' : '/Default.aspx?lang=') + langCode;
                 });
             });
         });

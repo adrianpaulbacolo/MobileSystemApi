@@ -13,11 +13,11 @@
         <asp:Label ID="lblDepositChannel" runat="server" AssociatedControlID="drpDepositChannel" />
         <asp:DropDownList ID="drpDepositChannel" runat="server" CssClass="form-control" required data-selectequals="-1" />
     </div>
-    <div class="form-group depositDatetime" id="divDepositDateTime" runat="server">
+    <div class="form-group depositdatetime" id="divDepositDateTime" runat="server">
         <asp:Label ID="lblDepositDateTime" runat="server" AssociatedControlID="txtDepositDate" />
         <div class="row thin-gutter">
             <div class="col-xs-6 col-sm-6">
-                <asp:TextBox ID="txtDepositDate" type="text" runat="server" CssClass="form-control" data-date-box />
+                <asp:TextBox ID="txtDepositDate" type="text" runat="server" CssClass="form-control" data-date-box="payment" />
             </div>
             <div class="col-xs-6 col-sm-6">
                 <asp:TextBox ID="txtDepositTime" type="text" runat="server" CssClass="form-control" data-date-box="time"/>
@@ -36,7 +36,7 @@
         <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" />
         <asp:TextBox ID="txtAccountName" runat="server" CssClass="form-control" required data-require="" />
     </div>
-    <div class="form-group accountNumber">
+    <div class="form-group accountnumber">
         <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" />
         <asp:TextBox ID="txtAccountNumber" runat="server" CssClass="form-control" required data-require="" />
     </div>
@@ -53,7 +53,7 @@
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
-            _w88_banktransfer.initDeposit();
+            _w88_banktransfer.init("<%=base.PaymentType %>");
 
             $('#form1').validator().on('submit', function (e) {
                 if (!e.isDefaultPrevented()) {

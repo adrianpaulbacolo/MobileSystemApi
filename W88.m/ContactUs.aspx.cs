@@ -33,8 +33,15 @@ public partial class _ContactUs : BasePage
             aEmail.HRef = commonCulture.ElementValues.getResourceString("lnkEmail", xeResources);
             aBanking.HRef = commonCulture.ElementValues.getResourceString("lnkBanking", xeResources);
             aPhone.HRef = commonCulture.ElementValues.getResourceString("lnkPhone", xeResources);
+            phoneMessage.InnerHtml = commonCulture.ElementValues.getResourceString("lblPhoneMessage", xeResources);
 
-            if (string.IsNullOrEmpty(commonCulture.ElementValues.getResourceString("lnkPhone", xeResources))) 
+            if (commonVariables.CDNCountryCode.Equals("MY", StringComparison.OrdinalIgnoreCase))
+            {
+                aEmail.HRef = commonCulture.ElementValues.getResourceString("lnkEmailMY", xeResources);
+                aPhone.HRef = commonCulture.ElementValues.getResourceString("lnkPhoneMY", xeResources);
+                phoneMessage.InnerHtml = commonCulture.ElementValues.getResourceString("lblPhoneMessageMY", xeResources);
+            }
+            else if (string.IsNullOrEmpty(commonCulture.ElementValues.getResourceString("lnkPhone", xeResources)))
             {
                 liPhone.Visible = false;
             }

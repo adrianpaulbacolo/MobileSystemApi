@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using W88.BusinessLogic.Accounts.Helpers;
@@ -9,7 +10,6 @@ using W88.BusinessLogic.Shared.Helpers;
 using W88.Utilities;
 using W88.Utilities.Geo;
 
-
 public class BasePage : Page
 {
     protected bool HasSession = false;
@@ -19,6 +19,60 @@ public class BasePage : Page
     protected Members MembersHelper = new Members();
     protected RewardsHelper RewardsHelper = new RewardsHelper();
     protected string Language = string.Empty;
+    protected static readonly IpHelper IpHelper = new IpHelper();
+    
+    protected string ContentLanguage
+    {
+        get
+        { 
+            if (!IsDebugMode)
+            {
+                return new RewardsHelper(Language).ContentLanguage;
+            }
+
+            switch (CountryCode)
+            {
+                case "my":
+                    switch (Language)
+                    {
+                        case "en-us":
+                            return "en-my";
+                        case "zh-cn":
+                            return "zh-my";
+                    }
+                    return Language;
+                default:
+                    return Language;
+            }
+        }
+    }
+
+    public static string CountryCode
+    {
+        get
+        {
+            try
+            {
+                var debugCountryCode = Common.GetAppSetting<string>("debugCountryCode");
+                if (IsDebugMode && !string.IsNullOrEmpty(debugCountryCode)) return debugCountryCode.Trim().ToLower();
+                return RewardsHelper.CountryCode.ToLower();
+            }
+            catch (Exception)
+            {
+                return string.Empty;
+            }
+        }
+    }
+
+    public static bool IsDebugMode
+    {
+	    get
+	    {
+            bool isDebugMode;
+            Boolean.TryParse(Common.GetAppSetting<string>("isDebugMode"), out isDebugMode);
+            return isDebugMode;
+        }
+    }
 
     protected bool IsUnderMaintenance
     {
@@ -37,27 +91,65 @@ public class BasePage : Page
         }
     }
 
-    protected override void OnPreInit(EventArgs e)
+    protected bool IsVip
     {
-        try
+        get
         {
-            if (bool.Parse(Common.GetAppSetting<string>("ClearWebCache")))
-            {
-                foreach (System.Collections.DictionaryEntry deCache in HttpContext.Current.Cache)
-                {
-                    HttpContext.Current.Cache.Remove(Convert.ToString(deCache.Key));
-                }
-            }
-        }
-        finally
-        {
-            var language = HttpContext.Current.Request.QueryString.Get("lang");
-            Language = !string.IsNullOrEmpty(language) ? language : LanguageHelpers.SelectedLanguage;
-            CheckSession();
+            var vipCookie = CookieHelpers.CookieVip;
+            bool isVip;
+            bool.TryParse(vipCookie, out isVip);
+            return isVip;
         }
     }
 
-    protected async void CheckSession()
+    public static bool IsVipDomain
+    {
+        get
+        {
+            var host = HttpContext.Current.Request.Url.Host.Split('.');
+            return Common.GetAppSetting<string>("VIP_Domains").ToLower().Contains(string.Format("{0}.{1}", host[1], host[2]));
+        }
+    }
+
+    public static string Token 
+    {
+        get 
+        { 
+            var cookie = HttpContext.Current.Request.Cookies.Get("s");
+            return cookie == null ? string.Empty : cookie.Value;
+        }
+        set
+        {
+            var cookie = HttpContext.Current.Request.Cookies.Get("s") ?? new HttpCookie("s");
+            cookie.Value = value;
+            if (!string.IsNullOrEmpty(IpHelper.DomainName)) { cookie.Domain = IpHelper.DomainName; }
+            HttpContext.Current.Response.Cookies.Add(cookie);
+        }   
+    }
+
+    protected override async void OnPreInit(EventArgs e)
+    {
+        base.OnPreInit(e);        
+        var language = HttpContext.Current.Request.QueryString.Get("lang");
+        Language = !string.IsNullOrEmpty(language) ? language : LanguageHelpers.SelectedLanguage;
+        HasSession = await CheckSession();
+        if (!IsUnderMaintenance)
+        {
+            return;
+       	}
+        // Check if site is under maintenance and allow only certain users to have access
+        var isAllowedAccess = false;
+        var allowedUsers = Common.GetAppSetting<string>("allowedUsers");
+        if (!string.IsNullOrEmpty(allowedUsers) && HasSession
+            && Array.IndexOf(allowedUsers.ToLower().Split('|'), UserSessionInfo.MemberCode.ToLower()) >= 0)
+            isAllowedAccess = true;
+        if (!isAllowedAccess)
+        {
+            Response.Redirect("/_Static/Pages/enhancement-all.aspx", false);
+        }
+    }
+
+    protected async Task<bool> CheckSession()
     {
         try
         {
@@ -66,49 +158,28 @@ public class BasePage : Page
             {                
                 token = Encryption.Decrypt(W88.Utilities.Constant.EncryptionType.TripleDESCS, token);               
             }
-
             if (string.IsNullOrEmpty(token))
             {
                 token = HttpContext.Current.Request.Headers.Get("token");
                 if (string.IsNullOrEmpty(token))
                 {
-                    var cookie = HttpContext.Current.Request.Cookies["user"];
-                    if (cookie == null) return;
-                    var user = Common.DeserializeObject<MemberSession>(cookie.Value);
-                    if (user == null) return;
-                    token = user.Token;     
+                    token = Token;
                 }
+                if (string.IsNullOrEmpty(token)) return false;
             }
-
-            if (string.IsNullOrEmpty(token)) return;
             var process = await MembersHelper.MembersSessionCheck(token);
-            HasSession = process.Code == 1 && !string.IsNullOrEmpty(process.Data.Token);
-            if (!HasSession) return;
+            if (!(process.Code == 1 && !string.IsNullOrEmpty(process.Data.Token))) return false;
+            var sessionInfo = await MembersHelper.GetMemberInfo(token);
+            if (string.IsNullOrEmpty(sessionInfo.MemberCode)) return false;
+            UserSessionInfo = sessionInfo;
             MemberSession = process.Data;
-            UserSessionInfo = await MembersHelper.GetMemberInfo(token);
-
-            if (IsUnderMaintenance)
-            {
-                // Check if site is under maintenance and allow only certain users to have access
-                var isAllowedAccess = false;
-                var allowedUsers = Common.GetAppSetting<string>("allowedUsers");
-                if (!string.IsNullOrEmpty(allowedUsers) && !string.IsNullOrEmpty(UserSessionInfo.MemberCode) 
-                    && Array.IndexOf(allowedUsers.ToLower().Split('|'), UserSessionInfo.MemberCode.ToLower()) >= 0)
-                    isAllowedAccess = true;
-
-                if (!isAllowedAccess)
-                {
-                    Response.Redirect("/_Static/Pages/enhancement-all.aspx", false);
-                    return;
-                }
-            }
-         
             SetMemberRewardsInfo();
         }
         catch (Exception)
-        {
-
+        { 
+            return false;
         }
+        return true;
     }
 
     protected async void SetMemberRewardsInfo()
@@ -117,17 +188,6 @@ public class BasePage : Page
         MemberRewardsInfo = new MemberRewardsInfo();
         MemberRewardsInfo.CurrentPoints = await MembersHelper.GetRewardsPoints(UserSessionInfo);
         MemberRewardsInfo.CurrentPointLevel = await RewardsHelper.GetPointLevel(MemberSession.MemberId);
-    }
-
-    protected bool IsVip
-    {     
-        get
-        {
-            var vipCookie = CookieHelpers.CookieVip;
-            bool isVip;
-            bool.TryParse(vipCookie, out isVip);
-            return isVip;
-        }
     }
 
     protected string GetTranslation(string key, string fileName = "")

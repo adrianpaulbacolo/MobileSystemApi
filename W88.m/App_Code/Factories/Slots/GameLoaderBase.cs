@@ -226,7 +226,8 @@ namespace Factories.Slots
         PP,
         TTG,
         GNS,
-        PLS
+        PLS,
+        MRS
     }
 
     public enum GameDevice

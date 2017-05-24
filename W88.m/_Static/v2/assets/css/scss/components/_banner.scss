@@ -1,0 +1,107 @@
+//
+// Banner
+// -------------------------------
+
+.banner-lists {
+    overflow-wrap:break-word;
+    color: #eee;
+    max-width: 640px;
+    margin: 0 auto;
+    .col {
+        width: 100%;
+    }
+}
+
+.banner-odd-even > div.row {
+    .banner-caption{
+        max-width: 50%;
+        h3{
+            font-size: 1.429em;
+        }
+        p{
+            font-size: 1em;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical; 
+            overflow: hidden;
+        }
+    }
+    &:nth-child(odd) {
+        margin-bottom: 0;
+        .banner-caption {
+            float: right;
+            text-align: right;
+            margin-right: 15px;
+        }
+    }
+    &:nth-child(even) {
+        .banner-caption {
+            margin-left: 15px;
+        }
+    }
+    .btn {
+        max-width: 210px;
+        display: inline-block;
+        width: 100%;
+    }
+}
+
+.banner {
+    background-color: darken($body-bg, 8%); // #0b0b0b
+    position: relative;
+    overflow: hidden;
+    height: 0;
+    padding-bottom: 50%;
+    .img-bg {
+        position: absolute;
+        width: 100%;
+    }
+    .banner-caption {
+        position: relative;
+        z-index: 1;
+        padding: 10px;
+    }
+    .title {
+        color: $brand-alt;
+        font-size: 2rem;
+        margin-top: 1rem;
+    }
+}
+
+
+@media all and (min-width: 768px) {
+    .banner .banner-caption{
+        margin-top: 7%;
+    }
+    .banner-odd-even > div.row {
+        .banner-caption{
+            h3{
+                font-size: 1.714em;
+            }
+            p{
+                color: #fff;
+                font-size: 1.143em;
+            }
+        }
+    }
+}
+
+
+@media all and (max-width: 480px) {
+    .banner-odd-even > div.row {
+        .banner-caption{
+            h3{
+                font-size: 1.286em;
+            }
+            p{
+                color: #fff;
+                font-size: 0.8em;
+                margin-bottom: 5px;
+            }
+        }
+        .btn {
+            padding-top: 8px !important;
+            padding-bottom: 8px !important;
+        }
+    }
+}
