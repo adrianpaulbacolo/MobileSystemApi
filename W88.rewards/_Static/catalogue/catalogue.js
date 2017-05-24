@@ -8,6 +8,7 @@ var Catalogue = function (data) {
     this.cacheQuerySize = data.cacheQuerySize;
     this.elems = data.elems;
     this.hasReloaded = false;
+    this.isCachingComplete = false;
     this.isSearching = true;
     this.params = data.params;
     this.storageKey = window.location.host + '_' + data.language + '_catalogue';
@@ -36,6 +37,8 @@ Catalogue.prototype.getProducts = function (params, isProductCache) {
                 if (isProductCache) {
                     if (params.Index == 0)
                         self.elems.noDataFoundLabel.show();
+                    if (params.Index > 0)
+                        self.isCachingComplete = true;
                     return;
                 }
                 self.reset();

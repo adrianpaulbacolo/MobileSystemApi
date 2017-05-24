@@ -72,9 +72,12 @@
                 if (hasSession) 
                     catalogue.cacheProducts();     
                 cachedItems = catalogue.getProductsFromCache();
-                if (_.isEmpty(cachedItems)) 
+                if (_.isEmpty(cachedItems)) {
+                    catalogue.isSearching = true;
                     catalogue.getProducts();
+                }
             } else {
+                catalogue.isSearching = true;
                 catalogue.getProducts();   
             }
 
@@ -88,11 +91,13 @@
                     catalogue.getProducts();
                     return;
                 }
+                if (!catalogue.isCachingComplete) {
+                    catalogue.isSearching = true;
+                    catalogue.getProducts();   
+                    return;
+                }
                 if (catalogue.hasReloaded) return;
-                cachedItems = catalogue.getProductsFromCache(true);
-                if (!_.isEmpty(cachedItems)) return;                                  
-                catalogue.isSearching = true;
-                catalogue.getProducts();            
+                cachedItems = catalogue.getProductsFromCache(true);                                   
             });
 
             var children = $('div.btn-group.btn-group-justified.btn-group-sliding').children();
