@@ -5,13 +5,14 @@
 };
 
 var Catalogue = function (data) {
+    this.cacheQuerySize = data.cacheQuerySize;
     this.elems = data.elems;
     this.hasReloaded = false;
     this.isSearching = true;
     this.params = data.params;
+    this.storageKey = window.location.host + '_' + data.language + '_catalogue';
     this.template = null;
     this.translations = data.translations;
-    this.storageKey = window.location.host + '_' + data.language + '_catalogue';
     this.token = data.token;
     this.uri = '/api/rewards/search/';
 };
@@ -86,6 +87,7 @@ Catalogue.prototype.searchCallback = function (data) {
 Catalogue.prototype.cacheProducts = function (params) {
     var self = this;
     params = _.isEmpty(params) ? _.clone(self.params) : params;
+    params.PageSize = self.cacheQuerySize;
     self.getProducts(params, true);
 };
 

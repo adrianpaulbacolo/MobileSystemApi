@@ -18,6 +18,18 @@ public partial class Default : CatalogueBasePage
         }    
     }
 
+    protected string CacheQuerySize
+    {
+        get
+        {
+            var appSetting = Common.GetAppSetting<string>("cacheQuerySize");
+            if (string.IsNullOrEmpty(appSetting)) return "5";
+            int querySize;
+            int.TryParse(appSetting, out querySize);
+            return querySize == 0 ? "5" : appSetting;
+        }
+    }
+
     protected string Params
     {
         get

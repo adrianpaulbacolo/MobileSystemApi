@@ -7,7 +7,7 @@
 <head>
     <title><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Brand)%></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/catalogue/catalogue.js"></script>
+    <script type="text/javascript" src="/_Static/JS/dist/w88.mrewards.catalogue.js"></script>
     <script>
         var ids = [];
     </script>
@@ -49,6 +49,7 @@
         var catalogue,
             cachedItems = [],
             isCachingEnabled = <%=Convert.ToString(IsCachingEnabled).ToLower()%>,
+            cacheQuerySize = '<%=CacheQuerySize%>',
             hasSession = <%=Convert.ToString(HasSession).ToLower()%>,
             translations = {
                 labelHot: '<%=RewardsHelper.GetTranslation(TranslationKeys.Label.Hot, Language)%>',
@@ -57,6 +58,7 @@
             };
         $(function() {
             catalogue = new Catalogue({
+                cacheQuerySize: cacheQuerySize,
                 language: '<%=Language%>', 
                 token: '<%=Token%>', 
                 params: JSON.parse('<%=Params%>'), 
