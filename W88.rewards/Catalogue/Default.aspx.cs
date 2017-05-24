@@ -45,10 +45,7 @@ public partial class Default : CatalogueBasePage
             dataTable.Rows.InsertAt(dataRowAll, 0);
             CategoryListView.DataBind();
         }
-        catch (Exception)
-        {
-            lblnodata.Visible = true; 
-        }
+        catch (Exception){}
     }
 
     protected override void SetLabels()
@@ -78,9 +75,3 @@ public partial class Default : CatalogueBasePage
         #endregion
     }
 }
-
-
-
-
-
-

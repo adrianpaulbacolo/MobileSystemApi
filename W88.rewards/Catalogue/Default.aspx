@@ -22,8 +22,8 @@
                 <span id="pointLevelLabel" runat="server"></span>
             </div>        
             <div class="container">
-                <div class="row">             
-                    <asp:Label ID="lblnodata" runat="server" CssClass="nodata" Text="Label" Visible="false"><%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.NoAvailableItems, Language)%></asp:Label>
+                <div class="row">
+                    <span id="lblnodata" class="nodata" style="display:none;"><%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.NoAvailableItems, Language)%></span>             
                     <div id="listContainer"></div>
                 </div>
             </div>
@@ -58,7 +58,10 @@
                 token: '<%=Token%>', 
                 params: JSON.parse('<%=Params%>'), 
                 translations: translations, 
-                elem: $('#listContainer')
+                elems: {
+                    container: $('#listContainer'),
+                    noDataFoundLabel: $('#lblnodata')
+                }
             });
             if(<%=Convert.ToString(HasSession).ToLower()%>) catalogue.cacheProducts();
             catalogue.getProducts();

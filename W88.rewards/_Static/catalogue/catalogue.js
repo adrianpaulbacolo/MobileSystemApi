@@ -5,7 +5,7 @@
 };
 
 var Catalogue = function (data) {
-    this.elem = data.elem;
+    this.elems = data.elems;
     this.isSearching = true;
     this.params = data.params;
     this.template = null;
@@ -31,8 +31,10 @@ Catalogue.prototype.getProducts = function (params, isProductCache) {
         data: !_.isEmpty(params) ? params : self.params,
         success: function(response) {
             if (response.ResponseCode != 1 || _.isEmpty(response.ResponseData)) {
-                if (!isProductCache) self.reset();
-                self.manageCache();
+                if (!isProductCache) {
+                    self.reset();
+                    self.elems.noDataFoundLabel.show();
+                }
                 return;
             }
             if (!isProductCache) {
@@ -45,20 +47,25 @@ Catalogue.prototype.getProducts = function (params, isProductCache) {
         },
         error: function () {
             if (!isProductCache) self.reset();
-            self.manageCache();
         }
     });
 };
 
+Catalogue.prototype.getProductsFromCache = function () {
+    var self = this,
+        cachedItems = amplify.store(self.storageKey);
+    if (_.isEmpty(cachedItems)) return;
+    var filtered = _.filter(cachedItems, { CategoryId: self.params.CategoryId });
+    if (_.isEmpty(filtered)) {
+        self.elems.noDataFoundLabel.show();
+        return;
+    }
+    self.renderUi(filtered);
+};
+
 Catalogue.prototype.searchCallback = function (data) {
     var self = this;
-    $.get('/_Static/catalogue/template.html', function (html) {
-        self.template = _.template(html);
-        self.elem.append(self.template({
-            products: data,
-            translations: self.translations
-        }));
-    });
+    self.renderUi(data);
     self.params.Index += 1;
     self.reset();
 };
@@ -89,6 +96,17 @@ Catalogue.prototype.manageCache = function (data) {
     }
     if (_.isEmpty(cachedProducts)) return;
     amplify.store(self.storageKey, cachedProducts);
+};
+
+Catalogue.prototype.renderUi = function (data) {
+    var self = this;
+    $.get('/_Static/catalogue/template.html', function (html) {
+        self.template = _.template(html);
+        self.elems.container.append(self.template({
+            products: data,
+            translations: self.translations
+        }));
+    });
 };
 
 Catalogue.prototype.reset = function () {
