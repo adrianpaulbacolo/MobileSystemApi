@@ -36,9 +36,11 @@
                     </div>
                 </div>
             </div>
+            <% if(string.IsNullOrEmpty(Token)) { %>
             <div class="footer">
                 <asp:Button ID="btnSubmit" runat="server" Text="login" CssClass="btn btn-block btn-primary" data-corners="false" />
             </div>
+            <% } %>
         </form>
     </div>
 

@@ -19,7 +19,7 @@ public partial class v2_Dashboard : BasePage
     }
     protected void Page_Load(object sender, EventArgs e)
     {
-        var banner = new Banner();
+        var banner = new Banner(commonFunctions.getMobileDevice(Request));
         BannerDiv = banner.GetBanners();
     }
 }
