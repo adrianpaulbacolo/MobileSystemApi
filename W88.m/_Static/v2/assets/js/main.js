@@ -147,6 +147,19 @@ function getQueryStringValue(key) {
     return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
 }
 
+function formatDateTime(dateTime) {
+    //MM/DD/YYYY h:m:s
+    var month = (dateTime.getMonth() + 1).toString().length == 1 ? "0" + (dateTime.getMonth() + 1).toString() : (dateTime.getMonth() + 1).toString();
+    var day = (dateTime.getDate()).toString().length == 1 ? "0" + dateTime.getDate().toString() : dateTime.getDate().toString();
+    var year = dateTime.getFullYear();
+
+    var hours = dateTime.getHours();
+    var minutes = dateTime.getMinutes();
+    var seconds = dateTime.getSeconds();
+
+    return month + "/" + day + "/" + year + " " + hours + ":" + minutes + ":" + seconds
+}
+
 function addMonths(date, months) {
     date.setMonth(date.getMonth() + months);
     return date;
@@ -155,6 +168,10 @@ function addMonths(date, months) {
 function addHours(date, hours) {
     date.setMonth(date.getHours() + hours);
     return date;
+}
+
+function stringToNumber(value) {
+    return parseFloat(_.replace(value, /,/g, ""));
 }
 
 function _w88_send(resource, method, data, success, complete) {

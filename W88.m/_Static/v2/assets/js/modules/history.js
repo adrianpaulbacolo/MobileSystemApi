@@ -285,7 +285,7 @@ function History() {
         });
 
         send({
-            isSelection: true
+            isSelectOrder: true
         }, "/user/Wallets", "GET", function (response) {
             selection.Wallets = response.ResponseData;
         })
