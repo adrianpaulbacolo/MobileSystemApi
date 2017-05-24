@@ -115,17 +115,7 @@ function Login() {
     };
 
     function onCheckFreeRounds(topic, data) {
-        if (!_.isUndefined(data)) {
-
-            $('#btnClaimNow').attr('href', data);
-
-            $("#freerounds-modal").on('hidden.bs.modal', function () {
-                window.location = "/v2/Dashboard.aspx";
-            });
-
-            $('#freerounds-modal').modal('show');
-
-        } else {
+        if (_.isEmpty(data)) {
             var userData = amplify.store(w88Mobile.Keys.userSettings);
 
             if (userData.ResetPassword == true) {
@@ -133,6 +123,14 @@ function Login() {
             } else {
                 login.getGPIUrl();
             }
+        } else {
+            $('#btnClaimNow').attr('href', data);
+
+            $("#freerounds-modal").on('hidden.bs.modal', function () {
+                window.location = "/v2/Dashboard.aspx";
+            });
+
+            $('#freerounds-modal').modal('show');
         }
     }
 
