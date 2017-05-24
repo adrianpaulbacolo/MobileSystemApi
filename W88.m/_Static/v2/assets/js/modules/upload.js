@@ -34,11 +34,6 @@ function Upload() {
 
         var url = w88Mobile.APIUrl + "/user/upload";
 
-        var headers = {
-            'Token': window.User.token,
-            'LanguageCode': window.User.lang
-        };
-
         $.ajax({
             type: "Post",
             url: url,
@@ -48,7 +43,6 @@ function Upload() {
             },
             processData: false, // Don't process the files
             contentType: false, // Set content type to false as jQuery will tell the server its a query string request
-            headers: headers,
             success: function (response) {
                 switch (response.ResponseCode) {
                     case 1:
@@ -71,7 +65,6 @@ function Upload() {
                 pubsub.publish('stopLoadItem');
             }
         });
-
     };
 
     return upload;
