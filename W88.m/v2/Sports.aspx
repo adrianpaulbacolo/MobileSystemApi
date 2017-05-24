@@ -50,61 +50,6 @@
             </figure>
         </div>
         <% } %>
-        
-        <% if (!commonFunctions.isExternalPlatform()) { %>
-
-        <% try
-           { %>
-
-        <%if (DeviceId == 1) {%>
-        <div class="row">
-            <figure class="banner">
-                <img src='<%=DisplayXSports ? "/_Static/Images/sports/ClubW88-iOS-banner-l.jpg" : "/_Static/Images/sports/ClubW88-iOS-banner-r.jpg" %>' class="img-responsive img-bg">
-                <figcaption class="banner-caption">
-                    <h3 class="title" data-i18n="LABEL_PRODUCTS_CLUB_W"></h3>
-                    <p data-i18n="LABEL_PRODUCTS_CLUB_W_DESC"></p>
-                    <a href="<%=W88Constant.PageNames.Downloads%>" data-i18n="BUTTON_PLAY_NOW" class="btn btn-block btn-primary"></a>
-                </figcaption>
-            </figure>
-        </div>
-        <% } else if (DeviceId == 2) {%>
-        <div class="row">
-            <figure class="banner">
-                <img src='<%=DisplayXSports ? "/_Static/Images/sports/ClubW88-Android-banner-l.jpg" : "/_Static/Images/sports/ClubW88-Android-banner-r.jpg" %>' class="img-responsive img-bg">
-                <figcaption class="banner-caption">
-                    <h3 class="title" data-i18n="LABEL_PRODUCTS_CLUB_W"></h3>
-                    <p data-i18n="LABEL_PRODUCTS_CLUB_W_DESC"></p>
-                    <a href="<%=W88Constant.PageNames.Downloads%>" data-i18n="BUTTON_PLAY_NOW" class="btn btn-block btn-primary"></a>
-                </figcaption>
-            </figure>
-        </div>
-        <%} else if (DeviceId == 3) { %>
-        <div class="row">
-            <figure class="banner">
-                <img src='<%=DisplayXSports ? "/_Static/Images/sports/ClubW88-iOS-banner-l.jpg" : "/_Static/Images/sports/ClubW88-iOS-banner-r.jpg" %>' class="img-responsive img-bg">
-                <figcaption class="banner-caption">
-                    <h3 class="title" data-i18n="LABEL_PRODUCTS_CLUB_W"></h3>
-                    <p data-i18n="LABEL_PRODUCTS_CLUB_W_DESC"></p>
-                    <a href="<%=W88Constant.PageNames.Downloads%>" data-i18n="BUTTON_PLAY_NOW" class="btn btn-block btn-primary"></a>
-                </figcaption>
-            </figure>
-        </div>
-        <div class="row">
-            <figure class="banner">
-                <img src='<%=DisplayXSports ? "/_Static/Images/sports/ClubW88-Android-banner-r.jpg" :"/_Static/Images/sports/ClubW88-Android-banner-l.jpg"  %>' class="img-responsive img-bg">
-                <figcaption class="banner-caption">
-                    <h3 class="title" data-i18n="LABEL_PRODUCTS_CLUB_W"></h3>
-                    <p data-i18n="LABEL_PRODUCTS_CLUB_W_DESC"></p>
-                    <a href="<%=W88Constant.PageNames.Downloads%>" data-i18n="BUTTON_PLAY_NOW" class="btn btn-block btn-primary"></a>
-                </figcaption>
-            </figure>
-        </div>
-        <%}%>
-
-        <%}
-           catch (Exception) { }%>
-        
-        <% } %>
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="Server">
