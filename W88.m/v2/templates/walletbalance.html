@@ -1,0 +1,14 @@
+﻿<div class="balances">
+    <table>
+        {% _.forEach( tplData.wallets, function( wallet ){ %}
+        <tr>
+            <td>
+                {%-wallet.Name%}
+            </td>
+            <td class="text-right">
+                {%-wallet.Balance%}
+            </td>
+        </tr>
+        {% }); %}
+    </table>
+</div>

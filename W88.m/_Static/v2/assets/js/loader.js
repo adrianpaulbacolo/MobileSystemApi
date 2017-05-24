@@ -17,7 +17,7 @@ function loader() {
 
     function onStartLoadItem(topic, data) {
         var key = "main";
-        if (!_.isUndefined(data.selector) && !_.isEmpty(data.selector)) {
+        if (!_.isEmpty(data) && !_.isEmpty(data.selector)) {
             key = data.selector;
         }
 
@@ -76,7 +76,7 @@ function loader() {
 
     function onStopLoadItem(topic, data) {
         var key = "main";
-        if (!_.isUndefined(data.selector) && !_.isEmpty(data.selector)) {
+        if (!_.isEmpty(data) && !_.isEmpty(data.selector)) {
             key = data.selector;
         }
 
