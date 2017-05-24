@@ -1,7 +1,7 @@
 ﻿using System;
 using Models;
 
-public partial class v2_Account_Rebates : PaymentBasePage
+public partial class v2_Account_Rebates : BasePage
 {
     protected string Username;
 
@@ -13,7 +13,7 @@ public partial class v2_Account_Rebates : PaymentBasePage
 
     protected override void OnPreInit(EventArgs e)
     {
-        this.isPublic = true;
+        this.isPublic = false;
     }
 
     protected void Page_Load(object sender, EventArgs e)
