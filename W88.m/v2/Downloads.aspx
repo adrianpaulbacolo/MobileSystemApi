@@ -39,6 +39,18 @@
 
         var downloadItems = [
                 {
+                    title: $.i18n("LABEL_PRODUCTS_CLUB_W"),
+                    ios: {
+                        src: "/_Static/Images/sports/bnr-clubW88-iOS.jpg",
+                        link: "/v2/Downloads/clubW88-iOS",
+                    },
+                    others: {
+                        src: "/_Static/Images/sports/bnr-clubW88-Android.jpg",
+                        link: "<%=commonClubWAPK.getDownloadUrl%>",
+                        target: "_blank"
+                    }
+                },
+                {
                     title: "<%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%><small><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></small>",
                     others: {
                         src: "/_Static/v2/Assets/Images/downloads/MGS-Slots-Android.jpg",
@@ -98,6 +110,18 @@
                     others: {
                         src: "/_Static/v2/Assets/Images/downloads/TexasMahjong-Android.jpg",
                         link: "https://tm.gp2play.com/mobile/android/install.html",
+                    }
+                },
+                {
+                    title: $.i18n("LABEL_MENU_SUPERBULL"),
+                    ios: {
+                        src: "/_Static/Images/Download/bnr-superbull-ios.jpg",
+                        link: "/v2/Downloads/super-bull-ios",
+                    },
+                    others: {
+                        src: "/_Static/Images/Download/bnr-superbull-android.jpg",
+                        link: "<%= commonFunctions.GetSuperBullDownloadLink()%>",
+                        target: "_blank"
                     }
                 }
         ];

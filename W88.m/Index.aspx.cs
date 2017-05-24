@@ -120,6 +120,7 @@ public partial class _Index : BasePage
                 }
 
                 var hasCurrency = (promo.HasAttributes && promo.Attribute("currency") != null);
+                var isNew = (promo.HasAttributes && promo.Attribute("isNew") != null);
                 var isPublic = (promo.HasAttributes && promo.Attribute("public") != null);
 
                 if (hasCurrency && !string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
@@ -161,6 +162,7 @@ public partial class _Index : BasePage
 
                 if (!string.IsNullOrWhiteSpace(descText)) description = "<p>" + descText + "</p>";
                 if (!string.IsNullOrWhiteSpace(mainText)) content = "<div class=\"slide-title\"><h2>" + mainText + "</h2>" + description + "</div>";
+                var badge = (isNew) ? "<div class=\"badge-new\"><img src=\"/_Static/Images/badge/banner/new-" + commonCookie.CookieLanguage + "-mobile-home.png\"></div>" : string.Empty;
 
                 var bannerText = "";
                 if (!string.IsNullOrWhiteSpace(content) || !string.IsNullOrWhiteSpace(content))
@@ -171,7 +173,7 @@ public partial class _Index : BasePage
                 url = CheckDomain(url);
 
                 slider += "<div class=\"slide\">" +
-                            "<a href=\"" + url + "\" data-ajax=\"false\" class=\"" + linkClass + "\">" +
+                            "<a href=\"" + url + "\" data-ajax=\"false\" class=\"" + linkClass + "\">" + badge +
                             content +
                                 "<img src=\"/_Static/Images/promo-banner/" + imageSrc + "\" alt=\"banner\" class=\"img-responsive\"> " +
                             "</a>" +

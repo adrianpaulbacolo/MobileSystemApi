@@ -161,20 +161,15 @@ function stringToNumber(value) {
     return parseFloat(_.replace(value, /,/g, ""));
 }
 
-function send(resource, method, data, success, complete) {
+function _w88_send(resource, method, data, success, complete) {
 
     var selector = "";
-    if (!_.isEmpty(data.selector)) {
+    if (!_.isEmpty(data) && !_.isEmpty(data.selector)) {
         selector = _.clone(data.selector);
         delete data["selector"];
     }
 
     var url = w88Mobile.APIUrl + resource;
-
-    var headers = {
-        'Token': window.User.token,
-        'LanguageCode': window.User.lang
-    };
 
     $.ajax({
         type: method,
@@ -183,7 +178,6 @@ function send(resource, method, data, success, complete) {
         beforeSend: function () {
             pubsub.publish('startLoadItem', { selector: selector });
         },
-        headers: headers,
         success: success,
         error: function () {
             console.log("Error connecting to api");

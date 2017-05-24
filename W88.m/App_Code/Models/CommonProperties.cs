@@ -18,4 +18,26 @@ namespace Models
 
         public XElement XeErrors = commonVariables.ErrorsXML;
     }
+
+    public class W88Constant
+    {
+        public struct PageNames
+        {
+            public static string Dashboard = "/v2/Dashboard.aspx";
+            public static string Funds = "/v2/Funds.aspx";
+            public static string Slots = "/v2/Slots";
+            public static string Lottery = "/v2/Lottery.aspx";
+            public static string Login = "/_Secure/Login.aspx";
+            public static string Downloads = "/v2/Downloads.aspx";
+            public static string Sports = "/v2/Sports.aspx";
+            public static string VSports = "/v2/V-Sports.aspx";
+            public static string ContactUs = "/v2/ContactUs.aspx";
+            public static string Account = "/v2/Account/Default.aspx";
+            public static string ChangePassword = "/v2/Account/ChangePassword.aspx";
+            public static string Upload = "/v2/Account/Upload.aspx";
+            public static string LiveChat = "/LiveChat/Default.aspx";
+            public static string Rebates = "/v2/Account/Rebates.aspx";
+            public static string BankDetails = "/v2/Account/BankDetails.aspx";
+        }
+    }
 }

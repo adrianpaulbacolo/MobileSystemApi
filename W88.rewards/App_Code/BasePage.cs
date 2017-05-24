@@ -20,23 +20,6 @@ public class BasePage : Page
     protected RewardsHelper RewardsHelper = new RewardsHelper();
     protected string Language = string.Empty;
     protected static readonly IpHelper IpHelper = new IpHelper();
-
-    protected bool IsUnderMaintenance
-    {
-        get
-        {
-            bool isUnderMaintenance;
-            Boolean.TryParse(Common.GetAppSetting<string>("isUnderMaintenance"), out isUnderMaintenance);
-            if (!isUnderMaintenance)
-                return false;
-
-            var maintenanceModules = Common.GetAppSetting<string>("maintenanceModules");
-            if (string.IsNullOrEmpty(maintenanceModules))
-                return true;
-
-            return !(Array.IndexOf(maintenanceModules.Split('|'), Request.Url.AbsolutePath.ToLower()) < 0);
-        }
-    }
     
     protected string ContentLanguage
     {
@@ -44,7 +27,7 @@ public class BasePage : Page
         { 
             if (!IsDebugMode)
             {
-                return new RewardsHelper().ContentLanguage;
+                return new RewardsHelper(Language).ContentLanguage;
             }
 
             switch (CountryCode)
@@ -68,10 +51,17 @@ public class BasePage : Page
     {
         get
         {
-            var debugCountryCode = Common.GetAppSetting<string>("debugCountryCode");
-            if (IsDebugMode && !string.IsNullOrEmpty(debugCountryCode)) return debugCountryCode.Trim().ToLower();
-            return RewardsHelper.CountryCode.ToLower();
-    	}
+            try
+            {
+                var debugCountryCode = Common.GetAppSetting<string>("debugCountryCode");
+                if (IsDebugMode && !string.IsNullOrEmpty(debugCountryCode)) return debugCountryCode.Trim().ToLower();
+                return RewardsHelper.CountryCode.ToLower();
+            }
+            catch (Exception)
+            {
+                return string.Empty;
+            }
+        }
     }
 
     public static bool IsDebugMode
@@ -84,18 +74,55 @@ public class BasePage : Page
         }
     }
 
+    protected bool IsUnderMaintenance
+    {
+        get
+        {
+            bool isUnderMaintenance;
+            Boolean.TryParse(Common.GetAppSetting<string>("isUnderMaintenance"), out isUnderMaintenance);
+            if (!isUnderMaintenance)
+                return false;
+
+            var maintenanceModules = Common.GetAppSetting<string>("maintenanceModules");
+            if (string.IsNullOrEmpty(maintenanceModules))
+                return true;
+
+            return !(Array.IndexOf(maintenanceModules.Split('|'), Request.Url.AbsolutePath.ToLower()) < 0);
+        }
+    }
+
+    protected bool IsVip
+    {
+        get
+        {
+            var vipCookie = CookieHelpers.CookieVip;
+            bool isVip;
+            bool.TryParse(vipCookie, out isVip);
+            return isVip;
+        }
+    }
+
+    public static bool IsVipDomain
+    {
+        get
+        {
+            var host = HttpContext.Current.Request.Url.Host.Split('.');
+            return Common.GetAppSetting<string>("VIP_Domains").ToLower().Contains(string.Format("{0}.{1}", host[1], host[2]));
+        }
+    }
+
     public static string Token 
     {
         get 
         { 
-            var cookie = HttpContext.Current.Request.Cookies.Get("token");
+            var cookie = HttpContext.Current.Request.Cookies.Get("s");
             return cookie == null ? string.Empty : cookie.Value;
         }
         set
         {
-            var cookie = HttpContext.Current.Request.Cookies.Get("token") ?? new HttpCookie("token");
+            var cookie = HttpContext.Current.Request.Cookies.Get("s") ?? new HttpCookie("s");
             cookie.Value = value;
-            cookie.Domain = IpHelper.DomainName;
+            if (!string.IsNullOrEmpty(IpHelper.DomainName)) { cookie.Domain = IpHelper.DomainName; }
             HttpContext.Current.Response.Cookies.Add(cookie);
         }   
     }
@@ -105,7 +132,7 @@ public class BasePage : Page
         base.OnPreInit(e);        
         var language = HttpContext.Current.Request.QueryString.Get("lang");
         Language = !string.IsNullOrEmpty(language) ? language : LanguageHelpers.SelectedLanguage;
-        var hasSession = await CheckSession();
+        HasSession = await CheckSession();
         if (!IsUnderMaintenance)
         {
             return;
@@ -113,7 +140,7 @@ public class BasePage : Page
         // Check if site is under maintenance and allow only certain users to have access
         var isAllowedAccess = false;
         var allowedUsers = Common.GetAppSetting<string>("allowedUsers");
-        if (!string.IsNullOrEmpty(allowedUsers) && hasSession
+        if (!string.IsNullOrEmpty(allowedUsers) && HasSession
             && Array.IndexOf(allowedUsers.ToLower().Split('|'), UserSessionInfo.MemberCode.ToLower()) >= 0)
             isAllowedAccess = true;
         if (!isAllowedAccess)
@@ -131,7 +158,6 @@ public class BasePage : Page
             {                
                 token = Encryption.Decrypt(W88.Utilities.Constant.EncryptionType.TripleDESCS, token);               
             }
-
             if (string.IsNullOrEmpty(token))
             {
                 token = HttpContext.Current.Request.Headers.Get("token");
@@ -142,12 +168,11 @@ public class BasePage : Page
                 if (string.IsNullOrEmpty(token)) return false;
             }
             var process = await MembersHelper.MembersSessionCheck(token);
-            HasSession = process.Code == 1 && !string.IsNullOrEmpty(process.Data.Token);
-            if (!HasSession) return false;
+            if (!(process.Code == 1 && !string.IsNullOrEmpty(process.Data.Token))) return false;
+            var sessionInfo = await MembersHelper.GetMemberInfo(token);
+            if (string.IsNullOrEmpty(sessionInfo.MemberCode)) return false;
+            UserSessionInfo = sessionInfo;
             MemberSession = process.Data;
-            UserSessionInfo = await MembersHelper.GetMemberInfo(token);
-            HasSession = !string.IsNullOrEmpty(UserSessionInfo.MemberCode);
-            if (!HasSession) return false;
             SetMemberRewardsInfo();
         }
         catch (Exception)
@@ -163,17 +188,6 @@ public class BasePage : Page
         MemberRewardsInfo = new MemberRewardsInfo();
         MemberRewardsInfo.CurrentPoints = await MembersHelper.GetRewardsPoints(UserSessionInfo);
         MemberRewardsInfo.CurrentPointLevel = await RewardsHelper.GetPointLevel(MemberSession.MemberId);
-    }
-
-    protected bool IsVip
-    {     
-        get
-        {
-            var vipCookie = CookieHelpers.CookieVip;
-            bool isVip;
-            bool.TryParse(vipCookie, out isVip);
-            return isVip;
-        }
     }
 
     protected string GetTranslation(string key, string fileName = "")
