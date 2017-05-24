@@ -21,18 +21,15 @@ function ForgotPassword() {
         amplify.store(key, forgotData, window.User.storageExpiration);
         var step1Template = _.template($("script#Step1Template").html());
 
-        $("#forgot").html(step1Template({
-            lblUsername: $.i18n("LABEL_USERNAME"),
-            lblEmail: $.i18n("LABEL_EMAIL"),
-            lblSubmit: $.i18n("BUTTON_SUBMIT")
-        }));
+        $("#forgot").html(step1Template());
+        $("#forgot").i18n();
 
         _w88_validator.initiateValidator($("#form1"), {});
     };
 
     forgot.fetchQuestions = function () {
 
-        _w88_ForgotPassword.send("", "/SecurityQuestions", "GET", function (response) {
+        _w88_send("", "/SecurityQuestions", "GET", function (response) {
             if (_.isEqual(response.ResponseCode, 1)) {
                 _.forOwn(response.ResponseData, function (data) {
                     $('#questions').append($('<option>').text(data.Text).attr('value', data.Value));
@@ -59,7 +56,7 @@ function ForgotPassword() {
                 email: forgotData.Email
             };
 
-            _w88_ForgotPassword.send(d, "/user/CheckPartialRegistration", "GET", function (response) {
+            _w88_send(d, "/user/CheckPartialRegistration", "GET", function (response) {
                 if (_.isEqual(response.ResponseCode, 1)) {
 
                     switch (response.ResponseData) {
@@ -75,11 +72,8 @@ function ForgotPassword() {
 
                             var step2Template = _.template($("script#Step2Template").html());
 
-                            $("#forgot").html(step2Template({
-                                lblQuestion: $.i18n("LABEL_SECURITY_QUESTION"),
-                                lblAnswer: $.i18n("LABEL_SECURITY_ANSWER"),
-                                lblSubmit: $.i18n("BUTTON_SUBMIT")
-                            }));
+                            $("#forgot").html(step2Template());
+                            $("#forgot").i18n();
 
                             _w88_ForgotPassword.fetchQuestions();
 
@@ -111,7 +105,7 @@ function ForgotPassword() {
 
         forgotData.LastRequested = Cookies().getCookie(key);
 
-        _w88_ForgotPassword.send(forgotData, "/user/ForgotPassword", "POST", function (response) {
+        _w88_send(forgotData, "/user/ForgotPassword", "POST", function (response) {
             if (_.isEqual(response.ResponseCode, 1)) {
 
                 Cookies().setCookie(key, response.ResponseData);
@@ -121,34 +115,6 @@ function ForgotPassword() {
 
             } else {
                 window.w88Mobile.Growl.shout(response.ResponseMessage);
-            }
-        });
-    };
-
-    forgot.send = function (data, resource, method, success, complete) {
-
-        var url = w88Mobile.APIUrl + resource;
-
-        var headers = {
-            'Token': window.User.token,
-            'LanguageCode': window.User.lang
-        };
-
-        $.ajax({
-            type: method,
-            url: url,
-            data: data,
-            beforeSend: function () {
-                pubsub.publish('startLoadItem', { selector: "" });
-            },
-            headers: headers,
-            success: success,
-            error: function () {
-                console.log("Error connecting to api");
-            },
-            complete: function () {
-                if (!_.isUndefined(complete)) complete();
-                pubsub.publish('stopLoadItem', { selector: "" });
             }
         });
     };
