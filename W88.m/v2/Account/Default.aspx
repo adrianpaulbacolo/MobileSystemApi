@@ -69,6 +69,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="InnerScriptPlaceHolder" runat="Server">
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/rewards.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
     <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/wallets.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 
     <script>
@@ -76,13 +77,13 @@
         $(document).ready(function () {
             $('.header-title').first().text($.i18n("LABEL_MENU_PROFILE"));
 
-            pubsub.subscribe('mainWalletLoadedOnly', onMainWalletLoadedOnly);
+            pubsub.subscribe('mainWalletLoaded', onMainWalletLoaded);
             pubsub.subscribe('rewardsPointLoaded', onRewardsLoaded);
 
             _w88_wallets.mainWalletInit({ wallets: "wallets" });
-            _w88_wallets.rewardsPointsInit({ wallets: {} });
+            _w88_rewards.init();
 
-            function onMainWalletLoadedOnly(topic, data) {
+            function onMainWalletLoaded(topic, data) {
 
                 $(".wallet-title").html(_.toUpper(data.Name));
                 $(".wallet-value").html(data.Balance);

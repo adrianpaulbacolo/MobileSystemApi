@@ -107,7 +107,8 @@ Login.prototype.initiateLogin = function () {
                                 default:
                                     GPINTMOBILE.HideSplash();
                                     self.elems.submitButton.attr('disabled', false);
-                                    setTimeout(function() {
+                                    setTimeout(function () {
+                                        sessionId = window.user.Token;
                                         logout();
                                     }, 1500);
                                     if(self.isVipLogin)

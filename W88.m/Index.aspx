@@ -132,6 +132,9 @@
 
                 <li class="col col-33 product">
                     <a href="Lottery.aspx?lang=<%=commonVariables.SelectedLanguage%>" class="tile" data-ajax="false">
+                        <div class="c-badge-new">
+                            <div class="c-badge-inner">*</div>
+                        </div>
                         <span class="icon icon-keno"></span>
                         <h4 class="title menuLotteryTitle"></h4>
                     </a>
@@ -309,6 +312,38 @@
                 $("#divPanel.ui-panel").css("top", $(".download-app").height());
             }
         </script>
+        <style>
+            .badge-new{
+                position: absolute;
+                padding-top: 0;
+                right: 10%;
+                width: 10%;
+            }
+
+            .badge-new img{
+                width: 100%;
+                margin: auto;
+            }
+            .c-badge-new{
+                margin-left: auto;
+                margin-right: auto;
+                border-radius: 50%;
+                width: 40%;
+                position: absolute;
+            }
+
+            .c-badge-new .c-badge-inner{
+                margin: auto;
+                height: 15px;
+                line-height: 1em;
+                font-size: 1.8em;
+                color: white;
+                background-color: red;
+                border-radius: 50%;
+                width: 15px;
+                margin-top: -10px;
+            }
+        </style>
     </div>
 </body>
 </html>

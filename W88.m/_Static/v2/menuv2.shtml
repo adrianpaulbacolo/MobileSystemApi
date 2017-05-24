@@ -329,7 +329,6 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 </div>
             </li>
             <!-- Lottery -->
-            <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
             <li class="nav-category">
                 <a href="#" class="lottery">
                     <span class="icon icon-keno"></span>
@@ -344,10 +343,19 @@ var fishingWorld = FishingWorldProduct.GetLink();
                                 <span class="title_keno" data-i18n="LABEL_PRODUCTS_KENO"></span>
                             </a>
                         </div>
+                        <div class="col-xs-6">
+                            <div>
+                                <img class="img_lottery_pk10" alt="">
+                                <span class="title title_pk10" data-i18n="LABEL_PRODUCTS_PK10"></span>
+                                <div class="nav-category-btns">
+                                    <a href="<%=commonLottery.getPK10Url(true)%>" target="<%=(!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? " _blank" : "_self") %>" class="btn btn-block btn-sm btn-primary play-pk" data-i18n="BUTTON_PLAY_NOW"></a>
+                                    <a href="<%=commonLottery.getPK10Url(false)%>" target="_blank" class="btn btn-block btn-sm btn-gray try-pk" data-i18n="BUTTON_TRY_NOW"></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </li>
-            <% } %>
             <!-- Poker -->
             <li class="nav-category">
                 <a href="#" class="poker">

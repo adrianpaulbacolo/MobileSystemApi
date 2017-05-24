@@ -3,8 +3,7 @@
 function Wallets() {
     return {
         init: init,
-        mainWalletInit: mainWalletInit,
-        rewardsPointsInit: rewardsPointsInit
+        mainWalletInit: mainWalletInit
     }
 
     // NOTE: isSelectOrder = true = use wallet-balance template and selection name
@@ -21,7 +20,7 @@ function Wallets() {
 
     function getMainWallet() {
         var resource = "/user/wallet/0";
-        send(resource, "GET", { selector: "wallets" }, function (response) {
+        _w88_send(resource, "GET", { selector: "wallets" }, function (response) {
             if (_.isUndefined(response.ResponseData)) {
                 console.log('Unable to fetch wallet.');
                 return;
@@ -52,7 +51,7 @@ function Wallets() {
         var selector = _.isUndefined(selector) ? "" : selector;
 
         var resource = "/user/wallets?isSelectOrder=" + isSelectOrder;
-        send(resource, "GET", selector, function (response) {
+        _w88_send(resource, "GET", selector, function (response) {
             if (_.isUndefined(response.ResponseData)) {
                 console.log('Unable to fetch wallets.');
                 return;
@@ -85,28 +84,12 @@ function Wallets() {
     function mainWalletInit() {
 
         var resource = "/user/wallet/0";
-        send(resource, "GET", "", function(response) {
+        _w88_send(resource, "GET", "", function(response) {
             if (_.isUndefined(response.ResponseData)) {
                 console.log('Unable to fetch wallet.');
                 return;
             }
-            pubsub.publish("mainWalletLoadedOnly", response.ResponseData);
-        });
-    }
-
-    function rewardsPointsInit(options) {
-        var selector = _.isUndefined(options) ? "rewards-value" : options.selector;
-        getPoints({ selector: selector });
-    }
-
-    function getPoints(selector) {
-        var resource = "/user/rewards";
-        send(resource, "GET", selector, function (response) {
-            if (_.isUndefined(response.ResponseData)) {
-                console.log('Unable to fetch rewards.');
-                return;
-            }
-            pubsub.publish("rewardsPointLoaded", response.ResponseData);
+            pubsub.publish("mainWalletLoaded", response.ResponseData);
         });
     }
 }

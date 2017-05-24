@@ -27,6 +27,8 @@ function Products() {
         $(".menuPokerTitle").text(_w88_contents.translate("LABEL_MENU_POKER"));
         $(".menuSportsTitle").text(_w88_contents.translate("LABEL_MENU_SPORTS"));
         $(".menuLotteryTitle").text(_w88_contents.translate("LABEL_MENU_LOTTERY"));
+        $(".play-pk").text(_w88_contents.translate("BUTTON_PLAY_NOW"));
+        $(".try-pk").text(_w88_contents.translate("BUTTON_TRY_NOW"));
         $(".menuLiveCasinoTitle").text(_w88_contents.translate("LABEL_MENU_LIVE_CASINO"));
         $(".menuSlotsTitle").text(_w88_contents.translate("LABEL_MENU_SLOTS"));
         $(".menuTexasMahjongTitle").text(_w88_contents.translate("LABEL_MENU_TEXAS_MAHJONG"));
@@ -40,6 +42,7 @@ function Products() {
         $(".menuDesktopNavTitle").text(_w88_contents.translate("LABEL_MENU_DESKTOP"));
         $(".menuDesktopTitle").text(_w88_contents.translate("LABEL_MENU_DESKTOP_SITE"));
         $(".menuKenoTitle").text(_w88_contents.translate("LABEL_PRODUCTS_KENO"));
+        $(".menuPK10Title").text(_w88_contents.translate("LABEL_PRODUCTS_PK10"));
         
         $(".menuFishingWorldTitle").text(_w88_contents.translate("LABEL_PRODUCTS_FISHING_WORLD"));
         $(".menuLuckyFishingTitle").text(_w88_contents.translate("LABEL_PRODUCTS_FISHING_MASTER"));

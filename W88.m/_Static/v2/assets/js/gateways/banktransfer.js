@@ -4,6 +4,7 @@ var _w88_banktransfer = window.w88Mobile.Gateways.BankTransferv2;
 function BankTransferv2() {
     var banktransfer;
     var methodId;
+    var isDeposit;
     try {
         banktransfer = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
     } catch (err) {
@@ -13,14 +14,15 @@ function BankTransferv2() {
     banktransfer.defaultSelect = "";
 
     banktransfer.init = function (type) {
-        var isDeposit = _.includes(type.toLowerCase(), "deposit");
+        isDeposit = _.includes(type.toLowerCase(), "deposit");
         banktransfer.setTranslations(isDeposit);
 
-        if (isDeposit) {
+        pubsub.subscribe('bankingDetails', onBankingDetailsLoaded);
+
+        if (isDeposit === true) {
             banktransfer.getSystemAccount();
             banktransfer.getBank();
             banktransfer.getDepositChannel();
-            banktransfer.getDepositLastTransaction();
         }
         else {
             banktransfer.getBank();
@@ -29,9 +31,18 @@ function BankTransferv2() {
                 banktransfer.getSecondaryBank();
 
             banktransfer.getCountryPhoneList();
-            banktransfer.getWithdrawalLastTransaction();
         }
     };
+
+    function onBankingDetailsLoaded(topic, data) {
+        if (data === false) {
+            if (isDeposit === true)
+                banktransfer.getDepositLastTransaction();
+            else
+                banktransfer.getWithdrawalLastTransaction();
+        }
+
+    }
 
     banktransfer.setTranslations = function (isDeposit) {
         $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
@@ -126,8 +137,12 @@ function BankTransferv2() {
 
                 banktransfer.toogleBank($('select[id$="drpBank"]').val());
                 $('input[id$="txtBankName"]').val(response.ResponseData.BankName);
+                $('input[id$="txtBankBranch"]').val(response.ResponseData.BankBranch);
+                $('input[id$="txtAddress"]').val(response.ResponseData.BankAddress);
                 $('input[id$="txtAccountName"]').val(response.ResponseData.AccountName);
                 $('input[id$="txtAccountNumber"]').val(response.ResponseData.AccountNumber);
+
+                pubsub.publish('bankingDetails', response.ResponseData.IsPreferred);
             }
         });
     };

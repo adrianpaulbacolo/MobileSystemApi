@@ -58,6 +58,7 @@ function Menu() {
         // Lottery
         $('a.lottery').bind('touch click', function () {
             $('.img_lottery_keno').attr('src', '/_Static/Images/bnr_lottery.jpg');
+            $('.img_lottery_pk10').attr('src', '/_Static/Images/lottery/bnr_lottery_pk10.jpg');
         });
 
         // Poker
@@ -124,6 +125,9 @@ function Menu() {
             // Lottery
             $('.title_lottery').html($.i18n("LABEL_MENU_LOTTERY"));
             $('.title_keno').html($.i18n("LABEL_PRODUCTS_KENO"));
+            $('.title_kp10').html($.i18n("LABEL_PRODUCTS_PK10"));
+            $('.play-pk').html($.i18n("BUTTON_PLAY_NOW"));
+            $('.try-pk').html($.i18n("BUTTON_TRY_NOW"));
 
             // Poker
             $('.title_poker').html($.i18n("LABEL_MENU_POKER"));
