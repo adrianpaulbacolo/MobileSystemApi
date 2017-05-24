@@ -3,7 +3,6 @@
 using System.IO;
 using System.Threading.Tasks;
 using System.Web;
-using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Rewards.Models;
 using W88.Utilities;
