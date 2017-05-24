@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/v2/MasterPages/Main.master" AutoEventWireup="true" CodeFile="Upload.aspx.cs" Inherits="v2_Profile_Upload" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/v2/MasterPages/Main.master" AutoEventWireup="true" CodeFile="Upload.aspx.cs" Inherits="v2_Account_Upload" %>
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentHolder" runat="Server">
     <div class="form-container">

@@ -1,6 +1,6 @@
 ﻿using System;
 
-public partial class v2_Profile_Upload : BasePage
+public partial class v2_Account_Upload : BasePage
 {
     protected override void OnLoad(EventArgs e)
     {
