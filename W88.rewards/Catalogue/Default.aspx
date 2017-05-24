@@ -7,6 +7,7 @@
 <head>
     <title><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Brand)%></title>
     <!--#include virtual="~/_static/head.inc" -->
+    <script type="text/javascript" src="/_Static/catalogue/catalogue.js"></script>
     <script>
         var ids = [];
     </script>
@@ -45,67 +46,30 @@
         </div>
     </div>
     <script>
-        _.templateSettings = {
-            interpolate: /\{\{(.+?)\}\}/g, // print value: {{ value_name }}
-            evaluate: /\{%([\s\S]+?)%\}/g, // excute code: {% code_to_execute %}
-            escape: /\{%-([\s\S]+?)%\}/g
-        };
-        var isSearching = true,
-            template,
+        var catalogue,
             translations = {
                 labelHot: '<%=RewardsHelper.GetTranslation(TranslationKeys.Label.Hot, Language)%>',
                 labelNew: '<%=RewardsHelper.GetTranslation(TranslationKeys.Label.New, Language)%>',
                 labelPoints: '<%=RewardsHelper.GetTranslation(TranslationKeys.Label.Points, Language).ToLower()%>'
-            }, 
-            params = JSON.parse('<%=Params%>');
-
-        function getProducts() {
-            $.mobile.loading('show');
-            $.ajax({
-                type: 'GET',
-                url: '/api/rewards/search/',
-                headers: {
-                    'token': '<%=Token%>'
-                },
-                dataType: 'json',
-                data: params,
-                success: function (response) {
-                    if (response.ResponseCode != 1 || _.isEmpty(response.ResponseData)) {
-                        reset();
-                        return;
-                    }
-                    $.get('/_Static/catalogue/template.html', function(html) {
-                        template = _.template(html);
-                        $('#listContainer').append(template({
-                            products: response.ResponseData,
-                            translations: translations
-                        }));
-                    });
-                    params.Index += 1;
-                    reset();
-                },
-                error: function () {
-                    reset();
-                }
-            });  
-        }
-
-        function reset() {
-            $.mobile.loading('hide');
-            isSearching = false;
-        }
-
-        $(function () {
-            getProducts();
+            };
+        $(function() {
+            catalogue = new Catalogue({
+                language: '<%=Language%>', 
+                token: '<%=Token%>', 
+                params: JSON.parse('<%=Params%>'), 
+                translations: translations, 
+                elem: $('#listContainer')
+            });
+            catalogue.cacheProducts();
+            catalogue.getProducts();
 
             $(window).scroll(function () {
                 if (($(window).scrollTop() + $(window).height() < $(document).height() - 65)
-                    || isSearching) {
+                    || catalogue.isSearching) 
                     return;
-                }
-
-                isSearching = true;
-                getProducts();
+                
+                catalogue.isSearching = true;
+                catalogue.getProducts();
             });
 
             var children = $('div.btn-group.btn-group-justified.btn-group-sliding').children();

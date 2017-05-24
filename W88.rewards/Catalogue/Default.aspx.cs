@@ -8,7 +8,7 @@ using W88.Utilities;
 
 public partial class Default : CatalogueBasePage
 {
-    protected dynamic Params
+    protected string Params
     {
         get
         {
