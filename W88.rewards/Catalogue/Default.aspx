@@ -49,7 +49,6 @@
         var catalogue,
             cachedItems = [],
             isCachingEnabled = <%=Convert.ToString(IsCachingEnabled).ToLower()%>,
-            cacheQuerySize = '<%=CacheQuerySize%>',
             hasSession = <%=Convert.ToString(HasSession).ToLower()%>,
             translations = {
                 labelHot: '<%=RewardsHelper.GetTranslation(TranslationKeys.Label.Hot, Language)%>',
@@ -58,7 +57,8 @@
             };
         $(function() {
             catalogue = new Catalogue({
-                cacheQuerySize: cacheQuerySize,
+                cacheQuerySize: '<%=CacheQuerySize%>',
+                memberCode: '<%=UserSessionInfo != null ? UserSessionInfo.MemberCode : ""%>',
                 language: '<%=Language%>', 
                 token: '<%=Token%>', 
                 params: JSON.parse('<%=Params%>'), 
