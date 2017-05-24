@@ -170,6 +170,10 @@ function addHours(date, hours) {
     return date;
 }
 
+function stringToNumber(value) {
+    return parseFloat(_.replace(value, /,/g, ""));
+}
+
 function _w88_send(resource, method, data, success, complete) {
 
     var selector = "";

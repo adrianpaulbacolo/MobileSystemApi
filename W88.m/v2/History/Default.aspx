@@ -1,14 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/v2/History/History.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="History_Default" %>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="head" runat="Server">
-    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/templates.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"> </script>
     <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/history.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"> </script>
-    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/funds.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"> </script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/wallets.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <section class="body">
 
-        <div class="wallets wallet-auto">
+        <div class="wallets deposit">
         </div>
 
         <div class="history-nav-container">
@@ -88,7 +87,7 @@
 <asp:Content ID="Content7" ContentPlaceHolderID="ScriptsPlaceHolder" runat="Server">
     <script type="text/javascript">
         $(document).ready(function () {
-            _w88_funds.mainWalletInit();
+            _w88_wallets.init();
 
             _w88_history.init();
 
@@ -132,13 +131,5 @@
                 _w88_history.getReport(data.ReportType, data);
             });
         });
-    </script>
-
-    <script type="text/template" id='mainWallet'>
-        <div class="wallet-main">
-            <p class="wallet-title">{%-tplData.Name%}</p>
-            <h4 class="wallet-value">{%-tplData.Balance%}</h4>
-            <p class="wallet-currency">{%-tplData.CurrencyLabel%}</p>
-        </div>
     </script>
 </asp:Content>
