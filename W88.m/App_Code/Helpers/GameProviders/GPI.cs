@@ -96,8 +96,8 @@ namespace Helpers.GameProviders
                 ? opSettings.Values.Get("GPIGameLauncherCN")
                 : opSettings.Values.Get("GPIGameLauncherDefault");
 
-            if (setting == GameLinkSetting.Real)
-                url = url.Replace("{TOKEN}", _gameLink.MemberSessionId);
+            var token = (!string.IsNullOrEmpty(_gameLink.MemberSessionId)) ? _gameLink.MemberSessionId : string.Empty;
+            url = url.Replace("{TOKEN}", token);
 
             return url.Replace("{TYPE}", slotType).Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{LAUNCHER}", domainLauncher);
         }

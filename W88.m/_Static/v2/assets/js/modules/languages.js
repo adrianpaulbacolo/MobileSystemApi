@@ -26,7 +26,7 @@ function LanguageSelection() {
         var langTemplate = _.template($("script#LanguageSelectionTemplate").html());
 
         if (_.isEmpty(lang)) {
-            _w88_LanguageSelection.send("", "/Languages", "GET", function (response) {
+            _w88_send("", "/Languages", "GET", function (response) {
                 if (_.isEqual(response.ResponseCode, 1)) {
 
                     amplify.store("languages", response.ResponseData, window.User.storageExpiration);
@@ -62,34 +62,6 @@ function LanguageSelection() {
         $('#language-modal div.modal-header.close').show();
         $('#language-modal').modal('show');
 
-    };
-
-    languages.send = function (data, resource, method, success, complete) {
-
-        var url = w88Mobile.APIUrl + resource;
-
-        var headers = {
-            'Token': window.User.token,
-            'LanguageCode': window.User.lang
-        };
-
-        $.ajax({
-            type: method,
-            url: url,
-            data: data,
-            beforeSend: function () {
-                pubsub.publish('startLoadItem', { selector: "" });
-            },
-            headers: headers,
-            success: success,
-            error: function () {
-                console.log("Error connecting to api");
-            },
-            complete: function () {
-                if (!_.isUndefined(complete)) complete();
-                pubsub.publish('stopLoadItem', { selector: "" });
-            }
-        });
     };
 
     return languages;
