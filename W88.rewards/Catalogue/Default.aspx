@@ -60,7 +60,7 @@
                 translations: translations, 
                 elem: $('#listContainer')
             });
-            catalogue.cacheProducts();
+            if(<%=Convert.ToString(HasSession).ToLower()%>) catalogue.cacheProducts();
             catalogue.getProducts();
 
             $(window).scroll(function () {
