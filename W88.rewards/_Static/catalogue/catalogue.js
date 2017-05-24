@@ -6,6 +6,7 @@
 
 var Catalogue = function (data) {
     this.elems = data.elems;
+    this.hasReloaded = false;
     this.isSearching = true;
     this.params = data.params;
     this.template = null;
@@ -31,12 +32,18 @@ Catalogue.prototype.getProducts = function (params, isProductCache) {
         data: !_.isEmpty(params) ? params : self.params,
         success: function(response) {
             if (response.ResponseCode != 1 || _.isEmpty(response.ResponseData)) {
-                if (!isProductCache) {
-                    self.reset();
-                    self.elems.noDataFoundLabel.show();
+                if (isProductCache) {
+                    if (params.Index == 0)
+                        self.elems.noDataFoundLabel.show();
+                    return;
                 }
+                self.reset();
+                if(self.params.Index == 0)
+                    self.elems.noDataFoundLabel.show();
                 return;
             }
+            if(self.elems.noDataFoundLabel.css('display') == 'block')
+                self.elems.noDataFoundLabel.hide();
             if (!isProductCache) {
                 self.searchCallback(response.ResponseData);
             } else {
@@ -51,16 +58,22 @@ Catalogue.prototype.getProducts = function (params, isProductCache) {
     });
 };
 
-Catalogue.prototype.getProductsFromCache = function () {
+Catalogue.prototype.getProductsFromCache = function (isReload) {
     var self = this,
         cachedItems = amplify.store(self.storageKey);
-    if (_.isEmpty(cachedItems)) return;
-    var filtered = _.filter(cachedItems, { CategoryId: self.params.CategoryId });
-    if (_.isEmpty(filtered)) {
-        self.elems.noDataFoundLabel.show();
-        return;
+    self.hasReloaded = isReload;
+    if (_.isEmpty(cachedItems)) return [];
+    if (self.params.CategoryId == 0) {
+        self.renderUi(cachedItems, isReload);
+        return cachedItems;
     }
-    self.renderUi(filtered);
+    var filtered = _.filter(cachedItems, { CategoryId: self.params.CategoryId });
+    if (_.isEmpty(filtered)) 
+        self.elems.noDataFoundLabel.show();
+    else 
+        self.renderUi(filtered, isReload);
+    
+    return cachedItems;
 };
 
 Catalogue.prototype.searchCallback = function (data) {
@@ -98,8 +111,11 @@ Catalogue.prototype.manageCache = function (data) {
     amplify.store(self.storageKey, cachedProducts);
 };
 
-Catalogue.prototype.renderUi = function (data) {
+Catalogue.prototype.renderUi = function (data, isReload) {
     var self = this;
+    if (isReload) 
+        self.elems.container.html(null);
+    
     $.get('/_Static/catalogue/template.html', function (html) {
         self.template = _.template(html);
         self.elems.container.append(self.template({

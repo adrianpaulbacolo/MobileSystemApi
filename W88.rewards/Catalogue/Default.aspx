@@ -47,6 +47,9 @@
     </div>
     <script>
         var catalogue,
+            cachedItems = [],
+            isCachingEnabled = <%=Convert.ToString(IsCachingEnabled).ToLower()%>,
+            hasSession = <%=Convert.ToString(HasSession).ToLower()%>,
             translations = {
                 labelHot: '<%=RewardsHelper.GetTranslation(TranslationKeys.Label.Hot, Language)%>',
                 labelNew: '<%=RewardsHelper.GetTranslation(TranslationKeys.Label.New, Language)%>',
@@ -63,16 +66,31 @@
                     noDataFoundLabel: $('#lblnodata')
                 }
             });
-            if(<%=Convert.ToString(HasSession).ToLower()%>) catalogue.cacheProducts();
-            catalogue.getProducts();
+            if (isCachingEnabled) {
+                if (hasSession) 
+                    catalogue.cacheProducts();     
+                cachedItems = catalogue.getProductsFromCache();
+                if (_.isEmpty(cachedItems)) 
+                    catalogue.getProducts();
+            } else {
+                catalogue.getProducts();   
+            }
 
             $(window).scroll(function () {
                 if (($(window).scrollTop() + $(window).height() < $(document).height() - 65)
                     || catalogue.isSearching) 
                     return;
                 
+                if (!isCachingEnabled) {                                   
+                    catalogue.isSearching = true;
+                    catalogue.getProducts();
+                    return;
+                }
+                if (catalogue.hasReloaded) return;
+                cachedItems = catalogue.getProductsFromCache(true);
+                if (!_.isEmpty(cachedItems)) return;                                  
                 catalogue.isSearching = true;
-                catalogue.getProducts();
+                catalogue.getProducts();            
             });
 
             var children = $('div.btn-group.btn-group-justified.btn-group-sliding').children();

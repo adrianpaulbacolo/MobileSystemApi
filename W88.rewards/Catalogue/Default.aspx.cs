@@ -8,6 +8,16 @@ using W88.Utilities;
 
 public partial class Default : CatalogueBasePage
 {
+    protected bool IsCachingEnabled
+    {
+        get
+        {
+            bool isCachingEnabled;
+            bool.TryParse(Common.GetAppSetting<string>("isCachingEnabled"), out isCachingEnabled);
+            return isCachingEnabled;
+        }    
+    }
+
     protected string Params
     {
         get
