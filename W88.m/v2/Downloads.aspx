@@ -39,6 +39,18 @@
 
         var downloadItems = [
                 {
+                    title: $.i18n("LABEL_PRODUCTS_CLUB_W"),
+                    ios: {
+                        src: "/_Static/Images/sports/bnr-clubW88-iOS.jpg",
+                        link: "/v2/Downloads/clubW88-iOS",
+                    },
+                    others: {
+                        src: "/_Static/Images/sports/bnr-clubW88-Android.jpg",
+                        link: "<%=commonClubWAPK.getDownloadUrl%>",
+                        target: "_blank"
+                    }
+                },
+                {
                     title: "<%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%><small><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></small>",
                     others: {
                         src: "/_Static/v2/Assets/Images/downloads/MGS-Slots-Android.jpg",
