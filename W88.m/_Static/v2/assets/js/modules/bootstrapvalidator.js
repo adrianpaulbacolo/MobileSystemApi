@@ -70,7 +70,7 @@ function validator() {
                     $el.parent("div.form-group").children("span.help-block").remove();
 
                     if (!_.isEmpty($el.val())) {
-                        var matchValue = $("#" + $el.data("confirmvalue")).val();
+                        var matchValue = $('[id$="' + $el.data("confirmvalue") + '"]').val();
                         if ($el.val() != matchValue) {
                             $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("ConfirmField") + '</span>');
                             $el.parent("div.form-group").addClass('has-error');
@@ -157,22 +157,46 @@ function validator() {
 
     function setDateTime() {
         _.forEach($('[data-date-box]'), function (item, index) {
-            var numeric = item.getAttribute('data-date-box');
+            var type = item.getAttribute('data-date-box');
 
-            if (_.isEmpty(numeric)) {
-                $(item).datebox({
-                    mode: 'calbox',
-                    showInitialValue: true,
-                    overrideDateFormat: '%m/%d/%Y',
-                    minDays: 3,
-                    maxDays: 3,
-                });
-            }
-            else {
-                $(item).datebox({
-                    mode: 'timebox',
-                    showInitialValue: true,
-                });
+            switch (type) {
+                case 'time':
+                    $(item).datebox({
+                        mode: 'timebox',
+                        showInitialValue: true,
+                    });
+                    break;
+
+                case 'payment':
+                    $(item).datebox({
+                        mode: 'calbox',
+                        showInitialValue: true,
+                        overrideDateFormat: '%m/%d/%Y',
+                        minDays: 3,
+                        maxDays: 3,
+                    });
+                    break;
+
+                case 'dob':
+                    $(item).datebox({
+                        mode: 'datebox',
+                        showInitialValue: true,
+                        overrideDateFormat: '%m/%d/%Y',
+                        beforeToday: true,
+                        minYear: 18,
+                        maxYear: 99
+                    });
+
+                    $(item).datebox('setTheDate', (new Date().getFullYear() - 18));
+                    break;
+
+                default:
+                    $(item).datebox({
+                        mode: 'calbox',
+                        showInitialValue: true,
+                        overrideDateFormat: '%m/%d/%Y',
+                    });
+                    break;
             }
         });
     }
