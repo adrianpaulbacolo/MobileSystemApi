@@ -32,7 +32,7 @@
             <input id="txtEmail" class="form-control"  required data-require="" />
         </div>
         <div class="form-group">
-            <button type="submit" id="btnSubmit" class="btn btn-block btn-primary" data-i18n="BUTTON_SUBMIT" onclick="javascript: _w88_ForgotPassword.checkPartial(); return false;"></button>
+            <button type="submit" id="btnSubmit" class="btn btn-block btn-primary" onclick="javascript: _w88_ForgotPassword.checkPartial(); return false;">{%- tplData.lblSubmit %}</button>
         </div>
 
     </script>
@@ -47,7 +47,7 @@
             <input id="txtSecurityAnswer" class="form-control" data-i18n="LABEL_EMAIL" required data-require="" />
         </div>
         <div class="form-group">
-            <button type="submit" id="btnSendForgot" data-i18n="BUTTON_SUBMIT" class="btn btn-block btn-primary" onclick="javascript: _w88_ForgotPassword.submit(); return false;"></button>
+            <button type="submit" id="btnSendForgot" class="btn btn-block btn-primary" onclick="javascript: _w88_ForgotPassword.submit(); return false;">{%- tplData.lblSubmit %}</button>
         </div>
     </script>
 </asp:Content>

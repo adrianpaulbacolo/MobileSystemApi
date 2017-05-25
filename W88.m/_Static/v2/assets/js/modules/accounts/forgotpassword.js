@@ -21,7 +21,9 @@ function ForgotPassword() {
         amplify.store(key, forgotData, window.User.storageExpiration);
         var step1Template = _.template($("script#Step1Template").html());
 
-        $("#forgot").html(step1Template());
+        $("#forgot").html(step1Template({
+            lblSubmit: $.i18n("BUTTON_SUBMIT")
+        }));
         $("#forgot").i18n();
 
         _w88_validator.initiateValidator($("#form1"), {});
@@ -72,7 +74,9 @@ function ForgotPassword() {
 
                             var step2Template = _.template($("script#Step2Template").html());
 
-                            $("#forgot").html(step2Template());
+                            $("#forgot").html(step2Template({
+                                lblSubmit: $.i18n("BUTTON_SUBMIT")
+                            }));
                             $("#forgot").i18n();
 
                             _w88_ForgotPassword.fetchQuestions();
