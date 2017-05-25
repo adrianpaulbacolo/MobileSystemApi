@@ -26,7 +26,7 @@ function LanguageSelection() {
         var langTemplate = _.template($("script#LanguageSelectionTemplate").html());
 
         if (_.isEmpty(lang)) {
-            _w88_send("", "/Languages", "GET", function (response) {
+            _w88_send("/Languages", "GET", "", function (response) {
                 if (_.isEqual(response.ResponseCode, 1)) {
 
                     amplify.store("languages", response.ResponseData, window.User.storageExpiration);
