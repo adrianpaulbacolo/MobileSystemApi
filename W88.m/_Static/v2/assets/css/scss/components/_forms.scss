@@ -93,14 +93,16 @@ select.form-control{
   }
   span{
     color: $brand-alt;
-    padding-left: 6px;
+    padding-left: 25px;
+    display: block;
     &:before{
       color: $text-color;
       font-family: 'icomoon';
       font-size: 1.313em;
-      top: 3px;
-      left: -6px;
-      position: relative;
+      top: -2px;
+      left: 0;
+      position: absolute;
+      display: block;
     }
   }
   input[type="radio"],

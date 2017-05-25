@@ -15,17 +15,16 @@
 
     <div class="rebates-disclaimer">
 
-        <div><small id="rebateDisclaimer" data-i18n="LABEL_REBATE_DISCLAIMER"></small></div>
-        <p><small id="rebateDisclaimerMin" data-i18n="LABEL_REBATE_NOTE1"></small></p>
+        <p><small id="rebateDisclaimer" data-i18n="LABEL_REBATE_DISCLAIMER"></small><br><small id="rebateDisclaimerMin" data-i18n="LABEL_REBATE_NOTE1"></small></p>
 
-        <div class="curr_week">
+        <p class="curr_week">
             <small id="rebateDisclaimerNoteCurrent" data-i18n="LABEL_REBATE_DISCLAIMER_CONTENT_CURRENT"></small>
-        </div>
+        </p>
 
-        <div class="prev_week">
+        <p class="prev_week">
             <small id="rebateDisclaimerNote1" data-i18n="LABEL_REBATE_DISCLAIMER_CONTENT1"></small>
             <small id="rebateDisclaimerNote2" data-i18n="LABEL_REBATE_DISCLAIMER_CONTENT2"></small>
-        </div>
+        </p>
 
     </div>
 
@@ -75,12 +74,12 @@
                     <div class="col-xs-6">
                         <h3 title="{%- col.Name %}">{%- col.Name %}</h3>
                     </div>
-                    <div class="col-xs-6">
+                    <div class="col-xs-6 text-right">
                         {% if(op.NativeGroupKey != "SB") { %}
                         {% if(col.AllowClaim) { %}
-                        <input type="button" name="btnSubmit" value="{%- tplData.BtnClaim %}" id="rebatesClaim" class="btn btn-block btn-primary" onclick="javascript: _w88_Rebates.ClaimQuery('{%- col.ProductCode %}', '{%- col.AllowClaim %}');">
+                        <input type="button" name="btnSubmit" value="{%- tplData.BtnClaim %}" id="rebatesClaim" class="btn btn-xs btn-primary" onclick="javascript: _w88_Rebates.ClaimQuery('{%- col.ProductCode %}', '{%- col.AllowClaim %}');">
                         {% } else { %}
-                        <input type="button" name="" value="{%- tplData.BtnClaim %}" id="" class="btn btn-block btn-primary" disabled="disabled">
+                        <input type="button" name="" value="{%- tplData.BtnClaim %}" id="" class="btn btn-xs btn-primary" disabled="disabled">
                         {% } %}
                     {% } %}
                     </div>
@@ -139,7 +138,7 @@
         <div class="padding rebates-modal-content">
             <div class="text-center">
                 <h4 data-i18n="LABEL_REBATE_SUMMARY"></h4>
-                <p>{%- tplData.data.Monday %} ({%- tplData.data.StartDate %}) - {%- tplData.data.Sunday %} ({%- tplData.data.EndDate %}) </p>
+                <p><small>{%- tplData.data.Monday %} ({%- tplData.data.StartDate %}) - {%- tplData.data.Sunday %} ({%- tplData.data.EndDate %})</small></p>
             </div>
             <div class="rebate-table rebate-table-modal">
                 <table>

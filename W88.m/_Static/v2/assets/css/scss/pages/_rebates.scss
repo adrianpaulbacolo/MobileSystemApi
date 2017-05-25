@@ -9,38 +9,37 @@
 	max-width: 767px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 1.5rem;
+	margin-bottom: 15px;
 	.rebates-row{
-		margin-bottom: 2rem;
+		margin-bottom: 15px;
 		> h2{
 			color: $gray-light;
-			font-size: 1em;
+			font-size: 0.875rem;
 			font-weight: 700;
             margin-top: -5px;
 		}
 		&.rebates-row-boxed{
-			background-color: rgba(0,0,0,0.15);
-			padding: 1.2rem;
-		}
-		.btn{
-			color: $white;
-			text-transform: uppercase;
+			background-color: darken($brand-dark, 1.7%);
+			padding: 15px;
+		    margin-left: -16px;
+		    margin-right: -16px;
 		}
 
 	}
 	.rebate-box{
-		background-color: darken($brand-primary, 23%);
-		margin-bottom: 1.5em;
-
+		background-color: lighten($brand-default, 4%);
+		margin-bottom: 15px;
+		@include box-shadow(0 1px 4px 0 rgba($black,0.1));
 		.collapsible-btn{
 			margin-top: -1px;
 			text-transform: uppercase;
-			font-size: 0.686em;
-			color: darken($gray-light, 30%);
+			font-size: 0.625rem;
+			color: $text-alt;
 			text-align: center;
-			background-color: darken($brand-primary, 38%) !important;
+			background-color: lighten($brand-default, 6%);
 			display: block;
 			padding: 3px 0;
+			cursor: pointer;
 			&:before{
     			font-family: "icomoon";
 				content:'\e915';
@@ -52,17 +51,15 @@
 		}
 	}
 	.rebate-title{
+		padding: 15px 15px 0;
 		h3{
-    		margin-top: 0.5em;
+			color: $brand-alt;
+    		margin-top: 0;
+    		margin-bottom: 0;
 			font-size: 1em;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
-            padding-left: 10px;
-		}
-		.btn{
-			font-size: 1em;
-			padding: 0.5em;
 		}
 	}
 	.collapsible-btn{
@@ -91,14 +88,13 @@
 	}
 }
 .rebate-table{
-	padding: 0 1em;
-	background-color: darken($brand-primary, 36%) !important;
+	padding: 0 15px;
 	table{
 		width: 100%;
-		font-size: .875rem;
-        color: darken($gray-light, 30%);
+		font-size: 0.750rem;
+        color: $text-color;
 		tr{
-			border-bottom: 1px solid rgba($white, 0.03);
+			border-bottom: 1px solid rgba($white, 0.04);
 			td{
 				padding-top: 1em;
 				padding-bottom: 1em;
@@ -133,8 +129,11 @@
 	padding: 1em;
 }
 .rebates-modal-content{
-	background-color: #111;
 	padding-top: 1.5em;
+	h4{
+		color: $brand-alt;
+		margin-bottom: 0;
+	}
 }
 
 @media all and (min-width: 769px) {
