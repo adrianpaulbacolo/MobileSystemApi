@@ -36,7 +36,7 @@
             $("#instructionHeader h3.title").html($.i18n("DOWNLOADS_INSTRUCTIONS_HEADER"));
             $("div.download-instructions div.container").html($.i18n("DOWNLOADS_INSTRUCTIONS_CONTENT"));
             $("div.download-button a#downloadlink").html($.i18n("BUTTON_DOWNLOAD_NOW"));
-            $("div.download-button a#downloadlink").attr("href", "http://mlive.w88palazzo.com").attr("target", "_blank");
+            $("div.download-button a#downloadlink").attr("href", _constants.PALAZZO_CASINO_APK_URL).attr("target", "_blank");
             $("div.download-coverphoto img").attr("src", "/_static/v2/assets/images/downloads/PT-LiveCasino-DownloadPage.jpg");
         <%
                      break;
@@ -45,7 +45,7 @@
             $("#instructionHeader h3.title").html($.i18n("DOWNLOADS_INSTRUCTIONS_HEADER"));
             $("div.download-instructions div.container").html($.i18n("DOWNLOADS_INSTRUCTIONS_CONTENT"));
             $("div.download-button a#downloadlink").html($.i18n("BUTTON_DOWNLOAD_NOW"));
-            $("div.download-button a#downloadlink").attr("href", "http://mgames.w88palazzo.com").attr("target", "_blank");
+            $("div.download-button a#downloadlink").attr("href", _constants.PALAZZO_SLOT_APK_URL).attr("target", "_blank");
             $("div.download-coverphoto img").attr("src", "/_static/v2/assets/images/downloads/PT-Slots-DownloadPage.jpg");
          <%
                      break;
@@ -54,7 +54,7 @@
             $("#instructionHeader h3.title").html($.i18n("DOWNLOADS_INSTRUCTIONS_TMSIOS_HEADER"));
             $("div.download-instructions div.container").html($.i18n("DOWNLOADS_INSTRUCTIONS_TMSIOS_CONTENT"));
             $("div.download-button a#downloadlink").html($.i18n("BUTTON_DOWNLOAD_NOW"));
-            $("div.download-button a#downloadlink").attr("href", "<%= ConfigurationManager.AppSettings["TexasMahjongIOS_URL"] %>");
+            $("div.download-button a#downloadlink").attr("href", _constants.TEXAS_MAHJONG_IOS_URL);
             $("div.download-coverphoto img").attr("src", "/_static/v2/assets/images/downloads/TM-DownloadPage.jpg");
          <%
                      break;
@@ -63,21 +63,26 @@
             $("#instructionHeader h3.title").html($.i18n("DOWNLOADS_INSTRUCTIONS_SBULLIOS_HEADER"));
             $("div.download-instructions div.container").html($.i18n("DOWNLOADS_INSTRUCTIONS_SBULLIOS_CONTENT"));
             $("div.download-button a#downloadlink").html($.i18n("BUTTON_DOWNLOAD_NOW"));
-            var sbullLink = "<%= (commonVariables.SelectedLanguage == "zh-cn") ? ConfigurationManager.AppSettings["SuperBull_IOS_URL"] : ConfigurationManager.AppSettings["SuperBull_IOS_URL_EN"] %>";
-            $("div.download-button a#downloadlink").attr("href", sbullLink);
+            $("div.download-button a#downloadlink").attr("href", _constants.SUPER_BULL_IOS_URL);
             $("div.download-coverphoto img").attr("src", "/_Static/Images/Download/Superbull-iOS-Mobile-Download.jpg");
          <%
                      break;
-                 case "clubW88-iOS":
+                 case "clubw88-ios":
          %>
             $("#instructionHeader h3.title").html($.i18n("DOWNLOADS_INSTRUCTIONS_CLUBWIOS_HEADER"));
             $("div.download-instructions div.container").html($.i18n("DOWNLOADS_INSTRUCTIONS_SBULLIOS_CONTENT"));
             $("div.download-button a#downloadlink").html($.i18n("BUTTON_DOWNLOAD_NOW"));
-            var iosLink = "<%= ConfigurationManager.AppSettings["w88IOS_URL"] %>";
-            $("div.download-button a#downloadlink").attr("href", iosLink);
+            $("div.download-button a#downloadlink").attr("href", _constants.CLUBW_IOS_URL);
             $("div.download-coverphoto img").attr("src", "/_Static/Images/Download/ClubW-Android-iOS-Download-Page_<%= commonVariables.SelectedLanguageShort.ToLower() %>.jpg");
-         <%
+            <%
                      break;
+
+                 default:
+         %>
+            $("section.body").hide();
+            window.location.href = _constants.DOWNLOAD_URL;
+         <%
+                    break;
              }
          %>
         }
