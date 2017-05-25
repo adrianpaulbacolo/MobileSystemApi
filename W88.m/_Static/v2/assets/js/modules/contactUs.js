@@ -14,7 +14,7 @@ function ContactUs() {
         var template = _.template($("script#ContactUsTemplate").html());
 
         if (_.isEmpty(contactData)) {
-            _w88_send("", "/Contact", "GET", function (response) {
+            _w88_send("/Contact", "GET", "", function (response) {
                 if (_.isEqual(response.ResponseCode, 1)) {
 
                     amplify.store(key, response.ResponseData, window.User.storageExpiration);
