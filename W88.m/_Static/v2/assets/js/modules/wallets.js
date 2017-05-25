@@ -57,7 +57,7 @@ function Wallets() {
             wallets = response.ResponseData;
             pubsub.publish("wallets", wallets);
 
-            setMainWalletTpl(_.first(wallets));
+            setMainWalletTpl(_.first(wallets), selector);
 
             if (_.isEqual(isSelectOrder, true)) {
                 var balance = _.template(_w88_templates.WalletBallance);
