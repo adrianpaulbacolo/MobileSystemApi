@@ -13,7 +13,7 @@ function Rebates() {
 
     rebates.Weeks = function () {
 
-        _w88_send("", "/rebates/week", "GET", function (response) {
+        _w88_send("/rebates/week", "GET", "", function (response) {
             if (_.isEqual(response.ResponseCode, 1)) {
 
                 _.forOwn(response.ResponseData, function (data) {
@@ -35,7 +35,7 @@ function Rebates() {
         $("#startdate").html(strtDate[0]);
         $("#endDate").html(strtDate[1]);
 
-        _w88_send(sDate, "/rebates/result", "GET", function (response) {
+        _w88_send("/rebates/result", "GET", sDate, function (response) {
             if (_.isEqual(response.ResponseCode, 1)) {
 
                 var groupTemplate = _.template(
@@ -91,7 +91,7 @@ function Rebates() {
             var sDate = strtDate[0].replace("/", "-").replace("/", "-");
             var query = { startdate: sDate, code: productCode };
 
-            _w88_send(query, "/rebates/query", "GET", function (response) {
+            _w88_send("/rebates/query", "GET", query, function (response) {
                 if (_.isEqual(response.ResponseCode, 1)) {
 
                     var d = {
@@ -142,7 +142,7 @@ function Rebates() {
             var sDate = strtDate[0].replace("/", "-").replace("/", "-");
             var claim = { startdate: sDate, code: productCode, amount: amount };
 
-            _w88_send(claim, "/rebates/claim", "POST", function (response) {
+            _w88_send("/rebates/claim", "POST", claim, function (response) {
                 if (_.isEqual(response.ResponseCode, 1)) {
 
                     var d = {
@@ -173,7 +173,7 @@ function Rebates() {
 
     rebates.GetWeeklySettings = function (member) {
 
-        _w88_send("", "/rebates/settings", "GET", function (response) {
+        _w88_send("/rebates/settings", "GET", "", function (response) {
             if (_.isEqual(response.ResponseCode, 1)) {
 
                 var d = {
