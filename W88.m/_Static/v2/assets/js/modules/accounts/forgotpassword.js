@@ -29,7 +29,7 @@ function ForgotPassword() {
 
     forgot.fetchQuestions = function () {
 
-        _w88_send("", "/SecurityQuestions", "GET", function (response) {
+        _w88_send("/SecurityQuestions", "GET", "", function (response) {
             if (_.isEqual(response.ResponseCode, 1)) {
                 _.forOwn(response.ResponseData, function (data) {
                     $('#questions').append($('<option>').text(data.Text).attr('value', data.Value));
@@ -56,7 +56,7 @@ function ForgotPassword() {
                 email: forgotData.Email
             };
 
-            _w88_send(d, "/user/CheckPartialRegistration", "GET", function (response) {
+            _w88_send("/user/CheckPartialRegistration", "GET", d, function (response) {
                 if (_.isEqual(response.ResponseCode, 1)) {
 
                     switch (response.ResponseData) {
@@ -105,7 +105,7 @@ function ForgotPassword() {
 
         forgotData.LastRequested = Cookies().getCookie(key);
 
-        _w88_send(forgotData, "/user/ForgotPassword", "POST", function (response) {
+        _w88_send("/user/ForgotPassword", "POST", forgotData, function (response) {
             if (_.isEqual(response.ResponseCode, 1)) {
 
                 Cookies().setCookie(key, response.ResponseData);
