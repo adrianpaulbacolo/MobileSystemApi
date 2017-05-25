@@ -1,5 +1,5 @@
 ﻿using System;
-using Models;
+using Helpers;
 
 public partial class v2_Account_Rebates : BasePage
 {
@@ -7,7 +7,7 @@ public partial class v2_Account_Rebates : BasePage
 
     protected override void OnLoad(EventArgs e)
     {
-        Page.Items.Add("Parent", W88Constant.PageNames.Account);
+        Page.Items.Add("Parent", Pages.Account);
         base.OnLoad(e);
     }
 
