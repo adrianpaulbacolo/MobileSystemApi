@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" %>
+﻿<%@ Page Language="C#" Inherits="_Static_v2new_slots" CodeFile="~/_Static/v2new/slots.aspx.cs" AutoEventWireup="true" %>
 
 <%--<%  var club = (RouteData.Values["club"] != null) ? RouteData.Values["club"] : ""; %>--%>
 <!DOCTYPE html>
@@ -89,6 +89,7 @@
     <script src="/_Static/JS/vendor/lodash.min.js"></script>
     <script src="/_Static/v2new/assets/js/vendor/pubsub.js"></script>
     <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/constants.js"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/slots/settings/<%=SlotSettingsFile %>"></script>
     <script type="text/javascript">
         w88Mobile = {};
         w88Mobile.v2 = {};
@@ -155,6 +156,7 @@
         }
 
         function onContentsLoaded(topic, data) {
+
             $(document).ready(function () {
                 pubsub.publish("changeHeader");
                 _routes.init();
