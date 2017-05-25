@@ -125,7 +125,7 @@ function Slots() {
         var data = {
             cashier: "v2/Funds.aspx",
             lobby: "v2/Slots",
-            configfile: "native"
+            configfile: _slotSettings.resource
         }
         if(provider == "pt"){
             data.gamepass = Cookies().getCookie('palazzo');

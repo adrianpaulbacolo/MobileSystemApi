@@ -10,6 +10,6 @@ public partial class _Static_v2new_slots : BasePage
     public string SlotSettingsFile;
     protected void Page_Load(object sender, EventArgs e)
     {
-        SlotSettingsFile = (commonFunctions.isExternalPlatform()) ? "native.js" : "default.js";
+        SlotSettingsFile = (commonFunctions.isExternalPlatform()) ? "native" : "default";
     }
 }

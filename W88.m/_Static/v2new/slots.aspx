@@ -89,7 +89,7 @@
     <script src="/_Static/JS/vendor/lodash.min.js"></script>
     <script src="/_Static/v2new/assets/js/vendor/pubsub.js"></script>
     <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/constants.js"></script>
-    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/slots/settings/<%=SlotSettingsFile %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/slots/settings/<%=SlotSettingsFile %>.js"></script>
     <script type="text/javascript">
         w88Mobile = {};
         w88Mobile.v2 = {};
