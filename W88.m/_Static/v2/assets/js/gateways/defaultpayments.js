@@ -12,7 +12,6 @@ function DefaultPaymentsV2() {
 
     var defaultpayments = {
         AutoRouteIds: autorouteIds,
-        Send: send,
         DisplaySettings: displaySettings,
         setPaymentTabs: setPaymentTabs,
         onTransactionCreated: onTransactionCreated,
@@ -113,7 +112,7 @@ function DefaultPaymentsV2() {
                 }
                 else {
 
-                    send("/payments/withdrawal/pending", "GET", "", function (response) {
+                    _w88_send("/payments/withdrawal/pending", "GET", "", function (response) {
                         switch (response.ResponseCode) {
                             case 1:
 
@@ -152,56 +151,20 @@ function DefaultPaymentsV2() {
         if (!_.isEmpty(paymentCache) && User.lang == paymentCache.language) {
             callback();
         } else {
-            send(url, "GET", {},
-                    function (response) {
-                        switch (response.ResponseCode) {
-                            case 1:
-                                paymentCache = {
-                                    settings: response.ResponseData
-                                    , language: window.User.lang
-                                };
-                                amplify.store(cacheKey, paymentCache, User.storageExpiration);
-                                callback();
-                            default:
-                                break;
-                        }
-                    }
-                );
+            _w88_send(url, "GET", {}, function (response) {
+                switch (response.ResponseCode) {
+                    case 1:
+                        paymentCache = {
+                            settings: response.ResponseData
+                            , language: window.User.lang
+                        };
+                        amplify.store(cacheKey, paymentCache, User.storageExpiration);
+                        callback();
+                    default:
+                        break;
+                }
+            });
         }
-    }
-
-    function send(resource, method, data, success, complete) {
-
-        var selector = "";
-        if (!_.isEmpty(data.selector)) {
-            selector = _.clone(data.selector);
-            delete data["selector"];
-        }
-
-        var url = w88Mobile.APIUrl + resource;
-
-        var headers = {
-            'Token': window.User.token,
-            'LanguageCode': window.User.lang
-        };
-
-        $.ajax({
-            type: method,
-            url: url,
-            data: data,
-            beforeSend: function () {
-                pubsub.publish('startLoadItem', { selector: selector });
-            },
-            headers: headers,
-            success: success,
-            error: function () {
-                console.log("Error connecting to api");
-            },
-            complete: function () {
-                if (_.isFunction(complete)) complete();
-                pubsub.publish('stopLoadItem', { selector: selector });
-            }
-        });
     }
 
     function onTransactionCreated(form) {

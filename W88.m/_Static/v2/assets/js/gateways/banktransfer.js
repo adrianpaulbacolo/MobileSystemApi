@@ -4,6 +4,7 @@ var _w88_banktransfer = window.w88Mobile.Gateways.BankTransferv2;
 function BankTransferv2() {
     var banktransfer;
     var methodId;
+    var isDeposit;
     try {
         banktransfer = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
     } catch (err) {
@@ -13,14 +14,15 @@ function BankTransferv2() {
     banktransfer.defaultSelect = "";
 
     banktransfer.init = function (type) {
-        var isDeposit = _.includes(type.toLowerCase(), "deposit");
+        isDeposit = _.includes(type.toLowerCase(), "deposit");
         banktransfer.setTranslations(isDeposit);
 
-        if (isDeposit) {
+        pubsub.subscribe('bankingDetails', onBankingDetailsLoaded);
+
+        if (isDeposit === true) {
             banktransfer.getSystemAccount();
             banktransfer.getBank();
             banktransfer.getDepositChannel();
-            banktransfer.getDepositLastTransaction();
         }
         else {
             banktransfer.getBank();
@@ -29,9 +31,18 @@ function BankTransferv2() {
                 banktransfer.getSecondaryBank();
 
             banktransfer.getCountryPhoneList();
-            banktransfer.getWithdrawalLastTransaction();
         }
     };
+
+    function onBankingDetailsLoaded(topic, data) {
+        if (data === false) {
+            if (isDeposit === true)
+                banktransfer.getDepositLastTransaction();
+            else
+                banktransfer.getWithdrawalLastTransaction();
+        }
+
+    }
 
     banktransfer.setTranslations = function (isDeposit) {
         $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
@@ -126,8 +137,12 @@ function BankTransferv2() {
 
                 banktransfer.toogleBank($('select[id$="drpBank"]').val());
                 $('input[id$="txtBankName"]').val(response.ResponseData.BankName);
+                $('input[id$="txtBankBranch"]').val(response.ResponseData.BankBranch);
+                $('input[id$="txtAddress"]').val(response.ResponseData.BankAddress);
                 $('input[id$="txtAccountName"]').val(response.ResponseData.AccountName);
                 $('input[id$="txtAccountNumber"]').val(response.ResponseData.AccountNumber);
+
+                pubsub.publish('bankingDetails', response.ResponseData.IsPreferred);
             }
         });
     };
@@ -380,10 +395,12 @@ function BankTransferv2() {
     };
 
     banktransfer.loadBankLocationWidraw = function (blId) {
+        var _self = this;
+
         var bankId = $('select[id$="drpSecondaryBank"]').val();
 
         if (bankId != '-1') {
-            _w88_paymentSvcV2.Send("/Banks/member/location/" + bankId, "GET", { selector: "location" }, function (response) {
+            _self.send("/Banks/member/location/" + bankId, "GET", { selector: "location" }, function (response) {
                 if (!_.isEqual(response.ResponseCode, 0)) {
 
                     $('select[id$="drpBankLocation"]').append($('<option>').text(_w88_contents.translate("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
@@ -401,10 +418,12 @@ function BankTransferv2() {
     };
 
     banktransfer.loadBankBranchWidraw = function (bankLocationId) {
+        var _self = this;
+
         var bankId = $('select[id$="drpSecondaryBank"]').val();
 
         if (bankId != '-1') {
-            _w88_paymentSvcV2.Send("/Banks/member/branch/" + bankId + "/" + bankLocationId, "GET", { selector: "branch" }, function (response) {
+            _self.send("/Banks/member/branch/" + bankId + "/" + bankLocationId, "GET", { selector: "branch" }, function (response) {
                 if (!_.isEqual(response.ResponseCode, 0)) {
 
                     $('select[id$="drpBankBranchList"]').append($('<option>').text(banktransfer.defaultSelect).attr('value', '-1'));

@@ -37,6 +37,7 @@
                     '_Static/JS/dist/<%= pkg.name %>.js',
                     '_Static/JS/dist/<%= pkg.name %>.main.js',
                     '_Static/JS/dist/<%= pkg.name %>.login.js',
+                    '_Static/JS/dist/<%= pkg.name %>.catalogue.js',
                     '_Static/Css/<%= pkg.name %>.css',
                     '_Static/Css/errors/styles.css',
                     '_Static/Css/errors/styles-light.css',
@@ -54,6 +55,7 @@
                     '_Static/JS/dist/<%= pkg.name %>.js',
                     '_Static/JS/dist/<%= pkg.name %>.main.js',
                     '_Static/JS/dist/<%= pkg.name %>.login.js',
+                    '_Static/JS/dist/<%= pkg.name %>.catalogue.js',
                     '_Static/Css/<%= pkg.name %>.css',
                     '_Static/Css/errors/styles.css',
                     '_Static/Css/errors/styles-light.css',
@@ -68,6 +70,7 @@
                 src: [
                     '_Static/head.inc',
                     '_Secure/Login.aspx',
+                    'Catalogue/Default.aspx',
                     '_Static/Pages/404.aspx',
                     '_Static/Pages/500.aspx',
                     '_Static/Pages/enhancement-all.aspx',
@@ -87,6 +90,7 @@
                     '_Static/JS/dist/<%= pkg.name %>.js': ['_Static/JS/dist/concat-*.js']
                     , '_Static/JS/dist/<%= pkg.name %>.main.js': ['_Static/JS/modules/Main.js']
                     , '_Static/JS/dist/<%= pkg.name %>.login.js': ['_Static/JS/modules/login.js']
+                    , '_Static/JS/dist/<%= pkg.name %>.catalogue.js': ['_Static/catalogue/catalogue.js']
                     , '_Static/JS/dist/<%= pkg.name %>.sw.min.js': ['_Static/JS/modules/spinwheel.js']
                     , '_Static/JS/dist/<%= pkg.name %>.pointlevelinfo.min.js': ['_Static/JS/modules/pointlevelinfo.js']
                 }

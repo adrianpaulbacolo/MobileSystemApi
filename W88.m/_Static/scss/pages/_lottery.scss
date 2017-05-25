@@ -1,23 +1,77 @@
-//
-// Casino
-// -------------------------------
+.lottery-banner{
+    position: relative;
+    max-width: 632px;
+    margin: 0 auto;
+    overflow: hidden;
+    img{
+        width: 100%;
+        display: block;
+    }
+    .ui-btn{
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+    .banner-caption{
+        text-align: right;
+        margin: 10% 10px 0 0;
+        width: 50%;
+        height: 100%;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        position: absolute;
+    }
+    .banner-caption-content{
+        h3{
+            color: $brand-alt;
+            font-size: 1.714em;
+            margin-bottom: 10px;
+        }
+        p{
+            color: $white;
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+    }
+    &:nth-child(even) .banner-caption{
+        text-align: left;
+        margin: 10% 0 0 10px;
+        left: 0;
+        right: auto;
+    }
+}
 
-#lottery {
-    .ui-content > ul > li {
-        margin-bottom: 0;
-        .banner-caption {
-            // max-width: 70%;
-            .ui-btn {
-                display: inline-block;
-                min-width: 130px;
-                margin: 0;
+@media all and (max-width: 480px) {
+    .lottery-banner{
+        .ui-btn{
+            max-height: 31px;
+            font-size: 0.857em;
+            padding-top: 7px;
+            padding-bottom: 7px;
+            margin-bottom: 3px;
+        }
+        img{
+            width: 112%;
+            margin-left: -6%;
+            margin-right: -6%;
+        }
+        .banner-caption{
+            margin: 3% 10px 0 0;
+            &.banner-caption-2{
+                width: 57%;
+            }
+            h3{
+                font-size: 1.429em;
+                margin-bottom: 5px;
+            }
+            p{
+                font-size: 0.857em;
+                margin-bottom: 10px;
             }
         }
-        // &:nth-child(2n+2) {
-        //     .banner-caption {
-        //         float: right;
-        //         max-width: 60%;
-        //     }
-        // }
+
+        &:nth-child(even) .banner-caption{
+            margin: 3% 0 0 10px;
+        }
     }
 }

@@ -51,7 +51,9 @@ function TopUp() {
     }
 
     topup.getDenomination = function () {
-        _w88_paymentSvcV2.Send("/payments/denomination/" + methodId, "GET", "", function (response) {
+        var _self = this;
+
+        _self.send("/payments/denomination/" + methodId, "GET", "", function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
 
                 if (!_.isUndefined(response.ResponseData.Cards))

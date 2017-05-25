@@ -1,0 +1,87 @@
+.lottery-main{
+    .container{
+        padding-left: 0;
+        padding-right:0;
+    }
+}
+.lottery-banner{
+    position: relative;
+    max-width: 632px;
+    margin: 0 auto;
+    overflow: hidden;
+    img{
+        width: 100%;
+        display: block;
+    }
+    .btn{
+        margin-top: 0;
+        margin-bottom: 5px;
+        display: block;
+    }
+    .banner-caption{
+        text-align: right;
+        margin: 10% 10px 0 0;
+        width: 50%;
+        height: 100%;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        position: absolute;
+    }
+    .banner-caption-content{
+        h3{
+            color: $brand-alt;
+            font-size: 1.714em;
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+        p{
+            color: $white;
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+    }
+    &:nth-child(even) .banner-caption{
+        text-align: left;
+        margin: 10% 0 0 10px;
+        left: 0;
+        right: auto;
+    }
+}
+
+@media all and (max-width: 480px) {
+    .lottery-banner{
+        .btn{
+            max-height: 31px;
+            font-size: 0.688em;
+            padding-top: 7px;
+            padding-bottom: 7px;
+            margin-bottom: 3px;
+            display: block;
+        }
+        img{
+            width: 112%;
+            margin-left: -6%;
+            margin-right: -6%;
+        }
+        .banner-caption{
+            margin: 3% 10px 0 0;
+            &.banner-caption-2{
+                width: 57%;
+            }
+            h3{
+                font-size: 1.250em;
+                margin-bottom: 5px;
+                margin-top: 0;
+            }
+            p{
+                font-size: 0.688em;
+                margin-bottom: 10px;
+            }
+        }
+
+        &:nth-child(even) .banner-caption{
+            margin: 3% 0 0 10px;
+        }
+    }
+}
