@@ -90,28 +90,22 @@ function Menu() {
         getSportsUrl();
 
         // Slot
-        $('.url_slot').attr('href', _constants.SLOT_URL);
+        $('.url_slot_bravado').attr('href', _constants.SLOTS_BRAVADO_URL);
+        $('.url_slot_massimo').attr('href', _constants.SLOTS_MASSIMO_URL);
+        $('.url_slot_massimo_download').attr('href', _constants.MASSIMO_SLOTS_URL);
+        $('.url_slot_palazzo').attr('href', _constants.SLOTS_PALAZZO_URL);
+        $('.url_slot_palazzo_download').attr('href', _constants.DOWNLOAD_PALAZZO_SLOT_URL);
+        $('.url_slot_gallardo').attr('href', _constants.SLOTS_GALLARDO_URL);
+        $('.url_slot_apollo').attr('href', _constants.SLOTS_APOLLO_URL);
+        $('.url_slot_divino').attr('href', _constants.SLOTS_DIVINO_URL);
 
-        // Downloads
+        // Casino
         $('.url_download').attr('href', _constants.DOWNLOAD_URL);
-
-        // Club W Premier
         $('.url_download_clubW_ios').attr('href', _constants.DOWNLOAD_CLUBW_IOS_URL);
-
-        // Palazzo
-        $('.url_palazzo_casino').attr('href', _constants.DOWNLOAD_PALAZZO_CASINO_URL);
-        $('.url_palazzo_slot').attr('href', _constants.DOWNLOAD_PALAZZO_SLOT_URL);
-
-        // Massimo
-        $('.url_massimo').attr('href', _constants.MASSIMO_URL);
-        $('.url_massimo_slot').attr('href', _constants.MASSIMO_SLOTS_URL);
-
-        // Lottery
-        $('.url_massimo').attr('href', _constants.MASSIMO_URL);
+        $('.url_download_palazzo').attr('href', _constants.DOWNLOAD_PALAZZO_CASINO_URL);
 
         // Promotions
         $('.url_promo').attr('href', _constants.PROMO_URL);
-
 
         // Texas Mahjong
         $('.url_texas_mahjong').attr('href', _constants.DOWNLOAD_TM_IOS_URL);

@@ -165,14 +165,14 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <%}%>
                         <!-- Palazzo -->
                         <div class="col-xs-6">
-                            <a href="#" class="url_palazzo_casino">
+                            <a href="#" class="url_download_palazzo">
                                 <img src="#" alt="" class="img_casino_palazzo">
                                 <span class="title_palazzo" data-i18n="LABEL_PRODUCTS_PALAZZO"></span>
                             </a>
                         </div>
                         <!-- Massimo -->
                         <div class="col-xs-6">
-                            <a href="#" class="url_massimo" target="_blank">
+                            <a href="#" class="url_download" target="_blank">
                                 <img src="#" alt="" class="img_casino_massimo">
                                 <span class="title_massimo" data-i18n="LABEL_PRODUCTS_MASSIMO"></span>
                             </a>
@@ -208,14 +208,14 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <%}%>
                         <!-- Bravado -->
                         <div class="col-xs-6">
-                            <a href="#" class="url_slot">
+                            <a href="#" class="url_slot_bravado">
                                 <img src="#" alt="" class="img_slots_bravado">
                                 <span class="title_bravado" data-i18n="LABEL_PRODUCTS_BRAVADO"></span>
                             </a>
                         </div>
                         <!-- Massimo -->
                         <div class="col-xs-6">
-                            <a href="#" class="url_slot">
+                            <a href="#" class="url_slot_massimo">
                                 <img src="#" alt="" class="img_slots_massimo">
                                 <span class="title_massimo" data-i18n="LABEL_PRODUCTS_MASSIMO"></span>
                             </a>
@@ -223,7 +223,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <!-- Massimo Download -->
                         <%if(deviceId==2){%>
                         <div class="col-xs-6">
-                            <a href="#" class="url_massimo_slot">
+                            <a href="#" class="url_slot_massimo_download">
                                 <img src="#" alt="" class="img_slots_massimo-download">
                                 <span class="title_massimo_download" data-i18n="LABEL_PRODUCTS_MASSIMO_DOWNLOAD"></span>
                             </a>
@@ -231,7 +231,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <%}%>
                         <!-- Palazzo -->
                         <div class="col-xs-6">
-                            <a href="#" class="url_slot">
+                            <a href="#" class="url_slot_palazzo">
                                 <img src="#" alt="" class="img_slots_palazzo">
                                 <span class="title_palazzo" data-i18n="LABEL_PRODUCTS_PALAZZO"></span>
                             </a>
@@ -239,7 +239,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <!-- Palazzo Download -->
                         <%if(deviceId==2){%>
                         <div class="col-xs-6">
-                            <a href="#" class="url_palazzo_slot">
+                            <a href="#" class="url_slot_palazzo_download">
                                 <img src="#" alt="" class="img_slots_palazzo-download">
                                 <span class="title_palazzo_download" data-i18n="LABEL_PRODUCTS_PALAZZO_DOWNLOAD"></span>
                             </a>
@@ -247,21 +247,21 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <%}%>
                         <!-- Gallardo -->
                         <div class="col-xs-6">
-                            <a href="#" class="url_slot">
+                            <a href="#" class="url_gallardo">
                                 <img src="#" alt="" class="img_slots_gallardo">
                                 <span class="title_gallardo" data-i18n="LABEL_PRODUCTS_GALLARDO"></span>
                             </a>
                         </div>
                         <!-- Apollo -->
                         <div class="col-xs-6">
-                            <a href="#" class="url_slot">
+                            <a href="#" class="url_apollo">
                                 <img src="#" alt="" class="img_slots_apollo">
                                 <span class="title_apollo" data-i18n="LABEL_PRODUCTS_APOLLO"></span>
                             </a>
                         </div>
                         <!-- Divino -->
                         <div class="col-xs-6">
-                            <a href="#" class="url_slot">
+                            <a href="#" class="url_divino">
                                 <img src="#" alt="" class="img_slots_divino">
                                 <span class="title_divino" data-i18n="LABEL_PRODUCTS_DIVINO"></span>
                             </a>
