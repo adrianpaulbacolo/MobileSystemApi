@@ -63,12 +63,12 @@ Login.prototype.initiateLogin = function () {
             self.showMessage(self.translations.Exception);
             window.location.href = '/Default.aspx';
         },
-        data: JSON.stringify({           
-            Username: self.elems.username.val(),
-            Password: self.elems.password.val(),
-            CaptchaCode: _.isEmpty(self.elems.captcha.val()) ? '' : self.elems.captcha.val(),
-            VerificationCode: '',
-            HasVCode: false        
+        data: JSON.stringify({
+            UserInfo: {
+                Username: self.elems.username.val(),
+                Password: self.elems.password.val()
+            },
+            Captcha: self.elems.captcha.val()
         }),
         success: function(response) {
             if (!response || response.ResponseCode == undefined) {
