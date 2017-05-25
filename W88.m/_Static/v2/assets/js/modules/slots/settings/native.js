@@ -10,4 +10,4 @@ _slotSettings.clubs = [
     { name: "divino", key: "LABEL_PRODUCTS_DIVINO", label: "Club Divino", providers: ["bs", "ctxm", "uc8"] }
 ]
 
-_slotSettings.resource = "default";
+_slotSettings.resource = "native";
