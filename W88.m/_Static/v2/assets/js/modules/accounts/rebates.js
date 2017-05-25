@@ -45,11 +45,12 @@ function Rebates() {
                 $("#group").html(groupTemplate({
                     data: response.ResponseData.RebateRow,
                     ShowWeekClaim: $("#weeks").val() == $("#weeks option:first").val(),
+                    BtnClaim: $.i18n("BUTTON_CLAIM"),
+                    Btnweekly: $.i18n("BUTTON_WEEKLY_CLAIM")
                 }));
                 $("#group").i18n();
 
                 $('#rebateDisclaimerMin').html($.i18n("LABEL_REBATE_NOTE1") + " " + Cookies().getCookie("currencyCode") + " " + response.ResponseData.MinimumClaim);
-                $("#weeklyBtn").html($.i18n("BUTTON_WEEKLY_CLAIM"));
 
                 $(".collapsible-btn").click(function (e) {
                     e.preventDefault();
@@ -104,6 +105,7 @@ function Rebates() {
                         BalanceRebateAmount: response.ResponseData.BalanceRebateAmount,
                         CurrencyCode: response.ResponseData.CurrencyCode,
                         MinimumClaim: response.ResponseData.MinimumClaim,
+                        btnInstantClaim: $.i18n("BUTTON_INSTANT_CLAIM"),
                         Monday: $.i18n("LABEL_MONDAY"),
                         Sunday: $.i18n("LABEL_SUNDAY"),
                         StartDate: strtDate[0],

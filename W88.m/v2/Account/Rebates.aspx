@@ -78,9 +78,9 @@
                     <div class="col-xs-6">
                         {% if(op.NativeGroupKey != "SB") { %}
                         {% if(col.AllowClaim) { %}
-                        <input type="button" name="btnSubmit" data-i18n="BUTTON_CLAIM" id="rebatesClaim" class="btn btn-block btn-primary" onclick="javascript: _w88_Rebates.ClaimQuery('{%- col.ProductCode %}', '{%- col.AllowClaim %}');">
+                        <input type="button" name="btnSubmit" value="{%- tplData.BtnClaim %}" id="rebatesClaim" class="btn btn-block btn-primary" onclick="javascript: _w88_Rebates.ClaimQuery('{%- col.ProductCode %}', '{%- col.AllowClaim %}');">
                         {% } else { %}
-                        <input type="button" name="" data-i18n="BUTTON_CLAIM" id="" class="btn btn-block btn-primary" disabled="disabled">
+                        <input type="button" name="" value="{%- tplData.BtnClaim %}" id="" class="btn btn-block btn-primary" disabled="disabled">
                         {% } %}
                     {% } %}
                     </div>
@@ -113,7 +113,7 @@
             <a href="#" class="collapsible-btn"><span data-i18n="LABEL_MORE"></span></a>
         </div>
         {% if((op.NativeGroupKey == "SB") && ((index + 1) == op.Collection.length) && (tplData.ShowWeekClaim))  { %}
-            <button type="button" value="" id="weeklyBtn" class="btn btn-block btn-primary" onclick="javascript: weeklyClaim();"></button>
+            <button type="button" class="btn btn-block btn-primary" onclick="javascript: weeklyClaim();">{%- tplData.Btnweekly %}</button>
         {% } %}
         
         {% }); %}
@@ -166,9 +166,9 @@
                         </tr>
                         <tr>
                             <td colspan="2">{% if(tplData.data.AllowClaim) { %}
-                        <input type="button" name="claimNow" data-i18n="BUTTON_INSTANT_CLAIM" id="rebateClaim" class="btn btn-block btn-primary" onclick="javascript: $('#rebate-modal').modal('toggle'); _w88_Rebates.ClaimNow('{%- tplData.data.ProductCode %}', '{%- tplData.data.BalanceRebateAmount %}', '{%- tplData.data.AllowClaim %}');">
+                        <input type="button" name="claimNow" value="{%- tplData.data.btnInstantClaim %}" id="rebateClaim" class="btn btn-block btn-primary" onclick="javascript: $('#rebate-modal').modal('toggle'); _w88_Rebates.ClaimNow('{%- tplData.data.ProductCode %}', '{%- tplData.data.BalanceRebateAmount %}', '{%- tplData.data.AllowClaim %}');">
                                 {% } else { %}
-                        <input type="button" name="" data-i18n="BUTTON_INSTANT_CLAIM" id="" class="btn btn-block btn-primary" disabled="disabled">
+                        <input type="button" name="" value="{%- tplData.data.btnInstantClaim %}" id="" class="btn btn-block btn-primary" disabled="disabled">
                                 {% } %}
                             </td>
                         </tr>
