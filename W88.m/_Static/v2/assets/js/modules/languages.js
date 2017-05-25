@@ -34,7 +34,8 @@ function LanguageSelection() {
                     $("#language-modal div.modal-content").html(langTemplate({
                         data: response.ResponseData,
                         lblTitle: $.i18n("LABEL_MENU_LANGUAGE"),
-                        hasCloseButton: hasClose
+                        hasCloseButton: hasClose,
+                        activeLang: Cookies().getCookie('language')
                     }));
                 }
             });
@@ -43,7 +44,8 @@ function LanguageSelection() {
             $("#language-modal div.modal-content").html(langTemplate({
                 data: lang,
                 lblTitle: $.i18n("LABEL_MENU_LANGUAGE"),
-                hasCloseButton: hasClose
+                hasCloseButton: hasClose,
+                activeLang: Cookies().getCookie('language')
             }));
         }
     };

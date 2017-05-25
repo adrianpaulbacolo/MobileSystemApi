@@ -251,12 +251,13 @@
                 <div class="container">
                     <div class="row">
                         {% _.forEach( tplData.data, function( flag ){ %}
-               <div class="col-xs-6 text-center language-flag">
-                   <a href="#" onclick="javascript: _w88_LanguageSelection.select('{%- flag.LangCode %}'); return false;">
-                       <img class="img-responsive" src="{%- flag.ImageUrl %}" />
-                   </a>
-                   <p>{%- flag.Name %}</p>
-               </div>
+                           <div class="col-xs-6 text-center language-flag">
+                               <a href="#" onclick="javascript: _w88_LanguageSelection.select('{%- flag.LangCode %}'); return false;">
+                                   <img class="img-responsive" src="{%- flag.ImageUrl %}" />
+                               </a>
+
+                               <p class="{%-tplData.activeLang == flag.LangCode ? 'active' : '' %}">{%- flag.Name %}</p>
+                           </div>
                         {% }); %}
                     </div>
                 </div>
