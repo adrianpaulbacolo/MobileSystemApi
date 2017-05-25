@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/v2/MasterPages/Main.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="v2_Account_Default" %>
 
-<%@ Import Namespace="Models" %>
+<%@ Import Namespace="Helpers" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContentHolder" runat="Server">
     <div class="dashboard">
@@ -14,13 +14,13 @@
         </div>
         <div class="dashboard-row">
             <div class="dashboard-col">
-                <a href="<%=W88Constant.PageNames.BankDetails%>">
+                <a href="<%=Pages.BankDetails%>">
                     <span class="icon icon-banking"></span>
                     <span data-i18n="LABEL_MENU_BANK_DETAILS"></span>
                 </a>
             </div>
             <div class="dashboard-col">
-                <a href="<%=W88Constant.PageNames.Rebates%>">
+                <a href="<%=Pages.Rebates%>">
                     <span class="icon icon-rebates"></span>
                     <span data-i18n="LABEL_MENU_REBATES"></span>
                 </a>
@@ -28,13 +28,13 @@
         </div>
         <div class="dashboard-row">
             <div class="dashboard-col">
-                <a href="<%=W88Constant.PageNames.LiveChat%>" target="_blank">
+                <a href="<%=Pages.LiveChat%>" target="_blank">
                     <span class="icon icon-chat"></span>
                     <span data-i18n="LABEL_MENU_LIVE_CHAT"></span>
                 </a>
             </div>
             <div class="dashboard-col">
-                <a href="<%=W88Constant.PageNames.Upload%>">
+                <a href="<%=Pages.Upload%>">
                     <span class="icon icon-submit"></span>
                     <span data-i18n="LABEL_MENU_UPLOAD"></span>
                 </a>
@@ -42,13 +42,13 @@
         </div>
         <div class="dashboard-row">
             <div class="dashboard-col">
-                <a href="<%=W88Constant.PageNames.ChangePassword%>">
+                <a href="<%=Pages.ChangePassword%>">
                     <span class="icon icon-password"></span>
                     <span data-i18n="LABEL_PASSWORD_CHANGE"></span>
                 </a>
             </div>
             <div class="dashboard-col">
-                <a href="<%=W88Constant.PageNames.ContactUs%>">
+                <a href="<%=Pages.ContactUs%>">
                     <span class="icon icon-phone"></span>
                     <span data-i18n="LABEL_MENU_CONTACT_US"></span>
                 </a>

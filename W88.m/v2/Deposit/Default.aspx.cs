@@ -1,5 +1,5 @@
 ﻿using System;
-using Models;
+using Helpers;
 
 public partial class v2_Deposit_Default : FundsBasePage
 {
@@ -10,7 +10,7 @@ public partial class v2_Deposit_Default : FundsBasePage
 
     protected override void OnLoad(EventArgs e)
     {
-        Page.Items.Add("Parent", W88Constant.PageNames.Funds);
+        Page.Items.Add("Parent", Pages.Funds);
         base.OnLoad(e);
     }
 }

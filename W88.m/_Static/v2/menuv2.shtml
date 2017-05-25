@@ -28,7 +28,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             <!-- Profile -->
             <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
             <li>
-                <a href="/v2/Account/Default.aspx">
+                <a href="<%=Helpers.Pages.Account%>">
                     <span class="icon icon-profile"></span>
                     <span class="title_profile"><%=commonVariables.GetMemberCode()%></span>
                 </a>
@@ -36,7 +36,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             <% } %>
             <!-- Home -->
             <li>
-                <a href="/v2/Dashboard.aspx?lang=<%=commonVariables.SelectedLanguage%>">
+                <a href="<%=Helpers.Pages.Dashboard%>?lang=<%=commonVariables.SelectedLanguage%>">
                     <span class="icon icon-home"></span>
                     <span class="title_home" data-i18n="LABEL_MENU_HOME"></span>
                 </a>
@@ -44,7 +44,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             <!-- Login -->
             <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
             <li>
-                <a href="/_Secure/Login.aspx">
+                <a href="<%=Helpers.Pages.Login%>">
                     <span class="icon icon-login"></span>
                     <span class="title_login" data-i18n="LABEL_MENU_LOGIN"></span>
                 </a>
@@ -54,7 +54,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             <!-- Funds -->
             <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
             <li class="nav-category">
-                <a href="/_Secure/Login.aspx">
+                <a href="<%=Helpers.Pages.Funds%>">
                     <span class="icon icon-currency-circle"></span>
                     <span class="title_funds" data-i18n="LABEL_MENU_FUNDS"></span>
                 </a>

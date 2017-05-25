@@ -4,14 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Models;
+using Helpers;
 
 public partial class History_Default : BasePage
 {
     protected override void OnLoad(EventArgs e)
     {
         Page.Title = "History";
-        Page.Items.Add("Parent", W88Constant.PageNames.Funds);
+        Page.Items.Add("Parent", Pages.Funds);
         base.OnLoad(e);
     }
 

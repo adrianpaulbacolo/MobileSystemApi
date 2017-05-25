@@ -1,11 +1,11 @@
 ﻿using System;
-using Models;
+using Helpers;
 
 public partial class v2_Funds : FundsBasePage
 {
     protected override void OnLoad(EventArgs e)
     {
-        Page.Items.Add("Parent", W88Constant.PageNames.Dashboard);
+        Page.Items.Add("Parent", Pages.Dashboard);
         base.OnLoad(e);
     }
 }

@@ -1,11 +1,11 @@
 ﻿using System;
-using Models;
+using Helpers;
 
 public partial class v2_Account_ForgotPassword : BasePage
 {
     protected override void OnLoad(EventArgs e)
     {
-        Page.Items.Add("Parent", W88Constant.PageNames.Login);
+        Page.Items.Add("Parent", Pages.Login);
         base.OnLoad(e);
     }
 

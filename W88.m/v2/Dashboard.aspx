@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/v2/MasterPages/Main.master" AutoEventWireup="true" CodeFile="Dashboard.aspx.cs" Inherits="v2_Dashboard" %>
-<%@ Import Namespace="Models" %>
+<%@ Import Namespace="Helpers" %>
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentHolder" runat="Server">
     <div class="home-banner slick-slider">
@@ -8,7 +8,7 @@
     <div class="dashboard dashboard-home">
         <div class="dashboard-row">
             <div class="dashboard-col">
-                <a href="<%=W88Constant.PageNames.Sports%>?lang=<%=commonVariables.SelectedLanguage.ToLower() %>"><span class="icon icon-soccer"></span>
+                <a href="<%=Pages.Sports%>?lang=<%=commonVariables.SelectedLanguage.ToLower() %>"><span class="icon icon-soccer"></span>
                     <span data-i18n="LABEL_MENU_SPORTS"></span>
                 </a>
             </div>
@@ -20,7 +20,7 @@
         </div>
         <div class="dashboard-row">
             <div class="dashboard-col">
-                <a href="<%=W88Constant.PageNames.Slots%>"><span class="icon icon-slots"></span>
+                <a href="<%=Pages.Slots%>"><span class="icon icon-slots"></span>
                     <span data-i18n="LABEL_SLOTS"></span>
                 </a>
             </div>
@@ -32,12 +32,12 @@
         </div>
         <div class="dashboard-row">
             <div class="dashboard-col">
-                <a href="<%=W88Constant.PageNames.Lottery%>?lang=<%=commonVariables.SelectedLanguage%>"><span class="icon icon-keno"></span>
+                <a href="<%=Pages.Lottery%>?lang=<%=commonVariables.SelectedLanguage%>"><span class="icon icon-keno"></span>
                     <span data-i18n="LABEL_WALLET_LOTTERY"></span>
                 </a>
             </div>
             <div class="dashboard-col">
-                <a href="<%=W88Constant.PageNames.Downloads%>"><span class="icon icon-download"></span>
+                <a href="<%=Pages.Downloads%>"><span class="icon icon-download"></span>
                     <span data-i18n="LABEL_DOWNLOAD"></span>
                 </a>
             </div>

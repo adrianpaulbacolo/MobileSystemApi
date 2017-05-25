@@ -4,14 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Models;
+using Helpers;
 
 public partial class v2_Downloads : BasePage
 {
     protected override void OnLoad(EventArgs e)
     {
         Page.Title = commonCulture.ElementValues.getResourceString("download", commonVariables.LeftMenuXML);
-        Page.Items.Add("Parent", W88Constant.PageNames.Dashboard);
+        Page.Items.Add("Parent", Pages.Dashboard);
         base.OnLoad(e);
     }
 
