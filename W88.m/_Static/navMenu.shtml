@@ -387,6 +387,9 @@ var fishingWorld = FishingWorldProduct.GetLink();
         <!-- Lottery -->
         <li data-icon="false">
             <a class="nav-keno">
+                <div class="c-badge-new">
+                    <div class="c-badge-inner">*</div>
+                </div>
                 <i class="icon icon-keno"></i>
                 <div class="label menuLotteryTitle"></div>
             </a>
@@ -398,6 +401,19 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <img src="#" class="img-responsive keno">
                         <div class="title menuKenoTitle"></div>
                     </a>
+                </li>
+                <li>
+                    <div class="card">
+                        <div class="n-badge-new pk10"><img src="/_Static/Images/badge/banner/new-<%=commonCookie.CookieLanguage %>-mobile-home.png"></div>
+                        <img src="#" class="img-responsive pk10">
+                        <div class="title menuPK10Title"></div>
+                        <div class="card-hover">
+                            <div class="card-hover-btns">
+                                <a href="<%=commonLottery.getPK10Url(true) %>" target="<%=(!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? " _blank" : "_self") %>" data-ajax="false" class="ui-btn btn-primary play-pk"><span class="icon-arrow-right"></span></a>
+                                <a href="<%=commonLottery.getPK10Url(false) %>" target="_blank" data-ajax="false" class="ui-btn btn-secondary try-pk"><span class="icon-arrow-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </li>
@@ -764,6 +780,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             $('body').addClass('open-subnav');
 
             $('.keno').attr('src', '/_Static/Images/bnr_lottery.jpg');
+            $('.pk10').attr('src', '/_Static/Images/lottery/bnr_lottery_pk10.jpg');
 
             if(typeof adjustMenu == "function"){
                 adjustMenu();
@@ -837,3 +854,40 @@ var fishingWorld = FishingWorldProduct.GetLink();
         });
 </script>
 <% } %>
+
+<style>
+    .sub-menu .n-badge-new{
+        position: absolute;
+        padding-top: 0;
+        width: 50%;
+    }
+    .sub-menu .n-badge-new.pk10{
+        width: 100%;
+    }
+
+    .sub-menu .n-badge-new img{
+        width: 25%;
+        margin: auto;
+        margin-right: -60px;
+    }
+
+    .nav-menu .c-badge-new{
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 50%;
+        width: 100%;
+        position: absolute;
+    }
+
+    .nav-menu .c-badge-new .c-badge-inner{
+        margin: auto;
+        height: 12px;
+        line-height: 1em;
+        font-size: 1.4em;
+        color: white;
+        background-color: red;
+        border-radius: 50%;
+        width: 12px;
+        margin-right: 29px;
+    }
+</style>

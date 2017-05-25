@@ -4,6 +4,7 @@ var _w88_quickonline = window.w88Mobile.Gateways.QuickOnlineV2;
 function QuickOnlineV2() {
 
     var quickonline;
+    var methodId;
 
     try {
         quickonline = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
@@ -11,16 +12,17 @@ function QuickOnlineV2() {
         quickonline = {};
     }
 
-    quickonline.init = function (gateway, getBank) {
+    quickonline.init = function (id, getBank) {
+        methodId = id;
         $('[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
         $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
 
         $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
 
-        if (_.isEqual(gateway, "120265")) { //EGHL
+        if (_.isEqual(methodId, "120265")) { //EGHL
             if (siteCookie.getCookie('currencyCode') == 'MYR') {
                 $(".pay-note").show();
-                $('#paymentNoteContent').html(_w88_contents.translate("LABEL_MSG_" + gateway));
+                $('#paymentNoteContent').html(_w88_contents.translate("LABEL_MSG_" + methodId));
                 quickonline.showBank();
                 getBank = true;
             }
@@ -34,25 +36,30 @@ function QuickOnlineV2() {
         }
 
         if (getBank == true) {
-
-            var resource = "/vendor/" + gateway;
-            if (_.isEqual(gateway, "999999"))
-                resource = "/gateway";
-
-            _w88_paymentSvcV2.Send("/Banks" + resource, "GET", "", function (response) {
-                var banks = response.ResponseData;
-                var defaultSelect = _w88_contents.translate("LABEL_SELECT_DEFAULT");
-                $('select[id$="drpBank"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
-                $('select[id$="drpBank"]').val("-1").change();
-
-                _.forOwn(banks, function (data) {
-                    if (_.isEqual(data.Value, "ICBC") || _.isEqual(data.Value, "ECITIC"))
-                        data.Text = data.Text + " (*)";
-
-                    $('select[id$="drpBank"]').append($('<option>').text(data.Text).attr('value', data.Value));
-                });
-            });
+            quickonline.getBank();
         }
+    };
+
+    quickonline.getBank = function () {
+        var _self = this;
+
+        var resource = "/vendor/" + methodId;
+        if (_.isEqual(methodId, "999999"))
+            resource = "/gateway";
+
+        _self.send("/Banks" + resource, "GET", "", function (response) {
+            var banks = response.ResponseData;
+            var defaultSelect = _w88_contents.translate("LABEL_SELECT_DEFAULT");
+            $('select[id$="drpBank"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
+            $('select[id$="drpBank"]').val("-1").change();
+
+            _.forOwn(banks, function (data) {
+                if (_.isEqual(data.Value, "ICBC") || _.isEqual(data.Value, "ECITIC"))
+                    data.Text = data.Text + " (*)";
+
+                $('select[id$="drpBank"]').append($('<option>').text(data.Text).attr('value', data.Value));
+            });
+        });
     };
 
     quickonline.showBank = function () {

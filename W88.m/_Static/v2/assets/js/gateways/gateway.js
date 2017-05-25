@@ -5,13 +5,13 @@ function Gateway(paymentSvc) {
     this.methodId;
 
     this.send = function (resource, method, data, success, complete) {
-        paymentSvc.Send(resource, method, data, success, complete);
+        _w88_send(resource, method, data, success, complete);
     }
 
     this.deposit = function (data, successCallback, completeCallback) {
         var _self = this;
 
-        if (_.includes(_w88_paymentSvcV2.AutoRouteIds, _self.methodId)) {
+        if (_.includes(paymentSvc.AutoRouteIds, _self.methodId)) {
 
             var prevMethodIds = amplify.store(w88Mobile.Keys.switchLineSettings);
             data.Id = prevMethodIds;

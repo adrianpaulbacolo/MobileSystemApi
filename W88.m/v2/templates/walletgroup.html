@@ -1,0 +1,10 @@
+﻿<div class="wallet-group">
+    <div>
+        {% _.forEach( tplData.wallets, function( wallet ){ %}
+        <div class="wallet-group-item">
+            <p>{%-wallet.Name%}</p>
+            <h5>{%-wallet.Balance%}</h5>
+        </div>
+        {% }); %}
+    </div>
+</div>

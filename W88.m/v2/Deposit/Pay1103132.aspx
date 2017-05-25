@@ -17,7 +17,7 @@
         <asp:Label ID="lblDepositDateTime" runat="server" AssociatedControlID="txtDepositDate" />
         <div class="row thin-gutter">
             <div class="col-xs-6 col-sm-6">
-                <asp:TextBox ID="txtDepositDate" type="text" runat="server" CssClass="form-control" data-date-box />
+                <asp:TextBox ID="txtDepositDate" type="text" runat="server" CssClass="form-control" data-date-box="payment" />
             </div>
             <div class="col-xs-6 col-sm-6">
                 <asp:TextBox ID="txtDepositTime" type="text" runat="server" CssClass="form-control" data-date-box="time" />

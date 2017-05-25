@@ -261,7 +261,7 @@ public class commonXSports
     {
         get
         {
-            
+
             var user = new Members().MemberData();
             var opSettings = new customConfig.OperatorSettings("W88");
             var url = opSettings.Values.Get("xSportsFunUrl");
@@ -378,7 +378,7 @@ public class commonClubBravado
             var token = commonCookie.CookieS;
             var paramString = "&s=" + token;
 
-            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName) + paramString;  
+            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName) + paramString;
         }
     }
 
@@ -399,10 +399,10 @@ public class commonClubBravado
             customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
             string strUrl = opSettings.Values.Get("ClubBravadoRealUrl_MR");
 
-            var token = commonCookie.CookieS;  
+            var token = commonCookie.CookieS;
             var paramString = "&s=" + token;
 
-            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName)+ paramString;  
+            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName) + paramString;
 
         }
     }
@@ -443,12 +443,30 @@ public class commonLottery
             var language = commonCookie.CookieLanguage;
             var token = commonCookie.CookieS;
             var isExternalPlatform = commonFunctions.isExternalPlatform();
-            var paramString =  "?vendor=W88&s=" + token  + "&lang=" + language + "&game=keno";
-            if(!isExternalPlatform) paramString += "&domainlink=" + domainHost + "&domain=" + domainHost;
+            var paramString = "?vendor=W88&s=" + token + "&lang=" + language + "&game=keno";
+            if (!isExternalPlatform) paramString += "&domainlink=" + domainHost + "&domain=" + domainHost;
             //Change URL to GPI - Get From Config
             //return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName);
             return string.IsNullOrEmpty(strUrl) ? "" : strUrl + paramString;
         }
+    }
+    public static string getPK10Url(bool isReal = false)
+    {
+        if (isReal && string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) return "/_Secure/Login.aspx";
+
+        customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
+        string strUrl = opSettings.Values.Get("Pk10Url");
+        var domain = HttpContext.Current.Request.Url.Host;
+        var domainFullSplit = domain.Split('.');
+        var domainHost = domainFullSplit.Length <= 2 ? domain : domainFullSplit[domainFullSplit.Length - 2] + "." + domainFullSplit[domainFullSplit.Length - 1];
+
+        var language = commonCookie.CookieLanguage;
+        var token = commonCookie.CookieS;
+        var isExternalPlatform = commonFunctions.isExternalPlatform();
+        var paramString = "?vendor=W88&s=" + token + "&lang=" + language + "&game=pk10";
+        if (!isReal) paramString += "&mode=Try&view=6&theme=2&version=3";
+        if (!isExternalPlatform) paramString += "&domainlink=" + domainHost + "&domain=" + domainHost;
+        return string.IsNullOrEmpty(strUrl) ? "" : strUrl + paramString;
     }
 }
 
@@ -558,7 +576,8 @@ public class commonProduct
 {
     public static string GetWallet(string productCode)
     {
-        switch(productCode){
+        switch (productCode)
+        {
             case "playtech":
                 return commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML);
             case "vanguard":
@@ -594,7 +613,7 @@ public static class FishingWorldProduct
             ? settings.Values.Get("FishingWorld_PROD_Url")
             : settings.Values.Get("FishingWorld_UAT_Url");
 
-        var op = (int) commonVariables.operatorCode.W88;
+        var op = (int)commonVariables.operatorCode.W88;
         url = url.Replace("{OP}", op.ToString())
             .Replace("{ID}", user.MemberId)
             .Replace("{CURR}", commonCookie.CookieCurrency)
@@ -603,9 +622,9 @@ public static class FishingWorldProduct
 
         var link = XDocument.Load(url);
 
-        if (!string.IsNullOrEmpty((string) link.Root.Element("loginURL")))
+        if (!string.IsNullOrEmpty((string)link.Root.Element("loginURL")))
         {
-            return (string) link.Root.Element("loginURL");
+            return (string)link.Root.Element("loginURL");
         }
 
         commonAuditTrail.appendLog("system", "FishingWorldProduct", "NavMenu", "", "1", link.ToString(), "", "", url, Convert.ToString(1), "1", false);

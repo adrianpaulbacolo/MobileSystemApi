@@ -175,14 +175,16 @@ function MoneyTransfer() {
     }
 
     moneytransfer.exchangeRate = function (data) {
-        _w88_paymentSvcV2.Send("/payments/exchangerate", "GET", data, function (response) {
+        var _self = this;
+
+        _self.send("/payments/exchangerate", "GET", data, function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
                 var venusPoint = 'JPY Amount = ' + response.ResponseData.Amount + ' Venus Points';
                 $('span[id$="lblVenusPoints"]').text(venusPoint);
                 var exchange = '1 JPY = ' + response.ResponseData.ExchangeRate + ' USD';
                 $('span[id$="lblExchangeRate"]').text(exchange);
             }
-        }, undefined);
+        });
     };
 
     moneytransfer.createDeposit = function (form, data) {
