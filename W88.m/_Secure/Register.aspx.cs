@@ -355,7 +355,7 @@ public partial class _Secure_Register : BasePage
         {
             foreach (var item in _blockList.Where(item => item.Value == strFName))
             {
-                strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Exception", xeErrors);
+                strAlertMessage = commonCulture.ElementValues.getResourceXPathString("CustomerService", xeErrors);
                 isProcessAbort = true;
             }
         }
