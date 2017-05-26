@@ -1,0 +1,27 @@
+.contact {
+
+    .row {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .icon {
+        color: $brand-primary;
+        font-size: 2.125rem;
+        display: block;
+        padding-top: 18px;
+        padding-left: 14px;
+    }
+
+    .title {
+        color: $brand-alt;
+        font-size: 1em;
+        font-weight: bold;
+        margin-bottom: -5px;
+    }
+
+    .message {
+        margin: .6em 0;
+        font-size: .75em;
+    }
+}
