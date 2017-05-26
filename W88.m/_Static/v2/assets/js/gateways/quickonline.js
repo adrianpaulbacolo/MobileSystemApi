@@ -130,10 +130,10 @@ function QuickOnlineV2() {
                         window.open(response.ResponseData.VendorRedirectionUrl);
                     } else {
                         if (response.ResponseData.PostUrl) {
-                            w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
+                            w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
                             w88Mobile.PostPaymentForm.submit();
                         } else if (response.ResponseData.DummyURL) {
-                            w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.DummyURL, "body");
+                            w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.DummyURL, "body");
                             w88Mobile.PostPaymentForm.submit();
                         }
                     }
