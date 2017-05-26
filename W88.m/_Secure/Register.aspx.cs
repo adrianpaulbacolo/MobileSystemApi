@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml.Linq;
 
+
 public partial class _Secure_Register : BasePage
 {
     protected System.Xml.Linq.XElement xeErrors = null;
@@ -206,12 +207,13 @@ public partial class _Secure_Register : BasePage
         strContact = txtContact.Text;
         strCurrencyCode = drpCurrency.SelectedValue;
         // This changes is for the combined name on frontend only but on the BO everything will be saved in firstname
-        strFName = System.Text.RegularExpressions.Regex.Replace(txtName.Text, @"\t|\n|\r|", "");
+        strFName = System.Text.RegularExpressions.Regex.Replace(txtName.Text, @"\t|\n|\r|", "").TrimStart().TrimEnd();
         strLName = string.Empty; //System.Text.RegularExpressions.Regex.Replace(txtLastName.Text, @"\t|\n|\r|", "");
         strDOB = string.Format("{0}-{1}-{2}", drpYear.SelectedValue, drpMonth.SelectedValue, drpDay.SelectedValue);
         strAlertCode = "-1";
         strContactNumber = string.Format("{0}-{1}", drpContactCountry.SelectedValue, strContact);
         strAffiliateId = txtAffiliateID.Text;
+        var lineId = commonVariables.SelectedLanguageShort.ToLower() == "th" ? txtLineId.Text : string.Empty;
 
         System.Text.RegularExpressions.Regex rexContact = new System.Text.RegularExpressions.Regex("([0-9]{1,4})[-]([0-9]{6,12})$");
         // get hidden values
@@ -351,14 +353,6 @@ public partial class _Secure_Register : BasePage
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/InvalidLineId", xeErrors);
             isProcessAbort = true;
         }
-        else if (_blockList != null)
-        {
-            foreach (var item in _blockList.Where(item => item.Value == strFName))
-            {
-                strAlertMessage = commonCulture.ElementValues.getResourceXPathString("CustomerService", xeErrors);
-                isProcessAbort = true;
-            }
-        }
         else
         {
             strResultCode = "00";
@@ -366,6 +360,18 @@ public partial class _Secure_Register : BasePage
 
             strContact = strContact.TrimStart('+');
             strPasswordEncrypted = commonEncryption.Encrypt(strPassword);
+        }
+
+        if (_blockList != null)
+        {
+            foreach (var item in _blockList.Where(item => item.Value.ToLower().Equals(strFName.ToLower())))
+            {
+                strResultCode = "11";
+                strResultDetail = "Error:ParameterValidation";
+
+                strAlertMessage = commonCulture.ElementValues.getResourceXPathString("CustomerService", xeErrors);
+                isProcessAbort = true;
+            }
         }
 
         strErrorDetail = strAlertMessage;
@@ -455,7 +461,7 @@ public partial class _Secure_Register : BasePage
             {
                 dsRegister = svcInstance.MemberRegistrationNewWithLineId(lngOperatorId, strMemberCode, strPasswordEncrypted, strEmail, strContactNumber,
                     strAddress, strCity, strPostal, strCountryCode, strCurrencyCode, strGender, intOddsType, string.IsNullOrEmpty(strLanguageCode) ? "en-us" : strLanguageCode,
-                            intAffiliateId, strReferBy, strIPAddress, strSignUpUrl, strDeviceId, isTestAccount, strFName, strLName, dtDOB, string.Empty, txtLineId.Text);
+                            intAffiliateId, strReferBy, strIPAddress, strSignUpUrl, strDeviceId, isTestAccount, strFName, strLName, dtDOB, string.Empty, lineId);
 
                 strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | Password: {2} | Email: {3} | Contact: {4} | Address: {5} | City: {6} | Postal: {6} | Country: {8} | Currency: {9} | Gender: {10} | OddsType: {11} | Language: {12} | Affiliate: {13} | ReferBy: {14} | IP: {15} | SignUpUrl: {16} | DeviceID: {17} | TestAccount: {18} | FName: {19} | LName: {20} | DOB: {21} | REMOTEIP: {22} | FORWARDEDIP: {23} | REQUESTERIP: {24} | AffiliateID: {25}",
                     lngOperatorId, strMemberCode, strPasswordEncrypted, strEmail, strContact, strAddress, strCity, strPostal, strCountryCode, strCurrencyCode, strGender, intOddsType, strLanguageCode, intAffiliateId, strReferBy, strIPAddress, strSignUpUrl, strDeviceId, isTestAccount, strFName, strLName, dtDOB, commonIp.remoteIP, commonIp.forwardedIP, commonIp.requesterIP, intAffiliateId);
