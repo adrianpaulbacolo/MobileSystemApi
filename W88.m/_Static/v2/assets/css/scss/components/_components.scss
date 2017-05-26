@@ -1,76 +1,7 @@
 .form-box{
   margin-top: 30px;
 }
-.help-block{
-  color: $help-block-color;
-  font-size: 0.813rem;
-}
 
-.form-group.form-group-line{
-  label{
-    color: $form-label-color;
-    font-size: 0.857em;
-    margin-bottom: 0;
-    font-weight:normal;
-    pointer-events:none;
-  }
-  .form-control{
-    color: $form-input-text-color;
-    font-size: 1rem;
-    padding: 4px 0;
-    height: 35px;
-    border:none;
-    background-color: transparent;
-    border-bottom:1px solid $form-input-border-color;
-    @include border-radius(0);
-    @include box-shadow(none);
-    @include transition(all 600ms ease);
-    > option{
-        color: $white;
-        background-color: $gray-darker;
-    }
-    &:focus{
-      outline:none;
-    }
-    &.ng-dirty.ng-valid{
-      border-bottom:1px solid $brand-primary;
-    }
-    &.ng-dirty.ng-invalid{
-      border-bottom:1px solid $brand-danger;
-    }
-  }
-}
-.form-group-placeholder{
-  position: relative;
-  label{
-    color: $form-label2-color;
-    font-size: 0.857em;
-    margin-bottom: 0;
-    font-weight:normal;
-    pointer-events:none;
-    top: 11px;
-    position: absolute;
-  }
-  .form-control{
-    color: $form-input-text-color;
-    font-size: 1.143em;
-    padding: 8px 0 8px 30px;
-    border:none;
-    background-color: transparent;
-    border-bottom:1px solid $form-input-border-color;
-    @include border-radius(0);
-    @include box-shadow(none);
-    > option{
-        color: $white;
-        background-color: $gray-darker;
-    }
-    &:focus{
-      border-bottom:1px solid $brand-primary;
-      outline:none;
-      @include box-shadow(none);
-    }
-  }
-}
 .page-title{
   margin-bottom: 16px;
   h3{
