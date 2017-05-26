@@ -42,6 +42,7 @@ public partial class _Secure_Register : BasePage
             pnlLineId.Visible = true;
         }
 
+
         XElement xeBlockListed;
         commonCulture.appData.GetRootResourceNonLanguage("/Shared/BlockListed", out xeBlockListed);
         _blockList = xeBlockListed.Elements("BlockListed").Elements().ToList();
