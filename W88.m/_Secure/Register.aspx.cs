@@ -353,14 +353,6 @@ public partial class _Secure_Register : BasePage
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/InvalidLineId", xeErrors);
             isProcessAbort = true;
         }
-        else if (_blockList != null)
-        {
-            foreach (var item in _blockList.Where(item => item.Value.ToLower().Equals(strFName.ToLower())))
-            {
-                strAlertMessage = commonCulture.ElementValues.getResourceXPathString("CustomerService", xeErrors);
-                isProcessAbort = true;
-            }
-        }
         else
         {
             strResultCode = "00";
@@ -368,6 +360,18 @@ public partial class _Secure_Register : BasePage
 
             strContact = strContact.TrimStart('+');
             strPasswordEncrypted = commonEncryption.Encrypt(strPassword);
+        }
+
+        if (_blockList != null)
+        {
+            foreach (var item in _blockList.Where(item => item.Value.ToLower().Equals(strFName.ToLower())))
+            {
+                strResultCode = "11";
+                strResultDetail = "Error:ParameterValidation";
+
+                strAlertMessage = commonCulture.ElementValues.getResourceXPathString("CustomerService", xeErrors);
+                isProcessAbort = true;
+            }
         }
 
         strErrorDetail = strAlertMessage;
