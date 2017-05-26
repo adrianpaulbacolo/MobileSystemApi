@@ -15,7 +15,6 @@ public partial class _Secure_Register : BasePage
     public string CDNCountryCode = string.Empty;
     private List<XElement> _blockList;
 
-
     protected void Page_Init(object sender, EventArgs e)
     {
         if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { Response.Redirect("/Index"); }
@@ -43,7 +42,6 @@ public partial class _Secure_Register : BasePage
         {
             pnlLineId.Visible = true;
         }
-
 
         XElement xeBlockListed;
         commonCulture.appData.GetRootResourceNonLanguage("/Shared/BlockListed", out xeBlockListed);
@@ -356,7 +354,7 @@ public partial class _Secure_Register : BasePage
         }
         else if (_blockList != null)
         {
-            foreach (var item in _blockList.Where(item => item.Value == strFName))
+            foreach (var item in _blockList.Where(item => item.Value.ToLower().Equals(strFName.ToLower())))
             {
                 strAlertMessage = commonCulture.ElementValues.getResourceXPathString("CustomerService", xeErrors);
                 isProcessAbort = true;
