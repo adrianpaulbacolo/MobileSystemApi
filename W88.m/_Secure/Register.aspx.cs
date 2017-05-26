@@ -213,6 +213,7 @@ public partial class _Secure_Register : BasePage
         strAlertCode = "-1";
         strContactNumber = string.Format("{0}-{1}", drpContactCountry.SelectedValue, strContact);
         strAffiliateId = txtAffiliateID.Text;
+        var lineId = commonVariables.SelectedLanguageShort.ToLower() == "th" ? txtLineId.Text : string.Empty;
 
         System.Text.RegularExpressions.Regex rexContact = new System.Text.RegularExpressions.Regex("([0-9]{1,4})[-]([0-9]{6,12})$");
         // get hidden values
@@ -456,7 +457,7 @@ public partial class _Secure_Register : BasePage
             {
                 dsRegister = svcInstance.MemberRegistrationNewWithLineId(lngOperatorId, strMemberCode, strPasswordEncrypted, strEmail, strContactNumber,
                     strAddress, strCity, strPostal, strCountryCode, strCurrencyCode, strGender, intOddsType, string.IsNullOrEmpty(strLanguageCode) ? "en-us" : strLanguageCode,
-                            intAffiliateId, strReferBy, strIPAddress, strSignUpUrl, strDeviceId, isTestAccount, strFName, strLName, dtDOB, string.Empty, txtLineId.Text);
+                            intAffiliateId, strReferBy, strIPAddress, strSignUpUrl, strDeviceId, isTestAccount, strFName, strLName, dtDOB, string.Empty, lineId);
 
                 strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | Password: {2} | Email: {3} | Contact: {4} | Address: {5} | City: {6} | Postal: {6} | Country: {8} | Currency: {9} | Gender: {10} | OddsType: {11} | Language: {12} | Affiliate: {13} | ReferBy: {14} | IP: {15} | SignUpUrl: {16} | DeviceID: {17} | TestAccount: {18} | FName: {19} | LName: {20} | DOB: {21} | REMOTEIP: {22} | FORWARDEDIP: {23} | REQUESTERIP: {24} | AffiliateID: {25}",
                     lngOperatorId, strMemberCode, strPasswordEncrypted, strEmail, strContact, strAddress, strCity, strPostal, strCountryCode, strCurrencyCode, strGender, intOddsType, strLanguageCode, intAffiliateId, strReferBy, strIPAddress, strSignUpUrl, strDeviceId, isTestAccount, strFName, strLName, dtDOB, commonIp.remoteIP, commonIp.forwardedIP, commonIp.requesterIP, intAffiliateId);
