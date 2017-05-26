@@ -207,7 +207,7 @@ public partial class _Secure_Register : BasePage
         strContact = txtContact.Text;
         strCurrencyCode = drpCurrency.SelectedValue;
         // This changes is for the combined name on frontend only but on the BO everything will be saved in firstname
-        strFName = System.Text.RegularExpressions.Regex.Replace(txtName.Text, @"\t|\n|\r|", "");
+        strFName = System.Text.RegularExpressions.Regex.Replace(txtName.Text, @"\t|\n|\r|", "").TrimStart().TrimEnd();
         strLName = string.Empty; //System.Text.RegularExpressions.Regex.Replace(txtLastName.Text, @"\t|\n|\r|", "");
         strDOB = string.Format("{0}-{1}-{2}", drpYear.SelectedValue, drpMonth.SelectedValue, drpDay.SelectedValue);
         strAlertCode = "-1";
