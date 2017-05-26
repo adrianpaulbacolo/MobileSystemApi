@@ -179,7 +179,7 @@ function validator() {
 
                 case 'payment':
                     $(item).datebox({
-                        mode: 'calbox',
+                        mode: 'datebox',
                         showInitialValue: true,
                         overrideDateFormat: '%m/%d/%Y',
                         minDays: 3,

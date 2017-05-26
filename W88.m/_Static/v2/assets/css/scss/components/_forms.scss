@@ -225,7 +225,6 @@ select.form-control{
 }
 
 .ui-datebox-container.dropdown-menu{
-  width: 100%;
   max-width: 315px;
   padding: 0;
   border: none;
@@ -238,6 +237,10 @@ select.form-control{
       color: $text-alt;
     }
   }
+}
+.datetime-left .ui-datebox-container{
+  left: 0 !important;
+  right: auto;
 }
 .ui-datebox-flipcenter {
     width: 100%;
