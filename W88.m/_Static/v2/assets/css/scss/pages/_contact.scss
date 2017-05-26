@@ -1,27 +1,38 @@
 .contact {
-
-    .row {
-        padding-bottom: 10px;
+    .media-list{
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    .media{
+        padding-left: 15px;
+        padding-right: 15px;
         border-bottom: 1px solid rgba(255,255,255,0.03);
     }
-
     .icon {
         color: $brand-primary;
-        font-size: 2.125rem;
+        font-size: 2.5rem;
         display: block;
-        padding-top: 18px;
-        padding-left: 14px;
     }
-
-    .title {
-        color: $brand-alt;
-        font-size: 1em;
-        font-weight: bold;
-        margin-bottom: -5px;
+    .media{
+        padding-bottom: 20px;
+        &:first-child{
+            margin-top: 15px;
+        }
     }
-
-    .message {
-        margin: .6em 0;
-        font-size: .75em;
+    .media-left{
+        vertical-align: middle;
+    }
+    .media-body{
+        h4{
+            color: $brand-alt;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        p{
+            font-size: 0.750rem;
+            margin-bottom: 0;
+        }
     }
 }

@@ -19,22 +19,21 @@
     </script>
 
     <script type="text/template" id='ContactUsTemplate'>
-        {% _.forEach( tplData.data, function( contact ){ %}
-
-            <div class="row">
-                <div class="col-xs-2">
-                    <span class="icon icon-{%-contact.Key%}"></span>
-                </div>
-                <div class="col-xs-10">
-                    <a href="{%- contact.Link %}">
-                        <h4 class="title">{%- contact.Name %}</h4>
-                        <p class="message">{%- contact.Message %}</p>
-                    </a>
-                </div>
-            </div>
-
-        {% }); %}
-
+        <ul class="media-list">
+            {% _.forEach( tplData.data, function( contact ){ %}
+                <li class="media">
+                    <div class="media-left">
+                        <span class="icon icon-{%-contact.Key%}"></span>
+                    </div>
+                    <div class="media-body">
+                        <a href="{%- contact.Link %}">
+                            <h4>{%- contact.Name %}</h4>
+                            <p>{%- contact.Message %}</p>
+                        </a>
+                    </div>
+                </li>
+            {% }); %}
+        </ul>
     </script>
 
 </asp:Content>
