@@ -38,11 +38,12 @@
                     '_Static/JS/dist/<%= pkg.name %>.main.js',
                     '_Static/JS/dist/<%= pkg.name %>.login.js',
                     '_Static/JS/dist/<%= pkg.name %>.catalogue.js',
+                    '_Static/JS/dist/<%= pkg.name %>.sw.min.js',
+                    '_Static/JS/dist/<%= pkg.name %>.pointlevelinfo.min.js',
                     '_Static/Css/<%= pkg.name %>.css',
                     '_Static/Css/errors/styles.css',
                     '_Static/Css/errors/styles-light.css',
-                    '_Static/JS/dist/<%= pkg.name %>.sw.min.js',
-                    '_Static/JS/dist/<%= pkg.name %>.pointlevelinfo.min.js'
+                    '_Static/Css/<%= pkg.name %>.spinwheel.css'
                 ]
             }
         },
@@ -56,11 +57,12 @@
                     '_Static/JS/dist/<%= pkg.name %>.main.js',
                     '_Static/JS/dist/<%= pkg.name %>.login.js',
                     '_Static/JS/dist/<%= pkg.name %>.catalogue.js',
+                    '_Static/JS/dist/<%= pkg.name %>.sw.min.js',
+                    '_Static/JS/dist/<%= pkg.name %>.pointlevelinfo.min.js',
                     '_Static/Css/<%= pkg.name %>.css',
                     '_Static/Css/errors/styles.css',
                     '_Static/Css/errors/styles-light.css',
-                    '_Static/JS/dist/<%= pkg.name %>.sw.min.js',
-                    '_Static/JS/dist/<%= pkg.name %>.pointlevelinfo.min.js'
+                    '_Static/Css/<%= pkg.name %>.spinwheel.css'
                 ]
             },
             views: {
@@ -109,6 +111,7 @@
                     , '_Static/Css/errors/styles.css': '_Static/Css/errors/scss/styles.scss'
                     , '_Static/Css/errors/styles-light.css': '_Static/Css/errors/scss/styles-light.scss'
                     , '_Static/fonts/icomoon/style.css': '_Static/fonts/icomoon/style.scss'
+                    , '_Static/Css/<%= pkg.name %>.spinwheel.css': '_Static/Css/spinwheel/spinwheel.scss'
                 }
             }
         },

@@ -3,7 +3,7 @@
 <%@ Import Namespace="W88.BusinessLogic.Rewards.Models" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <link rel="stylesheet" href="/_Static/Css/spinwheel/spinwheel.css" />
+    <link rel="stylesheet" href="/_Static/Css/w88.mrewards.spinwheel.css" />
     <script type="text/javascript" src="/_Static/JS/Mobile/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/_Static/JS/dist/w88.mrewards.pointlevelinfo.min.js"></script>
     <script type="text/javascript" src="/_Static/JS/dist/w88.mrewards.sw.min.js"></script>
