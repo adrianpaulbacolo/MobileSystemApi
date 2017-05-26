@@ -513,12 +513,10 @@
         });
 
         // remove floating button
-        if (!_.isUndefined(Native)) {
-            try {
-                Native.onSlotGameClosed();
-            } catch (e) {
-                console.log(e.message)
-            }
+        try {
+            Native.onSlotGameClosed();
+        } catch (e) {
+            console.log(e.message)
         }
 
     </script>
