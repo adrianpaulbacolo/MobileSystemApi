@@ -1,14 +1,14 @@
 ﻿using System;
-using Models;
+using Helpers;
 
 public partial class v2_V_Sports : BasePage
 {
-    protected string VBasketballUrl = W88Constant.PageNames.Login;
-    protected string VFootballlUrl = W88Constant.PageNames.Login;
+    protected string VBasketballUrl = Pages.Login;
+    protected string VFootballlUrl = Pages.Login;
 
     protected override void OnLoad(EventArgs e)
     {
-        Page.Items.Add("Parent", W88Constant.PageNames.Sports);
+        Page.Items.Add("Parent", Pages.Sports);
 
         if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
         {

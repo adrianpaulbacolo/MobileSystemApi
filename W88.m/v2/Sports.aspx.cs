@@ -1,18 +1,18 @@
 ﻿using System;
 using System.CodeDom.Compiler;
-using Models;
+using Helpers;
 
 public partial class v2_Sports : BasePage
 {
-    protected string ASportsUrl = W88Constant.PageNames.Login;
-    protected string ESportsUrl = W88Constant.PageNames.Login;
-    protected string XSportsUrl = W88Constant.PageNames.Login;
+    protected string ASportsUrl = Pages.Login;
+    protected string ESportsUrl = Pages.Login;
+    protected string XSportsUrl = Pages.Login;
     protected bool DisplayXSports = false;
     protected int DeviceId = 0;
 
     protected override void OnLoad(EventArgs e)
     {
-        Page.Items.Add("Parent", W88Constant.PageNames.Dashboard);
+        Page.Items.Add("Parent", Pages.Dashboard);
         DeviceId = commonFunctions.getMobileDevice(Request);
 
         if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
