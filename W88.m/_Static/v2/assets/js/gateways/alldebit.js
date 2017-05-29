@@ -97,7 +97,7 @@ function AllDebit() {
         _self.deposit(data, function (response) {
             switch (response.ResponseCode) {
                 case 1:
-                    w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
+                    w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
                     w88Mobile.PostPaymentForm.submit();
 
                     break;

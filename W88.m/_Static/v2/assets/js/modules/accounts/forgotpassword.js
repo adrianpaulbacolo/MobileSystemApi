@@ -21,7 +21,9 @@ function ForgotPassword() {
         amplify.store(key, forgotData, window.User.storageExpiration);
         var step1Template = _.template($("script#Step1Template").html());
 
-        $("#forgot").html(step1Template());
+        $("#forgot").html(step1Template({
+            lblSubmit: $.i18n("BUTTON_SUBMIT")
+        }));
         $("#forgot").i18n();
 
         _w88_validator.initiateValidator($("#form1"), {});
@@ -29,7 +31,7 @@ function ForgotPassword() {
 
     forgot.fetchQuestions = function () {
 
-        _w88_send("", "/SecurityQuestions", "GET", function (response) {
+        _w88_send("/SecurityQuestions", "GET", "", function (response) {
             if (_.isEqual(response.ResponseCode, 1)) {
                 _.forOwn(response.ResponseData, function (data) {
                     $('#questions').append($('<option>').text(data.Text).attr('value', data.Value));
@@ -56,7 +58,7 @@ function ForgotPassword() {
                 email: forgotData.Email
             };
 
-            _w88_send(d, "/user/CheckPartialRegistration", "GET", function (response) {
+            _w88_send("/user/CheckPartialRegistration", "GET", d, function (response) {
                 if (_.isEqual(response.ResponseCode, 1)) {
 
                     switch (response.ResponseData) {
@@ -72,7 +74,9 @@ function ForgotPassword() {
 
                             var step2Template = _.template($("script#Step2Template").html());
 
-                            $("#forgot").html(step2Template());
+                            $("#forgot").html(step2Template({
+                                lblSubmit: $.i18n("BUTTON_SUBMIT")
+                            }));
                             $("#forgot").i18n();
 
                             _w88_ForgotPassword.fetchQuestions();
@@ -105,7 +109,7 @@ function ForgotPassword() {
 
         forgotData.LastRequested = Cookies().getCookie(key);
 
-        _w88_send(forgotData, "/user/ForgotPassword", "POST", function (response) {
+        _w88_send("/user/ForgotPassword", "POST", forgotData, function (response) {
             if (_.isEqual(response.ResponseCode, 1)) {
 
                 Cookies().setCookie(key, response.ResponseData);

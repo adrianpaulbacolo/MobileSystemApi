@@ -52,6 +52,7 @@ $gray-light: #d1d3d4;
 $gray-dark: #787e81;
 $gray-darker: #1f2021;
 $black: #000;
+$yellow: #ffc500;
 
 
 //Bootstrap Overrides
@@ -232,7 +233,7 @@ $form-label-color: $brand-alt;
 $form-input-text-color: $text-color;
 $form-input-border-color: #5d727b;
 $form-label2-color: darken($text-color, 40%);
-$help-block-color: darken($text-color, 30%);
+$help-block-color: #bbb;
 
 //Page title
 $page-title-header-color: $text-alt;

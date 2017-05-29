@@ -78,6 +78,13 @@
     </style>
 </head>
 <body>
+    <% if (commonCookie.Get("CDNCountryCode") == "VN") {%>
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W854N4G"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <%}%>
+
     <section class="init-css-loader-full">
         <div class="init-css-loader-container">
             <img class="init-css-loader-logo" alt="W88 Logo" src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/images/logo-en.png" />
@@ -91,7 +98,10 @@
 
     <div class="canvas" canvas="container">
         <div class="main-screen">
-            <header class="header">
+            <%
+                var isVipDomain = commonVariables.isVIPDomain;
+            %>
+            <header class="header" <%=(isVipDomain) ? "hidden" : "" %>>
                 <%
                     var isHome = (!base.Page.Items.Contains("Parent") || !commonFunctions.isExternalPlatform());
                     var navIcon = isHome ? "icon-navicon" : "icon-back";
@@ -102,7 +112,7 @@
                 <h1 class="header-title"><%=(base.Page.Title == "Dashboard" ? "<img alt=\"Dashboard\" src=\"" + ConfigurationManager.AppSettings.Get("AssetsPath") + "/assets/images/logo-en.png\" />" : base.Page.Title) %></h1>
             </header>
 
-            <section class="body <%=(hasFooter) ? "has-footer" : "" %>">
+            <section class="body <%=(hasFooter) ? "has-footer" : "" %> <%=(isVipDomain) ? "full vip" : "" %>">
                 <asp:ContentPlaceHolder ID="MainContentHolder" runat="server">
                 </asp:ContentPlaceHolder>
             </section>
@@ -184,7 +194,10 @@
                         Native.openLiveChat();
                     } catch (e) {
                         console.log("Native does not exist!");
-                        window.open("/LiveChat/Default.aspx", "ChatWindow");
+
+                        var liveChat = '<%=ConfigurationManager.AppSettings["LiveChat"].Replace("{DOMAIN}", commonIp.DomainName)%>' +
+                            '<%=HttpContext.Current.Request.Url.ToString()%>';
+                        window.open(liveChat, "ChatWindow");
                     }
                 });
 

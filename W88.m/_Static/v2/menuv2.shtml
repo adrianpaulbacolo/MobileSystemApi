@@ -441,7 +441,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             <!-- Logout -->
             <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
             <li>
-                <a href="/Logout">
+                <a href="#" class="logout">
                     <span class="icon icon-logout"></span>
                     <span class="title_logout" data-i18n="LABEL_MENU_LOGOUT"></span>
                 </a>

@@ -13,9 +13,14 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
         playlines: [],
     }
     this.club = {};
+    this.activeSections = {};
+    this.localStorageKey = "_clubSettings";
+    this.localStorageExpiration = 300000;
 
     this.init = function () {
         var _self = this;
+        _self.activeSections = (_.isUndefined(amplify.store(_self.localStorageKey))) ? {} : amplify.store(_self.localStorageKey);
+
         pubsub.subscribe("filterSlotByClub", onFilterSlotByClub);
         pubsub.subscribe("updateFilterOptions", onUpdateFilterOptions);
         _self.games = slotSvc.itemsByClub(_self.club.providers);
@@ -26,7 +31,8 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
 
         switch (_self.route) {
             case "club":
-                _self.club.section = _.first(slotSvc.sections);
+                _self.club.section = (!_.isEmpty(_self.activeSections) && !_.isEmpty(_self.activeSections[_self.club.name]))
+                    ? _self.activeSections[_self.club.name] : _.first(slotSvc.sections);
                 _self.setActiveSection(_self.club.section);
                 _self.filterClubSlots({
                     section: _self.club.section
@@ -53,7 +59,10 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
     this.filterClubSlots = function (filter) {
 
         var _self = this;
-        if (!_.isEmpty(filter.section)) _self.club.section = filter.section;
+        if (!_.isEmpty(filter.section)) {
+            _self.club.section = filter.section;
+            _self.saveActiveSection(_self.club.section);
+        }
 
         if (!_.isUndefined(filter.section) && filter.section.toLowerCase() == 'all') {
             _self.page.find(".main-content").children().remove();
@@ -106,8 +115,15 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
         return data;
     }
 
+    this.saveActiveSection = function(section){
+        var _self = this;
+        _self.activeSections[_self.club.name] = section;
+        amplify.store(_self.localStorageKey, _self.activeSections, _self.localStorageExpiration);
+    }
+
     this.setActiveSection = function (section) {
         var _self = this;
+        _self.saveActiveSection(section);
         if (!_self.page.find('#sectionTab > li.' + section).hasClass('active')) {
             _self.page.find('#sectionTab > li').removeClass('active')
             _self.page.find('#sectionTab > li.' + section).addClass('active');

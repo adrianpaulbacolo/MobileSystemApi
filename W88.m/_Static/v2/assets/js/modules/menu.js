@@ -9,6 +9,13 @@ function Menu() {
     function init() {
         setImages();
         getUrl();
+        setLogout();
+    }
+
+    function setLogout() {
+        $('a.logout').bind('touch click', function () {
+            _w88_account.logout();
+        });
     }
 
     function setImages() {
@@ -80,13 +87,13 @@ function Menu() {
         // Login
         $('.url_login').attr('href', _constants.LOGIN_URL);
 
-        // Funds
+            // Funds
         $('.url_deposit').attr('href', _constants.DEPOSIT_URL);
         $('.url_transfer').attr('href', _constants.TRANSFER_URL);
         $('.url_withdraw').attr('href', _constants.WITHRAW_URL);
         $('.url_history').attr('href', _constants.HISTORY_URL);
 
-        // Sports
+            // Sports
         getSportsUrl();
 
         // Slot
@@ -99,7 +106,7 @@ function Menu() {
         $('.url_slot_apollo').attr('href', _constants.SLOTS_APOLLO_URL);
         $('.url_slot_divino').attr('href', _constants.SLOTS_DIVINO_URL);
 
-        // Casino
+            // Casino
         $('.url_download').attr('href', _constants.DOWNLOAD_URL);
         $('.url_download_clubW_ios').attr('href', _constants.DOWNLOAD_CLUBW_IOS_URL);
         $('.url_download_palazzo').attr('href', _constants.DOWNLOAD_PALAZZO_CASINO_URL);

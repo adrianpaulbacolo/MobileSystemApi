@@ -3,9 +3,10 @@
 	padding-bottom: 15px;
 }
 
-.form-group{
+.form-group {
   margin-bottom: 20px;
-	> label{
+
+    > label {
 		font-weight: 400;
 		font-size: 0.875rem;
 		color: $brand-alt;
@@ -13,7 +14,7 @@
 	}
 }
 
-.form-control{
+.form-control {
   padding-left: 0;
   padding-right: 0;
   color: $text-color;
@@ -21,12 +22,41 @@
   border-top: none;
   border-right: none;
   border-left: none;
-  border-bottom: 1px solid darken($text-color ,50%);
+    border-bottom: 1px solid darken($text-color,50%);
   @include box-shadow(none);
+
   &:focus {
       border-color: $brand-primary;
       outline: 0 none;
       @include box-shadow(0 1px 0px 0 $brand-primary);
+  }
+}
+
+.form-group-icon{
+  width: 100%;
+  display: table;
+  .form-icon,
+  .form-input{
+    display: table-cell;
+    vertical-align: top;
+  }
+  .form-icon{
+    padding-top: 22px;
+    padding-right: 15px;
+    span[class^="icon-"],
+    span[class*=" icon-"] {
+      font-size: 2rem;
+      color: $brand-primary;
+    }
+  }
+  .form-input{
+    width: 10000px;
+    > label{
+      font-weight: 400;
+      font-size: 0.875rem;
+      color: $brand-alt;
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -36,49 +66,60 @@ fieldset[disabled] .form-control {
   background-color: transparent;
 }
 
-select.form-control{
+select.form-control {
   background: url('../images/select-arrow.png') center right no-repeat;
   @include appearance(none);
+
   option {
       background-color: $body-bg;
       color: $text-color;
       text-shadow: none;
   }
-
 }
-.input-group{
-  .form-control{
+
+.input-group {
+    .form-control {
       background-color: transparent;
       color: $text-color;
-      border-bottom: 1px solid darken($text-color ,50%);
+        border-bottom: 1px solid darken($text-color,50%);
   }
-  .input-group-addon{
+
+    .input-group-addon {
       color: $text-color;
       padding: 11px 5px;
       background-color: transparent;
       border-top: none;
       border-right: none;
       border-left: none;
-      border-bottom: 1px solid darken($text-color ,50%);
+        border-bottom: 1px solid darken($text-color,50%);
   }
+
+    .input-group-icon {
+        padding: 0 15px;
+        width: 1%;
+        white-space: nowrap;
+        vertical-align: middle;
+        display: table-cell;
+        opacity: 0.5;
+    }
+
   &:focus {
     .form-control,
-    .input-group-addon{
+        .input-group-addon {
       border-color: $brand-primary;
       outline: 0 none;
       @include box-shadow(0 1px 0px 0 $brand-primary);
     }
-  
   }
 }
 
-
 .radio,
-.checkbox{
-  label{
+.checkbox {
+    label {
     color: $text-color;
     font-size: 0.875rem;
   }
+
   input[type="radio"], 
   input[type="checkbox"] {
       margin-top: 3px;
@@ -87,14 +128,16 @@ select.form-control{
 
 
 .radio-custom,
-.checkbox-custom{
-  label{
+.checkbox-custom {
+    label {
     padding-left: 0;
   }
-  span{
+
+    span {
     color: $brand-alt;
     padding-left: 6px;
-    &:before{
+
+        &:before {
       color: $text-color;
       font-family: 'icomoon';
       font-size: 1.313em;
@@ -103,26 +146,32 @@ select.form-control{
       position: relative;
     }
   }
+
   input[type="radio"],
-  input[type="checkbox"]{
+    input[type="checkbox"] {
     display: none;
     visibility: hidden;
     opacity: 0;
   }
-  input[type="radio"] + span:before{
+
+    input[type="radio"] + span:before {
     content: '\e923';
   }
-  input[type="radio"]:checked + span:before{
+
+    input[type="radio"]:checked + span:before {
     content: '\e922';
   }
-  input[type="checkbox"] + span:before{
+
+    input[type="checkbox"] + span:before {
     content: '\e921';
   }
-  input[type="checkbox"]:checked + span:before{
+
+    input[type="checkbox"]:checked + span:before {
     content: '\e920';
   }
+
   input[type="radio"]:checked + span:before,
-  input[type="checkbox"]:checked + span:before{
+    input[type="checkbox"]:checked + span:before {
     color: $text-color !important;
   }
 }
@@ -130,12 +179,13 @@ select.form-control{
 .has-error .form-control {
   border-color: $brand-danger;
   @include box-shadow(0 1px 0px 0 $brand-danger);
-  &:focus{
+
+    &:focus {
     border-color: lighten($brand-danger, 7%);
     @include box-shadow(0 1px 0px 0 lighten($brand-danger, 7%));
   }
-
 }
+
 .has-error .help-block, 
 .has-error .control-label, 
 .has-error .radio, 
@@ -149,92 +199,119 @@ select.form-control{
   color: $brand-danger;
 }
 
-.ui-datebox-container.dropdown-menu{
+.ui-datebox-container.dropdown-menu {
   width: 100%;
-  min-width: 257px;
-  max-width: 340px;
+  max-width: 315px;
   padding: 0;
   border: none;
-  background-color: darken($brand-primary, 30%);
+  background-color: darken($brand-primary, 35%);
+ .modal-header {
+      padding: 8px;
+  }
+  .modal-title{
+    .closer{
+      color: $text-alt;
+    }
+  }
 }
+
 .ui-datebox-flipcenter {
     width: 100%;
     height: 40px;
     border: none;
     @include box-shadow(none);
 }
-.modal-title{
-  .closer{
+
+.modal-title {
+    .closer {
     color: $text-alt;
   }
 }
-.ui-datebox-header{
-  h4{
+
+.ui-datebox-header {
+    h4 {
     font-size: 0.875rem;
   }
 }
-.ui-datebox-flipcontent{
+
+.ui-datebox-flipcontent {
   padding-top: 10px;
   margin-bottom: -45px;
   background-color: darken($brand-primary, 32%);
-  li{
+
+    li {
     border-color: transparent;
-    span{
+
+        span {
       margin-top: 6px;
       color: darken($text-color, 40%);
     }
+
     &.bg-success {
       border: 1px solid rgba($white, 0.3);
       background-color: darken($brand-primary, 23%);
-      span{
+
+            span {
         color: $text-color;
       }
     }
   }
-  div{
+
+    div {
     width: 31%;
   }
 }
 
-.ui-datebox-controls{
+.ui-datebox-controls {
   padding: 0;
-  .btn-default{
+
+    .btn-default {
     color: $white;
     padding: 10px;
     background-color: $brand-primary;
     border-color: $brand-primary;
+
     &:focus,
-    &:hover{
+        &:hover {
       background-color: darken($brand-primary, 10%);
       border-color: darken($brand-primary, 10%);
     }
+
     .glyphicon {
       display: none;
     }
   }
 }
+.ui-datebox-datebox-group.col-xs-3, 
+.ui-datebox-datebox-group.col-xs-4{
+    padding-left: 1px;
+    padding-right: 1px;
+}
 
 .pay-note {
   margin-bottom: 15px;
-  .pay-note-label{
+
+    .pay-note-label {
       color: $brand-danger;
       font-weight: 700;
   }
 }
-.payment-info{
+
+.payment-info {
   margin-bottom: 30px;
 }
-@media (max-width: 320px){
-  .payment-info{
-    p{
+
+@media (max-width: 320px) {
+    .payment-info {
+        p {
       font-size: 0.750rem;
     }
   }
 }
 
-@media (max-width: 470px){
-  .payment-info{
-    .payment-label{
+@media (max-width: 470px) {
+    .payment-info {
+        .payment-label {
       font-size: 0.750rem;
     }
   }

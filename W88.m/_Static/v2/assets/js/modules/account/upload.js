@@ -46,7 +46,7 @@ function Upload() {
             success: function (response) {
                 switch (response.ResponseCode) {
                     case 1:
-                        w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + _w88_contents.translate("LABEL_TRANSACTION_ID") + ": " + response.ResponseData.TransactionId + "</p>");
+                        w88Mobile.Growl.shout(response.ResponseMessage);
 
                         $('#form1')[0].reset();
                         break;

@@ -143,10 +143,10 @@
     </div>
     <script type="text/javascript">
         $('#form1').submit(function (e) {
-            $('#btnSubmit').attr("disabled", true);
+            $('#<%=redeemButton.ClientID%>').attr("disabled", true);
 
             if (!isValid('<%=ProductType%>')) {
-                $('#btnSubmit').attr("disabled", false);
+                $('#<%=redeemButton.ClientID%>').attr("disabled", false);
                 return false;
             }
             return true;
