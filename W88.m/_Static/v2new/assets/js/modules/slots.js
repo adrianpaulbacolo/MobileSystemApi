@@ -31,15 +31,8 @@ function Slots() {
     clubFilterOptions = {};
 
     var providers = ["qt", "gpi", "mgs", "pt", "ctxm", "isb"];
-    var clubs = [
-        { name: "bravado", key: "LABEL_PRODUCTS_BRAVADO", label: "Club Bravado", providers: ["gpi"] }
-        , { name: "massimo", key: "LABEL_PRODUCTS_MASSIMO", label: "Club Massimo", providers: ["mgs"] }
-        , { name: "palazzo", key: "LABEL_PRODUCTS_PALAZZO", label: "Club Palazzo", providers: ["pt"] }
-        , { name: "gallardo", key: "LABEL_PRODUCTS_GALLARDO", label: "Club Gallardo", providers: ["isb", "png"] }
-        , { name: "apollo", key: "LABEL_PRODUCTS_APOLLO", label: "Club Apollo", providers: ["qt", "pp"] }
-        , { name: "nuovo", key: "LABEL_PRODUCTS_NUOVO", label: "Club Nuovo", providers: ["gns", "pls"] }
-        , { name: "divino", key: "LABEL_PRODUCTS_DIVINO", label: "Club Divino", providers: ["bs", "ctxm", "uc8"] }
-    ];
+    // from slot settings config
+    var clubs = _slotSettings.clubs;
 
     function getClubLimit(section)
     {
@@ -132,7 +125,7 @@ function Slots() {
         var data = {
             cashier: "v2/Funds.aspx",
             lobby: "v2/Slots",
-            configfile: "native"
+            configfile: _slotSettings.resource
         }
         if(provider == "pt"){
             data.gamepass = Cookies().getCookie('palazzo');
