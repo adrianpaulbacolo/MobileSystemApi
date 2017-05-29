@@ -148,6 +148,8 @@ function validator() {
                 }
             }
         });
+
+        $($formEl).validator('update').validator();
     }
 
     function setNumericValidator() {
