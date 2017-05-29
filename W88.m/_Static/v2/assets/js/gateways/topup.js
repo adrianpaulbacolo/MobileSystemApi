@@ -51,7 +51,9 @@ function TopUp() {
     }
 
     topup.getDenomination = function () {
-        _w88_paymentSvcV2.Send("/payments/denomination/" + methodId, "GET", "", function (response) {
+        var _self = this;
+
+        _self.send("/payments/denomination/" + methodId, "GET", "", function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
 
                 if (!_.isUndefined(response.ResponseData.Cards))
@@ -124,10 +126,10 @@ function TopUp() {
                         window.open(response.ResponseData.VendorRedirectionUrl);
                     } else {
                         if (response.ResponseData.PostUrl) {
-                            w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
+                            w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
                             w88Mobile.PostPaymentForm.submit();
                         } else if (response.ResponseData.DummyURL) {
-                            w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.DummyURL, "body");
+                            w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.DummyURL, "body");
                             w88Mobile.PostPaymentForm.submit();
                         }
                     }

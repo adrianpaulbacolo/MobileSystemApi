@@ -145,33 +145,5 @@ function Menu() {
         }
     }
 
-    function send(data, resource, method, success, complete) {
-        var url = w88Mobile.APIUrl + resource;
-
-        var headers = {
-            'Token': window.User.token,
-            'LanguageCode': window.User.lang
-        };
-
-        $.ajax({
-            type: method,
-            url: url,
-            data: data,
-            beforeSend: function () {
-                pubsub.publish('startLoadItem', { selector: "" });
-            },
-            headers: headers,
-            success: success,
-            error: function (resp) {
-                console.log("Error connecting to api");
-            },
-            complete: function () {
-                if (!_.isUndefined(complete)) complete();
-                pubsub.publish('stopLoadItem', { selector: "" });
-            }
-        });
-    };
-
     return menu;
-
 }

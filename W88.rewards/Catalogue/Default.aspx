@@ -7,6 +7,7 @@
 <head>
     <title><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Brand)%></title>
     <!--#include virtual="~/_static/head.inc" -->
+    <script type="text/javascript" src="/_Static/JS/dist/w88.mrewards.catalogue.js"></script>
     <script>
         var ids = [];
     </script>
@@ -21,9 +22,9 @@
                 <span id="pointLevelLabel" runat="server"></span>
             </div>        
             <div class="container">
-                <div class="row">             
-                    <asp:Label ID="lblnodata" runat="server" CssClass="nodata" Text="Label" Visible="false"></asp:Label>
-                    <div id="listContainer" runat="server"></div>
+                <div class="row">
+                    <span id="lblnodata" class="nodata" style="display:none;"><%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.NoAvailableItems, Language)%></span>             
+                    <div id="listContainer"></div>
                 </div>
             </div>
         </div>
@@ -45,68 +46,58 @@
         </div>
     </div>
     <script>
-        var index = 1,
-            isSearching = false;
+        var catalogue,
+            cachedItems = [],
+            isCachingEnabled = <%=Convert.ToString(IsCachingEnabled).ToLower()%>,
+            hasSession = <%=Convert.ToString(HasSession).ToLower()%>,
+            translations = {
+                labelHot: '<%=RewardsHelper.GetTranslation(TranslationKeys.Label.Hot, Language)%>',
+                labelNew: '<%=RewardsHelper.GetTranslation(TranslationKeys.Label.New, Language)%>',
+                labelPoints: '<%=RewardsHelper.GetTranslation(TranslationKeys.Label.Points, Language).ToLower()%>'
+            };
+        $(function() {
+            catalogue = new Catalogue({
+                cacheQuerySize: '<%=CacheQuerySize%>',
+                memberCode: '<%=UserSessionInfo != null ? UserSessionInfo.MemberCode : ""%>',
+                language: '<%=Language%>', 
+                token: '<%=Token%>', 
+                params: JSON.parse('<%=Params%>'), 
+                translations: translations, 
+                elems: {
+                    container: $('#listContainer'),
+                    noDataFoundLabel: $('#lblnodata')
+                }
+            });
+            if (isCachingEnabled) {
+                if (hasSession) 
+                    catalogue.cacheProducts();     
+                cachedItems = catalogue.getProductsFromCache();
+                if (_.isEmpty(cachedItems)) {
+                    catalogue.isSearching = true;
+                    catalogue.getProducts();
+                }
+            } else {
+                catalogue.isSearching = true;
+                catalogue.getProducts();   
+            }
 
-        function reset() {
-            $.mobile.loading('hide');
-            isSearching = false;
-        }
-
-        $(function () {
             $(window).scroll(function () {
-                if (($(window).scrollTop() + $(window).height() < $(document).height() - 20)
-                    || isSearching) {
+                if (($(window).scrollTop() + $(window).height() < $(document).height() - 65)
+                    || catalogue.isSearching) 
+                    return;
+                
+                if (!isCachingEnabled) {                                   
+                    catalogue.isSearching = true;
+                    catalogue.getProducts();
                     return;
                 }
-
-                $.mobile.loading('show');
-                isSearching = true;
-                $.ajax({
-                    type: 'GET',
-                    url: '/api/rewards/search/',
-                    headers: {
-                        'token': '<%=Token%>'
-                    },
-                    dataType: 'json',
-                    data: {
-                        CategoryId: '<%=CategoryId%>',
-                        Index: index.toString(),
-                        MinPoints: <%=MinPoints%>,
-                        MaxPoints: <%=MaxPoints%>,
-                        PageSize: '<%=PageSize%>',
-                        SearchText: '<%=SearchText%>',
-                        SortBy: '<%=SortBy%>'
-                    },
-                    success: function (response) {
-                        if (response.ResponseCode != 1 || response.ResponseData == null) {
-                            reset();
-                            return;
-                        }
-                        $.ajax({
-                            type: 'POST',
-                            url: 'Default.aspx/CreateHtml',
-                            contentType: 'application/json',
-                            data: JSON.stringify({ products: response.ResponseData }),
-                            success: function(result) {
-                                reset();
-
-                                if (!result) return;
-                                var children = $('#listContainer').children(),
-                                    count = children.length;
-                                if (count == 0) return;
-                                $(children[count-1]).after(result.d);
-                                index++;
-                            }, 
-                            error: function() {
-                                reset();
-                            }
-                        });
-                    },
-                    error: function () {
-                        reset();
-                    }
-                });          
+                if (!catalogue.isCachingComplete) {
+                    catalogue.isSearching = true;
+                    catalogue.getProducts();   
+                    return;
+                }
+                if (catalogue.hasReloaded) return;
+                cachedItems = catalogue.getProductsFromCache(true);                                   
             });
 
             var children = $('div.btn-group.btn-group-justified.btn-group-sliding').children();
