@@ -1,6 +1,7 @@
 ﻿var _w88_funds = w88Mobile.Funds = Funds();
 
 function Funds() {
+
     return {
         init: init,
     }

@@ -194,7 +194,7 @@ function validator() {
                         overrideDateFormat: '%m/%d/%Y',
                         beforeToday: true,
                         minYear: 18,
-                        maxYear: 99
+                        maxYear: 99,
                     });
 
                     $(item).datebox('setTheDate', (new Date().getFullYear() - 18));
@@ -202,7 +202,7 @@ function validator() {
 
                 default:
                     $(item).datebox({
-                        mode: 'calbox',
+                        mode: 'datebox',
                         showInitialValue: true,
                         overrideDateFormat: '%m/%d/%Y',
                     });

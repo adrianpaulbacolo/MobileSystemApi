@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/v2/MasterPages/Main.master" AutoEventWireup="true" CodeFile="Sports.aspx.cs" Inherits="v2_Sports" %>
-<%@ Import Namespace="Models" %>
+<%@ Import Namespace="Helpers" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContentHolder" runat="Server">
 
@@ -32,7 +32,7 @@
                 <figcaption class="banner-caption">
                     <h3 class="title" data-i18n="LABEL_PRODUCTS_VSPORTS"></h3>
                     <p data-i18n="LABEL_PRODUCTS_VSPORTS_DESC"></p>
-                    <a href="<%=W88Constant.PageNames.VSports%>" data-i18n="BUTTON_PLAY_NOW" class="btn btn-block btn-primary"></a>
+                    <a href="<%=Pages.VSports%>" data-i18n="BUTTON_PLAY_NOW" class="btn btn-block btn-primary"></a>
                 </figcaption>
             </figure>
         </div>

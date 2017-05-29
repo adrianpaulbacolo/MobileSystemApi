@@ -31,19 +31,19 @@ $(document).ajaxComplete(function (event, request, settings) {
             switch (request.responseJSON.ResponseCode) {
                 case -7: //session expired
                     w88Mobile.Growl.shout(request.responseJSON.ResponseMessage, function () {
-                        window.location.href = "/logout";
+                        _w88_account.logout();
                     });
                     break;
 
                 case -6: //multiple login
                     w88Mobile.Growl.shout(request.responseJSON.ResponseMessage, function () {
-                        window.location.href = "/logout";
+                        _w88_account.logout();
                     });
                     break;
 
                 case -2: // not logged in
                     w88Mobile.Growl.shout(request.responseJSON.ResponseMessage, function () {
-                        window.location.href = "/_secure/login.aspx";
+                        window.location.href = "/v2/Account/Login.aspx";
                     });
                     break;
             }

@@ -1,22 +1,12 @@
 ﻿<%
 var deviceId = commonFunctions.getMobileDevice(Request);
 
-var massimoCasino = "https://livegames.cdn.gameassists.co.uk/AIR/Poria/Installer/V20021/w88/Download.html";
-
 var rewardsUrl = HttpContext.Current.Request.Url.Scheme + "://mrewards." + commonIp.DomainName + "?lang=" + commonVariables.SelectedLanguage + "&token=" + commonVariables.EncryptedCurrentMemberSessionId;
 var desktopUrl = HttpContext.Current.Request.Url.Scheme + "://www." + commonIp.DomainName + "?nomobile=true";
 if (!string.IsNullOrWhiteSpace(commonCookie.CookieAffiliateId)) {
     desktopUrl += "&affiliateID=" + commonCookie.CookieAffiliateId;
 }
-
-var fishLinkAndroid = "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/FishingMasterEN.apk";
-var fishlinkiOS = "itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/manifestEN.plist";
-
-if ((!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency) && commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase)) ||
-   (string.IsNullOrWhiteSpace(commonCookie.CookieCurrency) && commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))){
-    fishLinkAndroid = "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/FishingMaster.apk";
-    fishlinkiOS = "itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/manifest.plist";
-}
+var liveChat = ConfigurationManager.AppSettings["LiveChat"].Replace("{DOMAIN}", commonIp.DomainName) + HttpContext.Current.Request.Url.ToString();
 
 var fishingWorld = FishingWorldProduct.GetLink();
 
@@ -25,9 +15,18 @@ var fishingWorld = FishingWorldProduct.GetLink();
 <section class="side-nav" off-canvas="side-nav left reveal">
     <nav>
         <ul class="side-nav-items">
+            <!-- Profile -->
+            <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+            <li>
+                <a href="<%=Helpers.Pages.Account%>">
+                    <span class="icon icon-profile"></span>
+                    <span class="title_profile"><%=commonVariables.GetMemberCode()%></span>
+                </a>
+            </li>
+            <% } %>
             <!-- Home -->
             <li>
-                <a href="/v2/Dashboard.aspx?lang=<%=commonVariables.SelectedLanguage%>">
+                <a href="<%=Helpers.Pages.Dashboard%>?lang=<%=commonVariables.SelectedLanguage%>">
                     <span class="icon icon-home"></span>
                     <span class="title_home" data-i18n="LABEL_MENU_HOME"></span>
                 </a>
@@ -35,40 +34,40 @@ var fishingWorld = FishingWorldProduct.GetLink();
             <!-- Login -->
             <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
             <li>
-                <a href="/_Secure/Login.aspx">
+                <a href="#" class="url_login">
                     <span class="icon icon-login"></span>
                     <span class="title_login" data-i18n="LABEL_MENU_LOGIN"></span>
                 </a>
             </li>
             <% } %>
+
             <!-- Funds -->
             <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
             <li class="nav-category">
-                <a href="/_Secure/Login.aspx">
+                <a href="#">
                     <span class="icon icon-currency-circle"></span>
                     <span class="title_funds" data-i18n="LABEL_MENU_FUNDS"></span>
                 </a>
                 <div class="nav-category-items">
                     <h4><span class="title_funds" data-i18n="LABEL_MENU_FUNDS"></span></h4>
-                    <!-- Club W - Club W Premier-->
                     <ul class="side-submenu">
                         <li>
-                            <a href="/v2/Deposit/">
+                            <a href="#" class="url_deposit">
                                 <span class="title_deposit" data-i18n="LABEL_FUNDS_DEPOSIT"></span>
                             </a>
                         </li>
                         <li>
-                            <a href="/v2/FundTransfer/">
+                            <a href="#" class="url_transfer">
                                 <span class="title_transfer" data-i18n="LABEL_FUNDS_TRANSFER"></span>
                             </a>
                         </li>
                         <li>
-                            <a href="/v2/Withdrawal/">
+                            <a href="#" class="url_withdraw">
                                 <span class="title_withdraw" data-i18n="LABEL_FUNDS_WIDRAW"></span>
                             </a>
                         </li>
                         <li>
-                            <a href="/v2/History/Default.aspx">
+                            <a href="#" class="url_history">
                                 <span class="title_history" data-i18n="LABEL_FUNDS_HISTORY"></span>
                             </a>
                         </li>
@@ -83,12 +82,12 @@ var fishingWorld = FishingWorldProduct.GetLink();
                     <span class="title_sports" data-i18n="LABEL_MENU_SPORTS"></span>
                 </a>
                 <div class="nav-category-items">
-                    <h4><span class="title_live_casino" data-i18n="LABEL_MENU_LIVE_CASINO"></span></h4>
+                    <h4><span class="title_sports" data-i18n="LABEL_MENU_SPORTS"></span></h4>
                     <div class="row">
                         <!-- Club W - Club W Premier-->
                         <%if(deviceId==1 || deviceId==3){%>
                         <div class="col-xs-6">
-                            <a href="/_Static/Downloads/w88.aspx">
+                            <a href="#" class="url_download">
                                 <img src="#" alt="" class="img_sports_clubW_iOS">
                                 <span class="title_clubw" data-i18n="LABEL_PRODUCTS_CLUB_W"></span>
                             </a>
@@ -96,7 +95,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <%}%>
                         <%if(deviceId==2 || deviceId==3){%>
                         <div class="col-xs-6">
-                            <a href="/_Static/ClubW/casino.aspx">
+                            <a href="#" class="url_download">
                                 <img src="#" alt="" class="img_sports_clubW_Android">
                                 <span class="title_clubw" data-i18n="LABEL_PRODUCTS_CLUB_W"></span>
                             </a>
@@ -104,21 +103,21 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <%}%>
                         <!-- A Sports -->
                         <div class="col-xs-6">
-                            <a href="/_static/palazzo/casino.aspx">
+                            <a href="#" class="url_sports_A" target="_blank">
                                 <img src="#" alt="" class="img_sports_A">
                                 <span class="title_asport" data-i18n="LABEL_PRODUCTS_ASPORTS"></span>
                             </a>
                         </div>
                         <!-- E Sports -->
                         <div class="col-xs-6">
-                            <a href="/_static/palazzo/casino.aspx">
+                            <a href="#" class="url_sports_E" target="_blank">
                                 <img src="#" alt="" class="img_sports_E">
                                 <span class="title_esport" data-i18n="LABEL_PRODUCTS_ESPORTS"></span>
                             </a>
                         </div>
                         <!-- V Sports -->
                         <div class="col-xs-6">
-                            <a href="/_static/palazzo/casino.aspx">
+                            <a href="#" class="url_sports_V">
                                 <img src="#" alt="" class="img_sports_V">
                                 <span class="title_vsport" data-i18n="LABEL_PRODUCTS_VSPORTS"></span>
                             </a>
@@ -127,7 +126,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <%if ((!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency) && !commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase) && !commonCookie.CookieCurrency.Equals("usd", StringComparison.OrdinalIgnoreCase)) ||
                         (string.IsNullOrWhiteSpace(commonCookie.CookieCurrency) && !commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))) {%>
                         <div class="col-xs-6">
-                            <a href="<%=commonXSports.SportsBookUrl%>">
+                            <a href="#" class="url_sports_X" target="_blank">
                                 <img src="#" alt="" class="img_sports_X">
                                 <span class="title_xsport" data-i18n="LABEL_PRODUCTS_XSPORTS"></span>
                             </a>
@@ -148,13 +147,13 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <!-- Club W - Club W Premier-->
                         <%if(deviceId==1 || deviceId==3){%>
                         <div class="col-xs-6">
-                            <a href="/_Static/Downloads/w88.aspx">
+                            <a href="#" class="url_download">
                                 <img src="#" alt="" class="img_casino_clubWPremier_iOS">
                                 <span class="title_clubwpremier" data-i18n="LABEL_PRODUCTS_CLUB_W_PREMIER"></span>
                             </a>
                         </div>
                         <div class="col-xs-6">
-                            <a href="/_Static/Downloads/w88.aspx">
+                            <a href="#" class="url_download_clubW_ios">
                                 <img src="#" alt="" class="img_casino_clubW_iOS">
                                 <span class="title_clubw" data-i18n="LABEL_PRODUCTS_CLUB_W"></span>
                             </a>
@@ -162,13 +161,13 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <%}%>
                         <%if(deviceId==2 || deviceId==3){%>
                         <div class="col-xs-6">
-                            <a href="/_Static/ClubW/casino.aspx">
+                            <a href="#" class="url_download">
                                 <img src="#" alt="" class="img_casino_clubWPremier_Android">
                                 <span class="title_clubwpremier" data-i18n="LABEL_PRODUCTS_CLUB_W_PREMIER"></span>
                             </a>
                         </div>
                         <div class="col-xs-6">
-                            <a href="/_Static/ClubW/casino.aspx">
+                            <a href="#" class="url_download">
                                 <img src="#" alt="" class="img_casino_clubW_Android">
                                 <span class="title_clubw" data-i18n="LABEL_PRODUCTS_CLUB_W"></span>
                             </a>
@@ -176,14 +175,14 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <%}%>
                         <!-- Palazzo -->
                         <div class="col-xs-6">
-                            <a href="/v2/Downloads/palazzo-casino">
+                            <a href="#" class="url_download_palazzo">
                                 <img src="#" alt="" class="img_casino_palazzo">
                                 <span class="title_palazzo" data-i18n="LABEL_PRODUCTS_PALAZZO"></span>
                             </a>
                         </div>
                         <!-- Massimo -->
                         <div class="col-xs-6">
-                            <a href="<%=massimoCasino%>">
+                            <a href="#" class="url_download" target="_blank">
                                 <img src="#" alt="" class="img_casino_massimo">
                                 <span class="title_massimo" data-i18n="LABEL_PRODUCTS_MASSIMO"></span>
                             </a>
@@ -200,10 +199,10 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 <div class="nav-category-items">
                     <h4><span class="title_slots" data-i18n="LABEL_MENU_SLOTS"></span></h4>
                     <div class="row">
-                        <!-- Club W -->
+                        <!-- Club W - Club W Premier-->
                         <%if(deviceId==1){%>
                         <div class="col-xs-6">
-                            <a href="/_Static/Downloads/w88.aspx">
+                            <a href="#" class="url_download_clubW_ios">
                                 <img src="#" alt="" class="img_slots_clubW_iOS">
                                 <span class="title_clubw" data-i18n="LABEL_PRODUCTS_CLUB_W"></span>
                             </a>
@@ -211,7 +210,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <%}%>
                         <%if(deviceId==2){%>
                         <div class="col-xs-6">
-                            <a href="/_Static/ClubW/casino.aspx">
+                            <a href="#" class="url_download">
                                 <img src="#" alt="" class="img_slots_clubW_Android">
                                 <span class="title_clubw" data-i18n="LABEL_PRODUCTS_CLUB_W"></span>
                             </a>
@@ -219,14 +218,14 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <%}%>
                         <!-- Bravado -->
                         <div class="col-xs-6">
-                            <a href="/_static/v2new/slots.html">
+                            <a href="#" class="url_slot_bravado">
                                 <img src="#" alt="" class="img_slots_bravado">
                                 <span class="title_bravado" data-i18n="LABEL_PRODUCTS_BRAVADO"></span>
                             </a>
                         </div>
                         <!-- Massimo -->
                         <div class="col-xs-6">
-                            <a href="/_static/v2new/slots.html">
+                            <a href="#" class="url_slot_massimo">
                                 <img src="#" alt="" class="img_slots_massimo">
                                 <span class="title_massimo" data-i18n="LABEL_PRODUCTS_MASSIMO"></span>
                             </a>
@@ -234,7 +233,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <!-- Massimo Download -->
                         <%if(deviceId==2){%>
                         <div class="col-xs-6">
-                            <a href="<%=commonClubMassimo.getDownloadUrl%>">
+                            <a href="#" class="url_slot_massimo_download">
                                 <img src="#" alt="" class="img_slots_massimo-download">
                                 <span class="title_massimo_download" data-i18n="LABEL_PRODUCTS_MASSIMO_DOWNLOAD"></span>
                             </a>
@@ -242,7 +241,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <%}%>
                         <!-- Palazzo -->
                         <div class="col-xs-6">
-                            <a href="/_static/v2new/slots.html">
+                            <a href="#" class="url_slot_palazzo">
                                 <img src="#" alt="" class="img_slots_palazzo">
                                 <span class="title_palazzo" data-i18n="LABEL_PRODUCTS_PALAZZO"></span>
                             </a>
@@ -250,7 +249,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <!-- Palazzo Download -->
                         <%if(deviceId==2){%>
                         <div class="col-xs-6">
-                            <a href="/v2/Downloads/palazzo-slots">
+                            <a href="#" class="url_slot_palazzo_download">
                                 <img src="#" alt="" class="img_slots_palazzo-download">
                                 <span class="title_palazzo_download" data-i18n="LABEL_PRODUCTS_PALAZZO_DOWNLOAD"></span>
                             </a>
@@ -258,21 +257,21 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <%}%>
                         <!-- Gallardo -->
                         <div class="col-xs-6">
-                            <a href="/_static/v2new/slots.html">
+                            <a href="#" class="url_gallardo">
                                 <img src="#" alt="" class="img_slots_gallardo">
                                 <span class="title_gallardo" data-i18n="LABEL_PRODUCTS_GALLARDO"></span>
                             </a>
                         </div>
                         <!-- Apollo -->
                         <div class="col-xs-6">
-                            <a href="/_static/v2new/slots.html">
+                            <a href="#" class="url_apollo">
                                 <img src="#" alt="" class="img_slots_apollo">
                                 <span class="title_apollo" data-i18n="LABEL_PRODUCTS_APOLLO"></span>
                             </a>
                         </div>
                         <!-- Divino -->
                         <div class="col-xs-6">
-                            <a href="/_static/v2new/slots.html">
+                            <a href="#" class="url_divino">
                                 <img src="#" alt="" class="img_slots_divino">
                                 <span class="title_divino" data-i18n="LABEL_PRODUCTS_DIVINO"></span>
                             </a>
@@ -292,7 +291,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <!-- Fishing  Master -->
                         <%if(deviceId==1 || deviceId==3){%>
                         <div class="col-xs-6">
-                            <a href="<%=fishlinkiOS%>">
+                            <a href="#" class="url_download">
                                 <img src="#" alt="" class="img_fishing_master_iOS">
                                 <span class="title_fishing_master" data-i18n="LABEL_PRODUCTS_FISHING_MASTER"></span>
                             </a>
@@ -300,7 +299,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <%}%>
                         <%if(deviceId==2 || deviceId==3){%>
                         <div class="col-xs-6">
-                            <a href="<%=fishLinkAndroid%>">
+                            <a href="#" class="url_download">
                                 <img src="#" alt="" class="img_fishing_master_Android">
                                 <span class="title_fishing_master" data-i18n="LABEL_PRODUCTS_FISHING_MASTER"></span>
                             </a>
@@ -309,7 +308,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <!-- Fishing  World -->
                         <!--<% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
                         <div class="col-xs-6">
-                            <a href="<%=fishingWorld%>">
+                            <a href="#" class="url_download">
                                 <img src="#" alt="" class="img_fishing_world">
                                 <span class="title_fishing_world" data-i18n="LABEL_PRODUCTS_FISHING_WORLD"></span>
                             </a>
@@ -353,11 +352,11 @@ var fishingWorld = FishingWorldProduct.GetLink();
                     <span class="title_poker" data-i18n="LABEL_MENU_POKER"></span>
                 </a>
                 <div class="nav-category-items">
-                    <h4><span class="title_poker"></span></h4>
+                    <h4><span class="title_poker" data-i18n="LABEL_MENU_POKER"></span></h4>
                     <div class="row">
                         <%if(deviceId==1 || deviceId==3){%>
                         <div class="col-xs-6">
-                            <a href="<%=commonFunctions.getPokerDownloadLinks(1)%>">
+                            <a href="#" class="url_download">
                                 <img src="#" alt="" class="img_poker_iOS">
                                 <span class="title_ios" data-i18n="LABEL_IOS_DOWNLOAD"></span>
                             </a>
@@ -365,7 +364,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <%}%>
                         <%if(deviceId==2 || deviceId==3){%>
                         <div class="col-xs-6">
-                            <a href='<%=commonFunctions.getPokerDownloadLinks(2)%>'>
+                            <a href="#" class="url_download">
                                 <img src="#" alt="" class="img_poker_Android">
                                 <span class="title_android" data-i18n="LABEL_ANDROID_DOWNLOAD"></span>
                             </a>
@@ -383,68 +382,40 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 <div class="nav-category-items">
                     <h4><span class="title_texas_mahjong" data-i18n="LABEL_MENU_TEXAS_MAHJONG"></span></h4>
                     <div class="row">
-                        <%if(deviceId==1){%>
+                        <%if(deviceId==1 || deviceId==3){%>
                         <div class="col-xs-6">
-                            <a href="/_Static/TexasMahjong/download.aspx">
+                            <a href="#" class="url_texas_mahjong">
                                 <img src="#" alt="" class="img_texas_mahjong_iOS">
                                 <span class="title_ios" data-i18n="LABEL_IOS_DOWNLOAD"></span>
                             </a>
                         </div>
                         <div class="col-xs-6">
-                            <a href="/_Static/Downloads/superbull.aspx">
+                            <a href="#" class="url_super_bull">
                                 <img src="#" alt="" class="img_super_bull">
                                 <span class="title_super_bull" data-i18n="LABEL_MENU_P2P"></span>
                             </a>
                         </div>
                         <%}%>
-                        <%if(deviceId==2){%>
+                        <%if(deviceId==2 || deviceId==3){%>
                         <div class="col-xs-6">
-                            <a href='<%= commonFunctions.GetSuperBullDownloadLink()%>'>
+                            <a href="#" class="url_download">
                                 <img src="#" alt="" class="img_super_bull">
                                 <span class="title_super_bull" data-i18n="LABEL_MENU_P2P"></span>
                             </a>
                         </div>
                         <div class="col-xs-6">
-                            <a href='<%=commonFunctions.getTexasMahjongDownloadLinks()%>'>
+                            <a href="#" class="url_download">
                                 <img src="#" alt="" class="img_texas_mahjong_Android">
                                 <span class="title_android" data-i18n="LABEL_ANDROID_DOWNLOAD"></span>
                             </a>
                         </div>
                         <%}%>
-
-                        <%if(deviceId==3){%>
-                        <div class="col-xs-6">
-                            <a href='<%=commonFunctions.getTexasMahjongDownloadLinks()%>'>
-                                <img src="#" alt="" class="img_texas_mahjong_Android">
-                                <span class="title_android" data-i18n="LABEL_ANDROID_DOWNLOAD"></span>
-                            </a>
-                        </div>
-                        <div class="col-xs-6">
-                            <a href="/_Static/TexasMahjong/download.aspx">
-                                <img src="#" alt="" class="img_texas_mahjong_iOS">
-                                <span class="title_ios" data-i18n="LABEL_IOS_DOWNLOAD"></span>
-                            </a>
-                        </div>
-                        <div class="col-xs-6">
-                            <a href="/_Static/Downloads/superbull.aspx">
-                                <img src="#" alt="" class="img_super_bull">
-                                <span class="title_super_bull" data-i18n="LABEL_MENU_P2P"></span>
-                            </a>
-                        </div>
-                        <div class="col-xs-6">
-                            <a href='<%= commonFunctions.GetSuperBullDownloadLink()%>'>
-                                <img src="#" alt="" class="img_super_bull">
-                                <span class="title_super_bull" data-i18n="LABEL_MENU_P2P"></span>
-                            </a>
-                        </div>
-                        <%}%>
-
                     </div>
                 </div>
             </li>
             <!-- Promotions -->
             <li>
-                <a href="/Promotions">
+                <a href="#" class="url_promo">
                     <span class="icon icon-promo"></span>
                     <span class="title_promo" data-i18n="LABEL_MENU_PROMOTIONS"></span>
                 </a>
@@ -458,14 +429,14 @@ var fishingWorld = FishingWorldProduct.GetLink();
             </li>
             <!-- Live Chat -->
             <li>
-                <a href="/LiveChat/Default.aspx">
+                <a href="<%=liveChat%>" target="_blank">
                     <span class="icon icon-chat"></span>
                     <span class="title_live_chat" data-i18n="LABEL_MENU_LIVE_CHAT"></span>
                 </a>
             </li>
             <!-- Language -->
             <li>
-                <a href="/Lang.aspx">
+                <a href="#" onclick="javascript: _w88_LanguageSelection.show(); return false;">
                     <span class="icon icon-world"></span>
                     <span class="title_language" data-i18n="LABEL_MENU_LANGUAGE"></span>
                 </a>
@@ -480,7 +451,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             <!-- Logout -->
             <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
             <li>
-                <a href="/Logout">
+                <a href="#" class="logout">
                     <span class="icon icon-logout"></span>
                     <span class="title_logout" data-i18n="LABEL_MENU_LOGOUT"></span>
                 </a>

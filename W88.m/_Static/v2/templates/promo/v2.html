@@ -1,0 +1,20 @@
+﻿<div class="padding rebates-modal-content">
+    <p>ID:<br><span class="text-primary">{%- tplData.data.username %}</span></p>
+    <p>{%- tplData.data.optionLabel %}</p>
+    <div class="form-group" id="productCheckbox">
+        {% _.each(tplData.data.Products, function(item) { %}
+            <div class="checkbox checkbox-custom">
+            {% if (item.IsEnabled) { %}
+                <label for="{%-item.Product.Value%}">
+                    <input type="checkbox" name="comment" value="{%-item.Product.Value%}" id="{%-item.Product.Value%}"> <span>{%-item.Product.Text%}</span>
+                </label>
+                {% } else { %}
+                <label for="{%-item.Product.Value%}">
+                    <input type="checkbox" name="comment" disabled value="{%-item.Product.Value%}" id="{%-item.Product.Value%}"> <span>{%-item.Product.Text%}</span>
+                </label>
+            {% } %}
+            </div>
+        {% }); %}
+    </div>
+    <a class="btn btn-block btn-primary" onclick="javascript: window.w88Mobile.Rebates.SubmitWeeklyClaim();">{%- tplData.data.btnSubmit %}</a>
+</div>

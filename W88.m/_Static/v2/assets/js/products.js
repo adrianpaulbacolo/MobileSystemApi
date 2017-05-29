@@ -82,14 +82,8 @@ function Products() {
             },
             headers: headers,
             success: function(response) {
-                switch (response.ResponseCode) {
-                case 1:
-                    _w88_products.FreeRoundsGameUrl = response.ResponseData;
-                    break;
-                }
-
                 pubsub.publish('stopLoadItem', { selector: '' });
-                pubsub.publish('checkFreeRounds', { selector: '' });
+                pubsub.publish('checkFreeRounds', response.ResponseData);
             },
             error: function(response) {
                 if (_.isUndefined(response.ResponseData)) {
