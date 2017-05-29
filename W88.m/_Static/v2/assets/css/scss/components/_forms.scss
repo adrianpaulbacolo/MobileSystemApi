@@ -200,8 +200,7 @@ select.form-control {
   color: $brand-danger;
 }
 
-.ui-datebox-container.dropdown-menu {
-  width: 100%;
+.ui-datebox-container.dropdown-menu{
   max-width: 315px;
   padding: 0;
   border: none;
@@ -215,7 +214,10 @@ select.form-control {
     }
   }
 }
-
+.datetime-left .ui-datebox-container{
+  left: 0 !important;
+  right: auto;
+}
 .ui-datebox-flipcenter {
     width: 100%;
     height: 40px;
