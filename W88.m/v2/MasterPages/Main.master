@@ -196,7 +196,10 @@
                         Native.openLiveChat();
                     } catch (e) {
                         console.log("Native does not exist!");
-                        window.open("/LiveChat/Default.aspx", "ChatWindow");
+
+                        var liveChat = '<%=ConfigurationManager.AppSettings["LiveChat"].Replace("{DOMAIN}", commonIp.DomainName)%>' +
+                            '<%=HttpContext.Current.Request.Url.ToString()%>';
+                        window.open(liveChat, "ChatWindow");
                     }
                 });
 
