@@ -196,6 +196,15 @@ public class commonVariables
         }
     }
 
+    public static bool isVIPDomain
+    {
+        get
+        {
+            var vipDomains = ConfigurationManager.AppSettings.Get("VIP_Domains").ToLower().Split(new[] { '|' });
+            return vipDomains.Contains(HttpContext.Current.Request.Url.Host);
+        }
+    }
+
     public static string GetMemberCode()
     {
         return new Members().MemberData().MemberCode;

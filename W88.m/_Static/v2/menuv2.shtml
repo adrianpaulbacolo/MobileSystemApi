@@ -44,7 +44,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             <!-- Login -->
             <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
             <li>
-                <a href="<%=Helpers.Pages.Login%>">
+                <a href="/v2/Account/Login.aspx">
                     <span class="icon icon-login"></span>
                     <span class="title_login" data-i18n="LABEL_MENU_LOGIN"></span>
                 </a>
@@ -54,7 +54,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             <!-- Funds -->
             <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
             <li class="nav-category">
-                <a href="<%=Helpers.Pages.Funds%>">
+                <a href="#">
                     <span class="icon icon-currency-circle"></span>
                     <span class="title_funds" data-i18n="LABEL_MENU_FUNDS"></span>
                 </a>
@@ -490,7 +490,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             <!-- Logout -->
             <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
             <li>
-                <a href="/Logout">
+                <a href="#" class="logout">
                     <span class="icon icon-logout"></span>
                     <span class="title_logout" data-i18n="LABEL_MENU_LOGOUT"></span>
                 </a>
