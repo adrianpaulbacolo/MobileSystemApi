@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml.Linq;
+using Helpers;
 
 public partial class v2_DownloadItem : BasePage
 {
@@ -16,7 +17,7 @@ public partial class v2_DownloadItem : BasePage
     protected override void OnLoad(EventArgs e)
     {
         Page.Title = commonCulture.ElementValues.getResourceString("download", commonVariables.LeftMenuXML);
-        Page.Items.Add("Parent", "/v2/Downloads");
+        Page.Items.Add("Parent", Pages.Downloads);
         base.OnLoad(e);
     }
 
