@@ -475,7 +475,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             </li>
             <!-- Language -->
             <li>
-                <a href="/Lang.aspx">
+                <a href="#" onclick="javascript: _w88_LanguageSelection.show(); return false;">
                     <span class="icon icon-world"></span>
                     <span class="title_language" data-i18n="LABEL_MENU_LANGUAGE"></span>
                 </a>
