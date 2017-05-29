@@ -19,7 +19,7 @@ function Wallets() {
 
     function getMainWallet() {
         var resource = "/user/wallet/0";
-        send(resource, "GET", { selector: "wallets" }, function (response) {
+        _w88_send(resource, "GET", { selector: "wallets" }, function (response) {
             if (_.isUndefined(response.ResponseData)) {
                 console.log('Unable to fetch wallet.');
                 return;
@@ -50,7 +50,7 @@ function Wallets() {
         var selector = _.isUndefined(selector) ? "" : selector;
 
         var resource = "/user/wallets?isSelectOrder=" + isSelectOrder;
-        send(resource, "GET", selector, function (response) {
+        _w88_send(resource, "GET", selector, function (response) {
             if (_.isUndefined(response.ResponseData)) {
                 console.log('Unable to fetch wallets.');
                 return;

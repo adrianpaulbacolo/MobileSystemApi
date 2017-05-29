@@ -46,7 +46,7 @@ function BankDetails() {
     };
 
     function createBankDetails(data) {
-        send("/user/banks", "POST", data, function (response) {
+        _w88_send("/user/banks", "POST", data, function (response) {
             if (_.isArray(response.ResponseMessage))
                 w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
             else
@@ -56,14 +56,14 @@ function BankDetails() {
     }
 
     function getBanks() {
-        send("/banks/member", "GET", "", function (response) {
+        _w88_send("/banks/member", "GET", "", function (response) {
             $('select[id$="drpBank"]').append($("<option></option>").attr("value", "-1").text(_w88_contents.translate("LABEL_SELECT_DEFAULT")));
 
             _.forEach(response.ResponseData, function (data) {
                 $('select[id$="drpBank"]').append($("<option></option>").attr("value", data.Value).text(data.Text))
             })
 
-            send("/user/banks", "GET", "", function (response) {
+            _w88_send("/user/banks", "GET", "", function (response) {
                 if (_.isEqual(response.ResponseCode, 1)) {
                     $('select[id$="drpBank"]').val(response.ResponseData.Bank.Value).change();
                     $('input[id$="txtBankName"]').val(response.ResponseData.BankName);
@@ -74,39 +74,6 @@ function BankDetails() {
                     $('[id$="isPreferred"]').prop("checked", response.ResponseData.IsPreferred);
                 }
             });
-        });
-    }
-
-    function send(resource, method, data, success, complete) {
-        var selector = "";
-        if (!_.isEmpty(data.selector)) {
-            selector = _.clone(data.selector);
-            delete data["selector"];
-        }
-
-        var url = w88Mobile.APIUrl + resource;
-
-        var headers = {
-            'Token': window.User.token,
-            'LanguageCode': window.User.lang
-        };
-
-        $.ajax({
-            type: method,
-            url: url,
-            data: data,
-            beforeSend: function () {
-                pubsub.publish('startLoadItem', { selector: "" });
-            },
-            headers: headers,
-            success: success,
-            error: function () {
-                console.log("Error connecting to api");
-            },
-            complete: function () {
-                if (_.isFunction(complete)) complete();
-                pubsub.publish('stopLoadItem', { selector: "" });
-            }
         });
     }
 }

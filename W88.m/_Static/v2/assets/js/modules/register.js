@@ -30,7 +30,7 @@ function Register() {
     };
 
     register.getCountryPhoneList = function () {
-        send("/CountryPhoneList", "GET", "", function (response) {
+        _w88_send("/CountryPhoneList", "GET", "", function (response) {
             if (!_.isEqual(response.ResponseCode, 0)) {
                 $('select[id$="drpCountryCode"]').append($('<option>').text($.i18n("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
 
@@ -45,7 +45,7 @@ function Register() {
     };
 
     register.getCurrencyList = function () {
-        send("/CurrencyList", "GET", "", function (response) {
+        _w88_send("/CurrencyList", "GET", "", function (response) {
             if (!_.isEqual(response.ResponseCode, 0)) {
                 $('select[id$="drpCurrency"]').append($('<option>').text($.i18n("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
 
@@ -60,47 +60,13 @@ function Register() {
     };
 
     register.createAccount = function (data) {
-        send("/user/Register", "POST", data, function (response) {
+        _w88_send("/user/Register", "POST", data, function (response) {
             if (_.isArray(response.ResponseMessage))
                 w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
             else
                 w88Mobile.Growl.shout(response.ResponseMessage);
         });
     };
-
-    function send(resource, method, data, success, complete) {
-
-        var selector = "";
-        if (!_.isEmpty(data.selector)) {
-            selector = _.clone(data.selector);
-            delete data["selector"];
-        }
-
-        var url = w88Mobile.APIUrl + resource;
-
-        var headers = {
-            'Token': window.User.token,
-            'LanguageCode': window.User.lang
-        };
-
-        $.ajax({
-            type: method,
-            url: url,
-            data: data,
-            beforeSend: function () {
-                pubsub.publish('startLoadItem', { selector: selector });
-            },
-            headers: headers,
-            success: success,
-            error: function () {
-                console.log("Error connecting to api");
-            },
-            complete: function () {
-                if (_.isFunction(complete)) complete();
-                pubsub.publish('stopLoadItem', { selector: selector });
-            }
-        });
-    }
 
     return register;
 }

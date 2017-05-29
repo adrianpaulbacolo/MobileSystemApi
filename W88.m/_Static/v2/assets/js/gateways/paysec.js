@@ -24,7 +24,7 @@ function PaysecV2() {
             switch (response.ResponseCode) {
                 case 1:
                     if (response.ResponseData.PostUrl) {
-                        w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
+                        w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
                         w88Mobile.PostPaymentForm.submit();
                     } else {
                         var data = {
