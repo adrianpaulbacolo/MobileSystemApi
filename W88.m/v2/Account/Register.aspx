@@ -145,7 +145,7 @@
 
 <asp:Content ID="ScriptHolder" ContentPlaceHolderID="InnerScriptPlaceHolder" runat="server">
     <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/bootstrapvalidator.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/register.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/account/register.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 
     <script>
         $(document).ready(function () {

@@ -147,6 +147,10 @@ function getQueryStringValue(key) {
     return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
 }
 
+function getDomainName() {
+    return location.hostname.split('.').slice(-2).join('.');
+}
+
 function formatDateTime(dateTime) {
     //MM/DD/YYYY h:m:s
     var month = (dateTime.getMonth() + 1).toString().length == 1 ? "0" + (dateTime.getMonth() + 1).toString() : (dateTime.getMonth() + 1).toString();

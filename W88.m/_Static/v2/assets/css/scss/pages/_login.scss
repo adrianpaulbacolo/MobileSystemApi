@@ -1,54 +1,96 @@
-.login{
-	padding-top: 30px;
-}
-.no-account{
-	margin: 16px auto 0;
-	max-width: 90%;
-}
-
-.login-message{
-	width: 100%;
-	margin: 0 auto;
-	left: 0;
-	bottom: 10%;
-	padding-left: 10%;
-	padding-right: 10%;
-	position: absolute;
+.viplogin {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: absolute;
+    display: table;
 }
 
-
-@media (orientation: landscape) and (max-width:768px){
-	.login-message{
-		padding-top: 15px;
-		position: relative;
-		left: auto;
-		bottom: auto;
-	}
-
+.viplogin-container {
+    vertical-align: middle;
+    display: table-cell;
 }
 
-@media (min-height: 568px) {
-	.login{
-		padding-top: 20%;
-
-		.no-account{
-			margin: 20% auto 0;
-		}
-	}
+.viplogin-box {
+    width: 80%;
+    max-width: 470px;
+    margin: 0 auto;
 }
 
-@media (min-height: 768px) {
-	.login{
-		.no-account{
-			margin: 25% auto 0;
-		}
-	}
+.viplogo {
+    width: 60%;
+    max-width: 280px;
+    margin: 0 auto 30px;
+    display: block;
 }
 
-@media (min-width: 1200px) {
-	.login{
-		.no-account{
-			margin: 20% auto 0;
-		}
-	}
+.viplogin-form {
+    border-top: 5px solid $yellow;
+    padding: 45px 30px;
+    margin-bottom: 30px;
+    -webkit-box-shadow: 0 0 60px 10px rgba(0,0,0,0.75);
+    box-shadow: 0 0 60px 10px rgba(0,0,0,0.75);
+
+    h3 {
+        text-transform: capitalize;
+        font-size: 29px;
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+}
+
+.imgCaptcha {
+    height: 40px;
+    width: 100%;
+}
+
+@media (max-width: 320px) {
+
+    .viplogo {
+        margin: 0 auto 15px;
+    }
+
+    .viplogin-form {
+        padding: 30px 30px;
+        margin-bottom: 15px;
+
+        h3 {
+            font-size: 25px;
+            margin-top: 0;
+        }
+    }
+
+    .imgCaptcha {
+        height: 40px;
+        width: 100%;
+    }
+}
+
+@media (max-height: 640px) {
+    .viplogin {
+        width: 100%;
+        height: 100%;
+        top: auto;
+        bottom: auto;
+        right: auto;
+        left: auto;
+        position: relative;
+        display: block;
+    }
+
+    .viplogin-container {
+        display: block;
+    }
+
+    .viplogo {
+        margin: 15px auto 15px;
+    }
+
+    .imgCaptcha {
+        height: 29px;
+        width: 100%;
+    }
 }
