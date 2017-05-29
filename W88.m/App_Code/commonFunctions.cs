@@ -8,6 +8,7 @@ using System.Drawing.Imaging;
 using System.Web.Script.Serialization;
 using System.Web.UI.WebControls;
 using System.Configuration;
+using Helpers;
 
 public static class commonFunctions
 {
@@ -733,13 +734,20 @@ public static class commonFunctions
         var pageList = new string[] {
             "/sports.aspx"
             , "/promotions"
+            , "/promotions.aspx"
             , "/funds.aspx"
             , "/index.aspx"
             , "/index"
             , "/lang.aspx"
             , "/lottery.aspx"
             , "/profile/default.aspx"
-            , "/v2/dashboard.aspx"
+            // Add v2 pages
+            , Pages.Dashboard.ToLower()
+            , Pages.Lottery.ToLower()
+            , Pages.Sports.ToLower()
+            , Pages.Funds.ToLower()
+            , Pages.Account.ToLower()
+            , Pages.Downloads.ToLower()
         };
 
         return pageList.Any(path.ToLower().Contains);

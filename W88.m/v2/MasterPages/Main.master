@@ -106,7 +106,7 @@
                     var isHome = (!base.Page.Items.Contains("Parent") || !commonFunctions.isExternalPlatform());
                     var navIcon = isHome ? "icon-navicon" : "icon-back";
                     var navUrl = isHome ? "#" : base.Page.Items["Parent"];
-                    var hasFooter = isHome && commonFunctions.isMainPage(Request);
+                    var hasFooter = commonFunctions.isMainPage(Request);
                 %>
                 <a href="<%=navUrl %>" class="header-button header-button-left" id="nav-btn<%=(commonFunctions.isExternalPlatform()) ? "-native" : "" %>"><span class="icon <%=navIcon %>"></span></a>
                 <h1 class="header-title"><%=(base.Page.Title == "Dashboard" ? "<img alt=\"Dashboard\" src=\"" + ConfigurationManager.AppSettings.Get("AssetsPath") + "/assets/images/logo-en.png\" />" : base.Page.Title) %></h1>
@@ -187,7 +187,7 @@
                     location.href = _constants.FUNDS_URL;
                 });
                 $(".footer .btn-menu-promo").click(function () {
-                    location.href = _constants.PROMOTION_URL;
+                    location.href = _constants.PROMO_URL;
                 });
                 $(".footer .btn-menu-chat").click(function () {
                     try {
