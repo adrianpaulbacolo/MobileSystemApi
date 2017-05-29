@@ -86,6 +86,7 @@
     <script src="/_Static/v2new/assets/js/vendor/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/bootstrap.min.js"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/amplify.min.js"></script>
     <script src="/_Static/JS/vendor/lodash.min.js"></script>
     <script src="/_Static/v2new/assets/js/vendor/pubsub.js"></script>
     <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/constants.js"></script>

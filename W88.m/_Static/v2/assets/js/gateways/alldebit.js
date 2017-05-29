@@ -25,13 +25,24 @@ function AllDebit() {
         var monthText = _w88_contents.translate("LABEL_MONTH");
         var yearText = _w88_contents.translate("LABEL_YEAR");
 
-        _w88_paymentSvcV2.Send("/CardType", "GET", "", function (response) {
+        alldebit.getCardType();
+        alldebit.getExpiryMonthYear();
+        alldebit.getCreditCardLastTransaction();
+    };
+
+    alldebit.getCardType = function () {
+        var _self = this;
+
+        _self.send("/CardType", "GET", "", function (response) {
             $('select[id$="ddlCardType"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
 
             _.forOwn(response.ResponseData, function (data) {
                 $('select[id$="ddlCardType"]').append($('<option>').text(data.Text).attr('value', data.Value));
             });
         });
+    };
+
+    alldebit.getExpiryMonthYear = function () {
 
         $('select[id$="ddlExpiryMonth"]').append($("<option />").val('-1').text(monthText));
         var month = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
@@ -45,7 +56,12 @@ function AllDebit() {
             $('select[id$="ddlExpiryYear"]').append($("<option />").val(i).text(i));
         }
 
-        _w88_paymentSvcV2.Send("/payments/creditcard/lasttrans", "GET", "", function (response) {
+    };
+
+    alldebit.getCreditCardLastTransaction = function () {
+        var _self = this;
+
+        _self.send("/payments/creditcard/lasttrans", "GET", "", function (response) {
 
             if (response.ResponseCode == 1 && response.ResponseData != null) {
 
@@ -81,7 +97,7 @@ function AllDebit() {
         _self.deposit(data, function (response) {
             switch (response.ResponseCode) {
                 case 1:
-                    w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
+                    w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
                     w88Mobile.PostPaymentForm.submit();
 
                     break;

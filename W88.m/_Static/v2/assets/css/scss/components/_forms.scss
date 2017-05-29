@@ -1,4 +1,4 @@
-.form-container {
+.form-container{
 	padding-top: 15px;
 	padding-bottom: 15px;
 }
@@ -29,6 +29,34 @@
       border-color: $brand-primary;
       outline: 0 none;
       @include box-shadow(0 1px 0px 0 $brand-primary);
+  }
+}
+
+.form-group-icon{
+  width: 100%;
+  display: table;
+  .form-icon,
+  .form-input{
+    display: table-cell;
+    vertical-align: top;
+  }
+  .form-icon{
+    padding-top: 22px;
+    padding-right: 15px;
+    span[class^="icon-"],
+    span[class*=" icon-"] {
+      font-size: 2rem;
+      color: $brand-primary;
+    }
+  }
+  .form-input{
+    width: 10000px;
+    > label{
+      font-weight: 400;
+      font-size: 0.875rem;
+      color: $brand-alt;
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -173,11 +201,18 @@ select.form-control {
 
 .ui-datebox-container.dropdown-menu {
   width: 100%;
-  min-width: 257px;
-  max-width: 340px;
+  max-width: 315px;
   padding: 0;
   border: none;
-  background-color: darken($brand-primary, 30%);
+  background-color: darken($brand-primary, 35%);
+ .modal-header {
+      padding: 8px;
+  }
+  .modal-title{
+    .closer{
+      color: $text-alt;
+    }
+  }
 }
 
 .ui-datebox-flipcenter {
@@ -246,6 +281,11 @@ select.form-control {
       display: none;
     }
   }
+}
+.ui-datebox-datebox-group.col-xs-3, 
+.ui-datebox-datebox-group.col-xs-4{
+    padding-left: 1px;
+    padding-right: 1px;
 }
 
 .pay-note {
