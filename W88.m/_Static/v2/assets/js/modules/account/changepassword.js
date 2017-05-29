@@ -13,7 +13,7 @@ function ChangePassword() {
     };
 
     changepassword.send = function (data) {
-        send("/user/changepassword", "POST", data, function (response) {
+        _w88_send("/user/changepassword", "POST", data, function (response) {
             if (_.isArray(response.ResponseMessage))
                 w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
             else

@@ -25,9 +25,18 @@ var fishingWorld = FishingWorldProduct.GetLink();
 <section class="side-nav" off-canvas="side-nav left reveal">
     <nav>
         <ul class="side-nav-items">
+            <!-- Profile -->
+            <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+            <li>
+                <a href="<%=Helpers.Pages.Account%>">
+                    <span class="icon icon-profile"></span>
+                    <span class="title_profile"><%=commonVariables.GetMemberCode()%></span>
+                </a>
+            </li>
+            <% } %>
             <!-- Home -->
             <li>
-                <a href="/v2/Dashboard.aspx?lang=<%=commonVariables.SelectedLanguage%>">
+                <a href="<%=Helpers.Pages.Dashboard%>?lang=<%=commonVariables.SelectedLanguage%>">
                     <span class="icon icon-home"></span>
                     <span class="title_home" data-i18n="LABEL_MENU_HOME"></span>
                 </a>
@@ -35,16 +44,17 @@ var fishingWorld = FishingWorldProduct.GetLink();
             <!-- Login -->
             <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
             <li>
-                <a href="/_Secure/Login.aspx">
+                <a href="/v2/Account/Login.aspx">
                     <span class="icon icon-login"></span>
                     <span class="title_login" data-i18n="LABEL_MENU_LOGIN"></span>
                 </a>
             </li>
             <% } %>
+
             <!-- Funds -->
             <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
             <li class="nav-category">
-                <a href="/_Secure/Login.aspx">
+                <a href="#">
                     <span class="icon icon-currency-circle"></span>
                     <span class="title_funds" data-i18n="LABEL_MENU_FUNDS"></span>
                 </a>
@@ -465,7 +475,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             </li>
             <!-- Language -->
             <li>
-                <a href="/Lang.aspx">
+                <a href="#" onclick="javascript: _w88_LanguageSelection.show(); return false;">
                     <span class="icon icon-world"></span>
                     <span class="title_language" data-i18n="LABEL_MENU_LANGUAGE"></span>
                 </a>
@@ -480,7 +490,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             <!-- Logout -->
             <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
             <li>
-                <a href="/Logout">
+                <a href="#" class="logout">
                     <span class="icon icon-logout"></span>
                     <span class="title_logout" data-i18n="LABEL_MENU_LOGOUT"></span>
                 </a>

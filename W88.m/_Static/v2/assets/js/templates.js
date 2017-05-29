@@ -18,6 +18,8 @@ function Templates() {
         , { id: 'MainWallet', url: '/v2/templates/mainwallet.html' }
         , { id: 'WalletGroup', url: '/v2/templates/walletgroup.html' }
         , { id: 'WalletBallance', url: '/v2/templates/walletbalance.html' }
+
+        , { id: 'Free_Rounds', url: 'templates/freerounds.html' }
     ];
 
     var items = {};

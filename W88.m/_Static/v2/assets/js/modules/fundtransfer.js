@@ -87,7 +87,7 @@ function FundTransfer() {
     }
 
     function create(data) {
-        send("/payments/transfer", "POST", data, function (response) {
+        _w88_send("/payments/transfer", "POST", data, function (response) {
             switch (response.ResponseCode) {
                 case 1:
                     if (_.isArray(response.ResponseMessage))
