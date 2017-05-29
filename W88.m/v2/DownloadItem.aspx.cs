@@ -25,7 +25,7 @@ public partial class v2_DownloadItem : BasePage
     {
         try
         {
-            Item = Request.RequestContext.RouteData.Values["item"].ToString();
+            Item = Request.RequestContext.RouteData.Values["item"].ToString().ToLower();
         }
         catch (Exception ex)
         {
