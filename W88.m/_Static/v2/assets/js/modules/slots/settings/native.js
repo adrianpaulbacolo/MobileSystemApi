@@ -11,3 +11,4 @@ _slotSettings.clubs = [
 ]
 
 _slotSettings.resource = "native";
+_slotSettings.clubsWithProviderFilter = ["divino", "apollo", "gallardo", "nuovo"];
