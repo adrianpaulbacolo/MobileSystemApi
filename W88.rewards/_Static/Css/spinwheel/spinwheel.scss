@@ -709,6 +709,24 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         left: 181px;
     }
 }
+@media only screen and (min-width: 598px) {
+    #roulette, #wheelPointer {
+        left: 24px;
+    }
+    #prizes {
+        top: -13px;
+        left: -12px;
+    }
+    #pic {
+        left: 193px;
+        top: 10px;
+    }
+    #prizeContainer p {
+        top: 119px;
+        left: 157px;
+        font-size: 11px;
+    }
+}
 @media only screen and (min-width: 600px) {
     #prizes {
         top: -12px;
@@ -822,6 +840,11 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
     } 
     #pic {
         left: 181px;
+    }
+}
+@media only screen and (min-width: 684px) {
+    #roulette, #wheelPointer {
+        left: 32px;
     }
 }
 @media only screen and (min-width: 732px) {

@@ -102,6 +102,18 @@ SW.prototype._gwc_ = function () {
             if (self.im)
                 self.pic = { w: 408, h: 328, a: -197, b: -27 };
             break;
+        case 534:
+            ca[0] = { a: 0, b: 0 };
+            ca[1] = { a: 112, b: -266 };
+            ca[2] = { a: 0, b: -534 };
+            ca[3] = { a: -268, b: -645 };
+            ca[4] = { a: -535, b: -532 };
+            ca[5] = { a: -644, b: -270 };
+            ca[6] = { a: -538, b: 0 };
+            ca[7] = { a: -266, b: 105 };
+            if (self.im)
+                self.pic = { w: 408, h: 328, a: -197, b: -27 };
+            break;
         case 536:
             ca[0] = { a: 0, b: 0 };
             ca[1] = { a: 112, b: -266 };
