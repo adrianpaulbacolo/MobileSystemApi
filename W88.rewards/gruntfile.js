@@ -38,9 +38,12 @@
                     '_Static/JS/dist/<%= pkg.name %>.main.js',
                     '_Static/JS/dist/<%= pkg.name %>.login.js',
                     '_Static/JS/dist/<%= pkg.name %>.catalogue.js',
+                    '_Static/JS/dist/<%= pkg.name %>.sw.min.js',
+                    '_Static/JS/dist/<%= pkg.name %>.pointlevelinfo.min.js',
                     '_Static/Css/<%= pkg.name %>.css',
                     '_Static/Css/errors/styles.css',
-                    '_Static/Css/errors/styles-light.css'
+                    '_Static/Css/errors/styles-light.css',
+                    '_Static/Css/<%= pkg.name %>.spinwheel.css'
                 ]
             }
         },
@@ -54,9 +57,12 @@
                     '_Static/JS/dist/<%= pkg.name %>.main.js',
                     '_Static/JS/dist/<%= pkg.name %>.login.js',
                     '_Static/JS/dist/<%= pkg.name %>.catalogue.js',
+                    '_Static/JS/dist/<%= pkg.name %>.sw.min.js',
+                    '_Static/JS/dist/<%= pkg.name %>.pointlevelinfo.min.js',
                     '_Static/Css/<%= pkg.name %>.css',
                     '_Static/Css/errors/styles.css',
-                    '_Static/Css/errors/styles-light.css'
+                    '_Static/Css/errors/styles-light.css',
+                    '_Static/Css/<%= pkg.name %>.spinwheel.css'
                 ]
             },
             views: {
@@ -70,7 +76,8 @@
                     '_Static/Pages/404.aspx',
                     '_Static/Pages/500.aspx',
                     '_Static/Pages/enhancement-all.aspx',
-                    '_Static/Pages/enhancement.aspx'
+                    '_Static/Pages/enhancement.aspx',
+                    'SpinWheel/Default.aspx'
                 ]
             }
         },
@@ -86,6 +93,8 @@
                     , '_Static/JS/dist/<%= pkg.name %>.main.js': ['_Static/JS/modules/Main.js']
                     , '_Static/JS/dist/<%= pkg.name %>.login.js': ['_Static/JS/modules/login.js']
                     , '_Static/JS/dist/<%= pkg.name %>.catalogue.js': ['_Static/catalogue/catalogue.js']
+                    , '_Static/JS/dist/<%= pkg.name %>.sw.min.js': ['_Static/JS/modules/spinwheel.js']
+                    , '_Static/JS/dist/<%= pkg.name %>.pointlevelinfo.min.js': ['_Static/JS/modules/pointlevelinfo.js']
                 }
             }
         },
@@ -102,6 +111,7 @@
                     , '_Static/Css/errors/styles.css': '_Static/Css/errors/scss/styles.scss'
                     , '_Static/Css/errors/styles-light.css': '_Static/Css/errors/scss/styles-light.scss'
                     , '_Static/fonts/icomoon/style.css': '_Static/fonts/icomoon/style.scss'
+                    , '_Static/Css/<%= pkg.name %>.spinwheel.css': '_Static/Css/spinwheel/spinwheel.scss'
                 }
             }
         },
