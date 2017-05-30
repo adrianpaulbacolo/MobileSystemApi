@@ -73,10 +73,26 @@ public partial class _Index : BasePage
     public string getPromoBanner()
     {
         var slider = string.Empty;
+
         try
         {
+            string languageCode = commonVariables.SelectedLanguage;
+
+            if (commonVariables.CDNCountryCode.Equals("MY", StringComparison.OrdinalIgnoreCase))
+            {
+                switch (languageCode)
+                {
+                    case "en-us":
+                        languageCode = "en-my";
+                        break;
+                    case "zh-cn":
+                        languageCode = "zh-my";
+                        break;
+                }
+            }
+
             System.Xml.Linq.XElement promoResource;
-            commonCulture.appData.getRootResource("leftMenu", out promoResource);
+            commonCulture.appData.getRootResource("leftMenu", languageCode, out promoResource);
             IEnumerable<System.Xml.Linq.XElement> promoNode = promoResource.Element("PromoBanner").Elements();
             foreach (System.Xml.Linq.XElement promo in promoNode)
             {
@@ -156,7 +172,7 @@ public partial class _Index : BasePage
                     else
                     {
                         if (Convert.ToInt16(promo.Attribute("deviceId").Value) != commonFunctions.getMobileDevice(Request))
-                            continue;    
+                            continue;
                     }
                 }
 
