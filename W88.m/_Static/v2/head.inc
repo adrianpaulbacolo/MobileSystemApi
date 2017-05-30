@@ -26,7 +26,7 @@
 <!-- Include all related variables (below), or include individual files as needed -->
 <script type="text/javascript">
     var siteCookie = new Cookies();
-    $.i18n.debug = true;
+    $.i18n.debug = false;
 
     _.templateSettings = {
     interpolate: /\{\{(.+?)\}\}/g,      // print value: {{ value_name }}
