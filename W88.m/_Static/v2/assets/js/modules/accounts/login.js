@@ -5,22 +5,25 @@ function Login() {
     var login = {};
 
     login.init = function (options, isSelection) {
+        if (_.isEmpty(siteCookie.getCookie("s"))) {
+            login.getRedirectUrl();
 
-        login.getRedirectUrl();
+            _w88_validator.initiateValidator("#form1");
 
-        _w88_validator.initiateValidator("#form1");
+            $('header .header-title').append($.i18n("LABEL_MENU_LOGIN"));
+            $('input[id$="txtUsername"]').attr("placeholder", $.i18n("LABEL_USERNAME"));
+            $('input[id$="txtPassword"]').attr("placeholder", $.i18n("LABEL_PASSWORD"));
+            $('input[id$="txtCaptcha"]').attr("placeholder", $.i18n("LABEL_CAPTCHA"));
+            $("#loginNote").html($.i18n("LABEL_LOGIN_NOTE_CONTACT_US"));
 
-        $('header .header-title').append($.i18n("LABEL_MENU_LOGIN"));
-        $('input[id$="txtUsername"]').attr("placeholder", $.i18n("LABEL_USERNAME"));
-        $('input[id$="txtPassword"]').attr("placeholder", $.i18n("LABEL_PASSWORD"));
-        $('input[id$="txtCaptcha"]').attr("placeholder", $.i18n("LABEL_CAPTCHA"));
-        $("#loginNote").html($.i18n("LABEL_LOGIN_NOTE_CONTACT_US"));
+            $('#imgCaptcha').click(function () {
+                $(this).attr('src', '/v2/Account/Captcha.ashx?t=' + new Date().getTime());
+            });
 
-        $('#imgCaptcha').click(function () {
-            $(this).attr('src', '/v2/Account/Captcha.ashx?t=' + new Date().getTime());
-        });
-
-        login.hideCaptcha();
+            login.hideCaptcha();
+        } else {
+            window.location.href = _constants.DASHBOARD_URL;
+        }
     };
 
     login.getRedirectUrl = function () {
@@ -80,8 +83,14 @@ function Login() {
                     var user = w88Mobile.Keys.userSettings;
                     amplify.store(user, userData, User.storageExpiration);
 
-                    pubsub.subscribe('checkFreeRounds', onCheckFreeRounds);
-                    _w88_products.checkFreeRounds();
+                    if (userData.ResetPassword == true) {
+                        login.changePassword();
+                    } else {
+                        login.getGPIUrl();
+
+                        pubsub.subscribe('checkFreeRounds', onCheckFreeRounds);
+                        _w88_products.checkFreeRounds();
+                    }
 
                     break;
                 default:
@@ -111,26 +120,20 @@ function Login() {
             redirect = changePassword + "?" + redirect;
         }
 
-        window.location = redirect;
+        window.location.href = redirect;
     };
 
     function onCheckFreeRounds(topic, data) {
-        if (_.isEmpty(data)) {
-            var userData = amplify.store(w88Mobile.Keys.userSettings);
-
-            if (userData.ResetPassword == true) {
-                login.changePassword();
-            } else {
-                login.getGPIUrl();
-            }
-        } else {
+        if (!_.isEmpty(data)) {
             $('#btnClaimNow').attr('href', data);
 
             $("#freerounds-modal").on('hidden.bs.modal', function () {
-                window.location = "/v2/Dashboard.aspx";
+                window.location.href = _constants.DASHBOARD_URL;
             });
 
             $('#freerounds-modal').modal('show');
+        } else {
+            window.location.href = _constants.DASHBOARD_URL;
         }
     }
 
@@ -144,9 +147,9 @@ function Login() {
 
                     var redirect = getQueryStringValue("redirect");
                     if (_.isEmpty(redirect))
-                        window.location = "/v2/Funds.aspx";
+                        window.location.href = _constants.FUNDS_URL;
                     else
-                        window.location = redirect;
+                        window.location.href = redirect;
 
                     break;
                 default:

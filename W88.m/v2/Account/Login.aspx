@@ -1,28 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/v2/MasterPages/Main.master" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="_v2_Account_Login" %>
 
-<asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
-    <!-- Modal -->
-    <div class="modal fade" id="freerounds-modal" tabindex="-1" role="dialog" aria-labelledby="freerounds">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <img class="img-responsive" src="/_static/images/v2/freerounds/Popup-free-round-<%=commonVariables.SelectedLanguageShort.ToLower()%>.jpg" />
-                    <div class="row extra-thin-gutter">
-                        <div class="col-xs-6 col-sm-6">
-                            <a id="btnClaimNow" href="#" data-ajax="false"
-                                class="btn btn-block btn-default" data-i18n="BUTTON_CLAIM"></a>
-                        </div>
-                        <div class="col-xs-6 col-sm-6">
-                            <a id="btnClaimLater" href="/v2/slots/bravado" data-ajax="false"
-                                class="btn btn-block btn-default" data-i18n="BUTTON_CLAIM_LATER"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</asp:Content>
-
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentHolder" runat="Server">
     <section class="viplogin">
         <div class="viplogin-container">
@@ -80,7 +57,6 @@
 
 <asp:Content ID="ScriptHolder" ContentPlaceHolderID="InnerScriptPlaceHolder" runat="server">
     <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/bootstrapvalidator.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/products.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
     <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/accounts/login.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"> </script>
 
     <script type="text/javascript">

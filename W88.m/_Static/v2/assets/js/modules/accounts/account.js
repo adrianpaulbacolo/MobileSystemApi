@@ -4,10 +4,10 @@ function Account() {
     var account = {};
 
     account.logout = function () {
+        var lang = siteCookie.getCookie("language");
         amplify.clearStore();
         siteCookie.clearCookies();
-        window.location = "/v2/Dashboard.aspx";
-        window.reload;
+        window.location.href = _constants.DASHBOARD_URL + "?lang=" + lang;
     };
 
     return account;

@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Web;
 using System.Xml.Linq;
 
 namespace Helpers
@@ -91,7 +93,10 @@ namespace Helpers
 
         public static string LiveChat
         {
-            get { return GetUrl("LiveChat"); }
+            get
+            {
+                return GetUrl("livechat").Replace("{DOMAIN}", commonIp.DomainName) + HttpContext.Current.Request.Url.ToString();
+            }
         }
 
         public static string Rebates
@@ -102,6 +107,11 @@ namespace Helpers
         public static string BankDetails
         {
             get { return GetUrl("bankdetails"); }
+        }
+
+        public static string Register
+        {
+            get { return GetUrl("register"); }
         }
     }
 }

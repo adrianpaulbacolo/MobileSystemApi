@@ -6,7 +6,7 @@ var desktopUrl = HttpContext.Current.Request.Url.Scheme + "://www." + commonIp.D
 if (!string.IsNullOrWhiteSpace(commonCookie.CookieAffiliateId)) {
     desktopUrl += "&affiliateID=" + commonCookie.CookieAffiliateId;
 }
-var liveChat = ConfigurationManager.AppSettings["LiveChat"].Replace("{DOMAIN}", commonIp.DomainName) + HttpContext.Current.Request.Url.ToString();
+var liveChat = Helpers.Pages.LiveChat;
 
 var fishingWorld = FishingWorldProduct.GetLink();
 

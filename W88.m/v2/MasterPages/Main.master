@@ -160,6 +160,27 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
+    <!-- Modal -->
+    <div class="modal fade" id="freerounds-modal" tabindex="-1" role="dialog" aria-labelledby="freerounds">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img class="img-responsive" src="/_static/images/v2/freerounds/Popup-free-round-<%=commonVariables.SelectedLanguageShort.ToLower()%>.jpg" />
+                    <div class="row extra-thin-gutter">
+                        <div class="col-xs-6 col-sm-6">
+                            <a id="btnClaimNow" href="#" data-ajax="false"
+                                class="btn btn-block btn-primary" data-i18n="BUTTON_CLAIM"></a>
+                        </div>
+                        <div class="col-xs-6 col-sm-6">
+                            <a id="btnClaimLater" href="/v2/slots/bravado" data-ajax="false"
+                                class="btn btn-block btn-default" data-i18n="BUTTON_CLAIM_LATER"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <asp:ContentPlaceHolder ID="ScriptPlaceHolder" runat="server">
         <script>
 
@@ -195,8 +216,7 @@
                     } catch (e) {
                         console.log("Native does not exist!");
 
-                        var liveChat = '<%=ConfigurationManager.AppSettings["LiveChat"].Replace("{DOMAIN}", commonIp.DomainName)%>' +
-                            '<%=HttpContext.Current.Request.Url.ToString()%>';
+                        var liveChat = '<%=Helpers.Pages.LiveChat%>';
                         window.open(liveChat, "ChatWindow");
                     }
                 });

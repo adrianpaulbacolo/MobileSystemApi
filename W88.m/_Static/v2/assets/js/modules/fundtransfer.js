@@ -11,7 +11,7 @@ function FundTransfer() {
     };
 
     function init() {
-        $("header .header-title").text(_w88_contents.translate("LABEL_HISTORY_FUND_TRANSFER"));
+        $("header .header-title").text(_w88_contents.translate("LABEL_FUNDS_TRANSFER"));
 
         pubsub.subscribe('wallets', onWalletsLoaded);
 
