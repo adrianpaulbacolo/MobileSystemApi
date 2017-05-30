@@ -329,7 +329,7 @@ function Routes() {
             }
 
             return slotRoutes = {
-                '/v2/slots\?:params': indexRoute,
+                '/v2/slots?:params': indexRoute,
                 '/v2/slots': indexRoute,
                 '/v2/slots/:club': function (club) {
                     if (w88Mobile.v2.Routes.isSameRoute('club')) return;
