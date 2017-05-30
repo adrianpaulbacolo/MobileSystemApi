@@ -358,7 +358,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <div class="col-xs-6">
                             <a href="#" class="url_download">
                                 <img src="#" alt="" class="img_poker_iOS">
-                                <span class="title_ios" data-i18n="LABEL_IOS_DOWNLOAD"></span>
+                                <span class="title_ios" data-i18n="[html]LABEL_IOS_DOWNLOAD"></span>
                             </a>
                         </div>
                         <%}%>
@@ -366,7 +366,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <div class="col-xs-6">
                             <a href="#" class="url_download">
                                 <img src="#" alt="" class="img_poker_Android">
-                                <span class="title_android" data-i18n="LABEL_ANDROID_DOWNLOAD"></span>
+                                <span class="title_android" data-i18n="[html]LABEL_ANDROID_DOWNLOAD"></span>
                             </a>
                         </div>
                         <%}%>
@@ -386,7 +386,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <div class="col-xs-6">
                             <a href="#" class="url_texas_mahjong">
                                 <img src="#" alt="" class="img_texas_mahjong_iOS">
-                                <span class="title_ios" data-i18n="LABEL_IOS_DOWNLOAD"></span>
+                                <span class="title_ios" data-i18n="[html]LABEL_IOS_DOWNLOAD"></span>
                             </a>
                         </div>
                         <div class="col-xs-6">
@@ -406,7 +406,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <div class="col-xs-6">
                             <a href="#" class="url_download">
                                 <img src="#" alt="" class="img_texas_mahjong_Android">
-                                <span class="title_android" data-i18n="LABEL_ANDROID_DOWNLOAD"></span>
+                                <span class="title_android" data-i18n="[html]LABEL_ANDROID_DOWNLOAD"></span>
                             </a>
                         </div>
                         <%}%>

@@ -3,7 +3,7 @@
 <%@ Register Src="~/UserControls/HeaderLogo.ascx" TagPrefix="uc1" TagName="HeaderLogo" %>
 
 <!DOCTYPE html>
-<html>
+<html lang="<%=commonVariables.SelectedLanguage%>">
 <head runat="server">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
