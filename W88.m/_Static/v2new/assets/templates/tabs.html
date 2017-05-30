@@ -1,9 +1,0 @@
-﻿<section class="tab-bar filter-bar">
-    <ul id="sectionTab">
-        {% _.forEach( slotData.sections, function( section ){ %}
-        <li {% if(section.id==slotData.section.id){ %}class="active" {% } %} onclick="filterClubSlots(this, '{%- section.id %}')">
-        <a href="#">{%- _contents.translate(w88Mobile.v2.Slots.sectionKeys[section]) %}</a>
-        </li>
-        {% }); %}
-    </ul>
-</section>
