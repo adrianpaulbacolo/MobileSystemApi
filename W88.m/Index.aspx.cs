@@ -91,10 +91,10 @@ public partial class _Index : BasePage
                 }
             }
 
-            System.Xml.Linq.XElement promoResource;
-            commonCulture.appData.getRootResource("leftMenu", languageCode, out promoResource);
-            IEnumerable<System.Xml.Linq.XElement> promoNode = promoResource.Element("PromoBanner").Elements();
-            foreach (System.Xml.Linq.XElement promo in promoNode)
+            XElement promoResource;
+            commonCulture.appData.GetRootResourceNonLanguage(string.Format("/Shared/Banners/Banners.{0}", languageCode), out promoResource);
+            IEnumerable<XElement> promoNode = promoResource.Element("PromoBanner").Elements();
+            foreach (XElement promo in promoNode)
             {
                 var imageSrc = promo.Element("imageSrc").Value;
                 var url = promo.Element("url").Value;
