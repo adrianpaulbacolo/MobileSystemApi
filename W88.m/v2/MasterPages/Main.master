@@ -213,6 +213,10 @@
                     }
                 });
 
+                // WTF checking if we are going to hide menu or not
+                if (typeof Native == "undefined") {
+                    $("#nav-btn-native").hide();
+                }
             });
 
             // hackish way to communicate in between iframes lol, check slots page, surprisingly, it has too
