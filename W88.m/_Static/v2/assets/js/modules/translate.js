@@ -18,6 +18,7 @@ function translate() {
                 $.i18n().load(contents, window.User.lang);
                 $("body").i18n();
             }
+            pubsub.publish("contentsLoaded", {});
         }
 
     }
