@@ -17,7 +17,7 @@ $(document).ajaxSend(function (event, xhr, settings) {
     var lang = window.User.lang;
     // @todo remove if zh-my is available
     if (lang == "zh-my") lang = "zh-cn";
-    xhr.setRequestHeader('Token', window.User.token);
+    xhr.setRequestHeader('Token', siteCookie.getCookie("s"));
     xhr.setRequestHeader('LanguageCode', lang);
 });
 
