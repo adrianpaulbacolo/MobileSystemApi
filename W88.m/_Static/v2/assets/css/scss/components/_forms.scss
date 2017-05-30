@@ -1,3 +1,16 @@
+.form-help-text,
+.help-block{
+  color: $help-block-color;
+  font-size: 0.750rem;
+  margin-bottom: 0;
+}
+
+.form-help-text{
+    margin-left: 48px;
+    margin-top: 5px;
+    display: block;
+}
+
 .form-container{
 	padding-top: 15px;
 	padding-bottom: 15px;
