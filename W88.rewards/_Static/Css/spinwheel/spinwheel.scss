@@ -646,7 +646,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
     }
     #roulette, #wheelPointer {
         width: 91.8%;
-        left: 22px;
+        left: 23px;
     }
     #spinButton, #countdownContainer {
         top: 605px;
@@ -709,10 +709,25 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         left: 181px;
     }
 }
-@media only screen and (min-width: 598px) {
+@media only screen and (min-width: 592px) {
     #roulette, #wheelPointer {
         left: 24px;
     }
+    #prizes {
+        top: -15px;
+        left: -14px;
+    }
+    #pic {
+        left: 190px;
+        top: 4px;
+    }
+    #prizeContainer p {
+        top: 108px;
+        left: 156px;
+        font-size: 12px;
+    }
+}
+@media only screen and (min-width: 598px) {
     #prizes {
         top: -13px;
         left: -12px;
