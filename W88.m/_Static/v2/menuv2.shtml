@@ -6,7 +6,6 @@ var desktopUrl = HttpContext.Current.Request.Url.Scheme + "://www." + commonIp.D
 if (!string.IsNullOrWhiteSpace(commonCookie.CookieAffiliateId)) {
     desktopUrl += "&affiliateID=" + commonCookie.CookieAffiliateId;
 }
-var liveChat = Helpers.Pages.LiveChat;
 
 var fishingWorld = FishingWorldProduct.GetLink();
 
@@ -429,7 +428,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             </li>
             <!-- Live Chat -->
             <li>
-                <a href="<%=liveChat%>" target="_blank">
+                <a href="#" class="url_live_chat" target="_blank">
                     <span class="icon icon-chat"></span>
                     <span class="title_live_chat" data-i18n="LABEL_MENU_LIVE_CHAT"></span>
                 </a>

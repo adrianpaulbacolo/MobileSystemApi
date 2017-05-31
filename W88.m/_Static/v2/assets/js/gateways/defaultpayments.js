@@ -416,8 +416,6 @@ function DefaultPaymentsV2() {
 
     function nogateway() {
         $('.empty-state').show();
-        $('.paymentNote').html(_w88_contents.translate("LABEL_PAYMENT_NOTE_NO_GATEWAY"));
-
         $('#btnSubmitPlacement').hide();
         $('#paymentSettings').hide();
         $('#paymentList').hide();
