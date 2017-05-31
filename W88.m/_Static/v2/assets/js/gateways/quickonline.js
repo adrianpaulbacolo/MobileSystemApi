@@ -14,15 +14,15 @@ function QuickOnlineV2() {
 
     quickonline.init = function (id, getBank) {
         methodId = id;
-        $('[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
-        $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
+        $('[id$="lblSwitchLine"]').text($.i18n("LABEL_SWITCH_LINE"));
+        $('label[id$="lblBank"]').text($.i18n("LABEL_BANK"));
 
-        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+        $("#paymentNote").text($.i18n("LABEL_PAYMENT_NOTE"));
 
         if (_.isEqual(methodId, "120265")) { //EGHL
             if (siteCookie.getCookie('currencyCode') == 'MYR') {
                 $(".pay-note").show();
-                $('#paymentNoteContent').html(_w88_contents.translate("LABEL_MSG_" + methodId));
+                $('#paymentNoteContent').html($.i18n("LABEL_MSG_" + methodId));
                 quickonline.showBank();
                 getBank = true;
             }
@@ -32,7 +32,7 @@ function QuickOnlineV2() {
             }
         } else {
             $(".pay-note").show();
-            $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_BANK_NOT_SUPPORTED"));
+            $("#paymentNoteContent").html($.i18n("LABEL_MSG_BANK_NOT_SUPPORTED"));
         }
 
         if (getBank == true) {
@@ -49,7 +49,7 @@ function QuickOnlineV2() {
 
         _self.send("/Banks" + resource, "GET", "", function (response) {
             var banks = response.ResponseData;
-            var defaultSelect = _w88_contents.translate("LABEL_SELECT_DEFAULT");
+            var defaultSelect = $.i18n("LABEL_SELECT_DEFAULT");
             $('select[id$="drpBank"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
             $('select[id$="drpBank"]').val("-1").change();
 
@@ -76,10 +76,10 @@ function QuickOnlineV2() {
 
     quickonline.nganluongInit = function () {
         $(".pay-note").show();
-        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-        $('#paymentNoteContent').html(_w88_contents.translate("LABEL_MSG_120212"));
+        $("#paymentNote").text($.i18n("LABEL_PAYMENT_NOTE"));
+        $('#paymentNoteContent').html($.i18n("LABEL_MSG_120212"));
 
-        $("#btnSubmitPlacement").text(_w88_contents.translate("BUTTON_PROCEED"));
+        $("#btnSubmitPlacement").text($.i18n("BUTTON_PROCEED"));
 
         quickonline.getNganLuongVendorUrl();
     };

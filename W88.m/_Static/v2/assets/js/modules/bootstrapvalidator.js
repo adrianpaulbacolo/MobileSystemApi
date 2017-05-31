@@ -21,18 +21,14 @@ function validator() {
         $($formEl).validator({
             custom: {
                 require: function ($el) {
+                    $el.parent("div").removeClass('has-error');
+                    $el.parent("div").children("span.help-block").remove();
+
                     $el.parent("div.form-group").removeClass('has-error');
                     $el.parent("div.form-group").children("span.help-block").remove();
 
-                    if ($el.parent("div.form-group").length == 0) {
-                        $el.parent("div").removeClass('has-error');
-                        $el.parent("div").children("span.help-block").remove();
-                    }
-
-                    if ($el.parent("div.form-group .input-group").length > 0) {
-                        $el.parent("div").parent("div.form-group").removeClass('has-error');
-                        $el.parent("div").parent("div.form-group").children("span.help-block").remove();
-                    }
+                    $el.parent("div").parent("div.form-group").removeClass('has-error');
+                    $el.parent("div").parent("div.form-group").children("span.help-block").remove();
 
                     if (_.isEmpty($el.val())) {
                         if ($el.parent("div.form-group .input-group").length > 0) {
@@ -53,13 +49,11 @@ function validator() {
                     return false;
                 },
                 selectequals: function ($el) {
+                    $el.parent("div").removeClass('has-error');
+                    $el.parent("div").children("span.help-block").remove();
+
                     $el.parent("div.form-group").removeClass('has-error');
                     $el.parent("div.form-group").children("span.help-block").remove();
-
-                    if ($el.parent("div.form-group").length == 0) {
-                        $el.parent("div").removeClass('has-error');
-                        $el.parent("div").children("span.help-block").remove();
-                    }
 
                     var matchValue = $el.data("selectequals");
                     if ($el.val() == matchValue) {
@@ -76,13 +70,11 @@ function validator() {
                     return false;
                 },
                 confirmvalue: function ($el) {
+                    $el.parent("div").removeClass('has-error');
+                    $el.parent("div").children("span.help-block").remove();
+
                     $el.parent("div.form-group").removeClass('has-error');
                     $el.parent("div.form-group").children("span.help-block").remove();
-
-                    if ($el.parent("div.form-group").length == 0) {
-                        $el.parent("div").removeClass('has-error');
-                        $el.parent("div").children("span.help-block").remove();
-                    }
 
                     if (!_.isEmpty($el.val())) {
                         var matchValue = $('[id$="' + $el.data("confirmvalue") + '"]').val();

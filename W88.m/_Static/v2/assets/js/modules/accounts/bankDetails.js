@@ -14,7 +14,7 @@ function BankDetails() {
     function init() {
         _w88_validator.initiateValidator("#form1");
 
-        $('header .header-title').html(_w88_contents.translate("LABEL_MENU_BANK_DETAILS"));
+        $('header .header-title').html($.i18n("LABEL_MENU_BANK_DETAILS"));
 
         getBanks();
 
@@ -57,7 +57,7 @@ function BankDetails() {
 
     function getBanks() {
         _w88_send("/banks/member", "GET", "", function (response) {
-            $('select[id$="drpBank"]').append($("<option></option>").attr("value", "-1").text(_w88_contents.translate("LABEL_SELECT_DEFAULT")));
+            $('select[id$="drpBank"]').append($("<option></option>").attr("value", "-1").text($.i18n("LABEL_SELECT_DEFAULT")));
 
             _.forEach(response.ResponseData, function (data) {
                 $('select[id$="drpBank"]').append($("<option></option>").attr("value", data.Value).text(data.Text))

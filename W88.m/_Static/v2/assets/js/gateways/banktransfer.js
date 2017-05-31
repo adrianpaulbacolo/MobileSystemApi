@@ -45,24 +45,24 @@ function BankTransferv2() {
     }
 
     banktransfer.setTranslations = function (isDeposit) {
-        $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
-        $('label[id$="lblAccountName"]').text(_w88_contents.translate("LABEL_ACCOUNT_NAME"));
-        $('label[id$="lblAccountNumber"]').text(_w88_contents.translate("LABEL_ACCOUNT_NUMBER"));
-        $('label[id$="lblBankName"]').text(_w88_contents.translate("LABEL_BANK_NAME"));
+        $('label[id$="lblBank"]').text($.i18n("LABEL_BANK"));
+        $('label[id$="lblAccountName"]').text($.i18n("LABEL_ACCOUNT_NAME"));
+        $('label[id$="lblAccountNumber"]').text($.i18n("LABEL_ACCOUNT_NUMBER"));
+        $('label[id$="lblBankName"]').text($.i18n("LABEL_BANK_NAME"));
 
         if (isDeposit) {
             if (_.isEqual(siteCookie.getCookie('language').toLowerCase(), 'vi-vn') && _.isEqual(siteCookie.getCookie('currencyCode'), 'VND')) {
                 $(".pay-note").show();
-                $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_110101"));
+                $("#paymentNote").text($.i18n("LABEL_PAYMENT_NOTE"));
+                $("#paymentNoteContent").html($.i18n("LABEL_MSG_110101"));
             } else if (siteCookie.getCookie('currencyCode') == 'KRW') {
                 $(".depositdatetime").hide();
             }
 
-            $('label[id$="lblReferenceId"]').text(_w88_contents.translate("LABEL_REFERENCE_ID"));
-            $('label[id$="lblSystemAccount"]').text(_w88_contents.translate("LABEL_BANK_ACCOUNT"));
-            $('label[id$="lblDepositDateTime"]').text(_w88_contents.translate("LABEL_DEPOSIT_DATETIME"));
-            $('label[id$="lblDepositChannel"]').text(_w88_contents.translate("LABEL_DEPOSIT_CHANNEL"));
+            $('label[id$="lblReferenceId"]').text($.i18n("LABEL_REFERENCE_ID"));
+            $('label[id$="lblSystemAccount"]').text($.i18n("LABEL_BANK_ACCOUNT"));
+            $('label[id$="lblDepositDateTime"]').text($.i18n("LABEL_DEPOSIT_DATETIME"));
+            $('label[id$="lblDepositChannel"]').text($.i18n("LABEL_DEPOSIT_CHANNEL"));
 
             $('select[id$="drpBank"]').change(function () {
                 banktransfer.toogleBank(this.value);
@@ -73,12 +73,12 @@ function BankTransferv2() {
             });
         }
         else {
-            $('label[id$="lblSecondBank"]').text(_w88_contents.translate("LABEL_BANK_OTHER"));
-            $('label[id$="lblBankLocation"]').text(_w88_contents.translate("LABEL_BANK_LOCATION"));
-            $('label[id$="lblBranch"]').text(_w88_contents.translate("LABEL_BANK_BRANCH"));
-            $('label[id$="lblBankBranch"]').text(_w88_contents.translate("LABEL_BANK_BRANCH"));
-            $('label[id$="lblAddress"]').text(_w88_contents.translate("LABEL_BANK_ADDRESS"));
-            $('label[id$="lblContact"]').text(_w88_contents.translate("LABEL_MOBILE_NUMBER"));
+            $('label[id$="lblSecondBank"]').text($.i18n("LABEL_BANK_OTHER"));
+            $('label[id$="lblBankLocation"]').text($.i18n("LABEL_BANK_LOCATION"));
+            $('label[id$="lblBranch"]').text($.i18n("LABEL_BANK_BRANCH"));
+            $('label[id$="lblBankBranch"]').text($.i18n("LABEL_BANK_BRANCH"));
+            $('label[id$="lblAddress"]').text($.i18n("LABEL_BANK_ADDRESS"));
+            $('label[id$="lblContact"]').text($.i18n("LABEL_MOBILE_NUMBER"));
             $('input[id$="txtPhoneNumber"]').mask('999999999999');
 
             $('select[id$="drpBank"]').change(function () {
@@ -106,7 +106,7 @@ function BankTransferv2() {
 
         _self.send("/Banks/system", "GET", "", function (response) {
             var banks = response.ResponseData;
-            $('select[id$="drpSystemAccount"]').append($('<option>').text(_w88_contents.translate("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
+            $('select[id$="drpSystemAccount"]').append($('<option>').text($.i18n("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
 
             _.forOwn(banks, function (data) {
                 $('select[id$="drpSystemAccount"]').append($('<option>').text(data.Text).attr('value', data.Value));
@@ -118,7 +118,7 @@ function BankTransferv2() {
         var _self = this;
 
         _self.send("/Banks/member", "GET", "", function (response) {
-            $('select[id$="drpBank"]').append($('<option>').text(_w88_contents.translate("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
+            $('select[id$="drpBank"]').append($('<option>').text($.i18n("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
 
             _.forOwn(response.ResponseData, function (data) {
                 $('select[id$="drpBank"]').append($('<option>').text(data.Text).attr('value', data.Value));
@@ -151,7 +151,7 @@ function BankTransferv2() {
         var _self = this;
 
         _self.send("/depositchannel", "GET", "", function (response) {
-            $('select[id$="drpDepositChannel"]').append($('<option>').text(_w88_contents.translate("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
+            $('select[id$="drpDepositChannel"]').append($('<option>').text($.i18n("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
 
             _.forOwn(response.ResponseData, function (data) {
                 if (_.isEqual(siteCookie.getCookie('currencyCode'), 'THB') && _.isEqual(data.Value, 'cBanking'))
@@ -181,7 +181,7 @@ function BankTransferv2() {
 
         _self.send("/CountryPhoneList", "GET", "", function (response) {
             if (!_.isEqual(response.ResponseCode, 0)) {
-                $('select[id$="drpCountryCode"]').append($('<option>').text(_w88_contents.translate("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
+                $('select[id$="drpCountryCode"]').append($('<option>').text($.i18n("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
 
                 _.forEach(response.ResponseData.PhoneList, function (data) {
                     $('select[id$="drpCountryCode"]').append($("<option></option>").attr("value", data.Value).text(data.Text));
@@ -363,7 +363,7 @@ function BankTransferv2() {
 
     banktransfer.disableLocationWidraw = function () {
         $('select[id$="drpBankLocation"]').attr('disabled', 'disabled');
-        $('select[id$="drpBankLocation"]').append($('<option>').text(_w88_contents.translate("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
+        $('select[id$="drpBankLocation"]').append($('<option>').text($.i18n("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
     };
 
     banktransfer.enableLocationWidraw = function () {
@@ -387,7 +387,7 @@ function BankTransferv2() {
 
     banktransfer.disableBranchWidraw = function () {
         $('select[id$="drpBankBranchList"]').attr('disabled', 'disabled');
-        $('select[id$="drpBankBranchList"]').append($('<option>').text(_w88_contents.translate("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
+        $('select[id$="drpBankBranchList"]').append($('<option>').text($.i18n("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
     };
 
     banktransfer.enableBranchWidraw = function () {
@@ -403,7 +403,7 @@ function BankTransferv2() {
             _self.send("/Banks/member/location/" + bankId, "GET", { selector: "location" }, function (response) {
                 if (!_.isEqual(response.ResponseCode, 0)) {
 
-                    $('select[id$="drpBankLocation"]').append($('<option>').text(_w88_contents.translate("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
+                    $('select[id$="drpBankLocation"]').append($('<option>').text($.i18n("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
                     $('select[id$="drpBankLocation"]').children('option:not(:first)').remove();
 
                     _.forOwn(response.ResponseData, function (data) {

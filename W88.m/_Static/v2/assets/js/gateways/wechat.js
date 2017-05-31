@@ -12,11 +12,11 @@ function WeChatV2() {
     }
 
     wechat.init = function () {
-        $('[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
+        $('[id$="lblSwitchLine"]').text($.i18n("LABEL_SWITCH_LINE"));
 
         $(".pay-note").show();
-        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-        $("#paymentNoteContent").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_WECHAT"));
+        $("#paymentNote").text($.i18n("LABEL_PAYMENT_NOTE"));
+        $("#paymentNoteContent").html($.i18n("LABEL_PAYMENT_NOTE_WECHAT"));
     };
 
     wechat.createDeposit = function () {
