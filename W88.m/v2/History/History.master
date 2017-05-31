@@ -67,6 +67,12 @@
                 console.log("Native does not exist!");
             }
         });
+        $(document).ready(function () {
+            // WTF checking if we are going to hide menu or not
+            if (typeof Native == "undefined") {
+                $("#nav-btn-native").hide();
+            }
+        });
     </script>
 
 </body>
