@@ -1,10 +1,10 @@
 ﻿
 $(document).ready(function() {
-    var url = window.location.href;
+    var url = window.location.href.toLowerCase();
 
-    if (url.indexOf("/Slots.aspx") > 0) {
+    if (url.indexOf("/slots.aspx") > 0) {
         clickHeatGroup = 'W88MobileSlotsHome';
-    } else if (url.indexOf("/Index.aspx") > 0) {
+    } else if (url.indexOf("/index.aspx") > 0) {
         clickHeatGroup = 'W88MobileIndex';
     }
 
