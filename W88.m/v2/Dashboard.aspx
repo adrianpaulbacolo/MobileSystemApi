@@ -6,6 +6,22 @@
     </div>
 
     <div class="dashboard dashboard-home">
+         <% if (!commonFunctions.isExternalPlatform() && string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+         <div class="dashboard-row">
+            <div class="dashboard-col">
+                <a href="<%=Pages.Login%>">
+                    <span class="icon icon-login"></span>
+                    <span data-i18n="LABEL_MENU_LOGIN"></span>
+                </a>
+            </div>
+            <div class="dashboard-col">
+                <a href="<%=Pages.Register%>">
+                    <span class="icon icon-profile"></span>
+                    <span data-i18n="LABEL_MENU_REGISTER"></span>
+                </a>
+            </div>
+        </div>
+       <% } %>
         <div class="dashboard-row">
             <div class="dashboard-col">
                 <a href="<%=Pages.Sports%>?lang=<%=commonVariables.SelectedLanguage.ToLower() %>"><span class="icon icon-soccer"></span>

@@ -29,14 +29,24 @@ function validator() {
                         $el.parent("div").children("span.help-block").remove();
                     }
 
-                    if (_.isEmpty($el.val())) {
-                        $el.parent("div").append('<span class="help-block">' + $.i18n('RequiredField') + '</span>');
+                    if ($el.parent("div.form-group .input-group").length > 0) {
+                        $el.parent("div").parent("div.form-group").removeClass('has-error');
+                        $el.parent("div").parent("div.form-group").children("span.help-block").remove();
+                    }
 
-                        if ($el.parent("div.form-group").length == 0) {
-                            $el.parent("div").addClass('has-error');
+                    if (_.isEmpty($el.val())) {
+                        if ($el.parent("div.form-group .input-group").length > 0) {
+                            $el.parent('div').parent("div.form-group").addClass('has-error');
+                            $el.parent('div').parent("div.form-group").append('<span class="help-block">' + $.i18n('RequiredField') + '</span>');
                         }
                         else {
-                            $el.parent("div.form-group").addClass('has-error');
+                            $el.parent("div").append('<span class="help-block">' + $.i18n('RequiredField') + '</span>');
+                            if ($el.parent("div.form-group").length == 0) {
+                                $el.parent("div").addClass('has-error');
+                            }
+                            else {
+                                $el.parent("div.form-group").addClass('has-error');
+                            }
                         }
                         return true;
                     }
@@ -68,6 +78,11 @@ function validator() {
                 confirmvalue: function ($el) {
                     $el.parent("div.form-group").removeClass('has-error');
                     $el.parent("div.form-group").children("span.help-block").remove();
+
+                    if ($el.parent("div.form-group").length == 0) {
+                        $el.parent("div").removeClass('has-error');
+                        $el.parent("div").children("span.help-block").remove();
+                    }
 
                     if (!_.isEmpty($el.val())) {
                         var matchValue = $('[id$="' + $el.data("confirmvalue") + '"]').val();
@@ -148,6 +163,8 @@ function validator() {
                 }
             }
         });
+
+        $($formEl).validator('update').validator();
     }
 
     function setNumericValidator() {

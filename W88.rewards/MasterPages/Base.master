@@ -1,0 +1,15 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Base.master.cs" Inherits="MasterPages.Base" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title><%=Page.Title%></title>
+    <!--#include virtual="~/_static/head.inc" -->
+</head>
+<body>
+    <div data-role="page" data-theme="b" data-ajax="false">
+        <!--#include virtual="~/_static/header.shtml" -->
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+    </div>
+</body>
+</html>

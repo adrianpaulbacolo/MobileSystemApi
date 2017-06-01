@@ -75,8 +75,8 @@ small,
 .no-gutter{
     margin-left: 0;
     margin-right: 0;
-	div[class^="col-"],
-	div[class*=" col-"] {
+	> div[class^="col-"],
+	> div[class*=" col-"] {
 	    padding-left: 0;
 	    padding-right: 0;
 	}	
@@ -85,8 +85,8 @@ small,
 .thin-gutter{
     margin-left: -8px;
     margin-right: -8px;
-	div[class^="col-"],
-	div[class*=" col-"] {
+	> div[class^="col-"],
+	> div[class*=" col-"] {
 	    padding-left: 8px;
 	    padding-right: 8px;
 	}	
@@ -94,8 +94,8 @@ small,
 .extra-thin-gutter{
     margin-left: -2px;
     margin-right: -2px;
-	div[class^="col-"],
-	div[class*=" col-"] {
+	> div[class^="col-"],
+	> div[class*=" col-"] {
 	    padding-left: 2px;
 	    padding-right: 2px;
 	}	

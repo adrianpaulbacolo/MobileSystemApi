@@ -73,12 +73,28 @@ public partial class _Index : BasePage
     public string getPromoBanner()
     {
         var slider = string.Empty;
+
         try
         {
-            System.Xml.Linq.XElement promoResource;
-            commonCulture.appData.getRootResource("leftMenu", out promoResource);
-            IEnumerable<System.Xml.Linq.XElement> promoNode = promoResource.Element("PromoBanner").Elements();
-            foreach (System.Xml.Linq.XElement promo in promoNode)
+            string languageCode = commonVariables.SelectedLanguage;
+
+            if (commonVariables.CDNCountryCode.Equals("MY", StringComparison.OrdinalIgnoreCase))
+            {
+                switch (languageCode)
+                {
+                    case "en-us":
+                        languageCode = "en-my";
+                        break;
+                    case "zh-cn":
+                        languageCode = "zh-my";
+                        break;
+                }
+            }
+
+            XElement promoResource;
+            commonCulture.appData.GetRootResourceNonLanguage(string.Format("/Shared/Banners/Banners.{0}", languageCode), out promoResource);
+            IEnumerable<XElement> promoNode = promoResource.Element("PromoBanner").Elements();
+            foreach (XElement promo in promoNode)
             {
                 var imageSrc = promo.Element("imageSrc").Value;
                 var url = promo.Element("url").Value;
@@ -156,7 +172,7 @@ public partial class _Index : BasePage
                     else
                     {
                         if (Convert.ToInt16(promo.Attribute("deviceId").Value) != commonFunctions.getMobileDevice(Request))
-                            continue;    
+                            continue;
                     }
                 }
 

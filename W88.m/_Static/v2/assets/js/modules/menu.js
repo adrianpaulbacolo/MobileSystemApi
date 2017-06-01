@@ -7,8 +7,8 @@ function Menu() {
     }
 
     function init() {
-        setTranslations();
         setImages();
+        getUrl();
         setLogout();
     }
 
@@ -21,135 +21,181 @@ function Menu() {
     function setImages() {
         // Sports
         $('a.sports').bind('touch click', function () {
-            $('.img_sports_clubW_iOS').attr('src', '/_Static/Images/sports/bnr-clubW88-iOS.jpg');
-            $('.img_sports_clubW_Android').attr('src', '/_Static/Images/sports/bnr-clubW88-Android.jpg');
-            $('.img_sports_A').attr('src', '/_Static/Images/sports/bnr-asports.jpg');
-            $('.img_sports_E').attr('src', '/_Static/Images/sports/bnr-esports.jpg');
-            $('.img_sports_V').attr('src', '/_Static/Images/sports/bnr-vSports.jpg');
-            $('.img_sports_X').attr('src', '/_Static/Images/sports/bnr-xsports.jpg');
+            $('.img_sports_clubW_iOS').attr('src', _constants.IMAGES_URL + '/sports/bnr-clubW88-iOS.jpg');
+            $('.img_sports_clubW_Android').attr('src', _constants.IMAGES_URL + '/sports/bnr-clubW88-Android.jpg');
+            $('.img_sports_A').attr('src', _constants.IMAGES_URL + '/sports/bnr-asports.jpg');
+            $('.img_sports_E').attr('src', _constants.IMAGES_URL + '/sports/bnr-esports.jpg');
+            $('.img_sports_V').attr('src', _constants.IMAGES_URL + '/sports/bnr-vSports.jpg');
+            $('.img_sports_X').attr('src', _constants.IMAGES_URL + '/sports/bnr-xsports.jpg');
         });
 
         // Casino
         $('a.casino').bind('touch click', function () {
-            $('.img_casino_clubWPremier_iOS').attr('src', '/_Static/Images/casino/bnr-clubwpremier-ios.jpg');
-            $('.img_casino_clubW_iOS').attr('src', '/_Static/Images/casino/bnr-ClubW-iOS.jpg');
-            $('.img_casino_clubWPremier_Android').attr('src', '/_Static/Images/casino/bnr-clubwpremier-android.jpg');
-            $('.img_casino_clubW_Android').attr('src', '/_Static/Images/casino/bnr-clubw-android.jpg');
-            $('.img_casino_palazzo').attr('src', '/_Static/Images/casino/bnr-clubpalazzo-casino-android.jpg');
-            $('.img_casino_massimo').attr('src', '/_Static/Images/casino/bnr-clubmassimo-casino-android.jpg');
+            $('.img_casino_clubWPremier_iOS').attr('src', _constants.IMAGES_URL + '/casino/bnr-clubwpremier-ios.jpg');
+            $('.img_casino_clubW_iOS').attr('src', _constants.IMAGES_URL + '/casino/bnr-ClubW-iOS.jpg');
+            $('.img_casino_clubWPremier_Android').attr('src', _constants.IMAGES_URL + '/casino/bnr-clubwpremier-android.jpg');
+            $('.img_casino_clubW_Android').attr('src', _constants.IMAGES_URL + '/casino/bnr-clubw-android.jpg');
+            $('.img_casino_palazzo').attr('src', _constants.IMAGES_URL + '/casino/bnr-clubpalazzo-casino-android.jpg');
+            $('.img_casino_massimo').attr('src', _constants.IMAGES_URL + '/casino/bnr-clubmassimo-casino-android.jpg');
 
         });
 
         // Slots
         $('a.slots').bind('touch click', function () {
-            $('.img_slots_clubW_iOS').attr('src', '/_Static/Images/sports/bnr-clubW88-iOS.jpg');
-            $('.img_slots_clubW_Android').attr('src', '/_Static/Images/sports/bnr-clubW88-Android.jpg');
-            $('.img_slots_bravado').attr('src', '/_Static/Images/bnr-clubbravado.jpg');
-            $('.img_slots_massimo').attr('src', '/_Static/Images/bnr-clubmassimo-slots.jpg');
-            $('.img_slots_massimo-download').attr('src', '/_Static/Images/bnr-clubmassimo-slots2.jpg');
-            $('.img_slots_palazzo').attr('src', '/_Static/Images/bnr-clubpalazzo-slots.jpg');
-            $('.img_slots_palazzo-download').attr('src', '/_Static/Images/bnr-clubpalazzo-slots2.jpg');
-            $('.img_slots_gallardo').attr('src', '/_Static/Images/bnr-clubgallardo.jpg');
-            $('.img_slots_apollo').attr('src', '/_Static/Images/bnr-clubapollo.jpg');
-            $('.img_slots_divino').attr('src', '/_Static/Images/bnr-clubdivino.jpg');
+            $('.img_slots_clubW_iOS').attr('src', _constants.IMAGES_URL + '/sports/bnr-clubW88-iOS.jpg');
+            $('.img_slots_clubW_Android').attr('src', _constants.IMAGES_URL + '/sports/bnr-clubW88-Android.jpg');
+            $('.img_slots_bravado').attr('src', _constants.IMAGES_URL + '/bnr-clubbravado.jpg');
+            $('.img_slots_massimo').attr('src', _constants.IMAGES_URL + '/bnr-clubmassimo-slots.jpg');
+            $('.img_slots_massimo-download').attr('src', _constants.IMAGES_URL + '/bnr-clubmassimo-slots2.jpg');
+            $('.img_slots_palazzo').attr('src', _constants.IMAGES_URL + '/bnr-clubpalazzo-slots.jpg');
+            $('.img_slots_palazzo-download').attr('src', _constants.IMAGES_URL + '/bnr-clubpalazzo-slots2.jpg');
+            $('.img_slots_gallardo').attr('src', _constants.IMAGES_URL + '/bnr-clubgallardo.jpg');
+            $('.img_slots_apollo').attr('src', _constants.IMAGES_URL + '/bnr-clubapollo.jpg');
+            $('.img_slots_divino').attr('src', _constants.IMAGES_URL + '/bnr-clubdivino.jpg');
 
         });
 
         // Fishing
         $('a.fishing').bind('touch click', function () {
-            $('.img_fishing_master_iOS').attr('src', '/_Static/Images/bnr-fishingmaster-iOs.jpg');
-            $('.img_fishing_master_Android').attr('src', '/_Static/Images/bnr-fishingmaster-android.jpg');
-            $('.img_fishing_world').attr('src', '/_Static/Images/thumbnail-FishingWorld.jpg');
+            $('.img_fishing_master_iOS').attr('src', _constants.IMAGES_URL + '/bnr-fishingmaster-iOs.jpg');
+            $('.img_fishing_master_Android').attr('src', _constants.IMAGES_URL + '/bnr-fishingmaster-android.jpg');
+            $('.img_fishing_world').attr('src', _constants.IMAGES_URL + '/thumbnail-FishingWorld.jpg');
         });
 
         // Lottery
         $('a.lottery').bind('touch click', function () {
-            $('.img_lottery_keno').attr('src', '/_Static/Images/bnr_lottery.jpg');
-            $('.img_lottery_pk10').attr('src', '/_Static/Images/lottery/bnr_lottery_pk10.jpg');
+            $('.img_lottery_keno').attr('src', _constants.IMAGES_URL + '/bnr_lottery.jpg');
+            $('.img_lottery_pk10').attr('src', _constants.IMAGES_URL + '/lottery/bnr_lottery_pk10.jpg');
         });
 
         // Poker
         $('a.poker').bind('touch click', function () {
-            $('.img_poker_iOS').attr('src', '/_Static/Images/bnr-fishingmaster-iOs.jpg');
-            $('.img_poker_Android').attr('src', '/_Static/Images/bnr-fishingmaster-android.jpg');
+            $('.img_poker_iOS').attr('src', _constants.IMAGES_URL + '/bnr-fishingmaster-iOs.jpg');
+            $('.img_poker_Android').attr('src', _constants.IMAGES_URL + '/bnr-fishingmaster-android.jpg');
         });
 
         // Texas Mahjong
         $('a.texas_mahjong').bind('touch click', function () {
-            $('.img_texas_mahjong_iOS').attr('src', '/_Static/Images/Download/TexasMahjong-iOS.jpg');
-            $('.img_texas_mahjong_Android').attr('src', '/_Static/Images/Download/TexasMahjong-Android.jpg');
-            $('.img_super_bull').attr('src', '/_Static/Images/Download/bnr-superbull-android.jpg');
+            $('.img_texas_mahjong_iOS').attr('src', _constants.IMAGES_URL + '/Download/TexasMahjong-iOS.jpg');
+            $('.img_texas_mahjong_Android').attr('src', _constants.IMAGES_URL + '/Download/TexasMahjong-Android.jpg');
+            $('.img_super_bull').attr('src', _constants.IMAGES_URL + '/Download/bnr-superbull-android.jpg');
         });
     }
 
-    function setTranslations() {
-        if ($.i18n("LABEL_MENU_HOME") != "LABEL_MENU_HOME") {
-            // Menu
-            $('.title_home').html($.i18n("LABEL_MENU_HOME"));
-            $('.title_login').html($.i18n("LABEL_MENU_LOGIN"));
-            $('.title_logout').html($.i18n("LABEL_MENU_LOGOUT"));
-            $('.title_desktop').html($.i18n("LABEL_MENU_DESKTOP"));
-            $('.title_promo').html($.i18n("LABEL_MENU_PROMOTIONS"));
-            $('.title_rewards').html($.i18n("LABEL_MENU_REWARDS"));
-            $('.title_live_chat').html($.i18n("LABEL_MENU_LIVE_CHAT"));
-            $('.title_language').html($.i18n("LABEL_MENU_LANGUAGE"));
+    function getUrl() {
+
+        // Login
+        $('.url_login').attr('href', _constants.LOGIN_URL);
 
             // Funds
-            $('.title_funds').html($.i18n("LABEL_MENU_FUNDS"));
-            $('.title_deposit').html($.i18n("LABEL_FUNDS_DEPOSIT"));
-            $('.title_transfer').html($.i18n("LABEL_FUNDS_TRANSFER"));
-            $('.title_withdraw').html($.i18n("LABEL_FUNDS_WIDRAW"));
-            $('.title_history').html($.i18n("LABEL_FUNDS_HISTORY"));
+        $('.url_deposit').attr('href', _constants.DEPOSIT_URL);
+        $('.url_transfer').attr('href', _constants.TRANSFER_URL);
+        $('.url_withdraw').attr('href', _constants.WITHRAW_URL);
+        $('.url_history').attr('href', _constants.HISTORY_URL);
 
             // Sports
-            $('.title_sports').html($.i18n("LABEL_MENU_SPORTS"));
-            $('.title_clubw').html($.i18n("LABEL_PRODUCTS_CLUB_W"));
-            $('.title_asport').html($.i18n("LABEL_PRODUCTS_ASPORTS"));
-            $('.title_esport').html($.i18n("LABEL_PRODUCTS_ESPORTS"));
-            $('.title_vsport').html($.i18n("LABEL_PRODUCTS_VSPORTS"));
-            $('.title_xsport').html($.i18n("LABEL_PRODUCTS_XSPORTS"));
+        getSportsUrl();
+
+        // Slot
+        $('.url_slot_bravado').attr('href', _constants.SLOTS_BRAVADO_URL);
+        $('.url_slot_massimo').attr('href', _constants.SLOTS_MASSIMO_URL);
+        $('.url_slot_massimo_download').attr('href', _constants.MASSIMO_SLOTS_URL);
+        $('.url_slot_palazzo').attr('href', _constants.SLOTS_PALAZZO_URL);
+        $('.url_slot_palazzo_download').attr('href', _constants.DOWNLOAD_PALAZZO_SLOT_URL);
+        $('.url_slot_gallardo').attr('href', _constants.SLOTS_GALLARDO_URL);
+        $('.url_slot_apollo').attr('href', _constants.SLOTS_APOLLO_URL);
+        $('.url_slot_divino').attr('href', _constants.SLOTS_DIVINO_URL);
 
             // Casino
-            $('.title_live_casino').html($.i18n("LABEL_MENU_LIVE_CASINO"));
-            $('.title_clubwpremier').html($.i18n("LABEL_PRODUCTS_CLUB_W_PREMIER"));
+        $('.url_download').attr('href', _constants.DOWNLOAD_URL);
+        $('.url_download_clubW_ios').attr('href', _constants.DOWNLOAD_CLUBW_IOS_URL);
+        $('.url_download_palazzo').attr('href', _constants.DOWNLOAD_PALAZZO_CASINO_URL);
 
-            // Slots
-            $('.title_slots').html($.i18n("LABEL_MENU_SLOTS"));
-            $('.title_bravado').html($.i18n("LABEL_PRODUCTS_BRAVADO"));
-            $('.title_massimo').html($.i18n("LABEL_PRODUCTS_MASSIMO"));
-            $('.title_massimo_download').html($.i18n("LABEL_PRODUCTS_MASSIMO_DOWNLOAD"));
-            $('.title_palazzo').html($.i18n("LABEL_PRODUCTS_PALAZZO"));
-            $('.title_palazzo_download').html($.i18n("LABEL_PRODUCTS_PALAZZO_DOWNLOAD"));
-            $('.title_gallardo').html($.i18n("LABEL_PRODUCTS_GALLARDO"));
-            $('.title_apollo').html($.i18n("LABEL_PRODUCTS_APOLLO"));
-            $('.title_divino').html($.i18n("LABEL_PRODUCTS_DIVINO"));
+        // Promotions
+        $('.url_promo').attr('href', _constants.PROMO_URL);
 
-            // Fishing Master
-            $('.title_fishing').html($.i18n("LABEL_PRODUCTS_FISHING"));
-            $('.title_fishing_master').html($.i18n("LABEL_PRODUCTS_FISHING_MASTER"));
-            $('.title_fishing_world').html($.i18n("LABEL_PRODUCTS_FISHING_WORLD"));
+        // Texas Mahjong
+        $('.url_texas_mahjong').attr('href', _constants.DOWNLOAD_TM_IOS_URL);
+        $('.url_super_bull').attr('href', _constants.DOWNLOAD_SB_IOS_URL);
+    }
 
-            // Lottery
-            $('.title_lottery').html($.i18n("LABEL_MENU_LOTTERY"));
-            $('.title_keno').html($.i18n("LABEL_PRODUCTS_KENO"));
-            $('.title_kp10').html($.i18n("LABEL_PRODUCTS_PK10"));
-            $('.play-pk').html($.i18n("BUTTON_PLAY_NOW"));
-            $('.try-pk').html($.i18n("BUTTON_TRY_NOW"));
+    function getSportsUrl() {
+        var aSportsItem = {
+            "Link": _constants.A_SPORTS_URL,
+            "Lang": {
+                "en-us": "en",
+                "id-id": "id",
+                "ja-jp": "jp",
+                "km-kh": "en",
+                "ko-kr": "ko",
+                "th-th": "th",
+                "vi-vn": "vn",
+                "zh-cn": "cs"
+            }
+        };
 
-            // Poker
-            $('.title_poker').html($.i18n("LABEL_MENU_POKER"));
+        var eSportsItem = {
+            "Link": _constants.E_SPORTS_URL,
+            "Lang": {
+                "en-us": "236",
+                "id-id": "242",
+                "ja-jp": "269",
+                "km-kh": "236",
+                "ko-kr": "270",
+                "th-th": "244",
+                "vi-vn": "241",
+                "zh-cn": "240"
+            }
+        };
 
-            // Texas Mahjong
-            $('.title_texas_mahjong').html($.i18n("LABEL_MENU_TEXAS_MAHJONG"));
-            $('.title_super_bull').html($.i18n("LABEL_MENU_P2P"));
-            $('.title_android').html($.i18n("LABEL_ANDROID_DOWNLOAD"));
-            $('.title_ios').html($.i18n("LABEL_IOS_DOWNLOAD"));
+        var xSportsItem = {
+            "Link": {
+                "Fun": _constants.X_SPORTS_FUN_URL,
+                "Real": _constants.X_SPORTS_REAL_URL
+            },
+            "Lang": {
+                "en-us": "en-US",
+                "id-id": "id-ID",
+                "ja-jp": "ja-JP",
+                "km-kh": "en-US",
+                "ko-kr": "ko-KR",
+                "th-th": "th-TH",
+                "vi-vn": "vi-VN",
+                "zh-cn": "zh-CN"
+            },
+            "Currency": {
+                "RMB": "CNY",
+                "VND": "VD",
+            }
+        };
+
+        // TODO: get values from localstorage
+        var selectedLang = siteCookie.getCookie("language");
+        var memberID = window.User.memberId;
+        var currency = siteCookie.getCookie('currencyCode');
+
+        if (_.isEmpty(siteCookie.getCookie("s"))) {
+            $('.url_sports_A').attr('href', _constants.LOGIN_URL);
+
+            $('.url_sports_E').attr('href', _constants.LOGIN_URL);
+
+            var xsportsLink = xSportsItem.Link.Fun.replace('{LANG}', xSportsItem.Lang[selectedLang]);
+            $('.url_sports_X').attr('href', xsportsLink);
 
         } else {
-            window.setInterval(function () {
-                setTranslations();
-            }, 500);
+
+            var asportsLink = aSportsItem.Link.replace('{LANG}', aSportsItem.Lang[selectedLang]);
+            $('.url_sports_A').attr('href', asportsLink);
+
+            var esportsLink = eSportsItem.Link.replace('{LANG}', eSportsItem.Lang[selectedLang]);
+            $('.url_sports_E').attr('href', esportsLink);
+
+            var xsportsLink = xSportsItem.Link.Real.replace('{LANG}', xSportsItem.Lang[selectedLang]).replace('{USER}', memberID).replace('{CURR}', xSportsItem.Currency[currency] || currency);
+            $('.url_sports_X').attr('href', xsportsLink);
         }
+
+        $('.url_sports_V').attr('href', _constants.V_SPORTS_URL);
+
     }
 
     return menu;

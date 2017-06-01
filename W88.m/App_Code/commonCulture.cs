@@ -868,6 +868,19 @@ namespace commonCulture
             }
         }
 
+        public static void getRootResource(string fileName, string languageCode, out System.Xml.Linq.XElement xElement)
+        {
+            xElement = null;
+            string xmlFilePath = string.Empty;
+
+            xmlFilePath = System.Web.HttpContext.Current.Server.MapPath(@"~/App_Data/" + languageCode + @"/" + fileName + ".xml");
+            if (System.IO.File.Exists(xmlFilePath)) { xElement = System.Xml.Linq.XElement.Load(xmlFilePath); }
+            else
+            {
+                xmlFilePath = System.Web.HttpContext.Current.Server.MapPath(@"~/App_Data/en-us/" + fileName + ".xml");
+                if (System.IO.File.Exists(xmlFilePath)) { xElement = System.Xml.Linq.XElement.Load(xmlFilePath); }
+            }
+        }
 
         public static System.Xml.Linq.XElement getRootResource(string fileName)
         {

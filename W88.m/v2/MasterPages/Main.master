@@ -106,7 +106,7 @@
                     var isHome = (!base.Page.Items.Contains("Parent") || !commonFunctions.isExternalPlatform());
                     var navIcon = isHome ? "icon-navicon" : "icon-back";
                     var navUrl = isHome ? "#" : base.Page.Items["Parent"];
-                    var hasFooter = isHome && commonFunctions.isMainPage(Request);
+                    var hasFooter = commonFunctions.isMainPage(Request);
                 %>
                 <a href="<%=navUrl %>" class="header-button header-button-left" id="nav-btn<%=(commonFunctions.isExternalPlatform()) ? "-native" : "" %>"><span class="icon <%=navIcon %>"></span></a>
                 <h1 class="header-title"><%=(base.Page.Title == "Dashboard" ? "<img alt=\"Dashboard\" src=\"" + ConfigurationManager.AppSettings.Get("AssetsPath") + "/assets/images/logo-en.png\" />" : base.Page.Title) %></h1>
@@ -160,9 +160,28 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
-    <asp:ContentPlaceHolder ID="ScriptPlaceHolder" runat="server">
+    <!-- Modal -->
+    <div class="modal fade" id="freerounds-modal" tabindex="-1" role="dialog" aria-labelledby="freerounds">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img class="img-responsive" src="/_static/images/v2/freerounds/Popup-free-round-<%=commonVariables.SelectedLanguageShort.ToLower()%>.jpg" />
+                    <div class="row extra-thin-gutter">
+                        <div class="col-xs-6 col-sm-6">
+                            <a id="btnClaimNow" href="#" data-ajax="false"
+                                class="btn btn-block btn-primary" data-i18n="BUTTON_CLAIM"></a>
+                        </div>
+                        <div class="col-xs-6 col-sm-6">
+                            <a id="btnClaimLater" href="/v2/slots/bravado" data-ajax="false"
+                                class="btn btn-block btn-default" data-i18n="BUTTON_CLAIM_LATER"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/constants.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <asp:ContentPlaceHolder ID="ScriptPlaceHolder" runat="server">
         <script>
 
             if (!_.isUndefined(w88Mobile.Growl)) {
@@ -186,10 +205,10 @@
                     window.open(urlRewards, "RewardsWindow");
                 });
                 $(".footer .btn-menu-funds").click(function () {
-                    location.href = "/v2/Funds.aspx";
+                    location.href = _constants.FUNDS_URL;
                 });
                 $(".footer .btn-menu-promo").click(function () {
-                    location.href = "/Promotions";
+                    location.href = _constants.PROMO_URL;
                 });
                 $(".footer .btn-menu-chat").click(function () {
                     try {
@@ -197,8 +216,7 @@
                     } catch (e) {
                         console.log("Native does not exist!");
 
-                        var liveChat = '<%=ConfigurationManager.AppSettings["LiveChat"].Replace("{DOMAIN}", commonIp.DomainName)%>' +
-                            '<%=HttpContext.Current.Request.Url.ToString()%>';
+                        var liveChat = '<%=Helpers.Pages.LiveChat%>';
                         window.open(liveChat, "ChatWindow");
                     }
                 });
@@ -215,6 +233,10 @@
                     }
                 });
 
+                // WTF checking if we are going to hide menu or not
+                if (typeof Native == "undefined") {
+                    $("#nav-btn-native").hide();
+                }
             });
 
             // hackish way to communicate in between iframes lol, check slots page, surprisingly, it has too

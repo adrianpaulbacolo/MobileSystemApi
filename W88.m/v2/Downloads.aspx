@@ -42,91 +42,89 @@
                     title: $.i18n("LABEL_PRODUCTS_CLUB_W"),
                     ios: {
                         src: "/_Static/Images/sports/bnr-clubW88-iOS.jpg",
-                        link: "/v2/Downloads/clubW88-iOS",
+                        link: _constants.DOWNLOAD_CLUBW_IOS_URL,
                     },
                     others: {
                         src: "/_Static/Images/sports/bnr-clubW88-Android.jpg",
-                        link: "<%=commonClubWAPK.getDownloadUrl%>",
+                        link: _constants.CLUBW_APK_URL,
                         target: "_blank"
                     }
                 },
                 {
-                    title: "<%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%><small><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></small>",
+                    title: $.i18n("LABEL_PRODUCTS_MASSIMO") + "<small>" + $.i18n("LABEL_MENU_SLOTS") + "</small>",
                     others: {
                         src: "/_Static/v2/Assets/Images/downloads/MGS-Slots-Android.jpg",
-                        link: "http://resigner.qfcontent.com/w88.apk",
+                        link: _constants.MASSIMO_SLOTS_URL,
                     }
                 },
                 {
-                    title: "<%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%><small><%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%></small>",
+                    title: $.i18n("LABEL_PRODUCTS_MASSIMO") + "<small>" + $.i18n("LABEL_MENU_LIVE_CASINO") + "</small>",
                     others: {
                         src: "/_Static/v2/Assets/Images/downloads/MGS-LiveCasino-Android.jpg",
-                        link: "https://livegames.cdn.gameassists.co.uk/AIR/Poria/Installer/V20021/w88/Download.html",
+                        link: _constants.MASSIMO_URL,
                         target: "_blank"
                     }
                 },
                 {
-                    title: "<%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%><small><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></small>",
+                    title: $.i18n("LABEL_PRODUCTS_PALAZZO") + "<small>" + $.i18n("LABEL_MENU_SLOTS") + "</small>",
                     others: {
                         src: "/_Static/v2/Assets/Images/downloads/PT-Slots-Android.jpg",
-                        link: "/v2/Downloads/palazzo-slots",
+                        link: _constants.DOWNLOAD_PALAZZO_SLOT_URL,
                     }
                 },
                 {
-                    title: "<%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%><small><%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%></small>",
+                    title: $.i18n("LABEL_PRODUCTS_PALAZZO") + "<small>" + $.i18n("LABEL_MENU_LIVE_CASINO") + "</small>",
                     others: {
                         src: "/_Static/v2/Assets/Images/downloads/PT-LiveCasino-Android.jpg",
-                        link: "/v2/Downloads/palazzo-casino",
+                        link: _constants.DOWNLOAD_PALAZZO_CASINO_URL,
                     }
                 },
                 {
-                    title: "<%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%>",
+                    title: $.i18n("LABEL_PRODUCTS_FISHING_MASTER"),
                     ios: {
                         src: "/_Static/v2/Assets/Images/downloads/FishingMaster-iOS.jpg",
-                        link: "itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/manifest.plist"
+                        link: _constants.FISHING_MASTER_IOS_URL
                     },
                     others: {
                         src: "/_Static/v2/Assets/Images/downloads/FishingMaster-Android.jpg",
-                        link: "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/FishingMaster.apk"
+                        link: _constants.FISHING_MASTER_APK_URL
                     }
                 },
                 {
-                    title: "<%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%>",
+                    title: $.i18n("LABEL_MENU_POKER"),
                     ios: {
                         src: "/_Static/v2/Assets/Images/downloads/Poker-iOS.jpg",
-                        link: "itms-services://?action=download-manifest&url=https://dlportal.good-game-network.com/mobile/installer/ios/W88"
+                        link: _constants.POKER_IOS_URL
                     },
                     others: {
                         src: "/_Static/v2/Assets/Images/downloads/Poker-Android.jpg",
-                        link: "http://dlportal.good-game-network.com/mobile/installer/android/W88",
+                        link: _constants.POKER_APK_URL
                     }
                 },
                 {
-                    title: "<%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%>",
+                    title: $.i18n("LABEL_MENU_TEXAS_MAHJONG"),
                     ios: {
                         src: "/_Static/v2/Assets/Images/downloads/TexasMahjong-iOS.jpg",
-                        link: "/v2/Downloads/texas-mahjong-ios",
+                        link: _constants.DOWNLOAD_TM_IOS_URL,
                     },
                     others: {
                         src: "/_Static/v2/Assets/Images/downloads/TexasMahjong-Android.jpg",
-                        link: "https://tm.gp2play.com/mobile/android/install.html",
+                        link: _constants.TEXAS_MAHJONG_APK_URL
                     }
                 },
                 {
                     title: $.i18n("LABEL_MENU_SUPERBULL"),
                     ios: {
                         src: "/_Static/Images/Download/bnr-superbull-ios.jpg",
-                        link: "/v2/Downloads/super-bull-ios",
+                        link: _constants.DOWNLOAD_SB_IOS_URL,
                     },
                     others: {
                         src: "/_Static/Images/Download/bnr-superbull-android.jpg",
-                        link: "<%= commonFunctions.GetSuperBullDownloadLink()%>",
+                        link: _constants.SUPER_BULL_APK_URL,
                         target: "_blank"
                     }
                 }
         ];
-
-
 
         var walletListTpl = _.template(
             $("script#downloadItem").html()

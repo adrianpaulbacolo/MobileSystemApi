@@ -21,6 +21,7 @@ public class BasePage : Page
     protected string Language = string.Empty;
     protected static readonly IpHelper IpHelper = new IpHelper();
     
+    #region Page Properties
     protected string ContentLanguage
     {
         get
@@ -111,9 +112,15 @@ public class BasePage : Page
         }
     }
 
+    protected string PageTitle
+    {
+        get { return Title; }
+        set { Title = value; }
+    }
+    
     public static string Token 
     {
-        get 
+        get
         { 
             var cookie = HttpContext.Current.Request.Cookies.Get("s");
             return cookie == null ? string.Empty : cookie.Value;
@@ -126,10 +133,13 @@ public class BasePage : Page
             HttpContext.Current.Response.Cookies.Add(cookie);
         }   
     }
+    #endregion
 
+    #region Page Methods
     protected override async void OnPreInit(EventArgs e)
     {
         base.OnPreInit(e);        
+
         var language = HttpContext.Current.Request.QueryString.Get("lang");
         Language = !string.IsNullOrEmpty(language) ? language : LanguageHelpers.SelectedLanguage;
         HasSession = await CheckSession();
@@ -143,12 +153,15 @@ public class BasePage : Page
         if (!string.IsNullOrEmpty(allowedUsers) && HasSession
             && Array.IndexOf(allowedUsers.ToLower().Split('|'), UserSessionInfo.MemberCode.ToLower()) >= 0)
             isAllowedAccess = true;
+
         if (!isAllowedAccess)
         {
             Response.Redirect("/_Static/Pages/enhancement-all.aspx", false);
         }
     }
+    #endregion
 
+    #region Protected Methods
     protected async Task<bool> CheckSession()
     {
         try
@@ -158,6 +171,7 @@ public class BasePage : Page
             {                
                 token = Encryption.Decrypt(W88.Utilities.Constant.EncryptionType.TripleDESCS, token);               
             }
+
             if (string.IsNullOrEmpty(token))
             {
                 token = HttpContext.Current.Request.Headers.Get("token");
@@ -196,4 +210,5 @@ public class BasePage : Page
             string.IsNullOrEmpty(Language) ? LanguageHelpers.SelectedLanguage : Language, 
             string.Format("contents/{0}", string.IsNullOrEmpty(fileName) ? "translations" : fileName));
     }
+    #endregion
 }

@@ -8,7 +8,7 @@ function Routes() {
             w88Mobile.v2.Routes.currentPage().css("display", "none");
         }
 
-        var pageTpl = (!_.isEmpty(_templates.Mainpage)) ? _templates.Mainpage : '/_Static/v2new/assets/templates/page.html';
+        var pageTpl = (!_.isEmpty(_templates.Mainpage)) ? _templates.Mainpage : '/_Static/v2/assets/js/modules/slots/templates/page.html';
 
         return $.when($.get(pageTpl, function (template) {
 
@@ -322,12 +322,15 @@ function Routes() {
         },
         slotRoutes: function () {
 
+            var indexRoute = function (params) {
+                if (w88Mobile.v2.Routes.isSameRoute('index')) return;
+                if (w88Mobile.v2.Routes.stack().length == 0) w88Mobile.v2.Routes.changeRoute('index');
+                else w88Mobile.v2.Routes.clearStack(1);
+            }
+
             return slotRoutes = {
-                '/v2/slots': function () {
-                    if (w88Mobile.v2.Routes.isSameRoute('index')) return;
-                    if (w88Mobile.v2.Routes.stack().length == 0) w88Mobile.v2.Routes.changeRoute('index');
-                    else w88Mobile.v2.Routes.clearStack(1);
-                },
+                '/v2/slots?:params': indexRoute,
+                '/v2/slots': indexRoute,
                 '/v2/slots/:club': function (club) {
                     if (w88Mobile.v2.Routes.isSameRoute('club')) return;
                     if (w88Mobile.v2.Routes.stack().length == 0) {

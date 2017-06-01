@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" %>
+﻿<%@ Page Language="C#" Inherits="v2_Slots_Default" CodeFile="Default.aspx.cs" AutoEventWireup="true" %>
 
 <%--<%  var club = (RouteData.Values["club"] != null) ? RouteData.Values["club"] : ""; %>--%>
 <!DOCTYPE html>
@@ -81,44 +81,51 @@
         </div>
     </div>
 
-    <script src="/_Static/v2new/assets/js/modules/cookies.js"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/cookie.js"></script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/_Static/v2new/assets/js/vendor/jquery.js"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/jquery-2.2.4.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/bootstrap.min.js"></script>
     <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/amplify.min.js"></script>
-    <script src="/_Static/JS/vendor/lodash.min.js"></script>
-    <script src="/_Static/v2new/assets/js/vendor/pubsub.js"></script>
-    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/constants.js"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/lodash.min.js"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/pubsub.js"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/slots/settings/<%=SlotSettingsFile %>.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/jquery.i18n.min.js"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/jquery.i18n.messagestore.min.js"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/jquery.i18n.fallbacks.min.js"></script>
     <script type="text/javascript">
         w88Mobile = {};
         w88Mobile.v2 = {};
         w88Mobile.v2._templates = {};
-        w88Mobile.v2.Constants = _constants;
         window.User = w88Mobile.User = {};
         w88Mobile.User.token = Cookies().getCookie('s');
         w88Mobile.User.hasSession = !_.isEmpty(w88Mobile.User.token);
         w88Mobile.User.lang = Cookies().getCookie('language');
-
+        window.User.storageExpiration = { expires: 300000 };
         String.prototype.toCapitalize = function () {
             return this.charAt(0).toUpperCase() + this.slice(1);
         }
-    </script>
-    <script type="text/javascript" src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/growl.js"></script>
-    <script src="/_Static/v2new/assets/js/modules/templates.js"></script>
-    <script src="/_Static/v2new/assets/js/modules/slots.js"></script>
-    <script src="/_Static/v2new/assets/js/modules/translate.js"></script>
-    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/loader.js"></script>
-    <script src="/_Static/v2new/assets/js/modules/ctrl/slotsCtrl.js"></script>
-    <script src="/_Static/v2new/assets/js/modules/ctrl/clubsCtrl.js"></script>
-    <script src="/_Static/v2new/assets/js/modules/ctrl/launcherCtrl.js"></script>
-    <script src="/_Static/v2new/assets/js/modules/routes.js"></script>
+    </script>    
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/constants.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/growl.js"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/slots/shared/templates.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/slots/shared/slots.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/i18n/contents-<%=commonVariables.SelectedLanguageShort%>.js"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/translate.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/loader.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/slots/ctrl/slotsCtrl.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/slots/ctrl/clubsCtrl.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/slots/ctrl/launcherCtrl.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/slots/shared/routes.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
     <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/usercheck.js"></script>
-    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/router.js"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/router.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
     <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/history.min.js"></script>
     <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/history.adapter.jquery.min.js"></script>
     <script src="https://login.goldenphoenix88.com/jswrapper/integration.js.php?casino=blacktiger88" type="text/javascript"></script>
     <script type="text/javascript">
+        // @todo remove this later if v2.Constants is no longer used
+        w88Mobile.v2.Constants = _constants;
+        w88Mobile.APIUrl = _constants.API_URL;
         w88Mobile.Growl.init();
         _.templateSettings = {
             interpolate: /\{\{(.+?)\}\}/g,      // print value: {{ value_name }}
@@ -139,7 +146,7 @@
         var _templates = w88Mobile.v2._templates; // alias for templates
         _templates.init();
 
-        w88Mobile.v2._contents = new w88Mobile.v2.Translate();
+        w88Mobile.v2._contents = new w88Mobile.Translate();
         var _contents = w88Mobile.v2._contents; // alias for contents
         _contents.init();
 
@@ -156,6 +163,7 @@
         }
 
         function onContentsLoaded(topic, data) {
+
             $(document).ready(function () {
                 pubsub.publish("changeHeader");
                 _routes.init();
@@ -510,6 +518,13 @@
                 _routes.currentCtrl().resize();
             }
         });
+
+        // remove floating button
+        try {
+            Native.onSlotGameClosed();
+        } catch (e) {
+            console.log(e.message)
+        }
 
     </script>
 </body>

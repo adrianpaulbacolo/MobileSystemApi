@@ -21,7 +21,23 @@ public class Banner
     public Banner(int deviceId)
     {
         _deviceId = deviceId;
-        commonCulture.appData.getRootResource("leftMenu", out promoResource);
+        
+        string languageCode = commonVariables.SelectedLanguage;
+
+        if (commonVariables.CDNCountryCode.Equals("MY", StringComparison.OrdinalIgnoreCase))
+        {
+            switch (languageCode)
+            {
+                case "en-us":
+                    languageCode = "en-my";
+                    break;
+                case "zh-cn":
+                    languageCode = "zh-my";
+                    break;
+            }
+        }
+
+        commonCulture.appData.GetRootResourceNonLanguage(string.Format("/Shared/Banners/Banners.{0}", languageCode), out promoResource);
         BannerTemplate = "<a href=\"{link}\" class=\"slick-slide\">" +
             "<img src=\"{img}\" alt=\"\">" +
         "</a>";

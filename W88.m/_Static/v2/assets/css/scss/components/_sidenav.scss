@@ -4,6 +4,10 @@
 	@include linearGradient($sidemenu-bg, $sidemenu-bg2);
 	&.overflow-shown{
 		overflow: visible;
+		nav{
+			height: 100%;
+			overflow-y: scroll; 
+		}
 	}
 }
 
