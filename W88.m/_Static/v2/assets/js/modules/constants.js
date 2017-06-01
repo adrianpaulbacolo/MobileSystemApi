@@ -10,6 +10,8 @@ var _constants = {
     , IMAGES_URL: "/_static/images"
     , DASHBOARD_URL: "/v2/Dashboard.aspx"
     , LOGIN_URL: "/v2/Account/Login.aspx"
+    , REGISTER_URL: "/v2/Account/Rgister.aspx"
+    , REGISTER_SUCCESS_URL: "/v2/Account/RgisterSuccess.aspx"
     , FUNDS_URL: "/v2/Funds.aspx"
     , DEPOSIT_URL: "/v2/Deposit/Default.aspx"
     , TRANSFER_URL: "/v2/FundTransfer/Default.aspx"
@@ -57,4 +59,6 @@ var _constants = {
     // PROD, CLUBW_APK_URL: "https://casino.gp2play.com/mob/download.html?op=w88"
     , PALAZZO_CASINO_APK_URL: "http://mlive.w88palazzo.com"
     , PALAZZO_SLOT_APK_URL: "http://mgames.w88palazzo.com"
+    , TERMS_URL: "https://info.w88live.com/termofuse_en.shtml"
+    , LIVECHAT_URL: "http://www.{DOMAIN}/common/livechat.ashx?url=".replace("{DOMAIN}", location.hostname.split('.').slice(-2).join('.')) + location.href
 };

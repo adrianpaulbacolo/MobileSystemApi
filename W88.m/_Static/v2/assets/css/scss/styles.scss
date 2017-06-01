@@ -23,11 +23,13 @@
 @import "components/footer";
 @import "components/banner";
 @import "components/language";
+@import "components/bank-logos";
 //@import "modules/bottom-nav";
 
 // Pages
 @import "pages/login";
 @import "pages/home";
+@import "pages/register";
 @import "pages/gateway";
 @import "pages/games";
 @import "pages/transfer";
