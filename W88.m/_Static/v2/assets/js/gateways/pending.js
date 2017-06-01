@@ -15,19 +15,19 @@ function Pending() {
     }
 
     pending.init = function () {
-        $('label[id$="lblTransactionId"]').text(_w88_contents.translate("LABEL_TRANSACTION_ID"));
-        $('label[id$="lblRequestTime"]').text(_w88_contents.translate("LABEL_DATE_TIME"));
-        $('label[id$="lblPaymentMethod"]').text(_w88_contents.translate("LABEL_PAYMENT_METHOD"));
-        $('label[id$="lblAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
-        $('label[id$="lblStatus"]').text(_w88_contents.translate("LABEL_FIELDS_STATUS"));
+        $('label[id$="lblTransactionId"]').text($.i18n("LABEL_TRANSACTION_ID"));
+        $('label[id$="lblRequestTime"]').text($.i18n("LABEL_DATE_TIME"));
+        $('label[id$="lblPaymentMethod"]').text($.i18n("LABEL_PAYMENT_METHOD"));
+        $('label[id$="lblAmount"]').text($.i18n("LABEL_AMOUNT"));
+        $('label[id$="lblStatus"]').text($.i18n("LABEL_FIELDS_STATUS"));
 
-        var widrawText = _w88_contents.translate("LABEL_HISTORY_DEPOSITWIDRAW").split("/");
-        $('#btnCancel').text(_w88_contents.translate("BUTTON_CANCEL") + " " + $.trim(widrawText[1]));
+        var widrawText = $.i18n("LABEL_HISTORY_DEPOSITWIDRAW").split("/");
+        $('#btnCancel').text($.i18n("BUTTON_CANCEL") + " " + $.trim(widrawText[1]));
 
         $('.gateway-select').hide();
         $('.gateway-restrictions').hide();
         $('#btnSubmitPlacement').hide();
-        $('header .header-title').text(_w88_contents.translate("LABEL_FUNDS_WIDRAW"));
+        $('header .header-title').text($.i18n("LABEL_FUNDS_WIDRAW"));
 
         var pendingWithdraw = amplify.store(withdrawStorageKey);
 

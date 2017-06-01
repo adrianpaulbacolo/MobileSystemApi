@@ -28,21 +28,21 @@ function TopUp() {
 
     topup.setTranslations = function () {
         $(".pay-note").show();
-        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-        $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_" + methodId));
+        $("#paymentNote").text($.i18n("LABEL_PAYMENT_NOTE"));
+        $("#paymentNoteContent").html($.i18n("LABEL_MSG_" + methodId));
 
-        defaultSelect = _w88_contents.translate("LABEL_SELECT_DEFAULT");
-        $('label[id$="lblPin"]').text(_w88_contents.translate("LABEL_CARD_PIN"));
-        $('label[id$="lblAmount"]').html(_w88_contents.translate("LABEL_CARD_AMOUNT"));
+        defaultSelect = $.i18n("LABEL_SELECT_DEFAULT");
+        $('label[id$="lblPin"]').text($.i18n("LABEL_CARD_PIN"));
+        $('label[id$="lblAmount"]').html($.i18n("LABEL_CARD_AMOUNT"));
 
         switch (methodId) {
             case "120286":
-                $('label[id$="lblDenomType"]').text(_w88_contents.translate("LABEL_TELCO_NAME"));
-                $('label[id$="lblCardSerialNo"]').text(_w88_contents.translate("LABEL_CARD_SERIAL"));
+                $('label[id$="lblDenomType"]').text($.i18n("LABEL_TELCO_NAME"));
+                $('label[id$="lblCardSerialNo"]').text($.i18n("LABEL_CARD_SERIAL"));
                 break;
             case "1202112":
-                $('label[id$="lblDenomType"]').html(_w88_contents.translate("LABEL_CARD_TYPE"));
-                $('label[id$="lblCardNo"]').html(_w88_contents.translate("LABEL_CARD_NUMBER"));
+                $('label[id$="lblDenomType"]').html($.i18n("LABEL_CARD_TYPE"));
+                $('label[id$="lblCardNo"]').html($.i18n("LABEL_CARD_NUMBER"));
                 break;
             default:
                 break;
@@ -102,7 +102,7 @@ function TopUp() {
         });
 
         if (!_.isEmpty(fee)) {
-            $('#paymentNoteContent').html(_w88_contents.translate("LABEL_MSG_" + methodId) + fee);
+            $('#paymentNoteContent').html($.i18n("LABEL_MSG_" + methodId) + fee);
         }
     };
 

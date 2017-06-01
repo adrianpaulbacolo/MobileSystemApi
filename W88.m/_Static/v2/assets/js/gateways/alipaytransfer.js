@@ -18,12 +18,12 @@ function AliPayTransfer() {
         methodId = id;
 
         $(".pay-note").show();
-        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-        $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_" + methodId));
+        $("#paymentNote").text($.i18n("LABEL_PAYMENT_NOTE"));
+        $("#paymentNoteContent").html($.i18n("LABEL_MSG_" + methodId));
 
-        $("#copyAmount").html(_w88_contents.translate("LABEL_COPY"));
-        $("#copyAccountName").html(_w88_contents.translate("LABEL_COPY"));
-        $("#copyAccountNo").html(_w88_contents.translate("LABEL_COPY"));
+        $("#copyAmount").html($.i18n("LABEL_COPY"));
+        $("#copyAccountName").html($.i18n("LABEL_COPY"));
+        $("#copyAccountNo").html($.i18n("LABEL_COPY"));
 
         $('#copyAmount').on('click', function () {
             var amount = $("#txtStep2Amount").text().slice(2); //this will removed the ": "
@@ -42,17 +42,17 @@ function AliPayTransfer() {
     };
 
     alipaytransfer.initTransactionInfo = function () {
-        $('#lblStatus').text(_w88_contents.translate("LABEL_FIELDS_STATUS"));
-        $('#lblTransactionId').text(_w88_contents.translate("LABEL_TRANSACTION_ID"));
-        $('#lblAmount').text(_w88_contents.translate("LABEL_AMOUNT"));
-        $('#lblAmount2').text(_w88_contents.translate("LABEL_AMOUNT"));
-        $('#lblBankName').text(_w88_contents.translate("LABEL_BANK_NAME"));
-        $('#lblBankHolderName').text(_w88_contents.translate("LABEL_ACCOUNT_NAME"));
-        $('#lblBankAccountNo').text(_w88_contents.translate("LABEL_ACCOUNT_NUMBER"));
+        $('#lblStatus').text($.i18n("LABEL_FIELDS_STATUS"));
+        $('#lblTransactionId').text($.i18n("LABEL_TRANSACTION_ID"));
+        $('#lblAmount').text($.i18n("LABEL_AMOUNT"));
+        $('#lblAmount2').text($.i18n("LABEL_AMOUNT"));
+        $('#lblBankName').text($.i18n("LABEL_BANK_NAME"));
+        $('#lblBankHolderName').text($.i18n("LABEL_ACCOUNT_NAME"));
+        $('#lblBankAccountNo').text($.i18n("LABEL_ACCOUNT_NUMBER"));
 
         $(".pay-note").show();
-        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-        $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_AMOUNT_" + methodId));
+        $("#paymentNote").text($.i18n("LABEL_PAYMENT_NOTE"));
+        $("#paymentNoteContent").html($.i18n("LABEL_MSG_AMOUNT_" + methodId));
 
         $('#PaymentInfo').show();
         $('#PaymentAmount').hide();
@@ -104,7 +104,7 @@ function AliPayTransfer() {
         input.select();
 
         var s = document.execCommand('copy', false, null);
-        window.w88Mobile.Growl.shout(s == true ? _w88_contents.translate("LABEL_COPIED") : "Unable to Copy");
+        window.w88Mobile.Growl.shout(s == true ? $.i18n("LABEL_COPIED") : "Unable to Copy");
 
         input.remove();
     };

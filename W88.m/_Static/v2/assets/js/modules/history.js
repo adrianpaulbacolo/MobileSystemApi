@@ -108,22 +108,22 @@ function History() {
         $('.history-full').append(innerHtml);
         $('.history-full').show();
 
-        $('#transId-lbl').text(_w88_contents.translate("LABEL_TRANSACTION_ID"));
-        $('#status-lbl').text(_w88_contents.translate("LABEL_STATUS"));
-        $('#method-lbl').text(_w88_contents.translate("LABEL_PAYMENT_METHOD"));
+        $('#transId-lbl').text($.i18n("LABEL_TRANSACTION_ID"));
+        $('#status-lbl').text($.i18n("LABEL_STATUS"));
+        $('#method-lbl').text($.i18n("LABEL_PAYMENT_METHOD"));
 
-        $('#cat-lbl').text(_w88_contents.translate("LABEL_CATEGORY"));
-        $('#prod-lbl').text(_w88_contents.translate("LABEL_PRODUCT"));
-        $('#msg-lbl').text(_w88_contents.translate("LABEL_MESSAGE"));
-        $('#source-lbl').text(_w88_contents.translate("LABEL_SOURCE"));
+        $('#cat-lbl').text($.i18n("LABEL_CATEGORY"));
+        $('#prod-lbl').text($.i18n("LABEL_PRODUCT"));
+        $('#msg-lbl').text($.i18n("LABEL_MESSAGE"));
+        $('#source-lbl').text($.i18n("LABEL_SOURCE"));
 
-        $('#subAmt-lbl').text(_w88_contents.translate("LABEL_SUBMITTED_AMOUNT"));
-        $('#recAmt-lbl').text(_w88_contents.translate("LABEL_RECEIVED_AMOUNT"));
-        $('#amt-lbl').text(_w88_contents.translate("LABEL_AMOUNT"));
+        $('#subAmt-lbl').text($.i18n("LABEL_SUBMITTED_AMOUNT"));
+        $('#recAmt-lbl').text($.i18n("LABEL_RECEIVED_AMOUNT"));
+        $('#amt-lbl').text($.i18n("LABEL_AMOUNT"));
 
-        $('#dt-lbl').text(_w88_contents.translate("LABEL_DATE_TIME"));
-        $('#from-lbl').text(_w88_contents.translate("LABEL_FROM"));
-        $('#to-lbl').text(_w88_contents.translate("LABEL_TO"));
+        $('#dt-lbl').text($.i18n("LABEL_DATE_TIME"));
+        $('#from-lbl').text($.i18n("LABEL_FROM"));
+        $('#to-lbl').text($.i18n("LABEL_TO"));
     }
 
 
@@ -235,20 +235,20 @@ function History() {
     }
 
     function setTranslations() {
-        $("header .header-title").text(_w88_contents.translate("LABEL_FUNDS_HISTORY"));
-        $('button[id$="btnSubmit"]').text(_w88_contents.translate("BUTTON_SUBMIT"));
-        document.title = _w88_contents.translate("LABEL_FUNDS_HISTORY");
+        $("header .header-title").text($.i18n("LABEL_FUNDS_HISTORY"));
+        $('button[id$="btnSubmit"]').text($.i18n("BUTTON_SUBMIT"));
+        document.title = $.i18n("LABEL_FUNDS_HISTORY");
 
-        $('label[id$="lblTransactionType"]').text(_w88_contents.translate("LABEL_TRANSACTION"));
-        $('label[id$="lblDateFrom"]').text(_w88_contents.translate("LABEL_STARTDATE"));
-        $('label[id$="lblDateTo"]').text(_w88_contents.translate("LABEL_ENDDATE"));
-        $('label[id$="lblType"]').text(_w88_contents.translate("LABEL_TYPE"));
-        $('label[id$="lblStatus"]').text(_w88_contents.translate("LABEL_STATUS"));
+        $('label[id$="lblTransactionType"]').text($.i18n("LABEL_TRANSACTION"));
+        $('label[id$="lblDateFrom"]').text($.i18n("LABEL_STARTDATE"));
+        $('label[id$="lblDateTo"]').text($.i18n("LABEL_ENDDATE"));
+        $('label[id$="lblType"]').text($.i18n("LABEL_TYPE"));
+        $('label[id$="lblStatus"]').text($.i18n("LABEL_STATUS"));
 
-        $('#adj-lbl').text(_w88_contents.translate("LABEL_HISTORY_ADJUSTMENT"));
-        $('#dep-lbl').text(_w88_contents.translate("LABEL_HISTORY_DEPOSITWIDRAW"));
-        $('#fund-lbl').text(_w88_contents.translate("LABEL_HISTORY_FUND_TRANSFER"));
-        $('#promo-lbl').text(_w88_contents.translate("LABEL_HISTORY_PROMO_CLAIM"));
+        $('#adj-lbl').text($.i18n("LABEL_HISTORY_ADJUSTMENT"));
+        $('#dep-lbl').text($.i18n("LABEL_HISTORY_DEPOSITWIDRAW"));
+        $('#fund-lbl').text($.i18n("LABEL_HISTORY_FUND_TRANSFER"));
+        $('#promo-lbl').text($.i18n("LABEL_HISTORY_PROMO_CLAIM"));
     }
 
     function getSelection() {
@@ -458,7 +458,7 @@ function History() {
         $('#' + data.Type + ' .history-data').empty();
         $('#' + data.Type).append(innerHtml);
 
-        $('.to-lbl').text(_w88_contents.translate("LABEL_TO"));
+        $('.to-lbl').text($.i18n("LABEL_TO"));
     }
 
     function bindSlick(reportType) {
@@ -546,7 +546,7 @@ function History() {
     };
 
     function onSetTransType(topic, data) {
-        $('select[id$="ddlTransactionType"]').append($("<option></option>").val(data.Default).text(_w88_contents.translate("LABEL_SELECT_DEFAULT")))
+        $('select[id$="ddlTransactionType"]').append($("<option></option>").val(data.Default).text($.i18n("LABEL_SELECT_DEFAULT")))
 
         _.each(data.Type, function (item, index) {
             $('select[id$="ddlTransactionType"]').append($("<option></option>").val(item.Value).text(item.Text))
@@ -579,7 +579,7 @@ function History() {
 
         $('select[id$="ddlType"]').empty();
 
-        $('select[id$="ddlType"]').append($("<option></option>").val(data.Default).text(_w88_contents.translate("LABEL_ALL_DEFAULT")))
+        $('select[id$="ddlType"]').append($("<option></option>").val(data.Default).text($.i18n("LABEL_ALL_DEFAULT")))
 
         _.each(data.Type, function (item, index) {
             $('select[id$="ddlType"]').append($("<option></option>").val(item.Id).text(item.Name))

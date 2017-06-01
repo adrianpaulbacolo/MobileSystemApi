@@ -18,12 +18,12 @@ function BaokimV2() {
         baokim.method = method;
 
         $(".pay-note").show();
-        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-        $("#paymentNoteContent").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_" + baokim.method));
+        $("#paymentNote").text($.i18n("LABEL_PAYMENT_NOTE"));
+        $("#paymentNoteContent").html($.i18n("LABEL_PAYMENT_NOTE_" + baokim.method));
 
-        $('label[id$="lblAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
-        $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
-        $('label[id$="lblEmail"]').text(_w88_contents.translate("LABEL_EMAIL"));
+        $('label[id$="lblAmount"]').text($.i18n("LABEL_AMOUNT"));
+        $('label[id$="lblBank"]').text($.i18n("LABEL_BANK"));
+        $('label[id$="lblEmail"]').text($.i18n("LABEL_EMAIL"));
 
         var amount = getQueryStringValue("requestAmount");
         if (!_.isEmpty(amount)) {
@@ -50,7 +50,7 @@ function BaokimV2() {
 
     baokim.showOTP = function () {
         $('.otp').show();
-        $('label[id$="lblOtp"]').text(_w88_contents.translate("LABEL_OTP"));
+        $('label[id$="lblOtp"]').text($.i18n("LABEL_OTP"));
         $('input[id$="txtOtp"]').attr({ required: '', 'data-require': '' });
         $('#form1').validator('update')
     };
@@ -66,19 +66,19 @@ function BaokimV2() {
         baokim.method = method;
 
         $(".pay-note").show();
-        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-        $("#paymentNoteContent").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_" + baokim.method));
+        $("#paymentNote").text($.i18n("LABEL_PAYMENT_NOTE"));
+        $("#paymentNoteContent").html($.i18n("LABEL_PAYMENT_NOTE_" + baokim.method));
 
-        $('label[id$="lblAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
-        $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
-        $('label[id$="lblEmail"]').text(_w88_contents.translate("LABEL_EMAIL"));
-        $('label[id$="lblContact"]').text(_w88_contents.translate("LABEL_CONTACT"));
+        $('label[id$="lblAmount"]').text($.i18n("LABEL_AMOUNT"));
+        $('label[id$="lblBank"]').text($.i18n("LABEL_BANK"));
+        $('label[id$="lblEmail"]').text($.i18n("LABEL_EMAIL"));
+        $('label[id$="lblContact"]').text($.i18n("LABEL_CONTACT"));
 
         baokim.getBanks();
     };
 
     baokim.initWithdraw = function () {
-        $('label[id$="lblEmail"]').text(_w88_contents.translate("LABEL_EMAIL"));
+        $('label[id$="lblEmail"]').text($.i18n("LABEL_EMAIL"));
     };
 
     baokim.createWalletDeposit = function (data) {
@@ -150,7 +150,7 @@ function BaokimV2() {
 
         _self.send("/banks/vendor/" + methodId, "GET", "", function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
-                $('select[id$="drpBank"]').append($('<option>').text(_w88_contents.translate("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
+                $('select[id$="drpBank"]').append($('<option>').text($.i18n("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
 
                 _.forOwn(response.ResponseData, function (data) {
                     $('select[id$="drpBank"]').append($('<option>').text(data.Text).attr('value', data.Value));

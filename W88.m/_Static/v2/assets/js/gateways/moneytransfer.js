@@ -28,28 +28,28 @@ function MoneyTransfer() {
     };
 
     moneytransfer.setTranslations = function (isDeposit) {
-        $('label[id$="lblAccountName"]').text(_w88_contents.translate("LABEL_ACCOUNT_NAME"));
-        $('label[id$="lblAccountNumber"]').text(_w88_contents.translate("LABEL_ACCOUNT_NUMBER"));
+        $('label[id$="lblAccountName"]').text($.i18n("LABEL_ACCOUNT_NAME"));
+        $('label[id$="lblAccountNumber"]').text($.i18n("LABEL_ACCOUNT_NUMBER"));
 
         if (isDeposit) {
-            $('label[id$="lblDepositDateTime"]').text(_w88_contents.translate("LABEL_DEPOSIT_DATETIME"));
-            $('label[id$="lblSystemAccount"]').text(_w88_contents.translate("LABEL_SYSTEM_ACCOUNT"));
+            $('label[id$="lblDepositDateTime"]').text($.i18n("LABEL_DEPOSIT_DATETIME"));
+            $('label[id$="lblSystemAccount"]').text($.i18n("LABEL_SYSTEM_ACCOUNT"));
         }
         else {
-            $('label[id$="lblContact"]').text(_w88_contents.translate("LABEL_MOBILE_NUMBER"));
+            $('label[id$="lblContact"]').text($.i18n("LABEL_MOBILE_NUMBER"));
             $('input[id$="txtPhoneNumber"]').mask('999999999999');
         }
 
         switch (methodId) {
             case "1103132":
-                $('label[id$="lblReferenceId"]').text(_w88_contents.translate("LABEL_TRANSACTION_ID"));
+                $('label[id$="lblReferenceId"]').text($.i18n("LABEL_TRANSACTION_ID"));
                 break;
 
             case "220895":
             case "120296":
-                $('label[id$="lblAccountName"]').text("Venus Point " + _w88_contents.translate("LABEL_ACCOUNT_ID"));
-                $('label[id$="lblAccountNumber"]').text("Venus Point " + _w88_contents.translate("LABEL_PASSWORD"));
-                $('label[id$="lblReferenceId"]').text(_w88_contents.translate("LABEL_TRANSACTION_ID"));
+                $('label[id$="lblAccountName"]').text("Venus Point " + $.i18n("LABEL_ACCOUNT_ID"));
+                $('label[id$="lblAccountNumber"]').text("Venus Point " + $.i18n("LABEL_PASSWORD"));
+                $('label[id$="lblReferenceId"]').text($.i18n("LABEL_TRANSACTION_ID"));
 
                 $('input[id$="txtAmount"]').blur(function () {
                     if ($(this).val() && _.isEqual(siteCookie.getCookie('currencyCode'), 'JPY')) {
@@ -65,19 +65,19 @@ function MoneyTransfer() {
                 break;
 
             case "120214":
-                $('label[id$="lblAccountName"]').text("Neteller " + _w88_contents.translate("LABEL_USERNAME"));
-                $('label[id$="lblAccountNumber"]').text("Neteller " + _w88_contents.translate("LABEL_PASSWORD"));
+                $('label[id$="lblAccountName"]').text("Neteller " + $.i18n("LABEL_USERNAME"));
+                $('label[id$="lblAccountNumber"]').text("Neteller " + $.i18n("LABEL_PASSWORD"));
                 break;
 
             case "2208121":
-                $('label[id$="lblAddress"]').text(_w88_contents.translate("LABEL_ADDRESS"));
+                $('label[id$="lblAddress"]').text($.i18n("LABEL_ADDRESS"));
 
                 $(".pay-note").show();
-                $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_" + methodId));
+                $("#paymentNote").text($.i18n("LABEL_PAYMENT_NOTE"));
+                $("#paymentNoteContent").html($.i18n("LABEL_MSG_" + methodId));
             case "110308":
             default:
-                $('label[id$="lblReferenceId"]').text(_w88_contents.translate("LABEL_REFERENCE_ID"));
+                $('label[id$="lblReferenceId"]').text($.i18n("LABEL_REFERENCE_ID"));
                 break;
         }
     }
@@ -87,7 +87,7 @@ function MoneyTransfer() {
 
         _self.send("/Banks/money/" + methodId, "GET", "", function (response) {
             if (!_.isEqual(response.ResponseCode, 0)) {
-                $('select[id$="drpSystemAccount"]').append($("<option></option>").attr("value", "-1").text(_w88_contents.translate("LABEL_SELECT_DEFAULT")));
+                $('select[id$="drpSystemAccount"]').append($("<option></option>").attr("value", "-1").text($.i18n("LABEL_SELECT_DEFAULT")));
 
                 _.forEach(response.ResponseData, function (data) {
                     $('select[id$="drpSystemAccount"]').append($("<option></option>").attr("value", data.Value).text(data.Text))
@@ -118,7 +118,7 @@ function MoneyTransfer() {
 
         _self.send("/CountryPhoneList", "GET", "", function (response) {
             if (!_.isEqual(response.ResponseCode, 0)) {
-                $('select[id$="drpContactCountry"]').append($("<option></option>").attr("value", "-1").text(_w88_contents.translate("LABEL_SELECT_DEFAULT")));
+                $('select[id$="drpContactCountry"]').append($("<option></option>").attr("value", "-1").text($.i18n("LABEL_SELECT_DEFAULT")));
 
                 _.forEach(response.ResponseData.PhoneList, function (data) {
                     $('select[id$="drpContactCountry"]').append($("<option></option>").attr("value", data.Value).text(data.Text));

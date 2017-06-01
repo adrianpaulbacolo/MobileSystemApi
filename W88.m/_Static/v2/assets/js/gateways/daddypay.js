@@ -14,9 +14,9 @@ function DaddyPayV2() {
     daddypay.init = function (id) {
         methodId = id;
 
-        $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
-        $('label[id$="lblAccountName"]').text(_w88_contents.translate("LABEL_ACCOUNT_NAME"));
-        $('label[id$="lblAccountNumber"]').text(_w88_contents.translate("LABEL_ACCOUNT_NUMBER"));
+        $('label[id$="lblBank"]').text($.i18n("LABEL_BANK"));
+        $('label[id$="lblAccountName"]').text($.i18n("LABEL_ACCOUNT_NAME"));
+        $('label[id$="lblAccountNumber"]').text($.i18n("LABEL_ACCOUNT_NUMBER"));
 
         daddypay.getBanks();
 
@@ -46,7 +46,7 @@ function DaddyPayV2() {
         var _self = this;
 
         _self.send("/Banks/vendor/" + methodId, "GET", "", function (response) {
-            $('select[id$="drpBank"]').append($('<option>').text(_w88_contents.translate("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
+            $('select[id$="drpBank"]').append($('<option>').text($.i18n("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
 
             _.forOwn(response.ResponseData, function (data) {
                 $('select[id$="drpBank"]').append($('<option>').text(data.Text).attr('value', data.Value));
