@@ -4,12 +4,14 @@ var _w88_register = window.w88Mobile.Register;
 function Register() {
 
     var register = {};
+    var paymentCache;
 
     register.init = function (gatewayId) {
 
         _w88_validator.initiateValidator("#form1");
 
         $('header .header-title').append($.i18n("LABEL_MENU_REGISTER"));
+        $('.url_terms').attr('href', _constants.TERMS_URL);
 
         register.getCountryPhoneList();
 
@@ -28,6 +30,81 @@ function Register() {
             $('.lineid').hide();
         }
     };
+
+    register.initSuccess = function () {
+        // piwik tracking signup
+        w88Mobile.PiwikManager.trackSignup();
+
+        $('#reg-contact').html($.i18n('LABEL_REGISTER_CONTACT_US', _constants.TERMS_URL));
+
+        fetchDepositSettings(function () {
+            if (paymentCache.settings.length == 0) {
+                // track accounts with no gateways
+                w88Mobile.PiwikManager.trackEvent({
+                    category: "RegSuccess",
+                    action: window.User.countryCode,
+                    name: window.User.memberId
+                });
+
+                $('#paymentNote').html($.i18n('LABEL_PAYMENT_NOTE_NO_GATEWAY'));
+            }
+            else {
+                // payment cache variable is now present once callback is triggered
+                setDepositPaymentTab(paymentCache.settings);
+
+                $('#paymentNote').html($.i18n('LABEL_REGISTER_DEPOSIT_NOTE', _constants.TERMS_URL));
+            }
+        });
+    };
+
+    function fetchDepositSettings(callback) {
+
+        var cacheKey = w88Mobile.Keys.depositSettings;
+
+        paymentCache = amplify.store(cacheKey);
+
+        if (!_.isEmpty(paymentCache) && User.lang == paymentCache.language) {
+            callback();
+        } else {
+            _w88_send("/payments/settings/deposit", "GET", {}, function (response) {
+                switch (response.ResponseCode) {
+                    case 1:
+                        paymentCache = {
+                            settings: response.ResponseData
+                            , language: window.User.lang
+                        };
+                        amplify.store(cacheKey, paymentCache, User.storageExpiration);
+                        callback();
+                    default:
+                        break;
+                }
+            });
+        }
+    }
+
+    function setDepositPaymentTab(responseData) {
+        if (responseData.length > 0) {
+            var title = "", page = null;
+
+            for (var i = 0; i < responseData.length; i++) {
+                var data = responseData[i];
+
+                data.Method = _.isEmpty(data.Method) ? "" : data.Method;
+                data.Id = data.Id + data.Method;
+
+                if (_.isEmpty(data.Method) && _.isEqual(data.Name, "Baokim"))
+                    continue;
+
+                page = "/v2/Deposit/Pay" + data.Id + ".aspx";
+
+                var anchor = $('<a />', { class: 'list-group-item', id: data.Id, href: page }).text(data.Title);
+
+                if ($('#paymentTabs').length > 0)
+                    $('#paymentTabs').append(anchor);
+
+            }
+        }
+    }
 
     register.getCountryPhoneList = function () {
         _w88_send("/CountryPhoneList", "GET", "", function (response) {
@@ -61,10 +138,19 @@ function Register() {
 
     register.createAccount = function (data) {
         _w88_send("/user/Register", "POST", data, function (response) {
-            if (_.isArray(response.ResponseMessage))
-                w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
-            else
-                w88Mobile.Growl.shout(response.ResponseMessage);
+            switch (response.ResponseCode) {
+                case 1:
+                    w88Mobile.Growl.shout(response.ResponseMessage, function () {
+                        location.href = _constants.REGISTER_SUCCESS_URL;
+                    });
+                    break;
+                default:
+                    if (_.isArray(response.ResponseMessage))
+                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                    else
+                        w88Mobile.Growl.shout(response.ResponseMessage);
+                    break;
+            }
         });
     };
 

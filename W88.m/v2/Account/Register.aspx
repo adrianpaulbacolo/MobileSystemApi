@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/v2/MasterPages/Main.master" AutoEventWireup="true" CodeFile="Register.aspx.cs" Inherits="v2_Account_Register" %>
 
-<asp:Content ID="PaymentContent" ContentPlaceHolderID="MainContentHolder" runat="Server">
+<asp:Content ID="MainContent" ContentPlaceHolderID="MainContentHolder" runat="Server">
     <div class="form-container">
         <div class="container">
             <form class="form" id="form1" runat="server">
@@ -135,7 +135,7 @@
 
                 <div class="form-group text-center ">
                     <p class="small text-alt" data-i18n="LABEL_REGISTER_DISCLAIMER"></p>
-                    <p class="small"><a href="https://info.w88live.com/termofuse_en.shtml" target="_blank" data-i18n="LABEL_TERMS"></a></p>
+                    <p class="small"><a href="#" class="url_terms" target="_blank" data-i18n="LABEL_REGISTER_TERMS"></a></p>
                 </div>
                 <button type="submit" id="btnSubmit" class="btn btn-block btn-primary" data-i18n="BUTTON_SUBMIT"></button>
             </form>
@@ -161,9 +161,8 @@
                         Firstname: $('[id$="txtFullName"]').val(),
                         Email: $('[id$="txtEmail"]').val(),
                         DateOfBirth: formatDateTime($('[id$="txtDateOfBirth"]').datebox('getTheDate')),
-                        Phone: $('[id$="txtConfirmPassword"]').val(),
                         CountryCode: $('[id$="drpCountryCode"]').val(),
-                        ContactNumber: $('[id$="txtPhoneNumber"]').val(),
+                        Phone: $('[id$="txtPhoneNumber"]').val(),
                         CurrencyCode: $('[id$="drpCurrency"]').val(),
                         AffiliateId: $('[id$="txtAffiliateID"]').val(),
                         LineId: $('[id$="txtLineId"]').val(),

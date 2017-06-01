@@ -120,6 +120,7 @@
 }
 canvas {
     display: block;
+    position: absolute;
 }
 #spinWheelContainer {
     width: 100%;
@@ -149,9 +150,11 @@ canvas {
 }
 #spinWheelContent {
     text-align: center;
-    position: relative;
+    position: absolute;
     margin: 0 auto;
-    top: -105px;
+    top: 60px;
+    left: 0;
+    right: 0;
 }
 #roulette, #wheelPointer {
     max-width: 604px;
@@ -643,10 +646,10 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
     }
     #roulette, #wheelPointer {
         width: 91.8%;
-        left: 24px;
+        left: 23px;
     }
     #spinButton, #countdownContainer {
-        top: 590px;
+        top: 605px;
     }
     #prizes {
         top: -26px;
@@ -704,6 +707,39 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
     }
     #pic {
         left: 181px;
+    }
+}
+@media only screen and (min-width: 592px) {
+    #roulette, #wheelPointer {
+        left: 24px;
+    }
+    #prizes {
+        top: -15px;
+        left: -14px;
+    }
+    #pic {
+        left: 190px;
+        top: 4px;
+    }
+    #prizeContainer p {
+        top: 108px;
+        left: 156px;
+        font-size: 12px;
+    }
+}
+@media only screen and (min-width: 598px) {
+    #prizes {
+        top: -13px;
+        left: -12px;
+    }
+    #pic {
+        left: 193px;
+        top: 10px;
+    }
+    #prizeContainer p {
+        top: 119px;
+        left: 157px;
+        font-size: 11px;
     }
 }
 @media only screen and (min-width: 600px) {
@@ -821,6 +857,11 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         left: 181px;
     }
 }
+@media only screen and (min-width: 684px) {
+    #roulette, #wheelPointer {
+        left: 32px;
+    }
+}
 @media only screen and (min-width: 732px) {
     #roulette, #wheelPointer {
         width: 83.9%;
@@ -927,6 +968,18 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         left: 357px
     }
 }
+@media only screen and (min-width: 1080px) {
+    #roulette, #wheelPointer {
+        left: 230px;
+    }
+    #pic {
+        left: 382px;
+    }
+    #prizeContainer p {
+        left: 355px;
+        font-size: 17px;
+    }
+}
 @media only screen and (min-width: 1280px) {
     #spinWheelContainer {
         top: 80px;
@@ -960,6 +1013,17 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         width: 35%;
     }
     #pic {
-        left: 529px
+        left: 529px;
+    }
+}
+@media only screen and (min-width: 1920px) {
+    #roulette, #wheelPointer {
+        left: 650px;
+    }
+    #prizeContainer p {
+        left: 775px;
+    }
+    #pic {
+        left: 805px;
     }
 }

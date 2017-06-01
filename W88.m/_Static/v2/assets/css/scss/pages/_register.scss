@@ -1,0 +1,81 @@
+.register-success-icon{
+	font-size: 7rem;
+	line-height: 100%;
+	color: rgba($white, 0.75);
+}
+.register-success-message{
+	padding: 15px 0;
+	text-align: center;
+	h4{
+		font-size: 1.313rem;
+		color: $brand-alt;
+		margin-left: auto;
+		margin-right: auto;
+        margin-top: 0;
+	}
+    p.payment-note{
+    	color: $text-color;
+        background-color: rgba($white,0.075);
+        padding: 15px;
+        @include border-radius(3px)
+    }
+}
+
+.register-success-content{
+	padding: 30px;
+	max-width: 767px;
+	margin-left: auto;
+	margin-right: auto;
+	.table-container{
+		width: 100%;
+		overflow: auto;
+		table{
+			font-size: 1.2rem;
+			line-height: 2rem;
+			table-layout: fixed;
+			td, th {
+				padding: 15px 15px 15px 0;
+				vertical-align: top;
+			}
+			tr{
+				border-bottom: 1px solid rgba(255,255,255,0.03);
+				&:last-child{
+					border-bottom: none;
+				}
+			}
+		}
+	}
+	ol,
+	ul{
+		margin: 0 0 0 15px;
+		padding: 0;
+	}
+}
+
+.bank_logo{
+	margin-bottom: 15px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.register-gateway{
+    .list-group-item{
+    	font-size: 0.875rem;
+    	border: none;
+        font-family: "dinpro";
+        text-align: center;
+        background-color: lighten($brand-default, 3%);
+        color: $brand-alt;
+        text-transform: uppercase;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        margin-bottom: 1px;
+        display: block;
+        position: relative;
+        &:hover{
+        	color: $brand-alt;
+        	background-color: lighten($brand-default, 13%);
+        }
+    }
+
+}

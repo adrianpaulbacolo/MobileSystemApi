@@ -9,12 +9,7 @@ function Products() {
         var data = { cashier: _constants.FUNDS_URL, Lobby: _constants.SLOTS_BRAVADO_URL };
 
         _w88_send("/products/freerounds/gpi", "GET", data, function (response) {
-            switch (response.ResponseCode) {
-                case 1:
-                    pubsub.publish('checkFreeRounds', response.ResponseData);
-                default:
-                    break;
-            }
+            pubsub.publish('checkFreeRounds', response.ResponseData);
         });
     };
 
