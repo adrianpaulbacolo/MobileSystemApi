@@ -116,4 +116,6 @@
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/interceptor.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/products.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>    
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/menu.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+<script type="text/javascript" src="//clickheat.liveperson88.com/clickheat/js/clickheat.js"></script>
+<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/clickHeat.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/languages.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>

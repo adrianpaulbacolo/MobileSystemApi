@@ -105,3 +105,6 @@
         w88Mobile.Loader.init();
     });
 </script>
+
+<script type="text/javascript" src="//clickheat.liveperson88.com/clickheat/js/clickheat.js"></script>
+<script type="text/javascript" src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/clickHeat.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
