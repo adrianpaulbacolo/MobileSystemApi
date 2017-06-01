@@ -40,6 +40,9 @@ namespace Factories.Slots.Handlers
                 case "th-th":
                     return "th";
 
+                case "vi-vn":
+                    return "vi";
+
                 case "zh-cn":
                     return "zh-cn";
 
