@@ -60,5 +60,5 @@ var _constants = {
     , PALAZZO_CASINO_APK_URL: "http://mlive.w88palazzo.com"
     , PALAZZO_SLOT_APK_URL: "http://mgames.w88palazzo.com"
     , TERMS_URL: "https://info.w88live.com/termofuse_en.shtml"
-    , LIVECHAT_URL: "http://www.{DOMAIN}/common/livechat.ashx?url=".replace("{DOMAIN}", getDomainName()) + location.href
+    , LIVECHAT_URL: "http://www.{DOMAIN}/common/livechat.ashx?url=".replace("{DOMAIN}", location.hostname.split('.').slice(-2).join('.')) + location.href
 };
