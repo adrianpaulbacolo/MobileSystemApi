@@ -144,8 +144,6 @@ select.form-control {
 .checkbox-custom {
     label {
     padding-left: 0;
-    width: auto;
-    display: inline-block;
   }
 
     span {
@@ -189,6 +187,17 @@ select.form-control {
   input[type="radio"]:checked + span:before,
     input[type="checkbox"]:checked + span:before {
     color: $text-color !important;
+  }
+}
+
+html[data-useragent*='UBrowser'],
+html[data-useragent*='UCBrowser'] {
+  .radio-custom,
+  .checkbox-custom {
+      label {
+      width: 100%;
+      display: block;
+    }
   }
 }
 
