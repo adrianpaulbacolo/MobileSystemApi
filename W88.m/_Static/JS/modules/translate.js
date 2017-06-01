@@ -24,7 +24,8 @@ function translate() {
 
     this.fetch = function (lang, endpoint) {
         var _self = this;
-        endpoint = (_.isUndefined(endpoint)) ? "/contents" : endpoint;
+        var defaultRoute = "/" + lang + "/contents";
+        endpoint = (_.isUndefined(endpoint)) ? defaultRoute: endpoint;
         var url = w88Mobile.APIUrl + endpoint;
         var headers = {
             'Token': window.User.token,
