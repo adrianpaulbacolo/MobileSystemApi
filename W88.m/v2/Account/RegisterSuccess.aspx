@@ -2,21 +2,25 @@
 
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentHolder" runat="Server">
-    <div class="register-success-message">
-        <div class="register-success-icon"><span class="icon icon-check"></span></div>
-        <span data-i18n="[html]LABEL_REGISTER_SUCCESS"></span>
-        <p id="paymentNote"></p>
-    </div>
-    <div id="paymentTabs" class="register-gateway list-group">
-    </div>
-    <div class="bank_logo">
-        <p id="reg-contact"></p>
-        <i class="logo_10"></i>
-        <i class="logo_11"></i>
-        <i class="logo_12"></i>
-        <i class="logo_13"></i>
-        <i class="logo_14"></i>
-        <i class="logo_15"></i>
+    <div class="container">
+        <div class="register-success-message">
+            <div class="register-success-icon">
+                <span class="icon-check-circle"></span>
+            </div>
+            <span data-i18n="[html]LABEL_REGISTER_SUCCESS"></span>
+            <p class="payment-note"><small id="paymentNote"></small></p>
+        </div>
+        <div id="paymentTabs" class="register-gateway list-group">
+        </div>
+        <div class="bank_logo">
+            <p><small id="reg-contact"></small></p>
+            <i class="logo_10"></i>
+            <i class="logo_11"></i>
+            <i class="logo_12"></i>
+            <i class="logo_13"></i>
+            <i class="logo_14"></i>
+            <i class="logo_15"></i>
+        </div>
     </div>
 </asp:Content>
 
