@@ -170,8 +170,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                                 <img src="#" alt="" class="img_casino_clubW_Android">
                                 <span class="title_clubw" data-i18n="LABEL_PRODUCTS_CLUB_W"></span>
                             </a>
-                        </div>
-                        <%}%>
+                        </div>  
                         <!-- Palazzo -->
                         <div class="col-xs-6">
                             <a href="#" class="url_download_palazzo">
@@ -186,6 +185,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                                 <span class="title_massimo" data-i18n="LABEL_PRODUCTS_MASSIMO"></span>
                             </a>
                         </div>
+                        <%}%>
                     </div>
                 </div>
             </li>

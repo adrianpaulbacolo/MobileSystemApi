@@ -234,7 +234,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 </li>
                 <%}%>
                 <%}catch(Exception){}%>
-              
+                <% if(deviceId==3 || deviceId==2){ %>
                 <li>
                     <a class="card" data-rel="livecasino" rel="clubpalazzo-casino" href="/_static/palazzo/casino.aspx" data-ajax="false">
                         <img src="#" class="img-responsive clubpalazzo-casino-android">
@@ -247,6 +247,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <div class="title ClubMassimoNavTitle"></div>
                     </a>
                 </li>
+                <%}%>
             </ul>
         </li>
         <!-- Slots -->
@@ -626,7 +627,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
 
     $(function () {
 
-    var urlRewards = window.location.protocol + '//mrewards.' + '<%=commonIp.DomainName %>' + '?lang=' + '<%=commonVariables.SelectedLanguage%>' + '&token=' + '<%=commonVariables.EncryptedCurrentMemberSessionId%>';
+    var urlRewards = window.location.protocol + '//mrewards.' + '<%=commonIp.DomainName %>' + '/Catalogue/?lang=' + '<%=commonVariables.SelectedLanguage%>' + '&token=' + '<%=commonVariables.EncryptedCurrentMemberSessionId%>';
     $("#icon-rewards-sidebar").attr('href', urlRewards);
 
 	var url = window.location.protocol +'//www.'+ '<%=commonIp.DomainName %>' + '?nomobile=true';
