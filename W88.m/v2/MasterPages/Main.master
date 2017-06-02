@@ -200,8 +200,12 @@
                 $(".footer .btn-menu-rewards").click(function () {
                     var urlRewards = window.location.protocol +
                         '//mrewards.' + '<%=commonIp.DomainName %>' +
+                        _constants.REWARDS_LINK_SUFFIX + "/" +
                         '?lang=' + '<%=commonVariables.SelectedLanguage%>' +
                         '&token=' + '<%=commonVariables.EncryptedCurrentMemberSessionId%>';
+                    <% if (commonFunctions.isExternalPlatform()) { %>
+                        urlRewards += "&isNative=1";
+                    <% } %>
                     window.open(urlRewards, "RewardsWindow");
                 });
                 $(".footer .btn-menu-funds").click(function () {
