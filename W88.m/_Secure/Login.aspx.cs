@@ -15,6 +15,7 @@ public partial class _Secure_Login : BasePage
 {
     protected XElement xeErrors = null;
     protected string strRedirect = string.Empty;
+    protected string urlRedirect = string.Empty;
     protected bool isSlotRedirect = false;
 
     protected void Page_Load(object sender, EventArgs e)
@@ -24,11 +25,12 @@ public partial class _Secure_Login : BasePage
         commonCulture.appData.getLocalResource(out xeResources);
 
         strRedirect = Request.QueryString.Get("redirect");
-        if (string.IsNullOrEmpty(strRedirect))
+        urlRedirect = Request.QueryString.Get("url");
+        if (string.IsNullOrEmpty(urlRedirect) && !string.IsNullOrEmpty(urlRedirect))
         {
             //@todo find a better way to implement hackish solution 
             isSlotRedirect = true;
-            strRedirect = Request.QueryString.Get("url");
+            strRedirect = urlRedirect;
         }
 
         if (!string.IsNullOrWhiteSpace(strRedirect) && (strRedirect.ToLower().Contains("deposit") || strRedirect.ToLower().Contains("withdraw")))
