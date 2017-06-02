@@ -15,6 +15,7 @@ public partial class _Secure_Login : BasePage
 {
     protected XElement xeErrors = null;
     protected string strRedirect = string.Empty;
+    protected string urlRedirect = string.Empty;
     protected bool isSlotRedirect = false;
 
     protected void Page_Load(object sender, EventArgs e)
@@ -24,12 +25,7 @@ public partial class _Secure_Login : BasePage
         commonCulture.appData.getLocalResource(out xeResources);
 
         strRedirect = Request.QueryString.Get("redirect");
-        if (string.IsNullOrEmpty(strRedirect))
-        {
-            //@todo find a better way to implement hackish solution 
-            isSlotRedirect = true;
-            strRedirect = Request.QueryString.Get("url");
-        }
+        urlRedirect = Request.QueryString.Get("url");
 
         if (!string.IsNullOrWhiteSpace(strRedirect) && (strRedirect.ToLower().Contains("deposit") || strRedirect.ToLower().Contains("withdraw")))
             strRedirect = strRedirect.Replace("_app", "");
@@ -70,7 +66,7 @@ public partial class _Secure_Login : BasePage
         {
             if (string.IsNullOrEmpty(strRedirect))
             {
-                if (!string.IsNullOrEmpty(Request.QueryString["url"]))
+                if (!string.IsNullOrEmpty(urlRedirect))
                 {
                     isSlotRedirect = true;
 
@@ -78,7 +74,7 @@ public partial class _Secure_Login : BasePage
                     {
                         try
                         {
-                            var link = new Uri(Server.UrlDecode(Request.QueryString["url"]));
+                            var link = new Uri(Server.UrlDecode(urlRedirect));
                             NameValueCollection nvc = HttpUtility.ParseQueryString(link.Query);
 
                             var tokenArray = new string[] { "token", "s" };
@@ -121,12 +117,19 @@ public partial class _Secure_Login : BasePage
                             Response.Redirect(link.ToString() + "?" + nvc.ToString(), false);
                             Response.End();
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             throw;
                         }
 
                         Response.Redirect("/", true);
+                    }
+                    else
+                    {
+                        if (!string.IsNullOrEmpty(urlRedirect))
+                        {
+                            strRedirect = urlRedirect;
+                        }
                     }
                 }
                 else
