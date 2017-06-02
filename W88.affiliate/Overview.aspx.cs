@@ -54,8 +54,8 @@ public partial class _Overview : System.Web.UI.Page
             //affiliateLink = "/Track.aspx?affiliateid=" + Convert.ToString(string.IsNullOrEmpty((string)System.Web.HttpContext.Current.Session["AffiliateId"]) ? "" : (string)System.Web.HttpContext.Current.Session["AffiliateId"]);
             //affiliateUrl = System.Web.HttpContext.Current.Request.Url.Host.ToString() + "/Track.aspx?affiliateid=" + System.Web.HttpContext.Current.Session["AffiliateId"].ToString();
 
-            affiliateLink = "http://affiliate.w88aff.com/Track.aspx?affiliateid=" + Convert.ToString(string.IsNullOrEmpty((string)System.Web.HttpContext.Current.Session["AffiliateId"]) ? "" : (string)System.Web.HttpContext.Current.Session["AffiliateId"]);
-            affiliateUrl = "http://affiliate.w88aff.com/Track.aspx?affiliateid=" + System.Web.HttpContext.Current.Session["AffiliateId"].ToString();
+            affiliateLink = "http://affiliate.w88aff.com/Track.aspx?affiliateid=" + commonCookie.CookieAffiliateId;
+            affiliateUrl = "http://affiliate.w88aff.com/Track.aspx?affiliateid=" + commonCookie.CookieAffiliateId;
 
             #region overall summary
             DataSet dsSummary = new DataSet("Summary");
@@ -179,8 +179,8 @@ public partial class _Overview : System.Web.UI.Page
             using (wsAffiliateMS1.affiliateWSSoapClient svcAffiliateMS1 = new wsAffiliateMS1.affiliateWSSoapClient())
             {
 
-                DataSet dsAffOverview = svcAffiliateMS1.AffiliateOverview(long.Parse((string)System.Web.HttpContext.Current.Session["AffiliateId"]));
-                DataSet dsProdOverview = svcAffiliateMS1.ProductOverview(long.Parse((string)System.Web.HttpContext.Current.Session["AffiliateId"]));
+                DataSet dsAffOverview = svcAffiliateMS1.AffiliateOverview(long.Parse(commonCookie.CookieAffiliateId));
+                DataSet dsProdOverview = svcAffiliateMS1.ProductOverview(long.Parse(commonCookie.CookieAffiliateId));
                 DataTable dtAffOverviewProduct = dsProdOverview.Tables[0].DefaultView.ToTable(true, "productName");
 
                 #region aff Info & summary
@@ -236,7 +236,7 @@ public partial class _Overview : System.Web.UI.Page
 
                         using (mwsAffiliateMain.affiliateWSSoapClient svcAffiliateMain = new mwsAffiliateMain.affiliateWSSoapClient())
                         {
-                            DataSet dsNewSignupMemberCount = svcAffiliateMain.NewSignupMemberCount(long.Parse(Session["AffiliateId"].ToString()), DateTime.Now.Month, DateTime.Now.Year);
+                            DataSet dsNewSignupMemberCount = svcAffiliateMain.NewSignupMemberCount(long.Parse(commonCookie.CookieAffiliateId), DateTime.Now.Month, DateTime.Now.Year);
 
                             if (dsNewSignupMemberCount.Tables.Count > 0)
                             {
@@ -455,7 +455,7 @@ public partial class _Overview : System.Web.UI.Page
                 #endregion
 
                 #region sub affiliate summary & product
-                DataSet dsProdSubAff = svcAffiliateMS1.ProductSubAffOverview(long.Parse((string)System.Web.HttpContext.Current.Session["AffiliateId"]));
+                DataSet dsProdSubAff = svcAffiliateMS1.ProductSubAffOverview(long.Parse(commonCookie.CookieAffiliateId));
                 DataTable dtProdSubAff = dsProdSubAff.Tables[0].DefaultView.ToTable(true, "productName");
 
                 DataTable dtSA = (DataTable)dsSubAff.Tables[0];

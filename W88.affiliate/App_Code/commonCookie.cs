@@ -75,7 +75,21 @@ public static class commonCookie
         }
     }
 
-
+    public static string CookieAffiliateId
+    {
+        get
+        {
+            HttpCookie cookie = HttpContext.Current.Request.Cookies.Get("affiliateId");
+            return cookie == null ? "" : cookie.Value;
+        }
+        set
+        {
+            HttpCookie cookie = new HttpCookie("affiliateId");
+            cookie.Value = value;
+            if (!string.IsNullOrEmpty(commonIp.DomainName)) { cookie.Domain = commonIp.DomainName; }
+            HttpContext.Current.Response.Cookies.Add(cookie);
+        }
+    }
 
     public static void ClearCookies()
     {

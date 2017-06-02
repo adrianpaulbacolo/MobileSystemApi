@@ -77,6 +77,7 @@ public partial class _Secure_ProcessLoginBySessionId : System.Web.UI.Page
                                 //HttpContext.Current.Session.Add("PartialSignup", Convert.ToString(dsSignin.Tables[0].Rows[0]["partialSignup"]));
                                 HttpContext.Current.Session.Add("ResetPassword", Convert.ToString(dsSignin.Tables[0].Rows[0]["resetPassword"]));
 
+                                commonCookie.CookieAffiliateId = Convert.ToString(dsSignin.Tables[0].Rows[0]["affiliateID"]);
                                 commonCookie.CookieS = strMemberSessionId;
                                 commonCookie.CookieG = strMemberSessionId;
                                 HttpContext.Current.Session.Add("LoginStatus", "success");

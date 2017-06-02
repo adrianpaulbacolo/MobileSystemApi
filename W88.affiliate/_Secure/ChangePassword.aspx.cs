@@ -75,7 +75,7 @@ public partial class _Secure_ChangePassword : System.Web.UI.Page
         #region populateVariables
         strAlertCode = "-1";
 
-        strAffiliateId = (string)System.Web.HttpContext.Current.Session["AffiliateId"];
+        strAffiliateId = commonCookie.CookieAffiliateId;
         strPassword = txtCurrentPassword.Text;
         strPasswordNew = txtNewPassword.Text;
         strPasswordConfirm = txtConfirmPassword.Text;
@@ -139,7 +139,7 @@ public partial class _Secure_ChangePassword : System.Web.UI.Page
             {
                 using (wsAffiliateMS1.affiliateWSSoapClient wsInstanceAff = new wsAffiliateMS1.affiliateWSSoapClient("affiliateWSSoap"))
                 {
-                    intResult = wsInstanceAff.ChangePassword(long.Parse((string)System.Web.HttpContext.Current.Session["AffiliateId"]), strPasswordEncrypted, strPasswordNewEncrypted);
+                    intResult = wsInstanceAff.ChangePassword(long.Parse(commonCookie.CookieAffiliateId), strPasswordEncrypted, strPasswordNewEncrypted);
 
                     strProcessRemark = string.Format("OperatorId: {0} | AffiliateId: {1} | Password: {2} | PasswordNew: {3} | REMOTEIP: {4} | FORWARDEDIP: {5} | REQUESTERIP: {6}", lngOperatorId, strAffiliateId, strPasswordEncrypted, strPasswordNewEncrypted, commonIp.remoteIP, commonIp.forwardedIP, commonIp.requesterIP);
 

@@ -42,7 +42,7 @@ public partial class _Secure_SubAffMgmt : System.Web.UI.Page
             {
                 using (wsAffiliateMS1.affiliateWSSoapClient wsInstanceAff = new wsAffiliateMS1.affiliateWSSoapClient("affiliateWSSoap"))
                 {
-                    DataSet ds = wsInstanceAff.GetSubAffiliateList(long.Parse((string)System.Web.HttpContext.Current.Session["AffiliateId"]));
+                    DataSet ds = wsInstanceAff.GetSubAffiliateList(long.Parse(commonCookie.CookieAffiliateId));
 
                     if (ds.Tables[0].Rows.Count > 0)
                     {
@@ -117,7 +117,7 @@ public partial class _Secure_SubAffMgmt : System.Web.UI.Page
 
                 emailSubject = html.Substring(startPosition + subjectStartTag.Length, endposition - startPosition - subjectStartTag.Length);
                 emailContent = html.Replace(subjectStartTag + emailSubject + subjectEndTag, "");
-                emailContent = emailContent.Replace("[affiliateid]", (string)System.Web.HttpContext.Current.Session["AffiliateId"]);
+                emailContent = emailContent.Replace("[affiliateid]", commonCookie.CookieAffiliateId);
                 //emailContent = emailContent.Replace(".w88.com/register", (string)Session["domain_1"] + "/register");
                 //emailContent = emailContent.Replace(".w88.com/register", "." + domain + ".com/register");
                 emailContent = emailContent.Replace(".w88.com/register", "." + domain + "/register");
