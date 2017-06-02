@@ -99,38 +99,56 @@ public partial class _Secure_SubAffMgmt : System.Web.UI.Page
         bool utf8Content = false;
         bool utf8Subject = false;
 
-        if (html != "")
+
+
+        var wsaffiliate = new wsAffiliateMS1.affiliateWSSoapClient();
+        DataSet emailTemplateDS = wsaffiliate.GetEmailTemplate(1, 7, commonCookie.CookieLanguage);
+        if (emailTemplateDS.Tables.Count > 0 && emailTemplateDS.Tables[0].Rows.Count > 0)
         {
+            emailSubject = emailTemplateDS.Tables[0].Rows[0]["emailSubject"].ToString();
+            emailContent = emailTemplateDS.Tables[0].Rows[0]["emailContent"].ToString();
 
-
-
-
-            string subjectStartTag = "<!--emailsubject=";
-            string subjectEndTag = "=emailsubject-->";
-            int startPosition = html.IndexOf(subjectStartTag);
-            int endposition = html.IndexOf(subjectEndTag);
-
-            if (startPosition >= 0 && endposition >= 0)
+            emailContent = emailContent.Replace("[affiliateid]", (string)Session["affaffiliateID"]);
+            emailContent = emailContent.Replace("[domain]", string.Format("affiliate{0}", ((string)Session["domain_1"])));
+            emailContent = emailContent.Replace(".w88.com/register", (string)Session["domain_1"] + "/register");
+        }
+        else
+        {
+            if (html != "")
             {
-                string domain = commonIp.DomainName;
-                //string domain = "w88uat";
 
-                emailSubject = html.Substring(startPosition + subjectStartTag.Length, endposition - startPosition - subjectStartTag.Length);
-                emailContent = html.Replace(subjectStartTag + emailSubject + subjectEndTag, "");
-                emailContent = emailContent.Replace("[affiliateid]", commonCookie.CookieAffiliateId);
-                //emailContent = emailContent.Replace(".w88.com/register", (string)Session["domain_1"] + "/register");
-                //emailContent = emailContent.Replace(".w88.com/register", "." + domain + ".com/register");
-                emailContent = emailContent.Replace(".w88.com/register", "." + domain + "/register");
-                
 
-                if (commonVariables.SelectedLanguage.ToString().ToLower() != "en-us")
+
+
+                string subjectStartTag = "<!--emailsubject=";
+                string subjectEndTag = "=emailsubject-->";
+                int startPosition = html.IndexOf(subjectStartTag);
+                int endposition = html.IndexOf(subjectEndTag);
+
+                if (startPosition >= 0 && endposition >= 0)
                 {
-                    utf8Subject = true;
-                    utf8Content = true;
+                    string domain = commonIp.DomainName;
+                    //string domain = "w88uat";
 
+                    emailSubject = html.Substring(startPosition + subjectStartTag.Length, endposition - startPosition - subjectStartTag.Length);
+                    emailContent = html.Replace(subjectStartTag + emailSubject + subjectEndTag, "");
+                    emailContent = emailContent.Replace("[affiliateid]", commonCookie.CookieAffiliateId);
+                    //emailContent = emailContent.Replace(".w88.com/register", (string)Session["domain_1"] + "/register");
+                    //emailContent = emailContent.Replace(".w88.com/register", "." + domain + ".com/register");
+                    emailContent = emailContent.Replace(".w88.com/register", "." + domain + "/register");
+
+
+                    if (commonVariables.SelectedLanguage.ToString().ToLower() != "en-us")
+                    {
+                        utf8Subject = true;
+                        utf8Content = true;
+
+                    }
                 }
             }
         }
+
+
     }
 
     private void checkEmail(ref int result, string email)
