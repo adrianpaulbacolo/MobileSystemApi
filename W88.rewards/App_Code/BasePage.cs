@@ -75,6 +75,23 @@ public class BasePage : Page
         }
     }
 
+    public static dynamic IsNative
+    {
+        get
+        {
+            var cookie = HttpContext.Current.Request.Cookies.Get("isNative");
+            if (cookie == null) return false;
+            return cookie.Value == "1";
+        }
+        set
+        {
+            var cookie = HttpContext.Current.Request.Cookies.Get("isNative") ?? new HttpCookie("isNative");
+            cookie.Value = value;
+            if (!string.IsNullOrEmpty(IpHelper.DomainName)) { cookie.Domain = IpHelper.DomainName; }
+            HttpContext.Current.Response.Cookies.Add(cookie);
+        }
+    }
+
     protected bool IsUnderMaintenance
     {
         get
@@ -166,12 +183,16 @@ public class BasePage : Page
     {
         try
         {
+            if (HttpContext.Current.Request.QueryString.Get("isNative") == "1")
+            {
+                IsNative = "1";
+            }
+
             var token = HttpContext.Current.Request.QueryString.Get("token");
             if (!string.IsNullOrEmpty(token))
             {                
                 token = Encryption.Decrypt(W88.Utilities.Constant.EncryptionType.TripleDESCS, token);               
             }
-
             if (string.IsNullOrEmpty(token))
             {
                 token = HttpContext.Current.Request.Headers.Get("token");
