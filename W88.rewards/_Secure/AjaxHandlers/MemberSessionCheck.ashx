@@ -14,23 +14,6 @@ public class MemberSessionCheck : HttpTaskAsyncHandler, System.Web.SessionState.
     {   
         var token = new StreamReader(context.Request.InputStream).ReadToEnd();
         var process = await (new Members()).MembersSessionCheck(token);
-        
-        switch (process.Code)
-        {
-            case 0:
-                process.Message = RewardsHelper.GetTranslation(TranslationKeys.Errors.Exception);
-                break;
-            case 1:
-                process.Message = "Has Session";
-                break;
-            case 22:
-                process.Message = RewardsHelper.GetTranslation(TranslationKeys.Errors.InactiveAccount);
-                break;
-            default:
-                process.Message = RewardsHelper.GetTranslation(TranslationKeys.Errors.SessionExpired);
-                break;
-        }
-
         context.Response.ContentType = "application/json";
         context.Response.Write(Common.SerializeObject(process));
         context.Response.End();
