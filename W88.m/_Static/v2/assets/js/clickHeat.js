@@ -1,11 +1,16 @@
 ﻿
-$(document).ready(function() {
-    var url = window.location.href.toLowerCase();
+$(document).ready(function () {
+    var url = window.location.pathname.toLowerCase();
 
-    if (url.indexOf("/slots.aspx") > 0) {
+    switch (url) {
+        case "/slots.aspx":
         clickHeatGroup = 'W88MobileSlotsHome';
-    } else if (url.indexOf("/index.aspx") > 0) {
+            break;
+
+        case "/":
+        case "/index.aspx":
         clickHeatGroup = 'W88MobileIndex';
+            break;
     }
 
     if (clickHeatGroup.length > 0) {
