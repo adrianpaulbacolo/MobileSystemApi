@@ -21,17 +21,19 @@
         <div data-role="footer">
             <section class="footer footer-public">
                 <div class="btn-group btn-group-justified" role="group">
+                    <% if(!IsNative) { %>
                     <div class="btn-group" role="group">
-                        <% if (string.IsNullOrEmpty(Token)) { %>                        
-                            <a data-ajax="false" class="btn" href="/_Secure/Login.aspx">
-                                <span class="icon icon-login"></span><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Login)%>
-                            </a>
-                        <% } else {%>
-                            <a href="javascript: logout();" class="btn">
-                                <span class="icon icon-login"></span><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Logout)%>
-                            </a>
-                        <%} %>
+                    <% if (string.IsNullOrEmpty(Token)) { %>                        
+                        <a data-ajax="false" class="btn" href="/_Secure/Login.aspx">
+                            <span class="icon icon-login"></span><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Login)%>
+                        </a>
+                    <% } else {%>
+                        <a href="javascript: logout();" class="btn">
+                            <span class="icon icon-login"></span><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Logout)%>
+                        </a>
+                    <% } %>
                     </div>
+                    <% } %>
                     <div class="btn-group" role="group">
                         <a data-ajax="false" class="btn" href="/Catalogue?categoryId=0&sortBy=2">
                             <span class="icon icon-catalog"></span><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Catalogue)%>
