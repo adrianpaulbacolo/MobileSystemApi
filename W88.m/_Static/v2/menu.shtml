@@ -3,7 +3,7 @@ var deviceId = commonFunctions.getMobileDevice(Request);
 
 var massimoCasino = "https://livegames.cdn.gameassists.co.uk/AIR/Poria/Installer/V20021/w88/Download.html";
 
-var rewardsUrl = HttpContext.Current.Request.Url.Scheme + "://mrewards." + commonIp.DomainName + "?lang=" + commonVariables.SelectedLanguage + "&token=" + commonVariables.EncryptedCurrentMemberSessionId;
+var rewardsUrl = HttpContext.Current.Request.Url.Scheme + "://mrewards." + commonIp.DomainName + "/Catalogue/?lang=" + commonVariables.SelectedLanguage + "&token=" + commonVariables.EncryptedCurrentMemberSessionId;
 var desktopUrl = HttpContext.Current.Request.Url.Scheme + "://www." + commonIp.DomainName + "?nomobile=true";
 if (!string.IsNullOrWhiteSpace(commonCookie.CookieAffiliateId)) {
     desktopUrl += "&affiliateID=" + commonCookie.CookieAffiliateId;
@@ -172,8 +172,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                                 <img src="#" alt="" class="img_casino_clubW_Android">
                                 <span class="title_clubw" data-i18n="LABEL_PRODUCTS_CLUB_W"></span>
                             </a>
-                        </div>
-                        <%}%>
+                        </div> 
                         <!-- Palazzo -->
                         <div class="col-xs-6">
                             <a href="/_static/palazzo/casino.aspx">
@@ -188,6 +187,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                                 <span class="title_massimo" data-i18n="LABEL_PRODUCTS_MASSIMO"></span>
                             </a>
                         </div>
+                        <%}%>
                     </div>
                 </div>
             </li>
