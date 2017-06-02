@@ -206,8 +206,6 @@
                     <% if (commonFunctions.isExternalPlatform()) { %>
                         urlRewards += "&isNative=1";
                     <% } %>
-
-
                     window.open(urlRewards, "RewardsWindow");
                 });
                 $(".footer .btn-menu-funds").click(function () {
