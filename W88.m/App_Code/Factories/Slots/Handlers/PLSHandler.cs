@@ -32,7 +32,29 @@ namespace Factories.Slots.Handlers
 
         protected override string SetLanguageCode()
         {
-            return commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase) ? "zh" : "en";
+            switch (commonVariables.SelectedLanguage)
+            {
+                case "id-id":
+                    return "id";
+
+                case "ja-jp":
+                    return "ja";
+
+                case "ko-kr":
+                    return "ko";
+
+                case "th-th":
+                    return "th";
+
+                case "vi-vn":
+                    return "vi";
+
+                case "zh-cn":
+                    return "zh";
+
+                default:
+                    return "en";
+            }
         }
 
         protected override string CreateFunUrl(XElement element)
