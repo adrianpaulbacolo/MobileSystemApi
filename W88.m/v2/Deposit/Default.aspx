@@ -6,7 +6,7 @@
         <div class="empty-state-icon">
             <i class="icon icon-error"></i>
         </div>
-        <p class="paymentNote"></p>
+        <p data-i18n="[html]LABEL_PAYMENT_NOTE_NO_GATEWAY"></p>
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsHolder" runat="Server">

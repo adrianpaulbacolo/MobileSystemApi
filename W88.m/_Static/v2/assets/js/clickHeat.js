@@ -4,12 +4,12 @@ $(document).ready(function () {
 
     switch (url) {
         case "/slots.aspx":
-            clickHeatGroup = 'W88MobileSlotsHome';
+        clickHeatGroup = 'W88MobileSlotsHome';
             break;
 
         case "/":
         case "/index.aspx":
-            clickHeatGroup = 'W88MobileIndex';
+        clickHeatGroup = 'W88MobileIndex';
             break;
     }
 

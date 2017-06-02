@@ -7,7 +7,7 @@
                 <div class="form-group">
                     <label id="lblFileUpload" for="" data-i18n="LABEL_FILE" ></label>
                     <div class="input-group">
-                        <input type="text" class="form-control input-upload" placeholder="Upload Image" readonly>
+                        <input type="text" class="form-control input-upload" placeholder="Upload Image" readonly required data-require="">
                         <input type="file" class="hidden" id="fileUpload" accept="image/*" required data-require="" />
                         <span class="input-group-btn">
                             <button class="btn btn-primary btn-upload" type="button"><span class="icon-submit"></span></button>

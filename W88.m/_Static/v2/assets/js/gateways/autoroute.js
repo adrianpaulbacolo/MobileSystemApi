@@ -12,8 +12,8 @@ function AutoRouteV2() {
     }
 
     autoroute.init = function () {
-        $('[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
-        $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
+        $('[id$="lblSwitchLine"]').text($.i18n("LABEL_SWITCH_LINE"));
+        $('label[id$="lblBank"]').text($.i18n("LABEL_BANK"));
     };
 
     autoroute.createDeposit = function () {

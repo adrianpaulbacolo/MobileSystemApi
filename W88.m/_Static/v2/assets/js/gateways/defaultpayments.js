@@ -60,10 +60,10 @@ function DefaultPaymentsV2() {
                     $('#txtDailyLimit').text(": " + setting.LimitDaily);
                     $('#txtTotalAllowed').text(": " + setting.TotalAllowed);
 
-                    $('#lblTotalAllowed').html(_w88_contents.translate("LABEL_TOTAL_ALLOWED"));
-                    $('#lblDailyLimit').html(_w88_contents.translate("LABEL_DAILY_LIMIT"));
-                    $('#lblMinMaxLimit').html(_w88_contents.translate("LABEL_MINMAX_LIMIT"));
-                    $('#lblMode').html(_w88_contents.translate("LABEL_MODE"));
+                    $('#lblTotalAllowed').html($.i18n("LABEL_TOTAL_ALLOWED"));
+                    $('#lblDailyLimit').html($.i18n("LABEL_DAILY_LIMIT"));
+                    $('#lblMinMaxLimit').html($.i18n("LABEL_MINMAX_LIMIT"));
+                    $('#lblMode').html($.i18n("LABEL_MODE"));
                 }
 
                 setTranslations(paymentOptions.type);
@@ -75,16 +75,16 @@ function DefaultPaymentsV2() {
     }
 
     function setTranslations(paymentOptions) {
-        $('label[id$="lblAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
+        $('label[id$="lblAmount"]').text($.i18n("LABEL_AMOUNT"));
 
-        var headerTitle = paymentOptions == "Deposit" ? _w88_contents.translate("LABEL_FUNDS_DEPOSIT") : _w88_contents.translate("LABEL_FUNDS_WIDRAW");
+        var headerTitle = paymentOptions == "Deposit" ? $.i18n("LABEL_FUNDS_DEPOSIT") : $.i18n("LABEL_FUNDS_WIDRAW");
         $("header .header-title").text(headerTitle);
-        $('span[id$="lblMode"]').text(_w88_contents.translate("LABEL_MODE"));
-        $('span[id$="lblMinMaxLimit"]').text(_w88_contents.translate("LABEL_MINMAX_LIMIT"));
-        $('span[id$="lblDailyLimit"]').text(_w88_contents.translate("LABEL_DAILY_LIMIT"));
-        $('span[id$="lblTotalAllowed"]').text(_w88_contents.translate("LABEL_TOTAL_ALLOWED"));
+        $('span[id$="lblMode"]').text($.i18n("LABEL_MODE"));
+        $('span[id$="lblMinMaxLimit"]').text($.i18n("LABEL_MINMAX_LIMIT"));
+        $('span[id$="lblDailyLimit"]').text($.i18n("LABEL_DAILY_LIMIT"));
+        $('span[id$="lblTotalAllowed"]').text($.i18n("LABEL_TOTAL_ALLOWED"));
 
-        $('#btnSubmitPlacement').text(_w88_contents.translate("BUTTON_SUBMIT"));
+        $('#btnSubmitPlacement').text($.i18n("BUTTON_SUBMIT"));
     }
 
     function setPaymentTabs(type, activeMethodId, method) {
@@ -169,111 +169,10 @@ function DefaultPaymentsV2() {
 
     function onTransactionCreated(form) {
 
-        var historyBtn = "<a href='/v2/History/Default.aspx' class='btn btn-block btn-primary' data-ajax='false'>" + _w88_contents.translate("LABEL_FUNDS_HISTORY") + "</a>";
-        var message = "<p>" + _w88_contents.translate("MESSAGES_CHECK_HISTORY") + "</p>" + historyBtn;
+        var historyBtn = "<a href='/v2/History/Default.aspx' class='btn btn-block btn-primary' data-ajax='false'>" + $.i18n("LABEL_FUNDS_HISTORY") + "</a>";
+        var message = "<p>" + $.i18n("MESSAGES_CHECK_HISTORY") + "</p>" + historyBtn;
         if (!_.isUndefined(form)) _.first(form).reset();
         w88Mobile.Growl.shout(message);
-    }
-
-    function initiateValidator(methodId) {
-        setNumericValidator();
-
-        $('#form1').validator({
-            custom: {
-                bankequals: function ($el) {
-                    $el.parent("div.form-group").removeClass('has-error');
-                    $el.parent("div.form-group").children("span.help-block").remove();
-                    var matchValue = $el.data("bankequals");
-                    if ($el.val() == matchValue) {
-                        $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_MissingBank") + '</span>');
-                        $el.parent("div.form-group").addClass('has-error');
-                        return true;
-                    }
-                },
-                selectequals: function ($el) {
-                    $el.parent("div.form-group").removeClass('has-error');
-                    $el.parent("div.form-group").children("span.help-block").remove();
-                    var matchValue = $el.data("selectequals");
-                    if ($el.val() == matchValue) {
-                        $el.parent("div.form-group").addClass('has-error');
-                        return true;
-                    }
-                },
-                paylimit: function ($el) {
-                    $el.parent("div.form-group").children("span.help-block").remove();
-                    $el.parent(".form-group").removeClass('has-error');
-
-                    if (!_.isEmpty($el)) {
-
-                        var setting = _.find(paymentCache.settings, function (data) {
-                            return data.Id == methodId;
-                        });
-
-                        var elValue = _.parseInt(_.replace($el.val(), ",", ""));
-
-                        if (_.isNaN(elValue) || elValue < setting.MinAmount) {
-                            $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_AmountMinLimit") + '</span>');
-                            return true;
-                        }
-                        else if (elValue > setting.MaxAmount) {
-                            $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_AmountMaxLimit") + '</span>');
-                            return true;
-                        }
-                    }
-                },
-                onedecimal: function ($el) {
-                    $el.parent("div.form-group").children("span.help-block").remove();
-                    $el.parent("div.form-group").removeClass('has-error');
-
-                    if (!PositiveOneDecimalValidation($el.val(), $el)) {
-                        $el.parent("div.form-group").addClass('has-error');
-                        return true;
-                    }
-                },
-                accountNo: function ($el) {
-                    $el.parent("div.form-group").children("span.help-block").remove();
-                    $el.parent("div.form-group").removeClass('has-error');
-
-                    if (_.isEmpty($el.val())) {
-                        $el.parent("div.form-group").addClass('has-error');
-                        $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_MissingAccountNumber") + '</span>');
-                        return true;
-                    }
-                },
-                accountName: function ($el) {
-                    $el.parent("div.form-group").children("span.help-block").remove();
-                    $el.parent("div.form-group").removeClass('has-error');
-
-                    if (_.isEmpty($el.val())) {
-                        $el.parent("div.form-group").addClass('has-error');
-                        $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_MissingAccountName") + '</span>');
-                        return true;
-                    }
-                },
-                address: function ($el) {
-                    $el.parent("div.form-group").children("span.help-block").remove();
-                    $el.parent("div.form-group").removeClass('has-error');
-
-                    if (_.isEmpty($el.val())) {
-                        $el.parent("div.form-group").addClass('has-error');
-                        $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_MissingAddress") + '</span>');
-                        return true;
-                    }
-                }
-
-            }
-        });
-    }
-
-    function setNumericValidator() {
-        _.forEach($('[data-numeric]'), function (item, index) {
-            var numeric = item.getAttribute('data-numeric');
-
-            if (_.isEmpty(numeric))
-                $(item).autoNumeric('init');
-            else
-                $(item).autoNumeric('init', { mDec: numeric });
-        });
     }
 
     function setDepositPaymentTab(responseData, activeTabId, method) {
@@ -416,8 +315,6 @@ function DefaultPaymentsV2() {
 
     function nogateway() {
         $('.empty-state').show();
-        $('.paymentNote').html(_w88_contents.translate("LABEL_PAYMENT_NOTE_NO_GATEWAY"));
-
         $('#btnSubmitPlacement').hide();
         $('#paymentSettings').hide();
         $('#paymentList').hide();

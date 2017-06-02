@@ -49,7 +49,7 @@ function Gateway(paymentSvc) {
             _self.send("/payments/" + _self.methodId, "POST", data, function (response) {
                 switch (response.ResponseCode) {
                     case 1:
-                        w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + _w88_contents.translate("LABEL_TRANSACTION_ID") + ": " + response.ResponseData.TransactionId + "</p>", function () {
+                        w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + $.i18n("LABEL_TRANSACTION_ID") + ": " + response.ResponseData.TransactionId + "</p>", function () {
                             _self.formReset(form);
                         });
 
@@ -75,7 +75,7 @@ function Gateway(paymentSvc) {
             _self.send("/payments/" + _self.methodId, "POST", data, function (response) {
                 switch (response.ResponseCode) {
                     case 1:
-                        w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + _w88_contents.translate("LABEL_TRANSACTION_ID") + ": " + response.ResponseData.TransactionId + "</p>", function () {
+                        w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + $.i18n("LABEL_TRANSACTION_ID") + ": " + response.ResponseData.TransactionId + "</p>", function () {
                             window.location = "/v2/Withdrawal/";
                         });
 
