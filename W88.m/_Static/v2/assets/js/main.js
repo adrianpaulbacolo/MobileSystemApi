@@ -48,6 +48,10 @@ $(document).ready(function() {
 		$('.side-nav').removeClass('overflow-shown');
 	});
 		
+    var useragent = document.documentElement;
+    useragent.setAttribute('data-useragent',  navigator.userAgent);
+    useragent.setAttribute('data-platform', navigator.platform );
+    useragent.className += ((!!('ontouchstart' in window) || !!('onmsgesturechange' in window))?' touch':'');
 });
 
 function NotAllowDecimal(e) {
