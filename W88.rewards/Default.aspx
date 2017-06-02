@@ -52,9 +52,6 @@
                 window.user.setProperties(JSON.parse('<%=Common.SerializeObject(MemberSession)%>'));
                 window.user.save();
             }
-            if (!_.isEmpty(window.user.Token)) {
-                window.location.href = '/Index.aspx?lang=' + '<%=Language%>';
-            }
         }
     </script>
 </body>
