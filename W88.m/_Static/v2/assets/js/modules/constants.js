@@ -34,6 +34,7 @@ var _constants = {
     , SPORTS_URL: "/v2/Sports.aspx"
     , LOTTERY_URL: "/v2/Lottery.aspx"
     , PROMO_URL: "/Promotions"
+    , REWARDS_LINK_SUFFIX: "/Catalogue"
     , A_SPORTS_URL: "http://ismart.w88id.com/Deposit_ProcessLogin.aspx?lang={LANG}&st={TOKEN}".replace("{TOKEN}", siteCookie.getCookie("s"))
     , E_SPORTS_URL: "http://mobile.w88.testing.agent1818.com/?LangID={LANG}&amp;ExternalToken={TOKEN}&amp;oddsstyleid=1".replace("{TOKEN}", siteCookie.getCookie("s"))
     // PROD, E_SPORTS_URL: "https://mappelche.w2sports.com/?LangID={LANG}&amp;ExternalToken={TOKEN}&amp;oddsstyleid=1".replace("{TOKEN}", siteCookie.getCookie("s"))
