@@ -38,7 +38,7 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
         string strCountryCode = string.Empty;
         string strLastLoginIP = string.Empty;
         string strPermission = string.Empty;
-
+        int login_attemps = 0; 
         bool runIovation = false;
 
         System.Xml.XmlDocument xdResponse = new System.Xml.XmlDocument();
@@ -56,16 +56,17 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
         strSessionVCode = commonVariables.GetSessionVariable("vCode");
         strCountryCode = Request.Form.Get("txtCountry");
         strPermission = Request.Form.Get("txtPermission");
+        login_attemps = int.Parse(Request.Form.Get("login_attemps"));
         #endregion
 
         #region parametersValidation
         if (string.IsNullOrEmpty(strMemberCode)) { strProcessCode = "-1"; strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/MissingUsername", xeErrors); isProcessAbort = true; }
         else if (string.IsNullOrEmpty(strPassword)) { strProcessCode = "-1"; strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/MissingPassword", xeErrors); isProcessAbort = true; }
-        else if (string.IsNullOrEmpty(strVCode)) { strProcessCode = "-1"; strProcessMessage = commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors); isProcessAbort = true; }
+        else if (login_attemps > 2 && string.IsNullOrEmpty(strVCode)) { strProcessCode = "-1"; strProcessMessage = commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors); isProcessAbort = true; }
         else if (commonValidation.isInjection(strMemberCode)) { strProcessCode = "-1"; strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InvalidUsername", xeErrors); isProcessAbort = true; }
         else if (commonValidation.isInjection(strPassword)) { strProcessCode = "-1"; strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InvalidPassword", xeErrors); isProcessAbort = true; }
-        else if (commonValidation.isInjection(strVCode)) { strProcessCode = "-1"; strProcessMessage = commonCulture.ElementValues.getResourceString("IncorrectVCode", xeErrors); isProcessAbort = true; }
-        else if (string.Compare(commonEncryption.encrypting(strVCode), strSessionVCode, true) != 0) { strProcessCode = "-1"; strProcessMessage = commonCulture.ElementValues.getResourceString("IncorrectVCode", xeErrors); isProcessAbort = true; }
+        else if (login_attemps > 2 && commonValidation.isInjection(strVCode)) { strProcessCode = "-1"; strProcessMessage = commonCulture.ElementValues.getResourceString("IncorrectVCode", xeErrors); isProcessAbort = true; }
+        else if (login_attemps > 2 && string.Compare(commonEncryption.encrypting(strVCode), strSessionVCode, true) != 0) { strProcessCode = "-1"; strProcessMessage = commonCulture.ElementValues.getResourceString("IncorrectVCode", xeErrors); isProcessAbort = true; }
         else
         {
             strPassword = commonEncryption.Encrypt(strPassword);
@@ -120,6 +121,7 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
                                 //HttpContext.Current.Session.Add("PartialSignup", Convert.ToString(dsSignin.Tables[0].Rows[0]["partialSignup"]));
                                 HttpContext.Current.Session.Add("ResetPassword", Convert.ToString(dsSignin.Tables[0].Rows[0]["resetPassword"]));
 
+                                commonCookie.CookieAffiliateId = Convert.ToString(dsSignin.Tables[0].Rows[0]["affiliateID"]);
                                 commonCookie.CookieS = strMemberSessionId;
                                 commonCookie.CookieG = strMemberSessionId;
                                 HttpContext.Current.Session.Add("LoginStatus", "success");

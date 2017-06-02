@@ -116,7 +116,7 @@ public partial class _Report : System.Web.UI.Page
                 }
                 else
                 {
-                    DataSet ds = svcAffiliateMS1.GetTrackingStatistic(long.Parse((string)System.Web.HttpContext.Current.Session["AffiliateId"]), long.Parse(ddlTrackingCode.SelectedValue), startdate, enddate);
+                    DataSet ds = svcAffiliateMS1.GetTrackingStatistic(long.Parse(commonCookie.CookieAffiliateId), long.Parse(ddlTrackingCode.SelectedValue), startdate, enddate);
 
                     if (ds.Tables.Count > 0)
                     {

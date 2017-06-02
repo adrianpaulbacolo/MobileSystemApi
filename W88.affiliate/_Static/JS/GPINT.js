@@ -5,8 +5,8 @@ var GPINTMOBILE;
 function GPInt() { $('.a-footer-popup').each(function () { $(this).next().hide(); }); }
 GPInt.prototype.LoadPopupMenu = function (obj) { $('.a-footer-popup').next().hide(); $(obj).next().slideToggle(80); FOOTERLANGMENUSCROLL.refresh(); };
 GPInt.prototype.ShowSplash = function () {
-    $('#divMain').parent().append($('<div />', { style: '', class: 'loader' }).append($('<div />', { style: '' }).append($('<img />', { src: '/_Static/Images/logo_w88.png', style: '' })).append($('<img />', { src: '/_Static/Css/images/ajax-loader.gif', style: '' }))));
-    if (document.getElementById('divPanel')) { if (document.getElementById('divPanel') != null) { document.getElementById('divPanel').style.zIndex = -1; } } window.setTimeout(function () { this.GPINTMOBILE.HideSplash(); }, 10000);
+    $('#divMain').parent().append($('<div />', { style: '', class: 'loader' }).append($('<div />', { style: '' }).append($('<img />', { src: '/_Static/Images/logo-loader.png', style: '' })).append("<br/>").append($('<img />', { src: '/_Static/Css/images/ajax-loader.gif', style: '' }))));
+    if (document.getElementById('divPanel')) { if (document.getElementById('divPanel') != null) { document.getElementById('divPanel').style.zIndex = -1; } } window.setTimeout(function () { /*this.GPINTMOBILE.HideSplash();*/ }, 10000);
 }
 GPInt.prototype.HideSplash = function () {
     window.setTimeout(function () { $('#divMain').parent().find('div.loader').remove(); }, 1000);

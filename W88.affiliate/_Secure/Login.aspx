@@ -24,7 +24,7 @@
                         <asp:Label ID="lblPassword" runat="server" AssociatedControlID="txtPassword" Text="password" CssClass="ui-hidden-accessible" />
                         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" data-corners="false" MaxLength="10" data-clear-btn="true" />
                     </div>
-                    <div class="ui-field-contain ui-hide-label">
+                    <div class="ui-field-contain ui-hide-label" style="display:none">
                         <asp:Label ID="lblCaptcha" runat="server" AssociatedControlID="txtCaptcha" Text="code" CssClass="ui-hidden-accessible" />
                         <div class="ui-grid-a">
                             <div class="ui-block-a"><asp:TextBox ID="txtCaptcha" runat="server" MaxLength="4" type="tel" data-mini="true" /></div>
@@ -40,6 +40,13 @@
             </form>
         </div>
         <script type="text/javascript">   
+            $(function () {
+                var login_attemps = localStorage["login_attemps"] == undefined ? 0 : parseInt(localStorage["login_attemps"]);
+                if (login_attemps >= 3) {
+                    $('#lblCaptcha').parent().show();
+                }
+            });
+
             $('#form1').submit(function (e) {
                 $('#btnSubmit').attr("disabled", true);
                 if ($('#txtUsername').val().trim().length == 0) {
@@ -66,7 +73,7 @@
                     e.preventDefault();
                     return;
                 }
-                else if ($('#txtCaptcha').val().trim().length == 0) {
+                else if ("undefined,0,1,2".indexOf(localStorage["login_attemps"]) < 0 && $('#txtCaptcha').val().trim().length == 0) {
                     alert('<%=commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
@@ -107,20 +114,44 @@
                         alert('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
                         window.location.replace('/Default.aspx');
                     },
-                    data: { txtUsername: $('#txtUsername').val(), txtPassword: $('#txtPassword').val(), txtCaptcha: $('#txtCaptcha').val(), txtIPAddress: postData.ip, txtCountry: postData.country, txtPermission: postData.permission, ioBlackBox: $('#ioBlackBox').val() },
+                    data: {
+                        txtUsername: $('#txtUsername').val(), txtPassword: $('#txtPassword').val(), txtCaptcha: $('#txtCaptcha').val(), txtIPAddress: postData.ip, txtCountry: postData.country, txtPermission: postData.permission, ioBlackBox: $('#ioBlackBox').val()
+                        ,login_attemps: localStorage["login_attemps"] == undefined ? 0 : localStorage["login_attemps"]
+                    },
                     success: function (xml) {
                         //alert($(xml).find('ErrorCode').text());
                         switch ($(xml).find('ErrorCode').text()) {
                             case "1":
                                 window.location.replace('<%=strRedirect%>');
                                 //window.location.replace('/Overview.aspx');
+                                localStorage["login_attemps"] = 0;
                                 break;
                             default:
                                 alert($(xml).find('Message').text());
+
                                 $('#<%=imgCaptcha.ClientID%>').attr('src', '/Captcha');
                                 $('#<%=txtCaptcha.ClientID%>').val('');
                                 $('#<%=txtPassword.ClientID%>').val('');
+                                
                                 GPINTMOBILE.HideSplash();
+
+                                switch ($(xml).find('ErrorCode').text()) {
+                                    case "21":
+                                    case "23":
+                                        console.log($(xml).find('ErrorCode').text());
+                                        var login_attemps = localStorage["login_attemps"] == undefined ? 0 : parseInt(localStorage["login_attemps"]);
+                                        login_attemps++;
+                                        localStorage["login_attemps"] = login_attemps;
+                                        console.log(localStorage["login_attemps"]);
+                                        if (login_attemps >= 3) {
+                                            $('#lblCaptcha').parent().show();
+                                        }
+                                        break;
+                                    default:
+                                        break;
+
+                                }
+
                                 break;
                         }
                     },

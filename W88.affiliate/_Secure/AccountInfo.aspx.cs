@@ -44,7 +44,7 @@ public partial class _Secure_AccountInfo : System.Web.UI.Page
             using (wsAffiliateMS1.affiliateWSSoapClient wsInstanceAff = new wsAffiliateMS1.affiliateWSSoapClient("affiliateWSSoap"))
             {
 
-                DataSet dsAffMember = wsInstanceAff.GetAffiliateMemberInfoByID(long.Parse(System.Web.HttpContext.Current.Session["AffiliateId"].ToString()));
+                DataSet dsAffMember = wsInstanceAff.GetAffiliateMemberInfoByID(long.Parse(commonCookie.CookieAffiliateId));
                 if (dsAffMember.Tables.Count > 0)
                 {
                     if (dsAffMember.Tables[0].Rows.Count > 0)
@@ -113,7 +113,7 @@ public partial class _Secure_AccountInfo : System.Web.UI.Page
                         System.Web.HttpContext.Current.Session["url3"] = "";
 
 
-                        DataSet dsAffMemberWebSite = wsInstanceAff.GetAffiliateMemberWebsite(long.Parse(System.Web.HttpContext.Current.Session["AffiliateId"].ToString()));
+                        DataSet dsAffMemberWebSite = wsInstanceAff.GetAffiliateMemberWebsite(long.Parse(commonCookie.CookieAffiliateId));
                       
                             //check by individual
 
@@ -655,7 +655,7 @@ public partial class _Secure_AccountInfo : System.Web.UI.Page
                     //strCountryCode, strAccount, strContactNumber, strAddress, strCity, strPostal, strLanguageCode, strCommissionType, strSecurityQues,
                     //strSecurityAns, strBankAccName, strBankAccNo, strSwiftCode, strBankName, strBankAdd);
 
-                    result = svcInstance.UpdateAffiliateMemberInfo(long.Parse(System.Web.HttpContext.Current.Session["AffiliateId"].ToString()), DateTime.Parse(strDOB),
+                    result = svcInstance.UpdateAffiliateMemberInfo(long.Parse(commonCookie.CookieAffiliateId), DateTime.Parse(strDOB),
                     strCountryCode, strAccount, strContactNumber, strAddress, strCity, strPostal, strLanguageCode, strCommissionType, strSecurityQues,
                     strSecurityAns, strBankAccName, strBankAccNo, strSwiftCode, strBankName, strBankAdd,"");
 
@@ -695,17 +695,17 @@ public partial class _Secure_AccountInfo : System.Web.UI.Page
                         //add new url
                         if ((string)System.Web.HttpContext.Current.Session["url1"] != txtURL1.Text && txtURL1.Text != commonCulture.ElementValues.getResourceString("lblURL1", xeResources) && !String.IsNullOrEmpty(txtURL1.Text))
                         {
-                            result = svcInstance.InsertWebsiteURL(long.Parse(System.Web.HttpContext.Current.Session["AffiliateId"].ToString()), txtURL1.Text);
+                            result = svcInstance.InsertWebsiteURL(long.Parse(commonCookie.CookieAffiliateId), txtURL1.Text);
                         }
                       
                         if ((string)System.Web.HttpContext.Current.Session["url2"] != txtURL2.Text && txtURL2.Text != commonCulture.ElementValues.getResourceString("lblURL2", xeResources) && !String.IsNullOrEmpty(txtURL2.Text))
                         {
-                            result = svcInstance.InsertWebsiteURL(long.Parse(System.Web.HttpContext.Current.Session["AffiliateId"].ToString()), txtURL2.Text);
+                            result = svcInstance.InsertWebsiteURL(long.Parse(commonCookie.CookieAffiliateId), txtURL2.Text);
                         }
 
                         if ((string)System.Web.HttpContext.Current.Session["url3"] != txtURL3.Text && txtURL3.Text != commonCulture.ElementValues.getResourceString("lblURL3", xeResources) && !String.IsNullOrEmpty(txtURL3.Text))
                         {
-                            result = svcInstance.InsertWebsiteURL(long.Parse(System.Web.HttpContext.Current.Session["AffiliateId"].ToString()), txtURL3.Text);
+                            result = svcInstance.InsertWebsiteURL(long.Parse(commonCookie.CookieAffiliateId), txtURL3.Text);
                         }
 
 
@@ -716,7 +716,7 @@ public partial class _Secure_AccountInfo : System.Web.UI.Page
                 {
                     throw;
                 }
-                strProcessRemark = "exec spAffiliateMemberUpdatePublic " + "'" + long.Parse(System.Web.HttpContext.Current.Session["AffiliateId"].ToString()) + "'" + ",'" + DateTime.Parse(strDOB) + "'" + ",'" + strCountryCode + "'" + ",'" + strAccount + "'" + ",'" + strContactNumber + "'" + ",'" + strAddress + "'" + ",'" + strCity + "'" + ",'" + strPostal + "'" + ",'" + strLanguageCode + "'" + ",'" + strCommissionType + "'" + ",'" + strSecurityQues + "'" + ",'" + strSecurityAns + "'" + ",'" + strBankAccName + "'" + ",'" + strBankAccNo + "'" + ",'" + strSwiftCode + "'" + ",'" + strBankName + ",'" + strBankAdd + "'" + "'";
+                strProcessRemark = "exec spAffiliateMemberUpdatePublic " + "'" + long.Parse(commonCookie.CookieAffiliateId) + "'" + ",'" + DateTime.Parse(strDOB) + "'" + ",'" + strCountryCode + "'" + ",'" + strAccount + "'" + ",'" + strContactNumber + "'" + ",'" + strAddress + "'" + ",'" + strCity + "'" + ",'" + strPostal + "'" + ",'" + strLanguageCode + "'" + ",'" + strCommissionType + "'" + ",'" + strSecurityQues + "'" + ",'" + strSecurityAns + "'" + ",'" + strBankAccName + "'" + ",'" + strBankAccNo + "'" + ",'" + strSwiftCode + "'" + ",'" + strBankName + ",'" + strBankAdd + "'" + "'";
 
                 intProcessSerialId += 1;
                 commonAuditTrail.appendLog("system", strPageName, "RegistrationParameterValidation", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
