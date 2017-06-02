@@ -203,7 +203,6 @@
             });
 
             var redirectUrl = '<%=strRedirect%>';
-            var urlRedirect = '<%=urlRedirect%>';
             var isSlotRedirect = _.toLower('<%=isSlotRedirect %>') == 'true';
 
             function initiateLogin() {
@@ -263,17 +262,16 @@
                                     if (xml.Code == "resetPassword")
                                         window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
                                     else {
-                                        var redir = (redirectUrl != '') ? redirectUrl : urlRedirect;
-                                        if (redir != '') {
-                                            switch (redir) {
+                                        if (redirectUrl !== '') {
+                                            switch (redirectUrl) {
                                             case 'mlotto':
                                                 window.location.replace('<%=commonLottery.getKenoUrl%>');
                                                 break;
                                                 default:
                                                     if(isSlotRedirect){
-                                                        redir += "&s=" + window.User.token;
+                                                        redirectUrl += "&s=" + window.User.token;
                                                     }
-                                                    window.location.replace(redir);
+                                                    window.location.replace(redirectUrl);
                                                 break;
                                             }
                                         }
