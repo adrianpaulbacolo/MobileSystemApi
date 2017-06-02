@@ -164,9 +164,9 @@ function validator() {
             var numeric = item.getAttribute('data-numeric');
 
             if (_.isEmpty(numeric))
-                $(item).autoNumeric('init');
+                $(item).autoNumeric('init', { aSep: '' });
             else
-                $(item).autoNumeric('init', { mDec: numeric });
+                $(item).autoNumeric('init', { aSep: '', mDec: numeric });
         });
     }
 
